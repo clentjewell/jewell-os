@@ -1,0 +1,9 @@
+# Cloned third-party source, local secrets and dependencies. Never commit these.
+.vendor/
+third-party-downloads/
+node_modules/
+.env
+.env.*
+secrets/
+*.pem
+*.key

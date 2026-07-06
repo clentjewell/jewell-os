@@ -1,0 +1,353 @@
+# Source of truth for tool classification. update-catalogue.sh and
+# clone-third-party-tools.sh read this file.
+#
+# Reviewed: July 2026. All entries checked active (none archived) at time of review.
+# Do not re-research entries without cause — record concerns as new fields/comments
+# rather than guessing at status.
+#
+# Field notes:
+#   status          adopt-now | template-only | park | reject
+#   category        core-ai-workflow | security-ci | evals | context-intelligence | memory-orchestration
+#   use_as          reference | action | CLI | MCP server | template | submodule
+#   install_by_default   true only for gitleaks, dependency-review-action, and the
+#                        base AGENTS/CLAUDE templates concept (not a repo entry here).
+#                        Everything else is false until deliberately switched on.
+#   clone_group     adopt-now | security | evals | mcp | context | memory
+#                        adopt-now = every repo with status: adopt-now.
+#                        Others are assigned by category/use_as for template-only and
+#                        park entries so clone-third-party-tools.sh can pull a subset.
+
+repos:
+  # ---------------------------------------------------------------------------
+  # ADOPT NOW
+  # ---------------------------------------------------------------------------
+  - name: anthropics/skills
+    url: https://github.com/anthropics/skills
+    purpose: Official reference implementations and templates for building Claude Code skills.
+    category: core-ai-workflow
+    status: adopt-now
+    why: Anthropic's own template set — fastest, safest starting point for Jewell's SKILL.md library.
+    licence: MIT
+    security: First-party Anthropic repo; no untrusted third-party code execution risk.
+    tokens: Reference only — copy the relevant SKILL.md files rather than loading the whole repo into context.
+    use_as: reference
+    install_by_default: false
+    clone_group: adopt-now
+
+  - name: anthropics/claude-code-action
+    url: https://github.com/anthropics/claude-code-action
+    purpose: GitHub Action that runs Claude Code inside CI/CD workflows (PR review, issue triage, automation).
+    category: core-ai-workflow
+    status: adopt-now
+    why: First-party Anthropic action — wires Claude into GitHub workflows without custom glue code.
+    licence: MIT
+    security: First-party Anthropic; still scope its GITHUB_TOKEN permissions to least privilege per workflow.
+    tokens: Runs one Claude session per trigger — cost scales with workflow trigger frequency, not repo size.
+    use_as: action
+    install_by_default: false
+    clone_group: adopt-now
+
+  - name: cloudflare/mcp-server-cloudflare
+    url: https://github.com/cloudflare/mcp-server-cloudflare
+    purpose: MCP server exposing Cloudflare account operations (Workers, DNS, R2, KV) to Claude.
+    category: core-ai-workflow
+    status: adopt-now
+    why: First-party Cloudflare MCP server — needed wherever Jewell/Maxxim infra sits on Cloudflare.
+    licence: Apache-2.0
+    security: Vendor-maintained; connect with a scoped Cloudflare API token, not account-owner credentials.
+    tokens: Runs as a live server process — only tool-call responses enter context, not bulk account data.
+    use_as: MCP server
+    install_by_default: false
+    clone_group: adopt-now
+
+  - name: github/github-mcp-server
+    url: https://github.com/github/github-mcp-server
+    purpose: Official MCP server for GitHub — issues, PRs, actions, code search, repo management.
+    category: core-ai-workflow
+    status: adopt-now
+    why: First-party GitHub MCP server — the standard way for Claude to operate on GitHub repos.
+    licence: MIT
+    security: First-party GitHub; scope the PAT/App install to only the repos Claude needs.
+    tokens: Runs as a live server process — tool responses only, no bulk repo content loaded by default.
+    use_as: MCP server
+    install_by_default: false
+    clone_group: adopt-now
+
+  - name: promptfoo/promptfoo
+    url: https://github.com/promptfoo/promptfoo
+    purpose: CLI/framework for evaluating and red-teaming LLM prompts and outputs against test cases.
+    category: evals
+    status: adopt-now
+    why: Standard open-source eval harness — lets Jewell build golden-question regression tests for skills.
+    licence: MIT
+    security: Runs locally/in CI; no data leaves the pipeline unless a remote provider is configured.
+    tokens: Eval runs consume tokens per test case — keep golden sets small and targeted to control spend.
+    use_as: CLI
+    install_by_default: false
+    clone_group: adopt-now
+
+  - name: gitleaks/gitleaks
+    url: https://github.com/gitleaks/gitleaks
+    purpose: Secret-scanning CLI/Action that detects hard-coded credentials in git history and diffs.
+    category: security-ci
+    status: adopt-now
+    why: Lightweight, fast, zero-config baseline secret scan for every repo.
+    licence: MIT
+    security: Scans locally in CI; no code or secrets sent to a third party.
+    tokens: No LLM tokens used — runs as a native binary in the CI pipeline.
+    use_as: action
+    install_by_default: true
+    clone_group: adopt-now
+
+  - name: trufflesecurity/trufflehog
+    url: https://github.com/trufflesecurity/trufflehog
+    purpose: Deep secret-scanning tool with credential verification against live services.
+    category: security-ci
+    status: adopt-now
+    why: Catches secrets gitleaks may miss and verifies whether a found credential is still live.
+    licence: AGPL-3.0
+    security: AGPL-3.0 — use only as a CI Action/CLI, never vendor or embed the source in Jewell code.
+    tokens: No LLM tokens used — runs as a CI job binary.
+    use_as: action
+    install_by_default: false
+    clone_group: adopt-now
+
+  - name: zizmorcore/zizmor
+    url: https://github.com/zizmorcore/zizmor
+    purpose: Static analysis tool for GitHub Actions workflow files, flagging injection and permission risks.
+    category: security-ci
+    status: adopt-now
+    why: Purpose-built for hardening the CI workflows this starter stack ships.
+    licence: MIT
+    security: Runs locally/in CI; no workflow content leaves the pipeline.
+    tokens: No LLM tokens used — static analysis binary.
+    use_as: action
+    install_by_default: false
+    clone_group: adopt-now
+
+  - name: actions/dependency-review-action
+    url: https://github.com/actions/dependency-review-action
+    purpose: GitHub Action that flags newly introduced vulnerable or licence-incompatible dependencies on a PR.
+    category: security-ci
+    status: adopt-now
+    why: Official GitHub action — blocks risky dependency changes before merge.
+    licence: MIT
+    security: First-party GitHub; full vulnerability-database features need GitHub Advanced Security on private repos.
+    tokens: No LLM tokens used — runs as a GitHub-hosted Action.
+    use_as: action
+    install_by_default: true
+    clone_group: adopt-now
+
+  - name: ossf/scorecard
+    url: https://github.com/ossf/scorecard
+    purpose: Action that scores a repo's supply-chain security posture (branch protection, pinned deps, etc).
+    category: security-ci
+    status: adopt-now
+    why: OpenSSF-maintained standard scorecard — gives an objective baseline for repo hygiene.
+    licence: Apache-2.0
+    security: Runs read-only checks against repo metadata; no execution against untrusted input.
+    tokens: No LLM tokens used — runs as a GitHub-hosted Action.
+    use_as: action
+    install_by_default: false
+    clone_group: adopt-now
+
+  # ---------------------------------------------------------------------------
+  # TEMPLATE ONLY
+  # ---------------------------------------------------------------------------
+  - name: modelcontextprotocol/servers
+    url: https://github.com/modelcontextprotocol/servers
+    purpose: Official reference catalogue of example MCP server implementations across many integrations.
+    category: context-intelligence
+    status: template-only
+    why: A pattern library to consult when building or evaluating a new MCP server, not one tool to adopt wholesale.
+    licence: MIT
+    security: Reference code only — audit any individual server before running it against production credentials.
+    tokens: Reference only — pull individual server examples into context, not the whole monorepo.
+    use_as: reference
+    install_by_default: false
+    clone_group: context
+
+  - name: microsoft/playwright-mcp
+    url: https://github.com/microsoft/playwright-mcp
+    purpose: MCP server that drives a real browser for automated QA and UI verification.
+    category: core-ai-workflow
+    status: template-only
+    why: Valuable for browser-based QA but adds a browser runtime dependency — bring in only when a project needs it.
+    licence: Apache-2.0
+    security: First-party Microsoft; browser automation can visit arbitrary URLs — run in a sandboxed environment.
+    tokens: Runs as a live server process — screenshots/DOM snapshots can be token-heavy per call.
+    use_as: MCP server
+    install_by_default: false
+    clone_group: mcp
+
+  - name: semgrep/semgrep
+    url: https://github.com/semgrep/semgrep
+    purpose: Static analysis engine for finding security and correctness bugs across many languages.
+    category: security-ci
+    status: template-only
+    why: Powerful, but registry rules and the hosted tier carry their own terms — use deliberately, not by default.
+    licence: LGPL-2.1
+    security: Local/CI scanning is safe; the hosted Semgrep tier sends code metadata externally — avoid unless approved.
+    tokens: No LLM tokens used — static analysis binary.
+    use_as: action
+    install_by_default: false
+    clone_group: security
+
+  - name: step-security/harden-runner
+    url: https://github.com/step-security/harden-runner
+    purpose: GitHub Actions add-on that monitors and restricts a runner's outbound network egress.
+    category: security-ci
+    status: template-only
+    why: A good hardening pattern to reference for sensitive workflows, not needed on every low-risk repo.
+    licence: Apache-2.0
+    security: Adds network monitoring/egress control; review its own telemetry destination before enabling.
+    tokens: No LLM tokens used — runs as a GitHub Action step.
+    use_as: template
+    install_by_default: false
+    clone_group: security
+
+  - name: yamadashy/repomix
+    url: https://github.com/yamadashy/repomix
+    purpose: CLI that packs a repository into a single AI-friendly context file (with tree and token counts).
+    category: context-intelligence
+    status: template-only
+    why: Handy for one-off "summarise this whole repo" tasks, but risks bloating context if used by default.
+    licence: MIT
+    security: Runs locally; packs repo content into one file — check for secrets before sharing that file externally.
+    tokens: Deliberately token-heavy by design — use only when a full-repo context dump is actually needed.
+    use_as: CLI
+    install_by_default: false
+    clone_group: context
+
+  - name: upstash/context7
+    url: https://github.com/upstash/context7
+    purpose: MCP server that serves up-to-date library/framework documentation directly into context.
+    category: context-intelligence
+    status: template-only
+    why: Useful when working against a fast-moving library, but adds an external dependency for docs lookup.
+    licence: MIT
+    security: Calls an external Upstash-hosted docs service; confirm what is sent in each lookup query.
+    tokens: Fetches only the relevant doc snippet per query — cheaper than pasting full docs into context.
+    use_as: MCP server
+    install_by_default: false
+    clone_group: mcp
+
+  - name: ccusage/ccusage
+    url: https://github.com/ccusage/ccusage
+    purpose: CLI that reports Claude Code token usage and cost from local session logs.
+    category: core-ai-workflow
+    status: template-only
+    why: Useful for cost monitoring on demand, not a tool the agent itself needs running continuously.
+    licence: MIT
+    security: Reads local session logs only; no external network calls needed for core reporting.
+    tokens: No LLM tokens used — reads local log files and computes locally.
+    use_as: CLI
+    install_by_default: false
+    clone_group: context
+
+  # ---------------------------------------------------------------------------
+  # PARK
+  # ---------------------------------------------------------------------------
+  - name: oraios/serena
+    url: https://github.com/oraios/serena
+    purpose: Semantic code-understanding MCP server (symbol-level search/edit across a codebase).
+    category: context-intelligence
+    status: park
+    why: Powerful but heavier to run and maintain than current needs justify.
+    licence: MIT
+    security: Runs a local language-server-backed process; audit before pointing at sensitive codebases.
+    tokens: Can reduce token use for large-codebase navigation once adopted, but has setup/maintenance overhead.
+    use_as: MCP server
+    install_by_default: false
+    clone_group: mcp
+
+  - name: github/safe-settings
+    url: https://github.com/github/safe-settings
+    purpose: Policy-as-code tool for enforcing consistent GitHub org/repo settings.
+    category: security-ci
+    status: park
+    why: Only pays off once Jewell manages several repos under one org with shared policy needs.
+    licence: ISC
+    security: Requires org-admin-level GitHub App permissions — scope carefully when adopted.
+    tokens: No LLM tokens used — a GitHub Actions/config-driven tool.
+    use_as: template
+    install_by_default: false
+    clone_group: security
+
+  - name: renovatebot/renovate
+    url: https://github.com/renovatebot/renovate
+    purpose: Automated dependency-update bot that opens PRs for outdated packages.
+    category: security-ci
+    status: park
+    why: Valuable once enough active repos exist to justify managing update-PR noise; usage is fine, forking is not.
+    licence: AGPL-3.0-only
+    security: AGPL-3.0 — fine to run/use as-is, do not fork or embed the source into Jewell-owned code.
+    tokens: No LLM tokens used — runs as a scheduled bot/Action.
+    use_as: action
+    install_by_default: false
+    clone_group: security
+
+  - name: ViperJuice/pmcp
+    url: https://github.com/ViperJuice/pmcp
+    purpose: MCP gateway that manages progressive disclosure/routing across multiple MCP servers.
+    category: core-ai-workflow
+    status: park
+    why: Interesting for reducing MCP tool-list bloat, but revisit once the number of connected MCP servers grows.
+    licence: MIT
+    security: Third-party gateway sitting between Claude and other MCP servers — review before trusting with credentials.
+    tokens: Designed to reduce token overhead from large tool schemas — the benefit it would bring once adopted.
+    use_as: MCP server
+    install_by_default: false
+    clone_group: mcp
+
+  - name: thedotmack/claude-mem
+    url: https://github.com/thedotmack/claude-mem
+    purpose: Compresses and persists Claude Code session history into reusable memory.
+    category: memory-orchestration
+    status: park
+    why: Session memory compression is useful but not yet a proven need for Jewell's current workflows.
+    licence: Apache-2.0
+    security: Third-party tool that persists session content to disk — review what it stores before enabling.
+    tokens: Aims to cut future token use by summarising past sessions, at the cost of a compression pass now.
+    use_as: CLI
+    install_by_default: false
+    clone_group: memory
+
+  - name: getzep/graphiti
+    url: https://github.com/getzep/graphiti
+    purpose: Temporal knowledge-graph library for building an evolving memory layer for agents.
+    category: memory-orchestration
+    status: park
+    why: A heavier memory architecture than needed until Jewell has a concrete long-term-memory use case.
+    licence: Apache-2.0
+    security: Third-party library; typically pairs with a graph database — review data residency before storing client data.
+    tokens: Adds a retrieval step per query rather than growing context directly — worth revisiting if memory needs grow.
+    use_as: reference
+    install_by_default: false
+    clone_group: memory
+
+  - name: eyaltoledano/claude-task-master
+    url: https://github.com/eyaltoledano/claude-task-master
+    purpose: Task-breakdown and orchestration CLI for AI coding agents.
+    category: memory-orchestration
+    status: park
+    why: MIT + Commons Clause means it cannot be sold or hosted as a service — usable internally, revisit if that changes.
+    licence: MIT + Commons Clause
+    security: Third-party CLI; Commons Clause restricts commercial resale/hosting — internal use only.
+    tokens: Adds its own planning/task-breakdown calls — weigh the overhead against manual task tracking.
+    use_as: CLI
+    install_by_default: false
+    clone_group: memory
+
+  - name: smtg-ai/claude-squad
+    url: https://github.com/smtg-ai/claude-squad
+    purpose: Terminal UI for managing multiple concurrent Claude Code agent sessions.
+    category: memory-orchestration
+    status: park
+    why: Multi-agent orchestration is not yet a daily need; the AGPL licence adds a usage consideration.
+    licence: AGPL-3.0
+    security: AGPL-3.0 — fine to run as a local tool, do not fork/embed its source into Jewell-owned code.
+    tokens: Orchestrates multiple concurrent sessions — cost scales directly with the number of agents run in parallel.
+    use_as: CLI
+    install_by_default: false
+    clone_group: memory

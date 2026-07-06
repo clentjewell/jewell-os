@@ -1,0 +1,10 @@
+# Template exclusion set for a target repo. Cloned third-party source, local secrets and
+# dependencies. Never commit these. Merge with any existing .gitignore rather than overwriting it.
+.vendor/
+third-party-downloads/
+node_modules/
+.env
+.env.*
+secrets/
+*.pem
+*.key

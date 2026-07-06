@@ -1,0 +1,32 @@
+{
+  "_comment": "Template only. Copy to .claude/settings.json, then set every PLACEHOLDER and review each permission before use. Least privilege: start narrow, widen only when a human approves it.",
+  "permissions": {
+    "_comment": "allow: read-only, low-risk tools. deny: patterns that touch secrets, history rewrites, or force operations. Anything not listed falls back to the harness default (usually: ask).",
+    "allow": [
+      "Read",
+      "Grep",
+      "Glob",
+      "Bash(git status)",
+      "Bash(git diff)",
+      "Bash(git log*)",
+      "Bash(ls*)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -f*)",
+      "Bash(rm -rf*)",
+      "Bash(*curl*--insecure*)"
+    ]
+  },
+  "env": {
+    "_comment": "Never put a real secret value here or in any committed file. Every value below is a PLACEHOLDER for local, uncommitted use only.",
+    "EXAMPLE_API_BASE_URL": "PLACEHOLDER",
+    "EXAMPLE_API_KEY": "PLACEHOLDER-set-locally-never-commit"
+  }
+}
