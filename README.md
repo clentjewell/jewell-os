@@ -8,9 +8,13 @@ file store. Files, client work and finance records live in Google Drive.
 
 - **[OPERATING-SYSTEM.md](./OPERATING-SYSTEM.md)** — the canonical operating manual, Sections
   1 to 20. Read this first.
+- **[FABLE-BUILD-PROMPT.md](./FABLE-BUILD-PROMPT.md)** — the pasteable prompt for building and
+  optimising this system with Fable (`claude-fable-5`) in the Jewell Teams account.
 - **[ROADMAP.md](./ROADMAP.md)** — the phased build and the immediate next actions.
 - **[AGENTS.md](./AGENTS.md)** — the portable AI operating instructions. Every model reads this.
 - **[CLAUDE.md](./CLAUDE.md)** — light Claude-specific notes, secondary to `AGENTS.md`.
+- **[starter-stack/](./starter-stack/)** — the reusable Claude starter kit (catalogue, security,
+  evals, skills, MCP, scripts) for applying this setup to Jewell, Maxxim and future repos.
 
 ## The one rule
 

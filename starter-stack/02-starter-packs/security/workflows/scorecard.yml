@@ -1,0 +1,48 @@
+# scorecard — OpenSSF repo security posture score.
+# Tool: ossf/scorecard-action. Licence: Apache-2.0. Adopt now.
+# Runs on a weekly schedule and on push to the default branch.
+# Caveats (mark and review before enabling the full setup):
+#   - Needs 'id-token: write' so Scorecard can publish results.
+#   - Uploading results.sarif needs GitHub code-scanning enabled to see findings in the UI.
+#   - Enabling code-scanning is a repo setting change — get Clent's sign-off first.
+# Pinning: actions are pinned to a major version tag. For production, pin to a full commit SHA.
+---
+name: scorecard
+
+on:
+  schedule:
+    # Weekly: 07:30 UTC every Monday.
+    - cron: "30 7 * * 1"
+  push:
+    branches: ["main"]   # PLACEHOLDER — set to the repo's default branch if not 'main'
+
+permissions:
+  contents: read
+
+jobs:
+  scorecard:
+    runs-on: ubuntu-latest
+    permissions:
+      # Needed to upload the SARIF results to code-scanning.
+      security-events: write
+      # Needed for Scorecard to publish and to read repo metadata.
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4   # production: pin to a full commit SHA
+        with:
+          persist-credentials: false
+
+      - name: Run Scorecard
+        uses: ossf/scorecard-action@v2   # production: pin to a full commit SHA
+        with:
+          results_file: results.sarif
+          results_format: sarif
+          publish_results: true
+
+      # PLACEHOLDER caveat: this upload needs code-scanning enabled to be useful.
+      # If it is off, the results.sarif artifact is still produced but not shown in the UI.
+      - name: Upload SARIF to code-scanning
+        uses: github/codeql-action/upload-sarif@v3   # production: pin to a full commit SHA
+        with:
+          sarif_file: results.sarif

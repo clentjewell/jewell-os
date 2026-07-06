@@ -1,0 +1,50 @@
+# zizmor — static analysis of GitHub Actions workflow files.
+# Tool: zizmorcore/zizmor. Licence: MIT. Adopt now.
+# Runs on changes to .github/workflows/**. Catches risky workflow patterns
+# (unpinned actions, injectable expressions, over-broad permissions).
+# Pinning: actions are pinned to a major version tag. For production, pin to a full commit SHA.
+---
+name: zizmor
+
+on:
+  push:
+    paths:
+      - ".github/workflows/**"
+  pull_request:
+    paths:
+      - ".github/workflows/**"
+
+permissions:
+  contents: read
+  # security-events: write is needed only for the SARIF upload step below.
+  security-events: write
+
+jobs:
+  zizmor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4   # production: pin to a full commit SHA
+
+      - name: Set up Python
+        uses: actions/setup-python@v5   # production: pin to a full commit SHA
+        with:
+          python-version: "3.12"
+
+      - name: Install zizmor
+        run: pip install zizmor
+
+      - name: Run zizmor (print findings, produce SARIF)
+        # Prints findings to the log and writes SARIF for optional upload.
+        # continue-on-error keeps the SARIF step reachable; tighten to fail the
+        # build once the repo is clean.
+        continue-on-error: true
+        run: zizmor --format sarif . > zizmor.sarif
+
+      # PLACEHOLDER caveat: SARIF upload needs GitHub code-scanning enabled on the repo.
+      # If code-scanning is off, delete this step and rely on the printed findings above.
+      # Enabling code-scanning is a repo setting change — get Clent's sign-off first.
+      - name: Upload SARIF to code-scanning
+        uses: github/codeql-action/upload-sarif@v3   # production: pin to a full commit SHA
+        with:
+          sarif_file: zizmor.sarif

@@ -1,0 +1,34 @@
+# trufflehog — deep verified-secret scan, quarterly plus manual.
+# Tool: trufflesecurity/trufflehog. Licence: AGPL-3.0.
+# AGPL-3.0 is fine here: we invoke the published action in CI, which is usage, not distribution.
+# NEVER vendor or embed trufflehog source into our own code.
+# Adopt now. Runs on a schedule (quarterly) and on demand.
+# Pinning: actions are pinned to a major version tag. For production, pin to a full commit SHA.
+---
+name: trufflehog-quarterly
+
+on:
+  schedule:
+    # Quarterly: 07:00 UTC on the 1st of Jan, Apr, Jul, Oct.
+    - cron: "0 7 1 1,4,7,10 *"
+  workflow_dispatch:   # manual trigger from the Actions tab
+
+permissions:
+  contents: read
+
+jobs:
+  trufflehog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v4   # production: pin to a full commit SHA
+        with:
+          # Full history so the scan covers the whole repo, not just the tip.
+          fetch-depth: 0
+
+      - name: Run trufflehog (verified secrets only)
+        uses: trufflesecurity/trufflehog@main   # production: pin to a full commit SHA
+        with:
+          path: ./
+          # --only-verified reduces noise: reports secrets it could confirm are live.
+          extra_args: --only-verified

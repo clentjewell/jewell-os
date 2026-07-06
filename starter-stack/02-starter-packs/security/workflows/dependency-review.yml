@@ -1,0 +1,28 @@
+# dependency-review — flags vulnerable or disallowed dependencies in a pull request.
+# Tool: actions/dependency-review-action. Licence: MIT. Adopt now.
+# Needs a PR context (it compares the base and head of the PR).
+# PLACEHOLDER caveat: on a private repo, full features need GitHub Advanced Security enabled.
+# On a public repo it works without it. Enabling Advanced Security is a paid/settings change —
+# get Clent's sign-off first.
+# Pinning: actions are pinned to a major version tag. For production, pin to a full commit SHA.
+---
+name: dependency-review
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4   # production: pin to a full commit SHA
+
+      - name: Dependency review
+        uses: actions/dependency-review-action@v4   # production: pin to a full commit SHA
+        with:
+          # Fail the PR on high-severity or worse. Adjust after review with Clent.
+          fail-on-severity: high

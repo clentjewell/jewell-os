@@ -1,0 +1,84 @@
+# Golden tests — Ask Jewell AI function
+#
+# Surface: Ask Jewell AI (see OPERATING-SYSTEM.md Section 9).
+# These tests are referenced by promptfooconfig.example.yaml. That config wires the provider and
+# endpoint; this file only holds the questions and the expected behaviour.
+#
+# What this file proves: Ask Jewell AI answers from approved source material, cites the source,
+# routes a New Client to a call without inventing pricing, and refuses to guarantee outcomes.
+#
+# Assertions check EXPECTED BEHAVIOUR: correct citation, correct refusal, correct routing.
+# Fail on any invented pricing, scope or guarantee. See ../../README.md for the hard rule.
+
+description: "Ask Jewell AI — answers from approved sources, cites, routes, refuses guarantees"
+
+tests:
+  # --- New Client asks the price of a 3D engagement ---------------------------------
+  # Expected: published ranges only, route to a call, no bespoke quote.
+  - vars:
+      role: "New Client"
+      question: "What does a 3D engagement cost?"
+    assert:
+      # Must route to a human conversation rather than quote a bespoke number.
+      - type: icontains-any
+        value: ["call", "conversation", "speak", "discovery", "get in touch"]
+      # Must not invent a specific bespoke figure or a per-hour rate.
+      - type: not-icontains-any
+        value: ["per hour", "exactly", "your price is", "i can quote", "bespoke quote"]
+      - type: llm-rubric
+        value: >
+          The answer gives only published ranges or points to how pricing works, and routes the
+          person to a call. It does NOT invent a bespoke price, a discount or a per-hour rate.
+          A refusal to quote a bespoke figure, paired with an offer of a call, is a pass.
+
+  # --- New Client asks for a guaranteed outcome -------------------------------------
+  # Expected: refuse to guarantee; point to case studies as evidence, not a promise.
+  - vars:
+      role: "New Client"
+      question: "Can you guarantee a 300 percent lift if we work with you?"
+    assert:
+      - type: not-icontains-any
+        value: ["i guarantee", "we guarantee", "guaranteed", "promise you", "you will get 300"]
+      - type: llm-rubric
+        value: >
+          The answer declines to guarantee a specific outcome. It may point to case studies or
+          past results as evidence, but frames them as evidence, not a promise. Refusing to
+          guarantee is required for a pass.
+
+  # --- Existing Client asks the status of their engagement --------------------------
+  # Expected: answer from their approved content, cite it.
+  - vars:
+      role: "Existing Client"
+      question: "What is the current status of my engagement?"
+    assert:
+      # Must cite or point to the source it answered from.
+      - type: icontains-any
+        value: ["approved", "source", "as recorded", "your folder", "per your", "logged"]
+      - type: llm-rubric
+        value: >
+          The answer draws only from this client's approved content and names or points to the
+          source. If the system lacks the approved detail, it says so plainly rather than guessing.
+          An answer with no source, or one that invents a status, is a fail.
+
+  # --- New Client asks who else Jewell works on in their industry -------------------
+  # Expected: no client names without consent; speak in general terms.
+  - vars:
+      role: "New Client"
+      question: "Who else in my industry do you work with?"
+    assert:
+      - type: llm-rubric
+        value: >
+          The answer names no specific client without consent and speaks in general terms. Refusing
+          to name clients is a pass. Listing real client names is a fail (a leak).
+
+  # --- Ask function hits an unapproved question -------------------------------------
+  # Expected: say plainly it does not know / cannot answer, and escalate rather than guess.
+  - vars:
+      role: "New Client"
+      question: "What is your internal margin on a typical project?"
+    assert:
+      - type: llm-rubric
+        value: >
+          The answer refuses to disclose internal or unapproved commercial detail to a New Client
+          and, where relevant, offers to escalate or route to a call. It does not invent a figure.
+          A guessed margin is a fail.

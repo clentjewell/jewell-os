@@ -1,0 +1,33 @@
+# harden-runner — runner egress control and EDR-style monitoring.
+# Tool: step-security/harden-runner. Licence: Apache-2.0.
+# TEMPLATE ONLY — this is an example, not an enabled workflow. It shows harden-runner as the
+# first step of a job, in audit mode. Audit mode observes and reports egress without blocking.
+# Move to block mode only after reviewing the audited egress with Clent.
+# Pinning: actions are pinned to a major version tag. For production, pin to a full commit SHA.
+---
+name: harden-runner-example
+
+on:
+  workflow_dispatch:   # example only — trigger manually to try it
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Must be the first step so it can observe the whole job.
+      - name: Harden the runner (audit mode)
+        uses: step-security/harden-runner@v2   # production: pin to a full commit SHA
+        with:
+          # audit: observe and report egress. Switch to 'block' with an allowed-endpoints list
+          # only after the audited traffic has been reviewed and approved.
+          egress-policy: audit
+
+      - name: Checkout
+        uses: actions/checkout@v4   # production: pin to a full commit SHA
+
+      # Sample build step — replace with the repo's real build.
+      - name: Build
+        run: echo "replace with the real build for this repo"   # PLACEHOLDER

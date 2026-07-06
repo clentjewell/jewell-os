@@ -1,0 +1,34 @@
+# gitleaks — secret scanning on push and pull_request.
+# Tool: gitleaks/gitleaks. Licence: MIT. Adopt now.
+# Fails the build on a finding. No paid token required for the OSS action.
+# Pinning: actions are pinned to a major version tag. For production, pin to a full commit SHA.
+---
+name: gitleaks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v4   # production: pin to a full commit SHA
+        with:
+          # Full history so secrets in older commits are caught, not just the latest diff.
+          fetch-depth: 0
+
+      - name: Run gitleaks
+        uses: gitleaks/gitleaks-action@v2   # production: pin to a full commit SHA
+        env:
+          # A finding causes a non-zero exit and fails the build (this is the default).
+          #
+          # GITLEAKS_LICENSE is only needed for gitleaks org/enterprise features
+          # (for example the GitHub org dashboard). The OSS scan does not need it.
+          # PLACEHOLDER (optional): set this repo/org secret only if the org licence is bought,
+          # and only after Clent has approved enabling a paid feature.
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}   # PLACEHOLDER — optional, org feature only

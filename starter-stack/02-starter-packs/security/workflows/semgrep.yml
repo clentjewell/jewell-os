@@ -1,0 +1,34 @@
+# semgrep — static application security testing (SAST).
+# Tool: semgrep/semgrep. Licence: LGPL-2.1 for the OSS engine.
+# TEMPLATE ONLY — adapt before use. The registry rules (p/default and others) and the hosted
+# Semgrep platform have their own terms; review them before relying on them.
+# SEMGREP_APP_TOKEN is optional and only for the hosted platform. Leave it unset to run the OSS
+# engine with local rule configs. Enabling the hosted tier is a paid/credentialed change —
+# get Clent's sign-off first.
+# Pinning: actions are pinned to a major version tag. For production, pin to a full commit SHA.
+---
+name: semgrep
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  semgrep:
+    runs-on: ubuntu-latest
+    container:
+      image: semgrep/semgrep   # production: pin to a digest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4   # production: pin to a full commit SHA
+
+      - name: Run semgrep (OSS engine, p/default config)
+        # p/default pulls community rules from the registry — its terms apply.
+        # Swap for a vendored local ruleset if you want no registry dependency.
+        run: semgrep ci --config p/default
+        env:
+          # PLACEHOLDER (optional): only for the hosted Semgrep platform. Leave unset for OSS.
+          SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}   # PLACEHOLDER — optional, hosted tier only

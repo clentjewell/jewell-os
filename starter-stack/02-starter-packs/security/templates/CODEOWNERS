@@ -1,0 +1,19 @@
+# CODEOWNERS — sample. Copy to .github/CODEOWNERS in the target repo.
+#
+# This enforces review on the files that set the rules. Anyone changing CI, the agent
+# instructions or governance must get the named owner's review before the PR can merge.
+# It only takes effect once branch protection requires review from code owners.
+#
+# Replace @PLACEHOLDER-owner with the real owner handle (Clent). Least privilege:
+# name the smallest set of owners that must approve, not the whole team.
+
+# The workflows and settings that run and gate everything else.
+/.github/                 @PLACEHOLDER-owner   # PLACEHOLDER — set to Clent's GitHub handle
+
+# Agent instructions — these steer what the agents do.
+/AGENTS.md                @PLACEHOLDER-owner   # PLACEHOLDER — set to Clent's GitHub handle
+/CLAUDE.md                @PLACEHOLDER-owner   # PLACEHOLDER — set to Clent's GitHub handle
+
+# Governance — the rules of the road.
+/00-governance/           @PLACEHOLDER-owner   # PLACEHOLDER — set to Clent's GitHub handle
+/governance/              @PLACEHOLDER-owner   # PLACEHOLDER — remove if the repo has no /governance
