@@ -54,13 +54,13 @@ one home for each thing and one door to start the day. An operating manual that 
 immediately, never a strategy essay.
 
 This run does two jobs. First, design and build the system and its reusable kit. Second, and most
-important, produce a **step-by-step deployment runbook for Ronnie** so that tomorrow morning he
-can switch the system on himself, one step at a time, understanding each step before it happens,
+important, produce a **step-by-step deployment runbook for Ronnie** so that as soon as the build
+is verified he can switch the system on himself, one step at a time, understanding each step before it happens,
 approving each step, and watching it work, with nothing changing without his explicit OK.
 
 The target is the **entire rebuild completed with high confidence by 4pm AEST today**: all three
 tracks in section 4 built, tested and independently verified today, then deployed, tested and
-approved with Ronnie as soon as the build is ready. Orchestration is what makes the full scope achievable in one night: decompose the work,
+approved with Ronnie as soon as the build is ready. Orchestration is what makes the full scope achievable in one day: decompose the work,
 run independent pieces in parallel through subagents, and verify every piece before it lands
 (section 8). Sequence by value: prove the end-to-end slice that gives Clent the most time back
 first, then complete the rest to the same standard. Tested means the evals pass and the live
