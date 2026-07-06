@@ -18,13 +18,22 @@ itemised personal/legal list is held privately by Clent and is not in this repo.
 
 | Slice | Builder | Status |
 | --- | --- | --- |
-| RONNIE-RUNBOOK.md + Track A manual edits | Fable | in progress |
-| Starter-stack top level + base-claude-code pack | Sonnet S1 | launched |
-| 01-catalogue (yml + md + 4 class files) | Sonnet S2 | launched |
-| 03-scripts (5 scripts + README) | Sonnet S3 | launched |
-| skills pack (new-skill-template + 7 SKILL.md) | Sonnet S4 | launched |
-| mcp pack + 00-governance (7 files) | Sonnet S5 | launched |
-| operating-rhythm + memory + 05-examples + 06-docs | Sonnet S6 | launched |
-| Independent verification (all of the above) | Opus | queued |
+| RONNIE-RUNBOOK.md + Track A manual edits | Fable | complete |
+| Starter-stack top level + base-claude-code pack (10 files) | Sonnet S1 | complete |
+| 01-catalogue (6 files, 25 repos, counts validated) | Sonnet S2 | complete |
+| 03-scripts (5 scripts + README; syntax + smoke-tested; dry-run verified against the live catalogue by Fable) | Sonnet S3 | complete |
+| skills pack (README + template + 7 SKILL.md) | Sonnet S4 | complete |
+| mcp pack (6) + 00-governance (7) | Sonnet S5 | complete |
+| operating-rhythm (6) + memory (5) + 05-examples (4) + 06-docs (6) | Sonnet S6 | complete |
+| Independent verification (all of the above) | Opus | in progress |
 
-**Grading and verification verdicts:** recorded below as passes complete.
+**Pass 1 result:** all slices built. Boundary scans clean at each commit. Scripts integration-
+tested against the real catalogue (security and adopt-now groups parse correctly, licences carry
+through). Live Track C demonstrations done earlier in-session: Today door assembled from real
+Calendar + Asana, read-only.
+
+## Pass 2 — independent verification
+
+Opus verifier running: boundary scan, secret scan, reference integrity (15+ links), the Ronnie
+test on the runbook, script safety re-check, consistency vs claims, voice spot-check. Verdicts
+land here.
