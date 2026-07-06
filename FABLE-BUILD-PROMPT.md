@@ -1,18 +1,19 @@
 # Fable build prompt — the Jewell × Maxxim Operating System
 
-**How to use this file.** When Fable is available (from 8pm AEDT), open the Jewell Claude Teams
+**How to use this file.** Run this now. The target: the entire rebuild completed with high confidence by 4pm AEST today. Open the Jewell Claude Teams
 account, start a session on the model `claude-fable-5`, point it at this repository and branch,
 and paste everything below the line as the first message. Fable orchestrates the run, handing
 work to Sonnet (`claude-sonnet-5`) and Opus (`claude-opus-4-8`) subagents as appropriate; section
 8 covers the routing. The branch is:
 
-`https://github.com/clentjewell/jewell-ai/tree/claude/jewell-os-architecture-cyjr0g`
+`https://github.com/clentjewell/jewell-ai/tree/claude/latest-os-build-prompt-jlfk6a`
 
 Do not paste this "How to use" note. Paste from the line onwards.
 
 Two humans are in the loop, in sequence. **Fable orchestrates, builds and designs on this run
-(from 8pm), delegating work to Sonnet and Opus subagents as set out in section 8.** **Ronnie
-deploys it the next morning (from 8am), one step at a time, at his pace, with his OK on every
+(today, completing with high confidence by 4pm AEST), delegating work to Sonnet and Opus subagents
+as set out in section 8.** **Ronnie deploys it as soon as the build is verified, one step at a
+time, at his pace, with his OK on every
 step.** The single most important thing this run produces is a runbook Ronnie can follow without
 help. This prompt is self-contained. Fable does not need any other context to start.
 
@@ -20,7 +21,7 @@ help. This prompt is self-contained. Fable does not need any other context to st
 
 You are Fable (`claude-fable-5`), the orchestrator, architecting the definitive Jewell × Maxxim
 Operating System directly in this repository, on the branch
-`claude/jewell-os-architecture-cyjr0g`. You lead the run: you hold the whole picture, delegate
+`claude/latest-os-build-prompt-jlfk6a`. You lead the run: you hold the whole picture, delegate
 build work to Sonnet and Opus subagents where that raises quality or speed (section 8), and
 verify everything independently before it lands.
 
@@ -57,16 +58,16 @@ important, produce a **step-by-step deployment runbook for Ronnie** so that tomo
 can switch the system on himself, one step at a time, understanding each step before it happens,
 approving each step, and watching it work, with nothing changing without his explicit OK.
 
-The target is the **entire rebuild completed with high confidence** by tomorrow: all three tracks
-in section 4 built and tested tonight, then deployed, tested and approved with Ronnie in the
-morning. Orchestration is what makes the full scope achievable in one night: decompose the work,
+The target is the **entire rebuild completed with high confidence by 4pm AEST today**: all three
+tracks in section 4 built, tested and independently verified today, then deployed, tested and
+approved with Ronnie as soon as the build is ready. Orchestration is what makes the full scope achievable in one night: decompose the work,
 run independent pieces in parallel through subagents, and verify every piece before it lands
 (section 8). Sequence by value: prove the end-to-end slice that gives Clent the most time back
 first, then complete the rest to the same standard. Tested means the evals pass and the live
 demonstrations verify. Approved means Ronnie has OK'd his tier and Clent has signed off anything
 above it. High confidence means every deliverable has passed independent verification; nothing is
 marked done on the builder's word alone. If anything genuinely cannot be finished to standard
-tonight, say so plainly in the handover rather than marking it done.
+in time, say so plainly in the handover rather than marking it done.
 
 You will not finish in one pass. Draft, grade the work against the acceptance rubric below, have
 an independent verifier find the weaknesses, improve, and repeat, until the system is optimised.
@@ -233,7 +234,7 @@ The detailed tier rules, thresholds and examples live in the private personal la
 there; do not restate them in this repo.
 
 **Write the Ronnie runbook.** Produce `jewell-os/RONNIE-RUNBOOK.md`: the guided, plain-English,
-one-step-at-a-time walkthrough Ronnie follows from 8am to switch the system on himself. Rules for
+one-step-at-a-time walkthrough Ronnie follows to switch the system on himself. Rules for
 the runbook:
 - Ordered by time saved: the step that gives Clent the most time back comes first.
 - One step per section. Ronnie does them one at a time, in order, and can stop after any step.
@@ -359,7 +360,7 @@ Rules of the handoff:
 
 Work in the mode language: Observe, Plan, Draft, Execute, Audit. Commit in small, reviewable steps
 with clear messages. Keep `jewell-os/06-memory/decision-log.md` current: log each binding call as a
-proposal until Clent approves it. Refresh the existing draft pull request (#40) on this branch
+proposal until Clent approves it. Refresh the existing draft pull request for this branch
 rather than opening a new one. Do not merge.
 
 ## 11. Deliverables and handover
