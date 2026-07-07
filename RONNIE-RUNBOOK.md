@@ -209,7 +209,7 @@ overwriting strategy. Estimate: repeated questions and re-litigated decisions dr
 
 **What you do.**
 1. Friday afternoon: run the Friday close template
-   (`starter-stack/02-starter-packs/operating-rhythm/friday-close.md`).
+   (`jewell-os/starter-stack/02-starter-packs/operating-rhythm/friday-close.md`).
 2. Then the washback template (`weekly-washback.md`): it drafts proposals with evidence and
    confidence.
 3. Send Clent the proposals. He approves, corrects or rejects each.

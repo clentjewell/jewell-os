@@ -63,7 +63,7 @@ This pack implements Section 16 of the operating manual (evals and quality contr
 golden set lives at `05-evals/golden-questions.md`. Behaviour rules for the Ask function and client
 portal are in Section 9.
 
-## Next:
+**Next:**
 
 Wire your provider, run the eval on every meaningful change and on a schedule, and score the result
 against Section 16. Fail on any leak or hallucination. Take every soft miss to weekly review.

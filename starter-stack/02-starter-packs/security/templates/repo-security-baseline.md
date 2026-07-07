@@ -1,8 +1,8 @@
 # Repo security baseline
 
 The checklist a target repo must meet before it is scaled or trusted with real work. Reference
-the manual at `../../../OPERATING-SYSTEM.md`, Section 11 (Security-first setup), and the pack
-policy at `../../00-governance/security-review-policy.md`. This is a starter-kit checklist, not a
+the manual at `../../../../OPERATING-SYSTEM.md`, Section 11 (Security-first setup), and the pack
+policy at `../../../00-governance/security-review-policy.md`. This is a starter-kit checklist, not a
 production sign-off on its own.
 
 Governance in short: least privilege, ask before you send, approve before publish, human sign-off

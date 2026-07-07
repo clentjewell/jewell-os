@@ -54,7 +54,7 @@ Claude: Running a dry run first.
           .github/workflows/scorecard.yml
           .github/CODEOWNERS
           .github/pull_request_template.md
-          .github/ISSUE_TEMPLATE/issue_template.md
+          .github/issue_template.md
 
         Flagged PLACEHOLDER values needing a real value before these run:
           - CODEOWNERS: PLACEHOLDER owner handle (2 lines)

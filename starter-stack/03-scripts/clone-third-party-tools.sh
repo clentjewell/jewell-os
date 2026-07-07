@@ -152,7 +152,7 @@ FAILED=0
 declare -a FAILED_NAMES=()
 declare -a SKIPPED_NAMES=()
 
-mkdir -p "${VENDOR_DIR}"
+if [[ "${DRY_RUN}" -eq 0 ]]; then mkdir -p "${VENDOR_DIR}"; fi
 
 while IFS=$'\x1f' read -r name url status clone_group licence; do
   [[ -z "${name}" ]] && continue

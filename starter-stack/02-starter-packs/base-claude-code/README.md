@@ -25,7 +25,7 @@ instructions at `../../../AGENTS.md`.
 Prefer the apply script over copying by hand:
 
 ```
-../../03-scripts/apply-to-target-repo.sh --dry-run --pack base-claude-code --target ../path/to/target-repo
+../../03-scripts/apply-to-target-repo.sh --dry-run --pack base --target ../path/to/target-repo
 ```
 
 If applying by hand:

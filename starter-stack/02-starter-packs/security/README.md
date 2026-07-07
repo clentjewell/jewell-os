@@ -21,7 +21,7 @@ enforcement on the files that set the rules. Copy the parts you need into a targ
 2. Copy the templates from `templates/` into the target repo's `.github/`:
    - `CODEOWNERS` → `.github/CODEOWNERS`
    - `pull_request_template.md` → `.github/pull_request_template.md`
-   - `issue_template.md` → `.github/ISSUE_TEMPLATE/issue_template.md`
+   - `issue_template.md` → `.github/issue_template.md` (the apply script copies it flat)
 3. Replace every value marked `PLACEHOLDER` (org name, owner handle, tokens, paths).
 4. Read `repo-security-baseline.md` and meet it before scaling the repo.
 

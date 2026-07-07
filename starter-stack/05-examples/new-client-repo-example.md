@@ -6,18 +6,16 @@ automation, not a Jewell or Maxxim platform repo). See `../README.md` and `../02
 ## The smallest set: base + gitleaks only
 
 ```
-03-scripts/apply-to-target-repo.sh --dry-run --pack base-claude-code --target ../client-build-repo
+03-scripts/apply-to-target-repo.sh --dry-run --pack base --target ../client-build-repo
 ```
 
-Then, from the `security` pack, copy only `gitleaks.yml`:
+Then copy only `gitleaks.yml` by hand — the apply script has no single-workflow filter:
 
 ```
-03-scripts/apply-to-target-repo.sh --dry-run --pack security --target ../client-build-repo --only gitleaks
+cp 02-starter-packs/security/workflows/gitleaks.yml ../client-build-repo/.github/workflows/
 ```
 
-If the apply script does not support a single-workflow filter, copy `gitleaks.yml` by hand from
-`02-starter-packs/security/workflows/` into `.github/workflows/` in the target repo, and skip the
-rest of that pack.
+Skip the rest of the security pack for a client build repo unless the engagement calls for it.
 
 ## What NOT to install
 

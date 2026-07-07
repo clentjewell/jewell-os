@@ -14,7 +14,7 @@ inside a Claude Cloud session specifically.
   upstream docs are a much larger read for the same answer.
 - **`.vendor/` only on demand.** Never load `.vendor/` into context by default. It holds cloned
   third-party source, is disposable, and is often large. Clone a single tool with
-  `03-scripts/clone-third-party-tools.sh <tool-name>` only when the task genuinely needs to
+  `03-scripts/clone-third-party-tools.sh <group>` only when the task genuinely needs to
   inspect that tool's source.
 - **Prefer refs to restatement.** Point at `OPERATING-SYSTEM.md` or a pack's `README.md` by
   section reference rather than copying its content into a new file. A rule written twice drifts;

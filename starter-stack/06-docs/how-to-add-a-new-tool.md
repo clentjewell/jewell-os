@@ -43,7 +43,7 @@ Once the classification is approved:
 
 Do not clone or commit the tool's source code into this kit as a matter of course. If inspecting
 the source is genuinely necessary, clone it on demand into `.vendor/` with
-`03-scripts/clone-third-party-tools.sh <tool-name>`, which is git-ignored and disposable. See
+`03-scripts/clone-third-party-tools.sh <group>`, which is git-ignored and disposable. See
 `../README.md` for why vendoring by default is avoided: licence risk, token and repo weight, and
 drift against the upstream project.
 

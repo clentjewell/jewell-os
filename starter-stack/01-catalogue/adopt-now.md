@@ -9,7 +9,7 @@ this file is the practical "what is it, how do we use it, how do we switch it on
 **What:** Official reference implementations and templates for building Claude Code skills.
 **How used:** reference — copy relevant SKILL.md patterns into Jewell's own skills pack rather than
 depending on the repo directly.
-**Switch on:** browse `04-third-party/adopt-now/skills/` (after cloning) and copy the closest
+**Switch on:** browse `.vendor/anthropics/skills/` (after cloning) and copy the closest
 template into `02-starter-packs/skills/new-skill-template/`.
 
 ## 2. anthropics/claude-code-action
@@ -74,5 +74,5 @@ dependencies, etc).
 
 ---
 
-Clone all ten in one pass with `03-scripts/clone-third-party-tools.sh --group adopt-now` (reads the
+Clone all ten in one pass with `03-scripts/clone-third-party-tools.sh adopt-now` (reads the
 `clone_group: adopt-now` entries in `repo-catalogue.yml`).

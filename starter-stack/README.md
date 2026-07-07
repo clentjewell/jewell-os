@@ -40,7 +40,7 @@ task in front of you.
 Use the apply script rather than copying files by hand, and always dry-run first:
 
 ```
-03-scripts/apply-to-target-repo.sh --dry-run --pack base-claude-code --target ../path/to/target-repo
+03-scripts/apply-to-target-repo.sh --dry-run --pack base --target ../path/to/target-repo
 ```
 
 Read the diff it proposes. Only then re-run without `--dry-run` to write the files.
@@ -51,7 +51,7 @@ Third-party tool source code is never committed into this kit. When a tool's act
 needed (to inspect it, test it, or extract a template), clone it on demand:
 
 ```
-03-scripts/clone-third-party-tools.sh <tool-name>
+03-scripts/clone-third-party-tools.sh <group>
 ```
 
 This clones into `.vendor/`, which is git-ignored and disposable. `04-third-party/` holds our own

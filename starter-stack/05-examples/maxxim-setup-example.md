@@ -16,7 +16,7 @@ come last, once there is a real Ask endpoint to point them at.
 ## Step 1: base and security first
 
 ```
-03-scripts/apply-to-target-repo.sh --dry-run --pack base-claude-code --target ../maxxim-repo
+03-scripts/apply-to-target-repo.sh --dry-run --pack base --target ../maxxim-repo
 03-scripts/apply-to-target-repo.sh --dry-run --pack security --target ../maxxim-repo
 ```
 

@@ -13,7 +13,7 @@ security floor, then the evals that prove behaviour once there is something to t
 ## Step 1: dry run
 
 ```
-03-scripts/apply-to-target-repo.sh --dry-run --pack base-claude-code --target ../jewell-ai
+03-scripts/apply-to-target-repo.sh --dry-run --pack base --target ../jewell-ai
 ```
 
 **What the dry run shows (illustrative):**

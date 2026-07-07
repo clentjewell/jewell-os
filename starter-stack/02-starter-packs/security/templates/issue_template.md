@@ -1,4 +1,4 @@
-<!-- Issue template. Copy to .github/ISSUE_TEMPLATE/issue_template.md in the target repo. -->
+<!-- Issue template. Copy to .github/issue_template.md in the target repo. -->
 
 ## Context
 

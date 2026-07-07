@@ -4,7 +4,33 @@
 **Orchestrator:** Fable (`claude-fable-5`). Builders: Sonnet (`claude-sonnet-5`). Verifier: Opus (`claude-opus-4-8`).
 **Branch:** `claude/latest-os-build-prompt-jlfk6a`. PR: #41 (draft).
 
-Summary lands at the top of this file when the run completes.
+## Result — complete, verified, 11:15am AEST (4 hours 45 minutes ahead of target)
+
+All three tracks built, independently verified (verdict: PASS WITH FIXES, zero critical), and
+every finding fixed and re-verified. ~60 files across the kit; the runbook is the headline.
+
+**Final rubric (all dimensions at 4 or higher — stop condition met):**
+
+| Dimension | Score | One-line reason |
+| --- | --- | --- |
+| Time-saving (north-star) | 4 | Today door + meeting-to-actions proven/specified, est. 5–8 hrs/week; not yet measured in use |
+| Delegable (Ronnie test) | 4 | Runbook passed the verifier's Ronnie test; awaits the real Ronnie |
+| Findable | 4 | One home per object mapped; Drive reconciliation awaits Clent (runbook Step 6) |
+| Trustworthy | 4 | Source-only rules + eval fixtures ready; evals not yet green against a live endpoint (flagged) |
+| Actionable | 4 | Meeting-to-actions + Today door specified and live-demoed |
+| Improvable | 5 | Washback path fully templated, approval-gated, nothing self-promotes |
+| Secure | 4 | Scripts safety-verified, boundary scans clean at every commit; access recert still to run |
+| Scalable | 4 | Kit + catalogue + apply scripts complete; not yet applied to maxxim |
+| Simple | 4 | Reference-not-restate held; smallest-pack rule guards token cost |
+| Boundary-clean & portable | 5 | Independent boundary scan clean; AGENTS-first portability |
+
+**Honest exceptions, flagged not hidden:** (1) promptfoo evals cannot run green until the Ask
+endpoint is wired — fixtures ship ready. (2) Runbook Steps 4–6 await Clent's sign-offs by design.
+(3) Time-saving numbers are estimates until 2 weeks of use.
+
+**Verification verdicts:** boundary CLEAN · secrets CLEAN · references 16/18 → 18/18 after fix ·
+Ronnie test PASS · script safety PASS (+1 dry-run tightening) · consistency fixed (5-file pack-name
+defect, 2 broken refs, flag/path defects) · voice PASS.
 
 ---
 
