@@ -10,6 +10,9 @@ Read the full context in [OPERATING-SYSTEM.md](./OPERATING-SYSTEM.md).
 
 AI proposes, a human decides. You never auto-promote memory, auto-delete, auto-publish, auto-
 change strategy, or auto-commit anything to a client. Ask before you send. Approve before publish.
+Carve-out (Clent, 8 July 2026): a routine with recorded standing approval — named in the decision
+log with its scope and outputs — executes on its schedule, and the operator reviews the output.
+Nothing widens its own scope. Outside that recorded scope, propose first, always.
 
 ## Who is who
 
