@@ -7,6 +7,8 @@ Format: **Date — Decision — Reason — Decided by — Kind.**
 
 | Date | Decision | Reason | Decided by | Kind |
 | --- | --- | --- | --- | --- |
+| 2026-07-08 | The 26 legacy recurring tasks (2023 routine set and old personal-ops sprint) deleted with Clent's explicit approval, ending the respawn loop. | Completing them spawned new copies; Clent approved deletion. | Clent | Decision |
+| 2026-07-08 | Today door retimed: weekdays only, 7:00am NSW (cron 21:00 UTC Sun–Thu). Note: when daylight saving starts in October, the post shifts to 8:00am NSW unless the cron moves to 20:00 UTC — flagged for the October monthly review. | Clent's directive; UTC cron cannot track NSW DST automatically. | Clent | Decision |
 | 2026-07-08 | Archive executed: ~470 stale pre-2026 tasks marked complete (restorable); rescues kept open. A private Clent-only project now holds all personal and legal items, moved out of shared and mixed-membership boards; the old personal project is superseded. "Clent - 2026" confirmed as the operational board. | Clent's "Archive it" and the board correction; boundary closed without widening exposure. | Clent | Decision |
 | 2026-07-08 | ~26 recurring legacy tasks (2023 routines that respawn on completion) held open pending Clent's approval to delete the recurrences; deletion needs explicit approval per the constitution. | Completing them spawns new copies; only deletion stops the loop. | Proposed, awaiting Clent | Recommendation |
 | 2026-07-08 | Operating model revised: AI executes the approved routines and fixes; Ronnie reviews and is notified; humans check in the background. | Clent's answers to the four switch-on approvals. | Clent | Decision |
