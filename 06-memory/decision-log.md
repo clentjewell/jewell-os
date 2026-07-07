@@ -7,6 +7,11 @@ Format: **Date — Decision — Reason — Decided by — Kind.**
 
 | Date | Decision | Reason | Decided by | Kind |
 | --- | --- | --- | --- | --- |
+| 2026-07-08 | Operating model revised: AI executes the approved routines and fixes; Ronnie reviews and is notified; humans check in the background. | Clent's answers to the four switch-on approvals. | Clent | Decision |
+| 2026-07-08 | Daily Today door automated at 8:30am AEST, posting to Slack; read-only, personal calendars excluded. | Approval 1; routine created same day. | Clent | Decision |
+| 2026-07-08 | Personal-items consolidation approved for AI execution; queued behind a membership fix to the private project that only Clent can click, so exposure is not widened in the interim. | Approval 2; audit found a work-only member on the private project. | Clent (execution queued) | Decision |
+| 2026-07-08 | Stale pre-2026 Asana archive list (~200 tasks) prepared; archiving awaits Clent's one-word "do it" on the list, per the stated gate. | Approval 3 kept the list gate. | Clent (gate pending) | Decision |
+| 2026-07-08 | Drive one-source-of-truth headers: paste-ready lines delivered to Ronnie for the 6 OS docs; the connector cannot edit Doc content directly. | Approval 4; tooling limit named honestly. | Clent | Decision |
 | 2026-07-07 | The orchestrated OS build runs today with a 4pm AEST high-confidence target; Fable orchestrates, Sonnet builds, Opus verifies. | Clent directed the run to start now, in this session. | Clent | Decision |
 | 2026-07-07 | The Today door is proven live against real Calendar and Asana, read-only; it becomes runbook Step 1. | Working value demonstrated before wiring anything. | Clent (approved the read-only run) | Decision |
 | 2026-07-07 | Personal and legal items found in shared Asana will be separated into a private Clent+Ronnie project; itemised list held privately by Clent, never in this repo. | Boundary rule; Tier 3, awaiting Clent's go for execution. | Proposed, awaiting Clent | Recommendation |

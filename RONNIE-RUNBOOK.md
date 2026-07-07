@@ -3,6 +3,13 @@
 **For:** Ronnie. **From:** the OS build, 7 July 2026. **Approver above you:** Clent.
 **How long:** about 2 hours across the day, one step at a time. You can stop after any step.
 
+> **Status, 8 July 2026 — Clent approved the switch-on with a revised model: the AI executes,
+> you review and are notified, humans check in the background.** What that means per step:
+> Step 1 now runs automatically (a daily 8:30am AEST brief posts to Slack — your job is to check
+> it, not generate it). Steps 4 to 6 are AI-executed with you notified; the one thing the AI
+> cannot do is change Asana project membership — that single click is Clent's (see Step 4). The
+> gates below still hold: anything that surprises you, stop and ask.
+
 ## Step 0 — how this runbook works (read this first)
 
 You are switching the operating system on, one step at a time. Nothing happens without your OK.
@@ -124,13 +131,17 @@ sits where the team or the machine can read it.
 **What it changes.** Asana project membership and the location of the listed items. Nothing is
 deleted. Fully reversible.
 
-**What you do — only after Clent says go.**
-1. Ask Clent for the private audit list.
-2. Open the "Personal To do" project settings → members → restrict to Clent + you only.
-3. Move each listed item into that private project.
-4. Re-check "My Tasks" and the shared projects: nothing personal or legal remains team-visible.
-5. Tell Clent it is done and what was moved (verbally or in the private channel — not in a shared
-   space).
+**Update, 8 July:** Clent approved AI execution of this step. The audit found the "Personal To
+do" project is already private — but its members are Clent plus one work-only team member, which
+breaks the access model. The AI cannot change project membership; the moves are queued until the
+membership is fixed, so nothing is exposed to the wrong member in the meantime.
+
+**What happens.**
+1. **Clent (1 minute, only he can):** "Personal To do" → Share → remove the work-only member →
+   add Ronnie.
+2. **AI (after 1 is confirmed):** moves the queued personal items into the project.
+3. **You:** confirm with Clent against his private list that nothing personal or legal remains
+   team-visible.
 
 **How to check it worked.** A team member's view of Asana shows zero personal, legal, health or
 family items. Clent confirms against his list.
