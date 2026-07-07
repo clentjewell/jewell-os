@@ -7,6 +7,8 @@ Format: **Date — Decision — Reason — Decided by — Kind.**
 
 | Date | Decision | Reason | Decided by | Kind |
 | --- | --- | --- | --- | --- |
+| 2026-07-08 | Archive executed: ~470 stale pre-2026 tasks marked complete (restorable); rescues kept open. A private Clent-only project now holds all personal and legal items, moved out of shared and mixed-membership boards; the old personal project is superseded. "Clent - 2026" confirmed as the operational board. | Clent's "Archive it" and the board correction; boundary closed without widening exposure. | Clent | Decision |
+| 2026-07-08 | ~26 recurring legacy tasks (2023 routines that respawn on completion) held open pending Clent's approval to delete the recurrences; deletion needs explicit approval per the constitution. | Completing them spawns new copies; only deletion stops the loop. | Proposed, awaiting Clent | Recommendation |
 | 2026-07-08 | Operating model revised: AI executes the approved routines and fixes; Ronnie reviews and is notified; humans check in the background. | Clent's answers to the four switch-on approvals. | Clent | Decision |
 | 2026-07-08 | Daily Today door automated at 8:30am AEST, posting to Slack; read-only, personal calendars excluded. | Approval 1; routine created same day. | Clent | Decision |
 | 2026-07-08 | Personal-items consolidation approved for AI execution; queued behind a membership fix to the private project that only Clent can click, so exposure is not widened in the interim. | Approval 2; audit found a work-only member on the private project. | Clent (execution queued) | Decision |
