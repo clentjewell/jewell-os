@@ -5,12 +5,12 @@ The memory layers and the decision log. The full design lives in
 
 ## The seven layers
 
-1. **Constitution** — who Jewell is, the non-negotiables. See `00-governance/constitution.md`.
-2. **People** — who is who, roles and preferences.
-3. **Decisions** — the log of binding calls. See `decision-log.md`.
-4. **Preferences** — how Clent and the team like things done.
-5. **SOPs** — the standard ways of working.
-6. **Lessons** — what was learned, what to do differently.
+1. **Constitution** — who Jewell is, the non-negotiables. See `../00-governance/constitution.md`.
+2. **People** — who is who, roles and preferences. See [`people.md`](./people.md).
+3. **Decisions** — the log of binding calls. See [`decision-log.md`](./decision-log.md).
+4. **Preferences** — how Clent and the team like things done. See [`preferences.md`](./preferences.md).
+5. **SOPs** — the standard ways of working. See [`sops.md`](./sops.md).
+6. **Lessons** — what was learned, what to do differently. See [`lessons.md`](./lessons.md).
 7. **Active Context** — what is live right now.
 
 ## The one rule
@@ -26,5 +26,7 @@ client data, anything Clent-only, and anything not yet approved.
 
 ## Files in this folder
 
-- `decision-log.md` — the living log of binding decisions.
-- Add `people.md`, `preferences.md`, `sops.md`, `lessons.md` as they fill, one file per layer.
+- [`decision-log.md`](./decision-log.md) — the living log of binding decisions.
+- [`people.md`](./people.md), [`preferences.md`](./preferences.md), [`sops.md`](./sops.md),
+  [`lessons.md`](./lessons.md) — seeded templates, one file per layer, filled only through the
+  weekly washback with human approval.
