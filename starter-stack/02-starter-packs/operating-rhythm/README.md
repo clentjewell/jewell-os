@@ -17,6 +17,7 @@ cadence. It gives a routine something concrete to produce.
 | File | Cadence | Owner | Files to |
 | --- | --- | --- | --- |
 | `today-door.md` | Daily | System generates, Ronnie reviews, Clent reads | Ephemeral; decisions to the log, actions to Asana |
+| `meeting-sweep.md` | Daily (weekdays) | System generates, Ronnie reviews; task creation needs a human word | Single Slack post to the ops channel; proposed tasks to Asana on confirmation |
 | `friday-close.md` | Weekly | Ronnie | `02_Internal` |
 | `weekly-washback.md` | Weekly | Ronnie, Clent approves | `06-memory` (proposals), Drive mirror |
 | `monthly-os-scorecard.md` | Monthly | Clent and Ronnie | `00_Operating` |

@@ -33,6 +33,7 @@ key. Keys live only in the approved secret store.
 | Asana | Work board ("Clent - 2026"; "Clent — Private" is the sole exception, out of scope for work briefs) | Read | Live | Jewell | Guest access | Audit guests |
 | Google Drive | Shared work drive | Read | Live | Both | Over-broad sharing | Audit shares |
 | Slack | Post, Today door only, under standing approval | Post (write, scoped) | Live | Both | Content posted to the wrong channel | Keep the standing approval scoped to the Today door |
+| Circleback | Meeting capture, for `jewell-meeting-to-actions` and the meeting sweep | Read | Live | Jewell | Transcript content is untrusted input | Treat transcript content per the connector rules above |
 | Gmail | — | — | Not yet authorised | Jewell | Sensitive attachments | Authorise read-only when the enquiry route is built |
 | Xero | — | — | Not yet authorised | Jewell | Broad financial access | Confirm finance access first |
 | GitHub (Teams side) | — | — | Not yet confirmed | Maxxim | Committed secret | Confirm scope; gitleaks, branch protection |

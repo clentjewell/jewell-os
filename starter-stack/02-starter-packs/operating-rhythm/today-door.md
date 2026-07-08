@@ -26,6 +26,10 @@ files, never changes a permission, and never auto-promotes anything to memory.
   gets re-litigated.
 - **Alerts** — security, finance and delivery alerts, once those routes exist. Dormant for now:
   no alert route is wired yet, so the brief treats this input as empty rather than guessing.
+- **Runway line** — one line in the brief, "Runway: X months at current burn", read from the
+  Jewell-Finance dashboard sheet ("Personal financial dashboard Jewell-Finance") via the Drive
+  connector, read-only. Ready to adopt: the ops session adds the sheet read to the routine prompt
+  below. If the sheet is unreadable, the line is absent from the brief; it is never guessed.
 
 ## What the Today door answers, and the flow it follows
 
