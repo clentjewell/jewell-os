@@ -24,6 +24,6 @@ British English. Short, plain sentences. No exclamation marks. Numerals for metr
 
 ## Model routing
 
-Use model routing only when it helps. Definition-grade and output-quality work can use the
-strongest available model. Keep quality consistent across models; the evals in `05-evals` confirm
-it.
+The standing orchestration rule lives in `AGENTS.md`: Fable (or Opus when Fable is unavailable)
+orchestrates and reviews; execution is delegated to the lightest model that meets the standard.
+Keep quality consistent across models; the evals in `05-evals` confirm it.

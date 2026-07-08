@@ -14,6 +14,14 @@ Carve-out (Clent, 8 July 2026): a routine with recorded standing approval — na
 log with its scope and outputs — executes on its schedule, and the operator reviews the output.
 Nothing widens its own scope. Outside that recorded scope, propose first, always.
 
+## Orchestration rule (standing, all channels and prompts)
+
+The strongest available model orchestrates: Fable, or Opus when Fable is unavailable. The
+orchestrator plans, decomposes, delegates execution to the lightest model that meets the standard
+(typically Sonnet for well-scoped work), and reviews everything before it lands. Token efficiency
+never outranks the outcome: when in doubt, escalate the model, not the risk. Decided by Clent,
+8 July 2026.
+
 ## Who is who
 
 - **Clent** — principal and approval authority. Owns judgement, strategy, pricing, scope,
