@@ -8,6 +8,9 @@ file store. Files, client work and finance records live in Google Drive.
 
 - **[OPERATING-SYSTEM.md](./OPERATING-SYSTEM.md)** — the canonical operating manual, Sections
   1 to 20. Read this first.
+- **[PLATFORM-OPERATING-SYSTEM.md](./PLATFORM-OPERATING-SYSTEM.md)** — the execution layer: tech
+  stack roles, the Drive↔GitHub model, Sam (OpenClaw) shared-memory integration, a real Slack
+  setup audit, and end-to-end workflows.
 - **[FABLE-BUILD-PROMPT.md](./FABLE-BUILD-PROMPT.md)** — the pasteable prompt for building and
   optimising this system with Fable (`claude-fable-5`) in the Jewell Teams account.
 - **[ROADMAP.md](./ROADMAP.md)** — the phased build and the immediate next actions.
