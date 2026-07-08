@@ -4,15 +4,16 @@ Turn a meeting transcript into owned, dated actions and a routed meeting note.
 
 ## When to use
 
-After any internal or client meeting that has a transcript or a reliable capture (Fireflies or
-Zoom, per the meeting-capture source of truth). Use it once per meeting, as soon as the capture
-is available.
+After any internal or client meeting that has a transcript or a reliable capture. Use it once per
+meeting, as soon as the capture is available.
 
 ## Inputs
 
-- The meeting transcript or capture. **Transcript source, honestly:** manual paste of the
-  transcript is the explicit interim method. A capture connector (for example Circleback) is a
-  Tier 2 candidate and is not wired yet.
+- The meeting transcript. **Transcript source, honestly:** Circleback is the PRIMARY source. The
+  skill searches Circleback for the meeting by title and date (`SearchMeetings`), then pulls the
+  transcript via the connector (`GetTranscriptsForMeetings`). Manual paste of the transcript is
+  the FALLBACK, used only when a meeting was not captured in Circleback (for example a call taken
+  outside the connector, or a capture failure).
 - The attendee list as recorded by the capture tool.
 - The relevant Asana project (client project or internal project) to propose tasks into.
 
@@ -23,8 +24,9 @@ is available.
 
 ## Steps
 
-1. Read the transcript. Identify candidate actions: anything committed to, assigned, or agreed as
-   a next step.
+1. Search Circleback for the meeting by title and date. If found, pull the transcript via the
+   connector. If not found, fall back to a manual paste of the transcript. Read the transcript and
+   identify candidate actions: anything committed to, assigned, or agreed as a next step.
 2. For each candidate action, draft an owner (from the attendee list only) and a date (from what
    was actually said, or flagged as "no date given").
 3. Draft the meeting note: attendees, decisions raised (not decided — decisions go through the
@@ -56,7 +58,7 @@ Asana, in the relevant client or internal project, as one task with one owner an
 
 ## Example
 
-Acme Co discovery call, 45 minutes, captured by Fireflies. The skill drafts a note for
+Acme Co discovery call, 45 minutes, captured by Circleback. The skill drafts a note for
 `01_Clients/Acme Co/01_Discover`, and proposes three Asana tasks: "Send Acme Co the audience
 questionnaire" (owner: Ronnie, date: this Friday), "Confirm Acme Co's competitor list" (owner:
 engagement owner, date: no date given, flagged), and "Share draft sitemap for review" (owner:
