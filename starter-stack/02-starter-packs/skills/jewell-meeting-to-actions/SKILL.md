@@ -10,7 +10,9 @@ is available.
 
 ## Inputs
 
-- The meeting transcript or capture.
+- The meeting transcript or capture. **Transcript source, honestly:** manual paste of the
+  transcript is the explicit interim method. A capture connector (for example Circleback) is a
+  Tier 2 candidate and is not wired yet.
 - The attendee list as recorded by the capture tool.
 - The relevant Asana project (client project or internal project) to propose tasks into.
 
@@ -43,6 +45,8 @@ is available.
   (client-facing meeting, or any action that touches client scope, pricing or a commitment)
   confirmed by the task owner and the engagement owner.
 - Never leaves a note stranded in the capture tool. It always routes to its one home.
+- Before filing an output to a Drive folder, confirm the folder exists; if it does not, propose
+  creating it — never create it silently.
 
 ## Where the output is filed
 

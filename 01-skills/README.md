@@ -3,6 +3,11 @@
 Reusable Claude skills and workflows. The full spec for the first 18 skills lives in
 [OPERATING-SYSTEM.md, Section 15](../OPERATING-SYSTEM.md#section-15-skills-and-reusable-workflows).
 
+**Where the skills actually live.** For now the canonical home of the skill files is
+[`starter-stack/02-starter-packs/skills/`](../starter-stack/02-starter-packs/skills/). This
+directory holds Jewell-specific skill overrides only, when a skill needs to diverge from the kit
+version. Do not fork a skill here that is identical to the kit's copy.
+
 ## What belongs here
 
 Skill definitions and prompts, versioned. Each skill states: purpose, input, output, owner, where

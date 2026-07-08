@@ -36,19 +36,20 @@ both.
 
 ## Map of this repo
 
-| Path | Holds |
-| --- | --- |
-| `00-governance/` | Constitution, roles and access, approval points, boundaries, source-of-truth map |
-| `01-skills/` | Reusable Claude skills and workflows |
-| `04-mcp/` | Connector and tool map, scopes, security posture |
-| `05-evals/` | Eval system and golden questions |
-| `06-memory/` | The memory layers and the decision log |
-| `07-github-actions/` | CI: gitleaks, security review, checks |
-| `08-templates/` | Templates: packs, briefs, Today door, case study |
-| `09-playbook/` | The 3D Process spine, Ask and portal behaviour |
-| `10-cadence/` | Daily to annual rhythm definitions |
+| Path | Holds | Status |
+| --- | --- | --- |
+| `00-governance/` | Constitution, roles and access, approval points, boundaries, source-of-truth map | Populated |
+| `01-skills/` | Jewell-specific skill overrides; skills are canonical in `starter-stack/02-starter-packs/skills/` for now | Scaffold |
+| `04-mcp/` | Connector and tool map, scopes, security posture | Seed table filled; completed at the Phase 1 audit |
+| `05-evals/` | Eval system and golden questions | Populated (golden questions); CI gate parked |
+| `06-memory/` | The memory layers and the decision log | Populated (decision log live; layer templates seeded) |
+| `07-github-actions/` | CI: gitleaks, security review, checks | Scaffold — guardrails defined, workflows not yet applied |
+| `08-templates/` | Templates: packs, briefs, Today door, case study | Scaffold — not yet built; content lives in OPERATING-SYSTEM.md §12 and §15 for now |
+| `09-playbook/` | The 3D Process spine, Ask and portal behaviour | Scaffold — not yet built; content lives in OPERATING-SYSTEM.md §8 and §9 for now |
+| `10-cadence/` | Daily to annual rhythm definitions | Scaffold — not yet built; content lives in OPERATING-SYSTEM.md §12 for now |
 
-Numbering leaves gaps on purpose, so folders can be added without renumbering.
+Numbering leaves gaps on purpose (`02` and `03` are deliberately reserved), so folders can be
+added without renumbering.
 
 ## Status
 
