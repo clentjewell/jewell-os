@@ -5,7 +5,10 @@ documentation), not assumptions. Nothing here changes a tool, permission or auto
 approve it.
 **Relationship to prior work:** this is the execution layer on top of `OPERATING-SYSTEM.md` (the
 20-section manual), `RONNIE-RUNBOOK.md` (the switch-on guide) and the `starter-stack/` kit. Read
-this alongside those, not instead of them.
+this alongside those, not instead of them. Where this document and `OPERATING-SYSTEM.md` disagree,
+`OPERATING-SYSTEM.md` wins; propose a reconciliation, do not run the difference. Documents named
+with a plain filename but held in Google Drive (for example `OS-CONTEXT-BUNDLE.md`,
+`00-MASTER-INDEX.md`, `workspace/MEMORY.md`) live Drive-side, not in this repo.
 
 ---
 
@@ -282,7 +285,8 @@ captured continuously, washed back only at weekly/monthly review.
 needs Clent per the existing rule.
 
 ### 6.5 Weekly rhythm — Monday reset, Friday close, washback
-**Trigger:** calendar-scheduled.
+**Trigger:** calendar-scheduled. *(Friday close and washback are templated and ready; the Monday
+reset is parked until the weekly rhythm is built — see `OPERATING-SYSTEM.md` Section 12.)*
 **Chain:** Friday close (wins, slips, waiting-on, decisions) → washback (signals → proposed changes,
 each tagged fact/assumption, tier, evidence) → Clent approves, corrects or rejects each → approved
 items route to `06-memory/decision-log.md` or the relevant SOP.

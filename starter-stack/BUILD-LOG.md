@@ -34,6 +34,36 @@ defect, 2 broken refs, flag/path defects) · voice PASS.
 
 ---
 
+## Final optimisation pass — 8 July 2026 (Fable orchestrating; Sonnet and Opus executing)
+
+Four parallel audits (integration end-to-end by Opus; efficiency, security and operator-currency
+by Sonnet) produced ~90 findings. Three Sonnet fixers closed them on disjoint scopes; Fable
+personally handled the private-adjacent work (decision-log redaction; the standing-approval
+carve-out in the constitution and AGENTS.md). An independent Opus adversarial verifier then
+attacked 6 claims: privacy HOLDS, references HOLDS, security HOLDS, currency and honesty held
+with narrow refutations, all closed and mechanically re-verified (0 floating action pins,
+0 broken links across 91 files, 0 leak terms, all 7 packs install clean via --dry-run).
+
+Headline fixes: decision log redacted of private-layer specifics with a recorded redaction rule;
+constitution reconciled with the live "AI executes, Ronnie reviews" model via a scoped
+standing-approval carve-out; runbook rewritten to the automated state (7:00am NSW brief, failure
+path, escalation channel, verification steps); 6 duplication clusters collapsed to
+canonical-plus-pointer; memory layer files created so washback has destinations; security
+workflows pinned with alert routing; MCP defaults read-only; prompt-injection eval added and
+wired; every aspirational integration honestly parked; PLATFORM-OPERATING-SYSTEM.md (new,
+draft) explicitly subordinated to OPERATING-SYSTEM.md.
+
+**Final rubric (0-5):** Time-saving 4 (estimates until 2 weeks of live use) · Delegable 5 ·
+Findable 4 (platform-doc reconciliation awaits Clent) · Trustworthy 4 (evals ready, not in CI
+until the Ask endpoint) · Actionable 5 · Improvable 5 · Secure 4 (SHA pinning and repo CI queued)
+· Scalable 5 · Simple 4 (the new platform doc adds surface, subordinated) · Boundary-clean 5.
+All dimensions at 4 or higher — stop condition met. 45/50.
+
+**Open for Clent (Tier 2):** review PLATFORM-OPERATING-SYSTEM.md and pick the Sam-brief
+reconciliation option (its Section 6.5 note); the second Asana inventory proposal; applying the
+security pack to this repo. **Parked honestly:** Ask endpoint + eval CI, Gmail route, Monday
+reset, finance packs, meeting-capture connector.
+
 ## Pass 1 — plan and delegation
 
 **Reality audit (done live, this session, read-only):** Calendar, Asana and Drive connectors

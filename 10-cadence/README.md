@@ -8,7 +8,7 @@ The operating rhythm, daily to annual. Full detail in
 | Cadence | Core output | Owner | Approval |
 | --- | --- | --- | --- |
 | Daily | Today door brief; captured decisions; end-of-day washback | Clent (system-assembled) | On anything it proposes to change |
-| Weekly | Monday reset, client packs, finance pack, Friday close, washback proposals | Ronnie | Clent on memory and strategy |
+| Weekly | Friday close, washback proposals; Monday reset, client packs and finance pack are parked (see `OPERATING-SYSTEM.md` Section 12) | Ronnie | Clent on memory and strategy |
 | Monthly | Month-end pack, OS scorecard, library and findability reviews | Clent + Ronnie | Clent on spend and library |
 | Quarterly | Access recertification, strategy, security, simplification, pricing | Clent | Clent on all |
 | Annual | Renewals, DR test, connector re-vetting, strategy offsite, OS reset | Clent | Clent |

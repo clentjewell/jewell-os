@@ -911,7 +911,7 @@ Nine phases. For each: goal, actions, outputs, owner, approval, risks, definitio
 - **Owner:** Ronnie.
 - **Approval:** Clent on what the routines change.
 - **Risks:** unused routines. Mitigation: pilot, keep only what is used.
-- **Done when:** the Today door is used daily for two weeks.
+- **Done when:** the Today door is used daily for 2 weeks.
 
 ### Phase 6: Build the first skills
 - **Goal:** repeatable work is easier.

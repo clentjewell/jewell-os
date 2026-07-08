@@ -85,7 +85,7 @@ TODAY DOOR — Thursday, 6 March
    - Acme Co invoice reminder, 2 days overdue. Owner: Ronnie.
 
 5. Client work at risk
-   - Beacon Retail Discover pack is one day from its gate with two open inputs still missing.
+   - Beacon Retail Discover pack is one day from its gate with 2 open inputs still missing.
 
 6. Personal priority today
    - One personal priority today. (Content stays in the personal space.)

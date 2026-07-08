@@ -22,7 +22,9 @@ file store. Files, client work and finance records live in Google Drive.
 ## The one rule
 
 AI proposes, a human decides. Nothing is auto-promoted, auto-deleted, auto-published or
-auto-committed to a client. Ask before you send. Approve before publish.
+auto-committed to a client. Ask before you send. Approve before publish. One recorded exception:
+a routine with standing approval (see the constitution, rule 1) executes on its schedule and the
+operator reviews the output.
 
 ## What lives where (authority split)
 
