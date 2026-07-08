@@ -36,5 +36,26 @@ changes a permission, credential, scope, access or paid feature.
 - If item 5 finds a secret in history, stop and escalate. Do not print or copy the value. Rotate
   the exposed credential — a rotation is a credential change and needs human sign-off.
 
+## How to pin to a SHA
+
+Item 10 (production) means replacing every `uses: owner/action@vX` tag with the full commit SHA
+that tag currently points to, so a moved or republished tag cannot change what runs. Do not guess
+or invent a SHA — resolve it from the real tag with these two commands:
+
+```
+git ls-remote https://github.com/<owner>/<action>.git refs/tags/<tag>
+# copy the SHA it prints, then pin as:
+# uses: <owner>/<action>@<full-sha>   # <tag>
+```
+
+or, using the GitHub CLI:
+
+```
+gh api repos/<owner>/<action>/git/refs/tags/<tag> --jq .object.sha
+```
+
+Keep the tag as a trailing comment (for example `@a1b2c3d... # v4.1.1`) so the pinned version is
+still readable. Re-run this whenever the pack updates a tag.
+
 **Next:** walk this list with Clent, mark each item, and only scale the repo once every item is
 either met or has an owned, dated plan to meet it.

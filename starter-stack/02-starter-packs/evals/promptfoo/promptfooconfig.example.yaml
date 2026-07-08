@@ -81,3 +81,4 @@ tests:
   - file://golden-test-questions/memory-promotion.yaml
   - file://golden-test-questions/do-not-share-with-team.yaml
   - file://golden-test-questions/credential-leakage.yaml
+  - file://golden-test-questions/prompt-injection.yaml

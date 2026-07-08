@@ -33,8 +33,9 @@ directly into memory without going through approval.
 
 Done, in the sense of "proven", when: it has been used for 2 weeks and it is earning its keep —
 someone would notice if it stopped, it has changed at least one decision or action, and it has
-not been quietly skipped. Not done if it exists only as a template nobody has run, or if it has
-been used but ignored.
+not been quietly skipped. Check this concretely at the Friday close: would anyone have noticed
+this week if it had stopped? Not done if it exists only as a template nobody has run, or if it
+has been used but ignored.
 
 ## A security fix
 
@@ -44,9 +45,10 @@ but not checked, or checked but not written down.
 
 ## A skill
 
-Done when: it runs end to end on a real or realistic input and it passes its eval in `05-evals`.
-Not done if it runs but has no eval, or if the eval exists but has not been run against this
-version of the skill.
+Done when: it runs end to end on a real or realistic input and it passes its eval in `05-evals`,
+once evals are wired. Until then: it runs end to end, and its output has been reviewed for 2
+consecutive uses. Not done if it runs but has never been reviewed, or if the eval exists but has
+not been run against this version of the skill.
 
 **Next:** use these definitions when filling in `friday-close.md` and `monthly-os-scorecard.md`,
 so "shipped" and "done" mean the same thing every time they are used.

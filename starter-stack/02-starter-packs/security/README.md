@@ -58,5 +58,12 @@ distribution. Never vendor or embed its source into our own code.
 Every action is pinned to a major version tag (for example `@v4`). For production, pin to a full
 commit SHA instead, so a moved tag cannot change what runs. This is noted in each file.
 
+## When a scan finds something
+
+Any failed security workflow, or a SARIF finding, is triaged weekly by Clent (owner), with Ronnie
+notified in the ops channel. Quarterly TruffleHog runs are checked by the owner in the Actions tab
+the same week they run. Zizmor findings are reviewed when the SARIF upload lands, not left to
+accumulate.
+
 **Next:** copy the Adopt-now workflows into a target repo, replace the `PLACEHOLDER` values, then
 walk `repo-security-baseline.md` with Clent.

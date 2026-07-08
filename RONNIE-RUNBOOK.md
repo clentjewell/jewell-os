@@ -3,12 +3,11 @@
 **For:** Ronnie. **From:** the OS build, 7 July 2026. **Approver above you:** Clent.
 **How long:** about 2 hours across the day, one step at a time. You can stop after any step.
 
-> **Status, 8 July 2026 — Clent approved the switch-on with a revised model: the AI executes,
-> you review and are notified, humans check in the background.** What that means per step:
-> Step 1 now runs automatically (a daily 8:30am AEST brief posts to Slack — your job is to check
-> it, not generate it). Steps 4 to 6 are AI-executed with you notified; the one thing the AI
-> cannot do is change Asana project membership — that single click is Clent's (see Step 4). The
-> gates below still hold: anything that surprises you, stop and ask.
+> **Status.** The revised operating model is live (constitution rule 1): the OS executes approved
+> routines, you review and are notified, humans check in the background. The Today door posts to
+> Slack automatically, 7:00am NSW on weekdays (see Step 1 for the October DST caveat). The first
+> Asana archive is done; a second, larger inventory proposal awaits Clent (Step 5). One membership
+> click, only Clent's to make, is all that is left on Step 4. Full history: `06-memory/decision-log.md`.
 
 ## Step 0 — how this runbook works (read this first)
 
@@ -26,6 +25,12 @@ Three kinds of step, marked on each one:
 - **Tier 3 — Clent only.** You do not start these until Clent has explicitly signed off. One step
   below is Tier 3. It waits for him, not for you.
 
+The full gate list, with every action that always needs approval, lives in
+`00-governance/approval-points.md` — the tiers above are the short version.
+
+**Escalation.** Message Clent directly in Slack (or by phone if urgent) — #jewell-ops (create if
+it does not exist — Tier 1). One channel, always the same.
+
 One rule above all: if anything in a step surprises you, stop and ask. A question is never the
 wrong move.
 
@@ -35,7 +40,10 @@ wrong move.
 
 **What this does.** Every morning, one brief that answers: what matters today, which meetings need
 prep, what is overdue, what is blocked, what needs Clent, what you can handle, and what changed
-since yesterday. It reads the work calendar and Asana. It reads only — it changes nothing.
+since yesterday. It reads the work calendar and Asana. It reads only — it changes nothing. It now
+posts to Slack automatically at 7:00am NSW on weekdays, under the standing approval recorded in
+the constitution (rule 1). When daylight saving starts in October, the post shifts to 8:00am NSW
+unless the cron is moved from 21:00 UTC to 20:00 UTC — this is on the October scorecard.
 
 **Why it helps / time saved.** Clent stops assembling his day by hand from 4 tools. Proven live on
 7 July against the real calendar and Asana: it caught a double-booking (an in-person appointment
@@ -46,18 +54,20 @@ back per day, 3 to 5 hours per week.
 design; at most a single "personal priority" reminder line appears, never the content.
 
 **What you do.**
-1. Open the Jewell OS project in Claude Teams.
-2. Paste the Today door prompt from `jewell-os/starter-stack/02-starter-packs/operating-rhythm/today-door.md`.
-3. Read the brief it returns. Check it against the real calendar for today.
-4. Post it to the usual morning channel before the 9:00 Daily Catch-Up.
+1. Open Slack. The brief is posted for you at 7:00am NSW on weekdays — no pasting, no posting.
+2. Read it. Check it against the real calendar for today.
+3. If it looks right, you are done before the 9:00 Daily Catch-Up.
+4. If no brief has appeared by 7:15am NSW, tell Clent in the escalation channel and run the
+   prompt manually from `starter-stack/02-starter-packs/operating-rhythm/today-door.md` as the
+   fallback.
 
 **How to check it worked.** The brief lists today's real meetings, real overdue items, and flags
-any conflict. If it invents a meeting or misses one, stop and flag it — that is an eval failure we
-want to know about.
+any conflict. If it invents a meeting or misses one, stop and flag it to Clent. This is a manual
+check for now — no evals run yet; the eval suite is parked until the Ask endpoint exists.
 
-**How to undo.** Stop running it. Nothing persists.
+**How to undo.** Ask Clent to pause the schedule. Nothing persists.
 
-**Your OK to continue?** If the brief was right today, run it daily from tomorrow.
+**Your OK to continue?** It is already running; your job each morning is the check above.
 
 ---
 
@@ -118,66 +128,64 @@ and contains nothing personal.
 
 ---
 
-## Step 4 — separate personal and legal items out of shared Asana — **Tier 3: wait for Clent**
+## Step 4 — verify the private boundary in Asana — Tier 3 for the one remaining click
 
-**What this does.** The 7 July audit found a small number of personal and legal items sitting in
-the shared work Asana, visible beyond Clent and you. The itemised list is held privately by Clent
-— it is deliberately not written in this document. This step moves those items into a private
-project that only Clent and you can see.
+**What this does.** The private consolidation is completed and verified; detail held privately.
+The structure is now simple: "Clent - 2026" is the single work board, and "Clent — Private" is
+the sole separate exception. Your job on this step is verification, not execution.
 
 **Why it helps.** This is the boundary the whole OS is built on: personal and legal content never
 sits where the team or the machine can read it.
 
-**What it changes.** Asana project membership and the location of the listed items. Nothing is
-deleted. Fully reversible.
+**What is outstanding.** One membership correction, and only Clent can click it: "Clent — Private"
+→ Share → remove the one work-only member → add Ronnie. The AI cannot change project membership.
+Until that click, nothing is exposed further — the correction just completes the access model.
 
-**Update, 8 July:** Clent approved AI execution of this step. The audit found the "Personal To
-do" project is already private — but its members are Clent plus one work-only team member, which
-breaks the access model. The AI cannot change project membership; the moves are queued until the
-membership is fixed, so nothing is exposed to the wrong member in the meantime.
+**What you do.**
+1. Remind Clent of the one click above if it is still pending.
+2. Once done, check a team member's view of Asana: nothing private should be team-visible.
+3. Confirm with Clent that the result matches his private list. The list itself stays with him —
+   it is deliberately not written in this document.
 
-**What happens.**
-1. **Clent (1 minute, only he can):** "Personal To do" → Share → remove the work-only member →
-   add Ronnie.
-2. **AI (after 1 is confirmed):** moves the queued personal items into the project.
-3. **You:** confirm with Clent against his private list that nothing personal or legal remains
-   team-visible.
+**How to check it worked.** A team member's view of Asana shows nothing that belongs in the
+private layer, and "Clent — Private" is visible to Clent and you only.
 
-**How to check it worked.** A team member's view of Asana shows zero personal, legal, health or
-family items. Clent confirms against his list.
+**How to undo.** Membership can be changed back at any time. Nothing was deleted.
 
-**How to undo.** Move any item back; re-add members. Nothing was deleted.
-
-**Your OK — and Clent's sign-off — to continue?**
+**Your OK to continue?** The click is Clent's; the check is yours.
 
 ---
 
-## Step 5 — Asana hygiene: archive the graveyard — Tier 2
+## Step 5 — Asana hygiene: verify the archive, then the project inventory — Tier 2
 
-**What this does.** The audit found the task list is dominated by items dated 2023 to 2024, long
-overdue and unowned in practice. This step produces an archive proposal — a list of stale tasks to
-archive (never delete), so that due dates start meaning something again.
+**What this does.** The first archive is executed: ~470 stale pre-2026 tasks archived, all
+restorable, with anything still live rescued and re-dated. Your job now is to verify it looks
+right. Then comes the second, larger clean-up: a project-inventory proposal that is with Clent,
+awaiting his one word.
 
 **Why it helps / time saved.** The Today door can only trust Asana if "overdue" means something.
 This is what makes Step 1 compound. Estimate: 1 to 2 hours per week of scanning-and-ignoring
 stopped, and a task list the whole team can trust.
 
-**What it changes.** Nothing until Clent approves the list. Then: tasks are archived (recoverable),
-not deleted.
+**What it changes.** The archive is done (recoverable, not deleted). The project inventory
+changes nothing until Clent approves it.
 
 **What you do.**
-1. Ask the OS to list all incomplete tasks with due dates before 1 January 2026, grouped by
-   project, as a proposal.
-2. Skim it. Pull out anything that is genuinely still live and re-date it.
-3. Send Clent the summary: "N tasks pre-2026 proposed for archive. Recommended: archive all except
-   the M I have re-dated. Do it?"
-4. On "do it": archive them. Keep the list so anything can be restored.
+1. Open "My Tasks" and "Clent - 2026" (the single work board). What remains should be current,
+   owned and dated. If something live was archived, restore it and tell Clent.
+2. Know what the second proposal covers, so you can answer for it: 231 active projects, of which
+   ~100 are stale year-boards, 23 empty, 32 duplicates, 83 ownerless, and 18 are containers left
+   by departed staff. The recommendation is to archive the stale and empty ones and reassign the
+   orphans.
+3. When Clent says "do it", the OS executes; project archiving needs some manual clicks, which
+   route to you with instructions.
 
-**How to check it worked.** Open "My Tasks" — what remains is current, owned and dated.
+**How to check it worked.** The task list reads as current, and the project list stops being a
+graveyard. Anything archived can be restored from the kept list.
 
-**How to undo.** Un-archive any task. The proposal list is the record.
+**How to undo.** Un-archive any task or project. The proposal list is the record.
 
-**Your OK to continue?**
+**Your OK to continue?** The archive check is yours today; the inventory waits on Clent.
 
 ---
 
@@ -212,19 +220,22 @@ claims to be both.
 ## Step 7 — Friday close and weekly washback — Tier 1 to run, Tier 2 to apply
 
 **What this does.** Friday, 30 minutes: close the week (wins, slips, waiting-on, decisions), then
-run the washback — the OS proposes what should become memory, SOP or playbook change. Proposals
-stop at Clent. Nothing self-promotes.
+run the washback — the OS proposes what should become memory, SOP or playbook change. The revised
+operating model applies here: the OS drafts both the Friday close and the washback; you review
+and approve before anything is filed. Proposals stop at Clent. Nothing self-promotes.
 
 **Why it helps / time saved.** The system starts learning weekly instead of never — without noise
 overwriting strategy. Estimate: repeated questions and re-litigated decisions drop within a month.
 
 **What you do.**
-1. Friday afternoon: run the Friday close template
-   (`jewell-os/starter-stack/02-starter-packs/operating-rhythm/friday-close.md`).
-2. Then the washback template (`weekly-washback.md`): it drafts proposals with evidence and
-   confidence.
+1. Friday afternoon: the OS drafts the Friday close
+   (`jewell-os/starter-stack/02-starter-packs/operating-rhythm/friday-close.md`). Review it,
+   correct it, then file it.
+2. Then the washback (`weekly-washback.md`): the OS drafts proposals with evidence and
+   confidence. Review them before they go anywhere.
 3. Send Clent the proposals. He approves, corrects or rejects each.
-4. Route approved items to the decision log or memory; log rejections with the reason.
+4. Route approved items to the decision log or memory; log rejections with the reason. Nothing
+   is filed or promoted without your review and the right approval.
 
 **How to check it worked.** Monday's reset starts from the close, not from memory. The decision
 log has this week's calls in it.
@@ -247,4 +258,5 @@ log has this week's calls in it.
 **If anything felt wrong at any step:** stop, note what happened, tell Clent. The system proposes;
 humans decide. That includes you.
 
-**Next:** run Step 1 tomorrow morning, before the 9:00 catch-up.
+**Next:** check this morning's 7:00am brief in Slack (Step 1), then remind Clent of his one
+membership click on "Clent — Private" (Step 4).

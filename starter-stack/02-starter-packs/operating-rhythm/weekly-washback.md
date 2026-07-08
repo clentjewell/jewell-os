@@ -16,8 +16,9 @@ often it repeats.
 ## The ritual
 
 1. **Gather signals.** Pull from the week's Deepen notes, repeated questions (a question asked
-   more than once is a memory gap, not a coincidence), and operational friction (anything that
-   was harder than it should have been). Note the source and date for each signal.
+   more than once is a memory gap, not a coincidence — this signal is dormant until an Ask
+   surface exists to log questions from), and operational friction (anything that was harder than
+   it should have been). Note the source and date for each signal.
 2. **Synthesise into proposed changes.** Group related signals. For each proposed change, record:
    - **Kind** — memory, SOP, or strategy.
    - **Evidence** — the signals behind it, with source and date.
@@ -28,7 +29,8 @@ often it repeats.
 4. **Clent decides**, one proposal at a time: approve, reject, or park for more evidence.
 5. **Route approved items.** An approved memory item goes to `06-memory` (jewell-os), through the
    correct layer (see the memory pack's `README.md`). An approved playbook change goes to the
-   relevant `jewell-os` file, with Clent's sign-off recorded.
+   relevant `jewell-os` file, with Clent's sign-off recorded. The hand-off: the OS drafts the
+   memory update and opens a pull request; Clent (or Raef) merges it. Ronnie never needs git.
 6. **Log rejected items with a reason.** A rejected proposal is not deleted; it is logged with why
    it was rejected, so the same idea is not re-proposed without new evidence.
 

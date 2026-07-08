@@ -1,20 +1,14 @@
 # Jewell × Maxxim relationship
 
-The full three-layer model lives in
+The canonical three-layer model and the six binding relationship rules live in
 [OPERATING-SYSTEM.md, Section 2](../OPERATING-SYSTEM.md#section-2-jewell--maxxim-relationship-model).
-This file is the binding rule set.
+Read them there; do not restate them here.
 
-## The rules
+## The lines that must hold
 
-1. Jewell remains human-led and the primary client-facing brand.
-2. Maxxim powers intelligence and repeatability, and stays the engine, not the front door.
-3. Maxxim must not overpower the Jewell client experience.
-4. Jewell delivery can generate Maxxim IP, but only after review and sanitisation.
-5. Client data must never leak into reusable Maxxim assets.
-
-## How to describe it
-
-*Jewell, human-led commercialisation, powered by Maxxim.*
+1. Jewell is human-led and the primary client-facing brand; Maxxim stays the engine, never the front door.
+2. Maxxim must not overpower the Jewell client experience.
+3. Client data must never leak into reusable Maxxim assets; Jewell work becomes Maxxim IP only after review and sanitisation.
 
 ## The one-line test
 

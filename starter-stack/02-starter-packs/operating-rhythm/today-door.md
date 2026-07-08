@@ -4,15 +4,18 @@ The single daily entry point. First thing opened each morning, last thing checke
 It reads from the real tools. It is not a new place to maintain by hand. See `OPERATING-SYSTEM.md`
 Section 5 for the target model this template implements.
 
-**Proven live.** The Today door has been proven live against real Calendar and Asana data,
-read-only. It assembles correctly from the real tools. Wiring it into a routine that runs on a
-schedule is a separate, later step.
+**Live and scheduled.** The Today door is proven live against real Calendar and Asana data,
+read-only, and now runs automatically: it posts to Slack at 7:00am NSW on weekdays (cron 21:00 UTC
+Sun–Thu). From October, when daylight saving starts, the post shifts to 8:00am NSW unless the cron
+is moved to 20:00 UTC — flagged for the October monthly review (see `monthly-os-scorecard.md`).
+This runs under the standing-approval carve-out (constitution rule 1): it executes on schedule,
+and Ronnie reviews the output rather than re-approving it each morning.
 
 **It is generated, read-only, and proposes rather than acts.** The Today door reads Calendar,
 Asana, the decision log and alerts. It writes nothing back on its own. Every action it suggests
 needs the tier-appropriate confirmation in `OPERATING-SYSTEM.md` Section 5 and the decision-tier
-rules in Section 14. It never sends, never files, never changes a permission, and never
-auto-promotes anything to memory.
+rules in Section 14 (short version: `00-governance/approval-points.md`). It never sends, never
+files, never changes a permission, and never auto-promotes anything to memory.
 
 ## Inputs
 
@@ -21,39 +24,14 @@ auto-promotes anything to memory.
 - **Asana** — tasks, owners, due dates, project status.
 - **The decision log** (`06-memory/decision-log.md`) — what has already been decided, so nothing
   gets re-litigated.
-- **Alerts** — security, finance and delivery alerts already routed to the team.
+- **Alerts** — security, finance and delivery alerts, once those routes exist. Dormant for now:
+  no alert route is wired yet, so the brief treats this input as empty rather than guessing.
 
-## The 13 questions the Today door answers
+## What the Today door answers, and the flow it follows
 
-1. What matters today.
-2. What meetings need preparation.
-3. What decisions are waiting.
-4. What actions are overdue.
-5. What client work is at risk.
-6. What is a personal priority today — surfaced as a single private reminder line only, never
-   the content behind it. See `OPERATING-SYSTEM.md` Section 13.
-7. What needs Clent's attention.
-8. What Ronnie or the team can handle.
-9. What AI or automation can handle.
-10. What should not be touched.
-11. What needs approval.
-12. What is blocked.
-13. What has changed since yesterday.
-
-## The 11-step daily flow
-
-1. **Morning brief** — assemble the day from Calendar, Asana, the decision log and alerts.
-2. **Calendar review** — meetings, prep needed, gaps.
-3. **Priority review** — the few things that matter today.
-4. **Meeting preparation** — the brief for each meeting that needs one.
-5. **Task review** — what is due, what is overdue, what is mine.
-6. **Waiting-on review** — what is blocked on someone else.
-7. **Client delivery review** — what is at risk, what is at a gate.
-8. **Alerts and risks** — security, finance, delivery.
-9. **Personal priority check** — a private reminder line only; content stays in the personal
-   space.
-10. **Decision capture** — anything decided today goes to the decision log.
-11. **End-of-day or end-of-week washback** — what changed, what mattered, what can be retired.
+The 13 questions and the 11-step daily flow are defined once, in `OPERATING-SYSTEM.md` Section 5
+— see it there rather than a copy here. This file supplies the generator prompt and a worked
+example that implement that model; it does not redefine it.
 
 ## Generator prompt
 
@@ -70,12 +48,15 @@ Read-only. Propose, never act. Personal calendars are out of scope entirely — 
    someone else.
 3. Read the decision log for anything logged in the last 7 days, and anything still marked open
    or awaiting a decision.
-4. Read any routed alerts (security, finance, delivery) from the last 24 hours.
+4. Check for routed alerts (security, finance, delivery). This input is dormant until those
+   routes are wired — if none exist yet, treat this step as empty and say so, do not guess.
 5. Do not read, query or infer anything from a personal calendar, personal Drive space, or any
    Clent-only or legal source.
-6. Render the brief under the 13 questions above, in that order.
-7. For the personal priority line, surface only that a personal priority exists today, worded
-   generically (for example "one personal priority today"). Never name or describe it.
+6. Render the brief under the 13 questions in `OPERATING-SYSTEM.md` Section 5, in that order.
+7. For the personal priority line, its only source is a flag Clent sets from the private layer —
+   never a personal calendar, Drive space or other personal source. If Clent has set the flag,
+   surface one generic line (for example "one personal priority today"), never the content behind
+   it. If the flag is not set, the line is simply absent — do not invent one.
 8. Mark every proposed action with its decision tier (Tier 1, 2 or 3, per Section 14) and who
    would need to confirm it.
 9. Do not write anything back to Calendar, Asana or the decision log. Output the brief only.
@@ -139,5 +120,5 @@ TODAY DOOR — Thursday, 6 March
 This example uses placeholder clients ("Acme Co", "Beacon Retail"). No real client names or
 client data belong in this pack.
 
-**Next:** run the flow for two weeks before treating it as standard. See `definitions-of-done.md`
-for what "used and earning its keep" means for a routine.
+**Next:** run the flow for 2 weeks before treating it as standard. See `definitions-of-done.md` for
+what "used and earning its keep" means for a routine.

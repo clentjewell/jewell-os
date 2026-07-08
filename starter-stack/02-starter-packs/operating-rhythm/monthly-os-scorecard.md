@@ -53,6 +53,13 @@ nothing), **improve** (it is working but could be better), **simplify** (it is d
 **automate** (a human is doing something the system could assemble), **delegate** (the right
 owner is not the one currently doing it), or **retire** (it is not earning its keep).
 
+## Notes
+
+- **October: daylight saving check.** The Today door cron is set in UTC and does not track NSW
+  daylight saving automatically. When daylight saving starts in October, either move the cron
+  from 21:00 UTC to 20:00 UTC (Sun–Thu), or accept the post moving from 7:00am to 8:00am NSW.
+  Check and record the decision at the October review.
+
 ## Filing
 
 Save to `00_Operating`, named `YYYY-MM_OSScorecard.md`. Clent reads it at the monthly review in

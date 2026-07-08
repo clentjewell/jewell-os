@@ -20,7 +20,7 @@ jobs:
   semgrep:
     runs-on: ubuntu-latest
     container:
-      image: semgrep/semgrep   # production: pin to a digest
+      image: semgrep/semgrep:1.86.0   # production: pin to a digest (image:tag@sha256:...) — see repo-security-baseline.md
     steps:
       - name: Checkout
         uses: actions/checkout@v4   # production: pin to a full commit SHA

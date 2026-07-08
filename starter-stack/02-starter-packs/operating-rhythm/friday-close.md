@@ -3,6 +3,9 @@
 The weekly close-out. 30 minutes maximum. Owner: Ronnie. Files to `02_Internal`. See
 `OPERATING-SYSTEM.md` Section 12 (weekly rhythm).
 
+Under the revised operating model (constitution rule 1), the OS drafts the close from the week's
+Asana, calendar and decision-log activity; Ronnie reviews and corrects it before it is filed.
+
 ## Template
 
 ```
@@ -47,8 +50,8 @@ Time spent: <target 30 minutes>
   unlogged decision is a gap to close before the week is filed, not a detail to skip.
 - **Lessons candidates** are not lessons yet. They are raw material for `weekly-washback.md`.
   Nothing here is approved or promoted by writing it down.
-- **Next week's top 3** should be genuinely three, not a restated task list. If there are more
-  than three things that matter, pick the three that matter most.
+- **Next week's top 3** should be genuinely 3 things, not a restated task list. If there are more
+  than 3 things that matter, pick the 3 that matter most.
 
 ## Filing
 

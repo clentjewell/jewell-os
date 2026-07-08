@@ -19,8 +19,12 @@ needs, and grant it the narrowest scope.
 
 - Branch protection on `main`: no direct pushes, PR review required, checks must pass.
 - Gitleaks blocks a merge if a secret is detected.
-- The eval suite blocks a merge on a leakage or hallucination.
+- The eval suite is parked, not wired: it does not run in CI yet and does not block a merge. It
+  will block on a leakage or hallucination once the Ask endpoint exists and `05-evals` has runnable
+  fixtures. See `05-evals/golden-questions.md`.
 - Security review runs before merge on changes to answering rules, source sets or access.
+- The security pack (`starter-stack/02-starter-packs/security/`) is not yet applied to this repo.
+  Applying it is a queued Tier 1/2 step, not a completed one.
 
 ## To set up (Phase 4)
 

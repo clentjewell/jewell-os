@@ -8,7 +8,7 @@
 #   files.
 #
 # USAGE
-#   ./apply-to-target-repo.sh --target <path> --pack <base|security|evals|skills|mcp> \
+#   ./apply-to-target-repo.sh --target <path> --pack <base|security|evals|skills|mcp|memory|operating-rhythm> \
 #       [--pack <...> ...] [--dry-run]
 #
 # EXAMPLE
@@ -21,6 +21,8 @@
 #   evals    -> 02-starter-packs/evals
 #   skills   -> 02-starter-packs/skills
 #   mcp      -> 02-starter-packs/mcp
+#   memory           -> 02-starter-packs/memory
+#   operating-rhythm -> 02-starter-packs/operating-rhythm
 #
 # BEHAVIOUR / SAFETY
 #   - --dry-run prints the full copy plan (source -> dest, and whether dest
@@ -67,7 +69,7 @@ declare -a PACKS=()
 
 usage() {
   cat >&2 <<'EOF'
-Usage: apply-to-target-repo.sh --target <path> --pack <base|security|evals|skills|mcp> [--pack ...] [--dry-run]
+Usage: apply-to-target-repo.sh --target <path> --pack <base|security|evals|skills|mcp|memory|operating-rhythm> [--pack ...] [--dry-run]
 EOF
 }
 
@@ -117,9 +119,9 @@ TARGET="$(cd "${TARGET}" && pwd)"
 
 for p in "${PACKS[@]}"; do
   case "${p}" in
-    base|security|evals|skills|mcp) ;;
+    base|security|evals|skills|mcp|memory|operating-rhythm) ;;
     *)
-      echo "Error: '${p}' is not a valid pack. Choose from: base, security, evals, skills, mcp." >&2
+      echo "Error: '${p}' is not a valid pack. Choose from: base, security, evals, skills, mcp, memory, operating-rhythm." >&2
       exit 1
       ;;
   esac
@@ -294,6 +296,8 @@ for pack in "${PACKS[@]}"; do
     evals)    apply_generic_pack "evals"    "${STARTER_STACK_ROOT}/02-starter-packs/evals" ;;
     skills)   apply_generic_pack "skills"   "${STARTER_STACK_ROOT}/02-starter-packs/skills" ;;
     mcp)      apply_generic_pack "mcp"      "${STARTER_STACK_ROOT}/02-starter-packs/mcp" ;;
+    memory)   apply_generic_pack "memory"   "${STARTER_STACK_ROOT}/02-starter-packs/memory" ;;
+    operating-rhythm) apply_generic_pack "operating-rhythm" "${STARTER_STACK_ROOT}/02-starter-packs/operating-rhythm" ;;
   esac
   echo
 done

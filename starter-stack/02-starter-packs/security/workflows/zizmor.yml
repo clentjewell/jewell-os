@@ -38,6 +38,7 @@ jobs:
         # Prints findings to the log and writes SARIF for optional upload.
         # continue-on-error keeps the SARIF step reachable; tighten to fail the
         # build once the repo is clean.
+        # tighten to fail-on-finding once the repo is clean — tracked in the monthly scorecard.
         continue-on-error: true
         run: zizmor --format sarif . > zizmor.sarif
 

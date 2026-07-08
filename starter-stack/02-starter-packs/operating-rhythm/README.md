@@ -16,7 +16,7 @@ cadence. It gives a routine something concrete to produce.
 
 | File | Cadence | Owner | Files to |
 | --- | --- | --- | --- |
-| `today-door.md` | Daily | Clent, assembled by the system | Ephemeral; decisions to the log, actions to Asana |
+| `today-door.md` | Daily | System generates, Ronnie reviews, Clent reads | Ephemeral; decisions to the log, actions to Asana |
 | `friday-close.md` | Weekly | Ronnie | `02_Internal` |
 | `weekly-washback.md` | Weekly | Ronnie, Clent approves | `06-memory` (proposals), Drive mirror |
 | `monthly-os-scorecard.md` | Monthly | Clent and Ronnie | `00_Operating` |
@@ -42,7 +42,7 @@ was, why it stopped earning its keep, and the date it was retired.
 1. Read this file and the one template you need. Do not read the whole pack up front.
 2. Copy the template into the place it will actually be used (a Claude Code prompt, an Asana
    template task, a Drive doc) and adapt the placeholders to the target repo or team.
-3. Pilot it for two weeks before treating it as standard. See `definitions-of-done.md` for what
+3. Pilot it for 2 weeks before treating it as standard. See `definitions-of-done.md` for what
    "earning its keep" means for a routine.
 
 **Next:** start with `today-door.md`, the single daily entry point, then `friday-close.md` and

@@ -27,7 +27,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run trufflehog (verified secrets only)
-        uses: trufflesecurity/trufflehog@main   # production: pin to a full commit SHA
+        uses: trufflesecurity/trufflehog@v3.88.0   # v3.88.0 — production: replace tag with the full commit SHA — see repo-security-baseline.md
         with:
           path: ./
           # --only-verified reduces noise: reports secrets it could confirm are live.

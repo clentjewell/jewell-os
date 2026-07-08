@@ -1,8 +1,8 @@
 # Roadmap and next actions
 
 The phased build and the immediate next steps. Full detail in
-[OPERATING-SYSTEM.md, Section 18](../OPERATING-SYSTEM.md#section-18-implementation-roadmap) and
-[Section 19](../OPERATING-SYSTEM.md#section-19-immediate-next-actions).
+[OPERATING-SYSTEM.md, Section 18](./OPERATING-SYSTEM.md#section-18-implementation-roadmap) and
+[Section 19](./OPERATING-SYSTEM.md#section-19-immediate-next-actions).
 
 ## The nine phases
 
