@@ -136,7 +136,7 @@ Format: **Item — Source of truth — Supporting tools — What not to do — A
 | --- | --- | --- | --- | --- |
 | Client files | Google Drive, client folder | Portal links to Drive | Do not scatter copies in Slack or email | Owner of the engagement |
 | Internal tasks | Asana | Today door reads Asana | Do not track tasks in Docs or Slack | Task owner |
-| Decisions | Decision log (`06-memory` + Drive mirror) | Asana links to the log | Do not re-decide settled calls in chat | Clent |
+| Decisions | Decision log (`06-memory` — the repo is the single master; the Drive copy is a generated export produced at the Friday close by the OS, and nobody edits the Drive copy) | Asana links to the log | Do not re-decide settled calls in chat; do not edit the Drive export | Clent |
 | Meeting notes | Drive, routed to the client or internal folder | Fireflies or Zoom capture | Do not leave notes stranded in a tool | Note owner |
 | Client strategy | Drive, client strategy folder (approved) | Maxxim holds the working draft | Do not treat a draft as the strategy | Engagement owner + Clent |
 | Approved client outputs | Approved client folder or portal | Portal serves them read-only | Do not mix with drafts | Engagement owner |
@@ -184,7 +184,8 @@ rhythm, whose layer it belongs to, the security risk, and the next sensible impr
 - **For:** external correspondence. A routing surface, not a filing cabinet.
 - **Not for:** the store of record for decisions, files or tasks.
 - **Clean up:** labels and routing so client threads land in the right place.
-- **Connects to:** contact enquiries into the portal and Asana.
+- **Connects to:** contact enquiries into the portal and Asana. [Parked until the Gmail→Asana
+  enquiry route is built — see ROADMAP]
 - **Layer:** Jewell.
 - **Risk:** sensitive attachments living only in mail; phishing.
 - **Next:** a light label scheme; sensitive-thread labelling; nothing destructive.
@@ -572,6 +573,8 @@ Output: a findings list with severity. No change made without approval.
 - Secrets only in an approved secret store.
 - No credentials in Asana, Slack, GitHub, Google Docs or prompts.
 - Approval before changing any permission, credential, scope, access or authentication.
+- Connector and MCP scope rules (read-only first, write needs sign-off, untrusted content,
+  same-day revoke) are canonical in `starter-stack/00-governance/connector-access-rules.md`.
 
 ### Part C: Ongoing cadence
 - Weekly alert triage.
@@ -586,8 +589,7 @@ Output: a findings list with severity. No change made without approval.
 - **Now:** the read-only audit; branch protection; gitleaks; secret scanning on.
 - **Later, after approval:** permission changes, token re-scoping, access changes.
 - **Human sign-off always:** any credential, permission, scope or auth change.
-- **Never automated:** granting access, rotating a live client credential, changing a client-
-  facing permission.
+- **Never automated:** see the canonical gate list in `00-governance/approval-points.md`.
 - **Weekly:** alert triage. **Monthly:** security review. **Quarterly:** access recertification.
 
 **Next:** set the rhythm.
@@ -609,14 +611,20 @@ stays human-led.
 - **Automate:** assembly of the brief. **Human-led:** priorities and judgement.
 - **Contains:** Today door, morning brief, calendar, priorities, waiting-on, meetings, decisions
   needed, client delivery view, personal priority view, alerts, risks, blocked work, and a short
-  AI and technology brief when relevant.
+  AI and technology brief when relevant. [The AI and technology brief is parked until the daily
+  rhythm is bedded in — see ROADMAP]
+- **Live schedule:** the Today door runs at 7:00am NSW on weekdays and posts to Slack
+  automatically under standing approval; when daylight saving starts in October the UTC cron must
+  move or the post shifts to 8:00am NSW.
 
 ### Weekly
 - **Purpose:** reset, close, and wash back what was learned.
 - **Inputs:** the week's signals, delivery status, finance, decisions.
 - **Outputs:** Monday reset, client packs, finance pack, Friday close, Drive hygiene, decision-log
   update, lessons learned, proposed memory updates, Maxxim IP learnings, and a "what changed,
-  what mattered, what can be retired" summary.
+  what mattered, what can be retired" summary. [The Monday reset is parked until the weekly
+  rhythm is built — see ROADMAP] [The finance pack is parked until finance access is confirmed —
+  see ROADMAP]
 - **Owner:** Ronnie, with Clent approving proposals.
 - **Approval:** Clent on memory updates and any strategy washback.
 - **Filed:** `02_Internal` and the relevant client folders.
@@ -627,7 +635,8 @@ stays human-led.
 - **Inputs:** finance, subscriptions, delivery, Ask and portal quality, repeated questions.
 - **Outputs:** month-end pack, finance review, subscription and spend review, OS scorecard,
   client intelligence refresh, Maxxim output-library review, repeated-question review, file
-  findability review.
+  findability review. [The month-end pack is parked until finance access is confirmed — see
+  ROADMAP]
 - **Owner:** Clent and Ronnie.
 - **Approval:** Clent on spend and library changes.
 - **Filed:** `03_Finance` and `00_Operating`.
@@ -786,7 +795,8 @@ quality, escalation quality, stale-information detection.
 
 ### How to use promptfoo
 - Keep the golden sets in `05-evals` as version-controlled files.
-- Run them in CI on any change to a prompt, source set or portal.
+- Run them in CI on any change to a prompt, source set or portal. [Parked until the Ask endpoint
+  exists — the eval CI gate does not run yet; see ROADMAP]
 - Run the same set across models (Claude, and a fallback) to confirm quality holds.
 - Assert on: correct answer, correct source cited, correct refusal, no leakage, correct
   escalation.
@@ -918,7 +928,7 @@ Nine phases. For each: goal, actions, outputs, owner, approval, risks, definitio
 - **Goal:** trustworthy.
 - **Actions:** promptfoo tests, golden questions, hallucination tests, source tests, access tests,
   model-swap tests, client portal tests, role-based access tests, Jewell/Maxxim boundary tests.
-- **Outputs:** the eval suite in CI.
+- **Outputs:** the eval suite in CI. [Parked until the Ask endpoint exists — see ROADMAP]
 - **Owner:** Raef.
 - **Approval:** Clent.
 - **Risks:** false confidence. Mitigation: fail on leakage and hallucination hard.

@@ -2,8 +2,9 @@
 
 What an AI agent may do alone, what it must propose and have a human approve, and what only a
 human may do. The golden rule behind every row: **AI proposes, a human decides.** Full context in
-`../../OPERATING-SYSTEM.md` Sections 2 and 11, and the gate list in
-`../../00-governance/approval-points.md`.
+`../../OPERATING-SYSTEM.md` Sections 2 and 11. The always-needs-approval and never-automated gate
+lists are canonical in `../../00-governance/approval-points.md`; this matrix does not restate
+them, and where the two differ, the gate list wins.
 
 ## The matrix
 

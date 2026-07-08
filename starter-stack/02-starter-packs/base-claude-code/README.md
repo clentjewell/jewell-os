@@ -3,10 +3,8 @@
 The starting baseline for any repo that wants an AI agent working in it safely. Part of the
 Jewell × Maxxim starter stack. This is a starter kit, not a production app.
 
-Governance is set elsewhere and is not re-explained here. AI proposes, a human decides. Ask
-before you send. Approve before publish. Least privilege. Secrets never touch prompts, docs,
-Slack, Asana or GitHub. See the manual at `../../../OPERATING-SYSTEM.md` and the canonical
-instructions at `../../../AGENTS.md`.
+Governance: see `../../00-governance/` and `../../../OPERATING-SYSTEM.md`. AI proposes, a human
+decides.
 
 ## What this pack gives a new repo
 

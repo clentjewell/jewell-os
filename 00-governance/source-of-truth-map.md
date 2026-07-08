@@ -13,7 +13,7 @@ One source of truth per object. Everything else is a link or a copy, never a sec
 | --- | --- |
 | Files | Google Drive |
 | Actions | Asana |
-| Decisions | The decision log (`06-memory/decision-log.md`, mirrored to Drive) |
+| Decisions | The decision log (`06-memory/decision-log.md`). The repo is the single master; the Drive copy is a generated export produced at the Friday close by the OS, and nobody edits the Drive copy. |
 | Meeting notes | Drive, routed to the client or internal folder |
 | Approved client outputs | Approved client folder or portal |
 | Draft client outputs | Maxxim drafts, gated |

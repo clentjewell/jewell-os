@@ -40,11 +40,7 @@ tool's source. See `../README.md` for why nothing is vendored by default.
 
 ## Token discipline
 
-- Load the smallest relevant pack, not the whole kit.
-- Prefer a catalogue entry or a pack `README.md` over a full third-party doc.
-- Use `--dry-run` output to decide what to read next, rather than reading every file in a pack.
-- In a long session, summarise progress and continue rather than re-reading files already loaded.
-  See `token-usage-guidance.md` for the full set of rules.
+See `token-usage-guidance.md` — the canonical set of rules for keeping context small.
 
 **Next:** with the mode and pack chosen, follow `how-to-apply-to-existing-repo.md` to apply it to
 a target repo.

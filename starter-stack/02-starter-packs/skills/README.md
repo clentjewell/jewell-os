@@ -3,9 +3,8 @@
 Reusable Claude skills for the Jewell × Maxxim operating system. Part of the Jewell × Maxxim
 starter kit. This is a starter kit, not a production app.
 
-Governance is set elsewhere and is not re-explained here. AI proposes, a human decides. Ask
-before you send. Approve before publish. See the manual at `../../../OPERATING-SYSTEM.md`
-(Section 15) and the source-of-truth map at `../../../OPERATING-SYSTEM.md` (Section 3).
+Governance: see `../../00-governance/` and `../../../OPERATING-SYSTEM.md` (Sections 3 and 15).
+AI proposes, a human decides.
 
 ## What this pack is
 

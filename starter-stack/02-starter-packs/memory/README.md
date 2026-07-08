@@ -4,9 +4,8 @@ Templates and rules for the memory and intelligence layer. Part of the Jewell ×
 kit. This is a starter kit, not a production app. The live memory store is not in this pack; see
 below.
 
-Governance is set elsewhere and is not restated here. AI proposes, a human decides. Nothing
-auto-promotes. See the manual at `../../../OPERATING-SYSTEM.md` (Section 10) for the full memory
-model.
+Governance: see `../../00-governance/` and `../../../OPERATING-SYSTEM.md` (Section 10). AI
+proposes, a human decides.
 
 ## The 7 layers, one line each
 
