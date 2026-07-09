@@ -266,30 +266,31 @@ October monthly review.
 - Rules-summary sync, Circleback 4:00pm sweep, and the monthly security sweep (15th, 10:00am AEST)
   — all approved and created as live Claude Code Remote routines.
 - Today door finance-dashboard runway line — added to the existing Today door routine.
-- Sam-side 7:00am Xero brief — Clent's call is to retire it; Ronnie asked to confirm the poster
-  and remove it.
+- Sam-side 7:00am Xero brief — Clent's call is to retire it, once Sam confirms it's the poster.
 
 ### Still open
 
 - Friday close pre-draft — an offer, not a plan; only if Clent wants the ritual pre-assembled. Not
   yet put to him.
 
-### What needs Ronnie/Raef (Mac Mini access)
+### Actioned directly with Sam, 10 July 2026 (Clent's direction — not routed through Ronnie)
 
-- Confirm the 8:30am prep-note cron is actually removed from Sam, not merely dormant (retirement
-  approved 2026-07-10).
-- Confirm the poster of the 7:00am Xero brief, then remove it (retirement decided 10 July 2026);
-  separately confirm whether the 12:30pm Thursday snapshot job exists at all.
-- Fix the duplicate-heartbeat bug (four identical polls per 30-minute slot) — stuck-session
-  watchdog territory, local.
-- Fix the repeatedly failing personal-layer sync behind the Legal Sync Watchdog alerts (27 Jun, 8
-  Jul, 9 Jul).
-- Retime the OpenClaw Weekly Update Check or the restart window so they stop colliding.
-- Document the nightly Gmail bulk-delete sweep in the repo inventory and confirm its standing
-  approval in the decision log.
-- Sequence Sam's nightly Drive refresh to fold in the sibling rules file the new Claude sync now
-  writes nightly; retire the failing Sam-side GitHub-register cron now that the replacement is
-  live; confirm no parallel Sam-side Circleback build has started.
+Sam was DM'd the full fix/retire/clarify list directly, since Sam has its own local access and can
+action most of this itself without Ronnie's hands-on-keyboard time:
+
+- **Fix:** the stuck-session watchdog's duplicate-heartbeat bug (four identical polls per
+  30-minute slot); the repeatedly failing personal-layer sync behind the Legal Sync Watchdog
+  alerts (27 Jun, 8 Jul, 9 Jul — categorical only, no content requested); the OpenClaw Weekly
+  Update Check colliding with the restart window; the nightly Drive→GitHub rules-summary cron that
+  has failed outright since ~27 June (retire it, and fold the new Claude-written sibling file
+  `JEWELL-OS-RULES.md` into the existing nightly Drive refresh).
+- **Retire:** the 8:30am prep-note (duplicate of the Today door); the 7:00am Xero Daily Finance
+  Brief (duplicate of Claude's 7:30am pulse), once Sam confirms it is the poster.
+- **Clarify:** whether the 12:30pm Thursday cash-position snapshot job actually exists; the nightly
+  Gmail bulk-delete sweep's deletion criteria and whether it carries a logged standing approval.
+
+Ronnie was told this list is now with Sam directly and no longer needs his manual action, with a
+note to flag here if Sam can't complete a step and it needs to fall back to him.
 
 ---
 
