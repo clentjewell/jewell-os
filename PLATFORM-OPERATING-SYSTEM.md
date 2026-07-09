@@ -228,12 +228,12 @@ race on the shared file.
 
 | Automation | Current owner | Recommendation | Rationale | Risk tier | Confidence |
 |---|---|---|---|---|---|
-| Drive→GitHub rules-summary sync (nightly summary of AGENTS.md/00-governance into Sam's boot context) | Sam (failing nightly cron in #sam-build); documented as Tier 2 build task | Migrate to Claude — `0 16 * * *` (2:00am AEST) | Strongest case on the list: the producer must read jewell-os, which the OS forbids Sam from doing, and the Sam-side attempt has failed every night since at least 27 Jun. Claude has GitHub and Drive access. Required design: write a sibling file (e.g. JEWELL-OS-RULES.md) via create_file — the Drive connector has no append/update — with Sam's refresh folding it in; sequence the two jobs to avoid a lost-write race. Retire the failing Sam cron once live. | Tier 2 | Medium (rationale strong; write path unverified until build) |
+| Drive→GitHub rules-summary sync (nightly summary of AGENTS.md/00-governance into Sam's boot context) | Claude Code Remote (live, `0 16 * * *`, 2:00am AEST — go-live approved 10 July 2026) | Migrated — keep | Strongest case on the list: the producer must read jewell-os, which the OS forbids Sam from doing, and the Sam-side attempt has failed every night since at least 27 Jun. Live routine writes a sibling file (JEWELL-OS-RULES.md) via create_file — the Drive connector has no append/update — for Sam's refresh to fold in. Ronnie/Raef to retire the failing Sam cron once this is confirmed running, and to sequence Sam's fold-in after it. | Tier 2 | High |
 | 8:30am prep-note to #sam-command-centre | Sam | Retire (duplicate) | Duplicates the 7:00am Today door in the same channel. Retirement approved 2026-07-10, handed to Ronnie. Slack shows no live 8:30am post, so it may already be dormant — Ronnie to confirm the cron is actually removed, not merely not firing. Sam's business context should feed the Today door as an input per Section 4 option (a) above. | Tier 1 | High |
-| Sam-side 7:00am daily Xero Daily Finance Brief in #sam-financial-controller | Sam (inferred — fires daily incl. weekends; matches no live Claude cron) | Retire (duplicate) — pending verification and Clent's call | Newly identified: lands 30 minutes before Claude's 7:30am finance pulse in the same channel, covering overlapping receivables/payables/net-position ground. First confirm the poster's identity, then put retire-vs-merge to Clent — unlike the 8:30am note, this has no decision-log entry yet. | Tier 1 | Medium |
+| Sam-side 7:00am daily Xero Daily Finance Brief in #sam-financial-controller | Sam (inferred — fires daily incl. weekends; matches no live Claude cron) | Retire (duplicate) — decided 10 July 2026, handed to Ronnie | Newly identified: lands 30 minutes before Claude's 7:30am finance pulse in the same channel, covering overlapping receivables/payables/net-position ground. Clent's call: retire the Sam-side one, same pattern as the 8:30am note. Ronnie to confirm the poster's identity first, then remove it. | Tier 1 | High |
 | Today door (7:00am NSW weekday brief) | Claude Code Remote (live, `0 21 * * 0-4`) — verified posting | Already migrated — keep | Verified live (most recent run 9 Jul ~7:04am AEST). Only action is the October DST retime (see note below). Runs under existing standing approval; read-only except the Slack post. | Tier 1 | High |
-| Today door finance-dashboard runway line | Approved build (decision log 2026-07-08), not yet live | Migrate to Claude — amend the existing Today door prompt, not a new routine | A feature of a routine Claude already runs; Xero connector sources a read-only runway line. Standing approval exists; confirm the line stays categorical and read-only in a shared channel. | Tier 1 | High |
-| Circleback daily meeting sweep (4:00pm, proposal-only) | Approved build (decision log 2026-07-08); likely not yet built | Migrate to Claude — `0 6 * * *` | The Circleback connector lives on the Claude side. Sweeps the day's meetings and proposes (never creates or sends) actions, per the propose-then-approve constitution. Build approval is logged, but per the constitution a new standing routine still needs Clent's one-word go before it fires unattended — go-live is gated on that. Confirm with Ronnie/Raef that no parallel Sam-side build has started. | Tier 2 | Medium |
+| Today door finance-dashboard runway line | Claude Code Remote (live — added to the Today door routine 10 July 2026) | Migrated — keep | A feature of the routine Claude already runs; the Xero connector sources a read-only runway line, added directly to the Today door's prompt (no new routine — the trigger tool has no in-place prompt edit, so this required deleting and recreating the same trigger with the same schedule). Read-only, categorical, one line. | Tier 1 | High |
+| Circleback daily meeting sweep (4:00pm, proposal-only) | Claude Code Remote (live, `0 6 * * *` — go-live approved 10 July 2026) | Migrated — keep | The Circleback connector lives on the Claude side. Sweeps the day's meetings and proposes (never creates or sends) actions, per the propose-then-approve constitution. Ronnie/Raef to confirm no parallel Sam-side build had already started. | Tier 2 | High |
 | Monthly Asana hygiene routine (1st of month) | Claude Code Remote (live, `0 21 1 * *`) | Already migrated — keep | Live routine matches the documented spec and the approved 1 Aug 2026 start. Runs under the standing approval logged 2026-07-10; auto-fixes limited to safely reversible items. | Tier 2 | High |
 | Claude finance suite (daily pulse, Thursday review prep, monthly close) | Claude Code Remote (three live routines) | Already on Claude — keep | No migration question; listed for completeness. The daily pulse is one half of the 7:00am/7:30am duplicate pair above. Weekday crons share the October DST consideration. | Tier 1 | High |
 | 12:30pm Thursday cash-position snapshot | Sam per Section 6.6 — existence unverified | Needs more information | Slack shows no delivered ~12:30pm post, only a calendar expectation. Confirm whether the job exists and whether Nicole's 1pm review consumes it. If it exists, likely fold into Claude's Thursday review-prep routine (retimed nearer the meeting, e.g. `0 2 * * 4`) rather than keep a fourth finance job. Cannot recommend retiring something unconfirmed. | Tier 1 | Medium |
@@ -251,7 +251,7 @@ race on the shared file.
 | Website leads → Asana opportunity + Slack notify | Approved build (decision log 2026-07-08); secret-gated with email fallback | Keep on Sam | Event-driven (webhook-shaped); the always-on listener must live where one exists — Sam, or arguably a Cloudflare Worker given the site already runs there (raise with Raef). A polling routine would add up to an hour of lead-response latency. | Tier 2 | Medium |
 | #sam-operations structural-change logging (+ decision-log extension) | Sam | Keep on Sam | Triggered by Sam's own actions — the logger must live where the actions originate. The extension is a rule change for Sam's behaviour, executed locally by Ronnie/Raef; not a schedulable job. | Tier 1 | High |
 | Friday close and washback | Human-run, calendar-scheduled | Offer partial migration — drafting step only, `0 5 * * 5` (3:00pm AEST Friday) | Deliberately a human ritual; only the pre-assembly of the close scaffold (wins, slips, waiting-on, decisions) is a candidate, with every approval staying human. Put to Clent as an offer, not a plan. The washback filing itself is not automated under any option. | Tier 2 | Low |
-| Monthly security review | Human-run against the starter-stack checklist | Migrate the scheduled half — `0 0 15 * *` (mid-month, offset from the Asana hygiene routine) | The sweep can run the checklist against everything Claude can see and produce findings plus a Mac-Mini-local checklist for Ronnie/Raef. The change-triggered half cannot migrate and stays a human obligation. All findings remain Tier 3 human-gated — the routine reports, never remediates. Needs Clent's go as a new standing routine. | Tier 3 | Medium |
+| Monthly security review | Claude Code Remote (live, `0 0 15 * *`, mid-month — go-live approved 10 July 2026) | Migrated (scheduled half) — keep | The sweep runs the checklist against everything Claude can see and produces findings plus a Mac-Mini-local checklist for Ronnie/Raef. The change-triggered half cannot migrate and stays a human obligation. All findings remain Tier 3 human-gated — the routine reports, never remediates. | Tier 3 | High |
 | Model routing policy (Sonnet interactive / Gemini Flash mechanical) | Sam (standing rule, load-bearing) | Keep on Sam — not a job | A configuration rule, not a schedulable job, and the economic test every migration here must pass. Any change is Tier 3 and goes through Raef/Ronnie locally. | Tier 3 (to change) | High |
 | Fable/Opus orchestration → lightest-capable-model delegation | jewell-os governance (standing rule, decision log 2026-07-08) | Keep — not an automation | An OS-wide rule governing both sides; nothing to migrate or retire. Recorded so the inventory is complete. | Tier 1 | High |
 
@@ -261,23 +261,25 @@ proposed Circleback sweep (`0 6 * * *`) and rules-summary sync (`0 16 * * *`), w
 hour later in local terms. Low operational impact for the overnight jobs; retime or accept at the
 October monthly review.
 
-### What needs Clent's go
+### Decided 10 July 2026 — now live
 
-- Rules-summary sync — new standing routine (sibling-file design, 2:00am AEST); one-word go before
-  it fires unattended.
-- Circleback 4:00pm sweep — build approval is logged, but go-live as an unattended standing routine
-  still needs the one-word go, per the constitution.
-- Retire-vs-merge call on the Sam-side 7:00am Xero brief, once the poster is verified — this
-  duplication has no decision-log entry yet.
-- Monthly security sweep (15th, 10:00am AEST) — new standing routine, report-only.
-- Friday close pre-draft — an offer, not a plan; only if Clent wants the ritual pre-assembled.
+- Rules-summary sync, Circleback 4:00pm sweep, and the monthly security sweep (15th, 10:00am AEST)
+  — all approved and created as live Claude Code Remote routines.
+- Today door finance-dashboard runway line — added to the existing Today door routine.
+- Sam-side 7:00am Xero brief — Clent's call is to retire it; Ronnie asked to confirm the poster
+  and remove it.
+
+### Still open
+
+- Friday close pre-draft — an offer, not a plan; only if Clent wants the ritual pre-assembled. Not
+  yet put to him.
 
 ### What needs Ronnie/Raef (Mac Mini access)
 
 - Confirm the 8:30am prep-note cron is actually removed from Sam, not merely dormant (retirement
   approved 2026-07-10).
-- Verify the poster identity of the 7:00am Xero brief, and confirm whether the 12:30pm Thursday
-  snapshot job exists at all.
+- Confirm the poster of the 7:00am Xero brief, then remove it (retirement decided 10 July 2026);
+  separately confirm whether the 12:30pm Thursday snapshot job exists at all.
 - Fix the duplicate-heartbeat bug (four identical polls per 30-minute slot) — stuck-session
   watchdog territory, local.
 - Fix the repeatedly failing personal-layer sync behind the Legal Sync Watchdog alerts (27 Jun, 8
@@ -285,9 +287,9 @@ October monthly review.
 - Retime the OpenClaw Weekly Update Check or the restart window so they stop colliding.
 - Document the nightly Gmail bulk-delete sweep in the repo inventory and confirm its standing
   approval in the decision log.
-- Sequence Sam's nightly Drive refresh to fold in the sibling rules file after the Claude sync
-  lands; retire the failing GitHub-register cron once the replacement is live; confirm no parallel
-  Sam-side Circleback build has started.
+- Sequence Sam's nightly Drive refresh to fold in the sibling rules file the new Claude sync now
+  writes nightly; retire the failing Sam-side GitHub-register cron now that the replacement is
+  live; confirm no parallel Sam-side Circleback build has started.
 
 ---
 
