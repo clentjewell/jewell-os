@@ -159,36 +159,40 @@ private layer, and "Clent - Personal" is visible only to Clent, Ronnie and Liz.
 
 ---
 
-## Step 5 — Asana hygiene: verify the archive, then the project inventory — Tier 2
+## Step 5 — Asana hygiene: monthly automated routine (approved 10 July 2026) — Tier 2
 
-**What this does.** The first archive is executed: ~470 stale pre-2026 tasks archived, all
-restorable, with anything still live rescued and re-dated. Your job now is to verify it looks
-right. Then comes the second, larger clean-up: a project-inventory proposal that is with Clent,
-awaiting his one word.
+**What this does.** The first archive is done: ~470 stale pre-2026 tasks archived, all
+restorable. From 1 August 2026 a monthly automated routine takes over the ongoing work: it
+audits "Clent - 2026" for stale/duplicate/empty projects and orphaned tasks, runs a boundary
+scan for anything personal/legal/financial that shouldn't be in a shared project, confirms
+"Clent - Personal" membership hasn't drifted, auto-fixes what's safely reversible, and sends
+you a Slack DM checklist for anything that needs a manual click (Asana's API has no way to
+archive a project or edit a project's notes/description field — only a human in the UI can).
 
 **Why it helps / time saved.** The Today door can only trust Asana if "overdue" means something.
-This is what makes Step 1 compound. Estimate: 1 to 2 hours per week of scanning-and-ignoring
-stopped, and a task list the whole team can trust.
+This is what makes Step 1 compound, on an ongoing basis rather than a one-off clean-up.
 
-**What it changes.** The archive is done (recoverable, not deleted). The project inventory
-changes nothing until Clent approves it.
+**What it changes.** Reversible items (stale task completion) are auto-fixed. Project-level
+changes (archiving a project, editing its notes field, changing membership) always land as a
+checklist for you — nothing project-level happens without your click.
 
 **What you do.**
-1. Open "My Tasks" and "Clent - 2026" (the single work board). What remains should be current,
-   owned and dated. If something live was archived, restore it and tell Clent.
-2. Know what the second proposal covers, so you can answer for it: 231 active projects, of which
-   ~100 are stale year-boards, 23 empty, 32 duplicates, 83 ownerless, and 18 are containers left
-   by departed staff. The recommendation is to archive the stale and empty ones and reassign the
-   orphans.
-3. When Clent says "do it", the OS executes; project archiving needs some manual clicks, which
-   route to you with instructions.
+1. Each month, action the DM checklist from the routine (or the outstanding backlog: 23 empty
+   projects, 32 duplicates across 9 clusters, 83 ownerless, 18 departed-staff containers holding
+   ~240 orphaned tasks).
+2. If a checklist item references private-layer content, it will be categorical, not detailed —
+   ask Clent directly if you need more to act on it.
+3. Watch for the monthly digest in #sam-command-centre; if a boundary issue is flagged as urgent,
+   action it the same day, don't wait for next month.
 
-**How to check it worked.** The task list reads as current, and the project list stops being a
-graveyard. Anything archived can be restored from the kept list.
+**How to check it worked.** The task list stays current between months. The project list stops
+regrowing into a graveyard.
 
-**How to undo.** Un-archive any task or project. The proposal list is the record.
+**How to undo.** Un-archive any task. Disable the routine via `list_triggers`/`update_trigger` if
+it ever needs pausing.
 
-**Your OK to continue?** The archive check is yours today; the inventory waits on Clent.
+**Your OK to continue?** The monthly checklist is yours to action; anything project-level always
+needs your click, by design.
 
 ---
 
