@@ -211,18 +211,17 @@ necessarily every channel in the workspace — a full enumeration can be complet
 | `#client-*` | One channel per active client, auto-created by Sam | `#client-btc`, `#client-maxxim`, `#client-circl`, `#client-undisputed`, `#client-pottsville-acupuncture` |
 | `#sam-*` (work) | Sam's operational and functional channels | `#sam-command-centre`, `#sam-operations`, `#sam-clients`, `#sam-accounts`, `#sam-financial-controller`, `#sam-deals`, `#sam-build`, `#sam-raef`, `#sam-people` |
 | `#sam-*` (routing) | External-channel bridges into Slack | `#gmail`, `#whatsapp`, `#messenger`, `#phone-messages`, `#sam-ingest` |
-| `#sam-*` (personal layer) | Correctly restricted, Clent (+Ronnie) only in every case checked bar one | see below |
+| `#sam-*` (personal layer) | Correctly restricted to Clent, Ronnie and Liz (Ronnie's named back-up) in every case checked | see below |
 | Named individual | Per-person coordination channel | `#sam-raef`, `#sam-liz`, `#sam-ronnie`, `#sam-rao`, `#sam-brent` |
 | Legacy/undocumented | No topic or purpose set | `#jewell-tyres`, `#sam-rao`, `#claude-sam` |
 
-### Boundary check — the finding that matters most
-Personal-layer channels identified: 8, all Clent-only or Clent+Ronnie-only, matching the boundary
-rule — **with one exception worth a second look.** One personal-adjacent channel (Sam's own
-documentation describes it as "personal/action") currently includes a third member beyond
-Clent and Ronnie. This mirrors the exact pattern found and fixed in Asana this week (a work-only
-member on a personal board). **Recommend the same fix: review that one membership and remove the
-third party if the channel is meant to stay personal-only.** I have not changed any Slack
-membership — this needs your review, the same way the Asana one did.
+### Boundary check — resolved
+Personal-layer channels identified: 8. The one channel with a third member beyond Clent and Ronnie
+(Sam's own documentation describes it as "personal/action") is **confirmed intentional, not a
+gap:** Clent named Liz as Ronnie's back-up across the private layer on 10 July 2026, precisely so
+it is never a single point of failure. The private audience everywhere in this OS is now Clent,
+Ronnie, and Liz — not Clent alone. No Slack membership change is needed; this line originally
+flagged it as a risk in error.
 
 A second, smaller finding: one business finance channel's stated purpose mixes business cashflow
 tracking with a personal/family legal-matter tracking item. Recommend splitting that channel's

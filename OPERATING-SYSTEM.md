@@ -344,29 +344,42 @@ Use the OKF principle: **Open, Keyed, Findable.**
 - **Keyed:** named to a convention, so search finds it.
 - **Findable:** one home per object, no duplicate folders.
 
-### Top-level structure (proposed, no deletion to apply)
+### Top-level structure (the real one — adopt this, not a parallel proposal)
+
+An earlier draft of this section proposed a structure from scratch. On audit (9 July), that
+structure already exists in practice, built by Sam (OpenClaw) and refreshed nightly into
+`OS-CONTEXT-BUNDLE.md` and `00-MASTER-INDEX.md`. **Adopt the real one:**
 
 ```
-Jewell (Shared)
-  00_Operating            OS summaries, SOPs (human-facing), cadence outputs
-  01_Clients
-    <Client>              one folder per client
-      00_Intelligence     client intelligence brief, ABC inputs, signals
-      01_Discover         Discover artifacts
-      02_Design           Design artifacts (drafts vs approved subfolders)
-      03_Deploy           live assets, reporting
-      04_Deepen           updates, lessons, performance
-      05_Approved         approved outputs the portal can serve
-      06_Admin            contracts, scope, invoices (access-limited)
-  02_Internal             team ops, meeting notes (internal), finance pack
-  03_Finance              month-end packs, statements (access-limited)
-  04_CaseStudies          sanitised, approved case studies
-  05_Maxxim_IP            reusable, sanitised templates and frameworks
-  06_Archive              archived, never deleted without approval
+clent@jewellprojects.com — My Drive/
+  00. Inbox — Sort Weekly
+  01. Strategy
+  02. Templates & Decks
+  03. Admin & Finance
+  04. Media
+  05. Jewell                    (internal: brand, process, OS docs)
+  06. Reference
+  07. Team
+  08. Clients/                  one subfolder per client, 3D-structured:
+      [Client]/00. Brief & Scope, 01. Admin, 02. Discover, 03. Design,
+                 04. Deploy, 05. Shared Library, 06. Archive
+  09. Archive
 
-Personal (Private, Clent only) — separate drive, never indexed
-  Legal / Family / Health / Relocation / Admin
+Personal (private, on a separate account — clentonjewell@gmail.com), pointer-only in the nightly
+index, never indexed in full:
+  Health / Legal — Family Court / Legal — DVO / Finance — Personal
 ```
+
+**The private audience is Clent, Ronnie, and Liz as Ronnie's named back-up** (decided 10 July
+2026) — not Clent alone. See `00-governance/work-personal-boundary.md`.
+
+**Direction set, not yet built (10 July 2026):** GitHub is to become the source of truth for the
+private layer too (health, legal, personal finance), not only Drive — for version control and
+portability across LLMs, not just Claude. This needs a properly access-scoped private repository
+before any of that content moves into git; see the decision log entry for 10 July and
+`PLATFORM-OPERATING-SYSTEM.md` Section 3 for the proposed architecture. Until that repository
+exists, this Drive structure remains the private layer's actual home. Do not write personal,
+legal, health or financial content into any GitHub repository before that decision is settled.
 
 ### Rules
 
@@ -483,10 +496,14 @@ or unapproved deliverables.
 | **New Client** | Services, 3D Process, how to start | Public and marketing material | Any client data, pricing beyond published, internal strategy | Qualify, explain, route to a call | Quote bespoke pricing or promise outcomes | Escalate a live opportunity to Clent | Approved marketing set |
 | **Existing Client** | Their engagement, gates, approved outputs | Only their own approved content | Drafts, other clients, internal strategy | Answer from their approved set, cite it | Reveal drafts or another client | Escalate scope or pricing changes | That client's approved folder |
 | **Partner** | Platform use, their attributed clients | Their own clients, platform docs | Other partners' clients, internal margins unless approved | Help them move faster in front of a client | Expose another partner's book | Escalate commercial terms | Partner docs + their clients |
-| **Team** | SOPs, playbook, client work they own | Internal ops, assigned client work | Clent-only, finance, personal, legal | Point to the source of truth | Change a decision or a commitment | Escalate anything needing sign-off | `jewell-os` + assigned work |
-| **Ronnie/Ops** | Operations, cadence, delivery status | Internal ops broadly | Personal, legal, Clent-only finance detail | Run the cadence and packs | Alter pricing or scope alone | Escalate access and personnel changes | Ops + `jewell-os` |
+| **Team** | SOPs, playbook, client work they own | Internal ops, assigned client work | The private layer (personal, legal, Clent-only finance), finance | Point to the source of truth | Change a decision or a commitment | Escalate anything needing sign-off | `jewell-os` + assigned work |
+| **Ronnie/Ops** | Operations, cadence, delivery status, the private layer (his role) | Internal ops broadly | Nothing in the private layer withheld | Run the cadence and packs | Alter pricing or scope alone | Escalate access and personnel changes | Ops + `jewell-os` + the private layer |
 | **Clent/Admin** | Anything in the work OS | Everything in the work OS | Nothing in-scope withheld | Support judgement, show sources | Act without a logged decision on binding matters | Is the approval authority | Full work set (not personal) |
 | **Specialist Contractor** | The narrow task they are scoped to | Only their scoped materials | Everything outside scope | Serve the scoped task | Widen its own access | Escalate any out-of-scope request | Scoped materials only |
+
+**Liz, named backup:** on everything Team covers, Liz is Team. On the private layer specifically,
+Liz is backup cover for Ronnie (Clent + Ronnie + Liz, decided 10 July 2026) — not a fourth role,
+an exception carried by an existing one.
 
 ### Behaviour rules
 - Cite or link the source where possible.
@@ -701,15 +718,15 @@ blocked, escalated.
 | Role | Can access | Cannot access | Can request | Needs approval | Logged | Blocked | Escalated |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | **Clent/Admin** | The whole work OS | Nothing in-scope withheld | — | Is the approver | All binding changes | Nothing in-scope | — |
-| **Ronnie/Ops** | Ops, cadence, delivery, most client folders | Personal, legal, Clent-only finance | Broader finance view | Access and personnel changes | Access grants | Personal and legal | Anything needing sign-off |
-| **Team** | Assigned client work, `jewell-os`, SOPs | Other clients, finance, Clent-only | Access to a new client | Any access widening | Access grants | Finance, personal, legal | Scope or commitment changes |
+| **Ronnie/Ops** | Ops, cadence, delivery, most client folders, the private layer | Nothing in the private layer withheld | Broader finance view | Access and personnel changes | Access grants | — | Anything needing sign-off |
+| **Team** | Assigned client work, `jewell-os`, SOPs | The private layer, other clients, finance | Access to a new client | Any access widening | Access grants | Finance, the private layer | Scope or commitment changes |
 | **Specialist Contractor** | Only their scoped materials | Everything outside scope | A scoped extension | All access | Every grant | Everything else | Any out-of-scope ask |
 | **Existing Client** | Their own approved content and portal | Drafts, other clients, internal | A change to their engagement | Scope and pricing | Portal access | Other clients, drafts | Commercial changes |
 | **New Client** | Public material, the front door | Any client data | A call, a proposal | Onboarding | Enquiry | All internal | A live opportunity |
 | **Partner** | Their attributed clients, platform docs | Other partners' books, internal margins unless approved | Platform features | Commercial terms | Attribution and access | Other partners' data | Commercial terms |
 | **Finance/Bookkeeping** | Finance records, Xero | Client strategy, personal, legal | A report | Access changes | Finance access | Non-finance | Anomalies |
 | **Maxxim/Product** | Platform, evals, IP library, code | Un-sanitised client data, personal | New connector scope | Any scope or auth change | Scope changes | Client raw data in assets | Data-boundary questions |
-| **Personal/Private** | The private space, Clent only | Not reachable by any other role or the machine | — | Clent only | — | All other roles | — |
+| **Personal/Private** | The private space: Clent, Ronnie, Liz (Ronnie's back-up) | Not reachable by any other role or the machine | — | Clent only, to widen further | — | All other roles | — |
 
 Principle: least privilege by default. Widening access always needs approval and is always logged.
 

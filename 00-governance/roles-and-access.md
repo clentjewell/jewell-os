@@ -17,7 +17,8 @@ Finance/Bookkeeping, Maxxim/Product, Personal/Private.
 
 ## The lines that must always hold
 
-- Personal and legal content: Clent only, never reachable by any other role or the machine.
+- Personal and legal content: Clent, Ronnie, and Liz as Ronnie's back-up — never reachable by any
+  other role or the machine. See `work-personal-boundary.md` for the full rule.
 - One client never sees another client's data.
 - Drafts are never client-visible.
 - Finance detail is limited to Clent and Finance/Bookkeeping.
