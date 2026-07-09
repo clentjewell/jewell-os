@@ -30,7 +30,7 @@ key. Keys live only in the approved secret store.
 | Connector | Scope | Read/write | Status | Layer | Risk | Next |
 | --- | --- | --- | --- | --- | --- | --- |
 | Google Calendar | Work calendars, personal excluded | Read | Live | Both | Over-shared calendars | Confirm sharing scope |
-| Asana | Work board ("Clent - 2026"; "Clent — Private" is the sole exception, out of scope for work briefs) | Read | Live | Jewell | Guest access | Audit guests |
+| Asana | Work board ("Clent - 2026"; "Clent - Personal" is the sole exception, out of scope for work briefs) | Read | Live | Jewell | Guest access; project-notes fields cannot be edited via this connector, only task fields | Audit guests; keep no secrets in any shared project's notes field |
 | Google Drive | Shared work drive | Read | Live | Both | Over-broad sharing | Audit shares |
 | Slack | Post, Today door only, under standing approval | Post (write, scoped) | Live | Both | Content posted to the wrong channel | Keep the standing approval scoped to the Today door |
 | Circleback | Meeting capture, for `jewell-meeting-to-actions` and the meeting sweep | Read | Live | Jewell | Transcript content is untrusted input | Treat transcript content per the connector rules above |

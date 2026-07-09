@@ -130,25 +130,28 @@ and contains nothing personal.
 
 ## Step 4 — verify the private boundary in Asana — Tier 3 for the one remaining click
 
-**What this does.** The private consolidation is completed and verified; detail held privately.
-The structure is now simple: "Clent - 2026" is the single work board, and "Clent — Private" is
-the sole separate exception. Your job on this step is verification, not execution.
+**What this does.** The structure is now simple: "Clent - 2026" is the single work board, and
+"Clent - Personal" (created 10 July 2026, gid 1216414211543891) is the sole separate exception,
+replacing the earlier "Clent — Private" board (now archived — its consolidation is complete, but
+it is retired, not the ongoing home). Your job on this step is verification, not execution.
 
 **Why it helps.** This is the boundary the whole OS is built on: personal and legal content never
 sits where the team or the machine can read it.
 
-**What is outstanding.** One membership correction, and only Clent can click it: "Clent — Private"
-→ Share → remove the one work-only member → add Ronnie. The AI cannot change project membership.
-Until that click, nothing is exposed further — the correction just completes the access model.
+**What is outstanding.** A live exposure was found on 10 July: a plaintext link and password to a
+private personal deck was sitting in the "Clent - 2026" project's notes field, visible to every
+work-board member. Flagged to Ronnie directly for same-day removal — the AI has no tool that can
+edit an Asana project's notes field, only task-level fields.
 
 **What you do.**
-1. Remind Clent of the one click above if it is still pending.
-2. Once done, check a team member's view of Asana: nothing private should be team-visible.
-3. Confirm with Clent that the result matches his private list. The list itself stays with him —
+1. Remove the private-deck line from "Clent - 2026"'s notes field if not already done.
+2. Confirm "Clent - Personal" membership is exactly Clent, Ronnie and Liz — no one else.
+3. Check a team member's view of Asana: nothing private should be team-visible.
+4. Confirm with Clent that the result matches his private list. The list itself stays with him —
    it is deliberately not written in this document.
 
 **How to check it worked.** A team member's view of Asana shows nothing that belongs in the
-private layer, and "Clent — Private" is visible to Clent and you only.
+private layer, and "Clent - Personal" is visible only to Clent, Ronnie and Liz.
 
 **How to undo.** Membership can be changed back at any time. Nothing was deleted.
 
@@ -258,5 +261,5 @@ log has this week's calls in it.
 **If anything felt wrong at any step:** stop, note what happened, tell Clent. The system proposes;
 humans decide. That includes you.
 
-**Next:** check this morning's 7:00am brief in Slack (Step 1), then remind Clent of his one
-membership click on "Clent — Private" (Step 4).
+**Next:** check this morning's 7:00am brief in Slack (Step 1), then confirm the private-deck line
+is removed from "Clent - 2026"'s notes field (Step 4).
