@@ -11,11 +11,18 @@ the system proposes and stops until a named human approves.
 - **Tier 3 — Clent alone.** External sends, credentials, and anything irreversible. The detailed
   thresholds live in the private layer, not here.
 
+## No longer gated — the standing improvement directive (Clent, 10 July 2026)
+
+Promoting learnings into memory, SOPs, playbooks and docs is pre-approved on an ongoing basis:
+anything that improves the system may be executed directly, logged in the decision log, and kept
+reversible. Clent can veto or unwind any promotion, and the veto is logged. (This removed the
+former "Promote anything into memory — Clent" gate.) Long-term strategy is the one exception —
+washing a learning back into strategy stays Clent's call, below.
+
 ## Always needs approval
 
 | Action | Approver |
 | --- | --- |
-| Promote anything into memory | Clent |
 | Wash a learning back into long-term strategy | Clent |
 | Change pricing or scope | Clent (with engagement owner) |
 | Make or change a client commitment | Engagement owner + Clent |

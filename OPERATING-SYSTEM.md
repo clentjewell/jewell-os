@@ -21,7 +21,7 @@ Every claim in this system is one of seven kinds. When it matters, the kind is n
 | **Recommendation** | A proposed course. Not yet decided. |
 | **Decision** | Made by a human, logged, and now binding until changed. |
 | **Action** | A task with an owner and a date. |
-| **Memory** | Promoted into the memory layer after human approval. |
+| **Memory** | Promoted into the memory layer under the standing improvement directive: logged, reversible, open to Clent's veto (strategy-level items still need his approval). |
 | **Approved playbook rule** | A rule in `jewell-os`, changed only by human sign-off. |
 
 The golden rule: **AI proposes, a human decides.** Nothing is auto-promoted, auto-deleted,
@@ -468,11 +468,14 @@ client signals.
 
 ### The one hard rule of Deepen
 Day-to-day noise must not overwrite long-term strategy. Short-term learnings only wash back into
-long-term strategy through weekly, monthly or quarterly review, with human approval. A signal is
-never a strategy change on its own.
+long-term strategy through weekly, monthly or quarterly review, with Clent's approval. A signal is
+never a strategy change on its own. Memory below the strategy level improves continuously under
+the standing improvement directive (Clent, 10 July 2026): promote directly, log it, keep it
+reversible.
 
-**The washback path:** Signal → weekly synthesis → proposed change → human approval → approved
-memory or strategy update.
+**The washback path (strategy level):** Signal → weekly synthesis → proposed change → Clent's
+approval → strategy update. Memory and playbook improvements skip the wait and go straight in,
+logged.
 
 **Next:** decide how the client and the team ask the system anything.
 
@@ -529,8 +532,10 @@ Seven layers. Plain English.
 7. **Active Context** — what is live right now, the near-term working state.
 
 ### How information moves
-Signal → weekly synthesis → proposed change → human approval → approved memory or playbook update.
-Nothing updates itself. There is no auto-promotion.
+Memory and playbook items: promoted directly under the standing improvement directive (Clent,
+10 July 2026) — improve, log in the decision log, keep reversible; Clent can veto any entry.
+Strategy-level changes: Signal → weekly synthesis → proposed change → Clent's approval → strategy
+update. Nothing bypasses the decision log.
 
 ### Rules
 - **Source attribution.** Every memory item records where it came from.
@@ -1053,9 +1058,10 @@ only after review and sanitisation. Client data never enters reusable assets.
 **How the 3D Process powers delivery.** Discover, Design, Deploy, Deepen. Hold the context once,
 draft in the background, gate before shipping.
 
-**How the Deepen loop improves the system.** Signals are captured continuously and washed back
-only through weekly, monthly or quarterly review, with human approval. Noise never overwrites
-strategy.
+**How the Deepen loop improves the system.** Memory, SOPs and playbooks improve continuously
+under the standing improvement directive — promoted directly, logged, reversible. Strategy-level
+changes still wash back only through weekly, monthly or quarterly review, with Clent's approval.
+Noise never overwrites strategy.
 
 **How Ask Jewell AI and portals behave.** Guided, not generic. Approved sources only. Cite the
 source. Say when unsure. Escalate. Treat roles differently. Never cross clients.

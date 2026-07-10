@@ -5,10 +5,12 @@ enter it. See `OPERATING-SYSTEM.md` Section 10 and Section 7.
 
 ## What approved memory is
 
-An item is approved memory only once Clent has signed off on it through the washback path in
-`memory-promotion-rules.md`. Clent's approval is what makes it binding, not the strength of the
-evidence behind it and not how long it has sat as a proposal. An unapproved item, however good,
-is not memory yet; it is still a proposal.
+Under the standing improvement directive (Clent, 10 July 2026), an item becomes memory when it is
+promoted and logged — per-item sign-off is no longer required. The directive replaces the old
+gate: anything that improves the system may enter memory directly, provided it is logged in the
+decision log and reversible. Clent can veto or unwind any entry, and the veto is logged. The one
+exception: long-term strategy changes still require Clent's approval through the washback path in
+`memory-promotion-rules.md`. The exclusions below are unchanged and absolute.
 
 ## Where it lives
 

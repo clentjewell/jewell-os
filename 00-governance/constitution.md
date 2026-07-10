@@ -17,11 +17,15 @@ engine behind Jewell, not a competing front door.
 
 ## The non-negotiables
 
-1. AI proposes, a human decides. Ask before you send. Approve before publish. One carve-out,
-   decided by Clent on 8 July 2026: a routine a human has explicitly approved as standing (for
-   example the daily Today door post) executes on its schedule, and the operator reviews the
-   output. The standing approval names the routine, its scope and its outputs; nothing widens
-   its own scope, and anything outside that scope reverts to propose-then-approve.
+1. AI proposes, a human decides — for anything external or irreversible. Ask before you send.
+   Approve before publish. Two carve-outs. First, decided by Clent on 8 July 2026: a routine a
+   human has explicitly approved as standing (for example the daily Today door post) executes on
+   its schedule, and the operator reviews the output; the standing approval names the routine, its
+   scope and its outputs; nothing widens its own scope. Second, the standing improvement
+   directive, decided by Clent on 10 July 2026: anything that improves the system — memory, SOPs,
+   playbooks, docs, structure — is pre-approved on an ongoing basis, executed directly, logged in
+   the decision log, and kept reversible; Clent can veto and unwind any of it. Everything outside
+   both carve-outs reverts to propose-then-approve.
 2. One source of truth per object.
 3. Least privilege, and read-only audit before any change.
 4. Secrets never touch a prompt, a doc, or a shared tool.

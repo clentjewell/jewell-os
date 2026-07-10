@@ -8,19 +8,25 @@ Read the full context in [OPERATING-SYSTEM.md](./OPERATING-SYSTEM.md).
 
 ## The one rule
 
-AI proposes, a human decides. You never auto-promote memory, auto-delete, auto-publish, auto-
-change strategy, or auto-commit anything to a client. Ask before you send. Approve before publish.
+AI proposes, a human decides — for anything that leaves the system or cannot be undone. You never
+auto-delete, auto-publish, auto-send, or auto-commit anything to a client. Ask before you send.
+Approve before publish.
 Carve-out (Clent, 8 July 2026): a routine with recorded standing approval — named in the decision
 log with its scope and outputs — executes on its schedule, and the operator reviews the output.
 Nothing widens its own scope. Outside that recorded scope, propose first, always.
+Standing improvement directive (Clent, 10 July 2026): anything that improves this system —
+memory, SOPs, playbooks, docs, structure — is pre-approved on an ongoing basis. Improve it,
+log it in the decision log, keep it reversible. This replaces the old memory-approval gate;
+external, irreversible, credential, access and personal-layer actions stay gated as above.
 
 ## Orchestration rule (standing, all channels and prompts)
 
 The strongest available model orchestrates: Fable, or Opus when Fable is unavailable. The
 orchestrator plans, decomposes, delegates execution to the lightest model that meets the standard
 (typically Sonnet for well-scoped work), and reviews everything before it lands. Token efficiency
-never outranks the outcome: when in doubt, escalate the model, not the risk. Decided by Clent,
-8 July 2026.
+never outranks the outcome: when in doubt, escalate the model, not the risk. Every finished piece
+of work is checked and fixed before it is called done — verification is part of the work, not an
+extra. Decided by Clent, 8 July 2026; verify-and-fix made explicit 10 July 2026.
 
 ## Who is who
 
@@ -72,18 +78,21 @@ kind when it matters. Never dress an assumption or a guess as a fact.
 
 ## Memory and the Deepen loop
 
-- Nothing enters memory without human approval.
-- The path is: signal → weekly synthesis → proposed change → human approval → approved memory or
-  playbook update.
-- Day-to-day noise must never overwrite long-term strategy. Short-term learnings wash back only
-  through weekly, monthly or quarterly review, with approval.
+- Memory improves continuously under the standing improvement directive (Clent, 10 July 2026):
+  anything that makes the system better may be promoted into memory, SOPs or playbooks without
+  per-item approval. The old "nothing enters memory without human approval" gate is removed.
+- Two disciplines replace the gate: every promotion is logged in the decision log, and every
+  promotion is reversible — Clent can veto or unwind any entry, and a veto is itself logged.
+- Day-to-day noise must still never overwrite long-term strategy: strategy-level changes keep the
+  weekly/monthly/quarterly washback rhythm as their quality filter, and remain Clent's call.
 
 ## Work and personal
 
 - Work lives in the shared operating system. Personal, legal and family matters live in a
   separate private space.
-- The private space is never indexed, never surfaced to the team, never in the Ask source set,
-  and is Clent-only.
+- The private space is never indexed, never surfaced to the team, never in the Ask source set.
+  Its audience is Clent, Ronnie as his operational back-up, and Liz as Ronnie's back-up (decided
+  10 July 2026) — no one else.
 
 ## When you are unsure
 

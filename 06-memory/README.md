@@ -15,18 +15,23 @@ The memory layers and the decision log. The full design lives in
 
 ## The one rule
 
-Nothing enters memory without human approval. The path is always:
+Memory improves continuously under the standing improvement directive (Clent, 10 July 2026):
+anything that makes the system better may be promoted directly — logged in the decision log,
+kept reversible, open to Clent's veto. The old per-item approval gate is removed. The one
+exception: strategy-level changes still follow
 
-**Signal → weekly synthesis → proposed change → human approval → approved memory or playbook update.**
+**Signal → weekly synthesis → proposed change → Clent's approval → strategy update.**
 
 ## What never enters shared memory
 
 Secrets and credentials, personal or family matters, legal or sensitive content, un-sanitised
-client data, anything Clent-only, and anything not yet approved.
+client data, and anything Clent-only. These exclusions are absolute and survive the directive.
 
 ## Files in this folder
 
 - [`decision-log.md`](./decision-log.md) — the living log of binding decisions.
 - [`people.md`](./people.md), [`preferences.md`](./preferences.md), [`sops.md`](./sops.md),
-  [`lessons.md`](./lessons.md) — seeded templates, one file per layer, filled only through the
-  weekly washback with human approval.
+  [`lessons.md`](./lessons.md) — one file per layer, improved directly under the standing
+  directive, every promotion logged.
+- [`team-knowledge/`](./team-knowledge/) — the populated institutional-knowledge pack (company,
+  clients, projects, systems, team), ingested 10 July 2026.
