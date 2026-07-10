@@ -131,7 +131,7 @@ folders, Active Context           ◄──(read, never write)──  00-MASTER-
   live `jewell-os` rules (constitution one-liners, current decision-tier thresholds, the boundary
   rule), so Sam's nightly context load includes the canonical ruleset without duplicating it.
 - **Build task (Tier 2, Raef/Ronnie):** extend Sam's existing nightly Drive-refresh cron to pull a
-  compact summary from `jewell-os/AGENTS.md` and `00-governance/` and append it to
+  compact summary from `AGENTS.md` and `00-governance/` and append it to
   `OS-CONTEXT-BUNDLE.md`. This is a small addition to a cron that already exists — not a new
   system.
 

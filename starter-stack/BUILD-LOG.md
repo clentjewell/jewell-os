@@ -3,6 +3,7 @@
 **Run:** 7 July 2026, 9:45am AEST start. Target: entire rebuild, high confidence, by 4pm AEST.
 **Orchestrator:** Fable (`claude-fable-5`). Builders: Sonnet (`claude-sonnet-5`). Verifier: Opus (`claude-opus-4-8`).
 **Branch:** `claude/latest-os-build-prompt-jlfk6a`. PR: #41 (draft).
+**Home since 10 July 2026:** extracted with full history to `clentjewell/jewell-os` (this repo); the branch and PR above refer to the original build home in `clentjewell/jewell-ai`.
 
 ## Result — complete, verified, 11:15am AEST (4 hours 45 minutes ahead of target)
 

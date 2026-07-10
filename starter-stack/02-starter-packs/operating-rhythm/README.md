@@ -11,7 +11,7 @@ target model, the memory layers and the full cadence table.
 
 Templates the daily and weekly routines fill in. The cadence definitions themselves (purpose,
 inputs, outputs, owner, approval, filed-where, what to automate, what stays human-led) live in
-`OPERATING-SYSTEM.md` Section 12 and in `jewell-os/10-cadence/`. This pack does not redefine the
+`OPERATING-SYSTEM.md` Section 12 and in `10-cadence/`. This pack does not redefine the
 cadence. It gives a routine something concrete to produce.
 
 | File | Cadence | Owner | Files to |

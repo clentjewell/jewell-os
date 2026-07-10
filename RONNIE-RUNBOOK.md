@@ -85,7 +85,7 @@ any task can be deleted or reassigned immediately.
 
 **What you do.**
 1. After the catch-up, open the Jewell OS project and use the meeting-to-actions skill
-   (`jewell-os/starter-stack/02-starter-packs/skills/jewell-meeting-to-actions/SKILL.md`).
+   (`starter-stack/02-starter-packs/skills/jewell-meeting-to-actions/SKILL.md`).
 2. Give it the meeting notes or transcript.
 3. It proposes actions: owner, due date, project. Confirm, edit or reject each.
 4. Confirmed actions go to Asana; the note files to `02_Internal` or the client folder.
@@ -236,7 +236,7 @@ overwriting strategy. Estimate: repeated questions and re-litigated decisions dr
 
 **What you do.**
 1. Friday afternoon: the OS drafts the Friday close
-   (`jewell-os/starter-stack/02-starter-packs/operating-rhythm/friday-close.md`). Review it,
+   (`starter-stack/02-starter-packs/operating-rhythm/friday-close.md`). Review it,
    correct it, then file it.
 2. Then the washback (`weekly-washback.md`): the OS drafts proposals with evidence and
    confidence. Review them before they go anywhere.

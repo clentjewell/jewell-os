@@ -27,6 +27,6 @@ PLACEHOLDER — repeat or link to the voice rules from `AGENTS.md`.
 
 ## Orchestration
 
-The standing rule from `jewell-os/AGENTS.md` applies: the strongest available model (Fable, or
+The standing rule from `AGENTS.md` applies: the strongest available model (Fable, or
 Opus when Fable is unavailable) orchestrates and reviews; execution is delegated to the lightest
 model that meets the standard. Token efficiency never outranks the outcome.

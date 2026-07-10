@@ -1,5 +1,13 @@
 # Fable build prompt — the Jewell × Maxxim Operating System
 
+> **Provenance note (10 July 2026).** This prompt is a historical artifact: the build it describes
+> ran on 7 July 2026 and completed (see `starter-stack/BUILD-LOG.md`). It was authored to run
+> inside the `clentjewell/jewell-ai` repo, where this content lived under a `jewell-os/`
+> subdirectory — so its `jewell-os/` path prefixes now resolve from this repo's root, its
+> repo/branch URLs point at the old home, and the site files it references
+> (`public/master-plan/raef-brief.md`, `DECISIONS.md`) stayed in `jewell-ai`. Kept unedited below
+> as the record of what was run. Do not re-run it against this repo without updating those paths.
+
 **How to use this file.** Run this now. The target: the entire rebuild completed with high confidence by 4pm AEST today. Open the Jewell Claude Teams
 account, start a session on the model `claude-fable-5`, point it at this repository and branch,
 and paste everything below the line as the first message. Fable orchestrates the run, handing

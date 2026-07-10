@@ -12,7 +12,7 @@ is not memory yet; it is still a proposal.
 
 ## Where it lives
 
-- **`jewell-os/06-memory/`** is the authoritative, machine-readable store. This is the one place
+- **`06-memory/`** is the authoritative, machine-readable store. This is the one place
   the system reads from when it needs approved memory.
 - **A Drive mirror** holds a human-facing copy for reading, per the authority split in
   `OPERATING-SYSTEM.md` Section 7. The Drive mirror is for people to read; `06-memory` is the
