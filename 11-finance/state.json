@@ -1,0 +1,490 @@
+{
+ "_comment": "Machine-readable state for Clent Jewell's finance automation kit. Updated by update_workbook.py at the end of every weekly run. Do not hand-edit balances without also updating as_at and source.",
+ "sheet_url": "https://docs.google.com/spreadsheets/d/PENDING_SET_AFTER_UPLOAD/edit",
+ "workbook_path": "11-finance/Clent-Jewell-Finance-FY27.xlsx",
+ "drive_statements_folder_id": "1qBGsBBCZjSPVgErPDfhM-xwK1JBObEKt",
+ "last_run": null,
+ "version_stamp": 0,
+ "accounts": [
+  {
+   "key": "nab_offset",
+   "institution": "NAB",
+   "label": "Offset Account",
+   "account_ref": "082-401 447422998",
+   "balance": 52922.84,
+   "as_at": "2026-07-07",
+   "source": "screenshot"
+  },
+  {
+   "key": "nab_personal",
+   "institution": "NAB",
+   "label": "Personal Everyday Account",
+   "account_ref": "084-572 786699713",
+   "balance": 1995.93,
+   "as_at": "2026-07-07",
+   "source": "screenshot"
+  },
+  {
+   "key": "nab_child_support",
+   "institution": "NAB",
+   "label": "Child Support Account",
+   "account_ref": "082-401 513652565",
+   "balance": 52.27,
+   "as_at": "2026-07-07",
+   "source": "screenshot"
+  },
+  {
+   "key": "nab_float",
+   "institution": "NAB",
+   "label": "Float Account",
+   "account_ref": "084-572 749845515",
+   "balance": 0,
+   "as_at": "2026-07-07",
+   "source": "screenshot"
+  },
+  {
+   "key": "nab_biz_trans",
+   "institution": "NAB",
+   "label": "Business Transaction Account",
+   "account_ref": "084-572 781611444",
+   "balance": 2691.97,
+   "as_at": "2026-07-07",
+   "source": "screenshot"
+  },
+  {
+   "key": "nab_maxxim",
+   "institution": "NAB",
+   "label": "Maxxim Account",
+   "account_ref": "082-401 444426985",
+   "balance": 408.35,
+   "as_at": "2026-07-07",
+   "source": "screenshot"
+  },
+  {
+   "key": "nab_petty_cash",
+   "institution": "NAB",
+   "label": "Petty Cash Account",
+   "account_ref": "082-401 309173647",
+   "balance": 0,
+   "as_at": "2026-07-07",
+   "source": "screenshot"
+  },
+  {
+   "key": "nab_biz_cc",
+   "institution": "NAB",
+   "label": "Business Credit Card",
+   "account_ref": "card •4231",
+   "balance": -8917.86,
+   "as_at": "2026-07-07",
+   "source": "screenshot"
+  },
+  {
+   "key": "nab_home_loan",
+   "institution": "NAB",
+   "label": "Home Loan",
+   "account_ref": "082-401 358008867",
+   "balance": -1457705.02,
+   "as_at": "2026-07-07",
+   "source": "screenshot"
+  },
+  {
+   "key": "macq_cma_jig",
+   "institution": "Macquarie",
+   "label": "CMA (JIG entity)",
+   "account_ref": "182-512 000974533598",
+   "balance": 2.73,
+   "as_at": "2026-07-07",
+   "source": "screenshot"
+  },
+  {
+   "key": "macq_accel_jig",
+   "institution": "Macquarie",
+   "label": "Accelerator (JIG entity)",
+   "account_ref": "182-500 000942365818",
+   "balance": 11.76,
+   "as_at": "2026-07-07",
+   "source": "screenshot"
+  },
+  {
+   "key": "hub24_jig",
+   "institution": "Hub24",
+   "label": "Investment Portfolio (JIG entity)",
+   "account_ref": "a/c 24338104",
+   "balance": 103285.02,
+   "as_at": "2026-07-06",
+   "source": "screenshot"
+  },
+  {
+   "key": "hub24_super",
+   "institution": "Hub24",
+   "label": "Superannuation",
+   "account_ref": "a/c 24067445 member 0EBUK5",
+   "balance": 406323.88,
+   "as_at": "2026-07-06",
+   "source": "screenshot"
+  }
+ ],
+ "obligations_calendar": [
+  {
+   "id": "school_fees_jul26",
+   "description": "School fees (quarterly) — full amount / Clent's 50% share",
+   "due_date": "2026-07-20",
+   "amount_full": 6650.75,
+   "amount_clent_share": 3325.0,
+   "recurrence": "quarterly",
+   "category": "family"
+  },
+  {
+   "id": "bas_q4fy26",
+   "description": "BAS lodgement/payment — Q4 FY26 (Apr-Jun 2026), Jewell Group Pty Ltd, agent-lodged via TWB",
+   "due_date": "2026-08-25",
+   "amount_full": null,
+   "amount_clent_share": null,
+   "recurrence": "quarterly",
+   "category": "tax",
+   "notes": "Agent-lodgement concession date (NOT the 28-Jul self-lodger date). Nicole reconciles Xero to 30 Jun; Damian/TWB lodges. Standing cycle from Q1 FY27: 25-Nov, 28-Feb, 26-May, 25-Aug. Amount TBC from Xero/accountant each cycle."
+  },
+  {
+   "id": "payg_instalment_jul26",
+   "description": "PAYG instalment — Jewell Investment Group Pty Ltd (JIG)",
+   "due_date": "2026-07-28",
+   "amount_full": 0.0,
+   "amount_clent_share": null,
+   "recurrence": "quarterly",
+   "category": "tax",
+   "notes": "ATO-issued instalment notice (self-lodger dates: 28-Oct, 28-Feb, 28-Apr, 28-Jul), separate from BAS lodgement above and a different entity. Q4 FY26 confirmed $0.00 by Louis 9 Jul 2026. Jewell Group Pty Ltd's own PAYG/activity-statement status not yet confirmed directly in ATO Online Services — see Asana task 1216413618144620 (Lizelle)."
+  },
+  {
+   "id": "settlement_sep26",
+   "description": "Property/other settlement (estimated)",
+   "due_date": "2026-09-27",
+   "amount_full": null,
+   "amount_clent_share": null,
+   "recurrence": "one-off",
+   "category": "settlement",
+   "notes": "Estimated date; confirm with conveyancer/solicitor as it approaches"
+  },
+  {
+   "id": "dtv_funding_aug26",
+   "description": "DTV seasoning fund contribution",
+   "due_date": "2026-08-15",
+   "amount_full": null,
+   "amount_clent_share": null,
+   "recurrence": "periodic",
+   "category": "investment",
+   "notes": "Month is known (Aug 2026); exact date/amount TBC"
+  },
+  {
+   "id": "personal_tax_apr27",
+   "description": "Personal income tax payment",
+   "due_date": "2027-04-20",
+   "amount_full": 35000,
+   "amount_clent_share": null,
+   "recurrence": "annual",
+   "category": "tax"
+  },
+  {
+   "id": "company_tax_may27",
+   "description": "Company tax payment",
+   "due_date": "2027-05-15",
+   "amount_full": 15000,
+   "amount_clent_share": null,
+   "recurrence": "annual",
+   "category": "tax"
+  },
+  {
+   "id": "div7a_min_repayment",
+   "description": "Division 7A minimum yearly repayment",
+   "due_date": "TBC-from-accountant",
+   "amount_full": null,
+   "amount_clent_share": null,
+   "recurrence": "annual",
+   "category": "tax",
+   "notes": "Get exact date and minimum repayment figure from accountant; do not assume $0 risk"
+  }
+ ],
+ "model_params": {
+  "sea_burn_lean_monthly": 2300,
+  "sea_burn_comfortable_monthly": 4000,
+  "base_burns": {
+   "personal_monthly_avg": -8250,
+   "business_monthly_avg": -8100,
+   "_comment": "Averages from FY27 conservative base (workbook Cashflow). Personal incl. rent 3500 post-sale, 50% school fees, health, living, discretionary. Business = confirmed income minus expenses."
+  },
+  "runway_traffic_light_thresholds": {
+   "green_min_days_cover": 60,
+   "amber_min_days_cover": 30,
+   "red_below_days_cover": 30,
+   "hard_floor_cash_alert": 10000
+  },
+  "div7a": {
+   "amount": 190575.34,
+   "note": "Repaid via transfer to JIG after house settlement; accountant-agreed; no FY27 cashflow line."
+  },
+  "taxes_committed": {
+   "personal_apr27": 35000,
+   "company_may27": 15000,
+   "note": "Prior-year committed; PAYG instalments on hold."
+  },
+  "sea_move": {
+   "rent_thb_per_mo": 1200,
+   "travel_insurance_per_mo": 100,
+   "medibank": "suspended",
+   "au_ops_blanked": "Oct-Dec (extend Jan-Jun if stay continues)"
+  }
+ },
+ "workbook_tabs": [
+  "Cashflow Budget FY27",
+  "Forecast vs Actual FY27",
+  "Child Support — S&K",
+  "Net Worth 7 Jul 2026",
+  "Net Worth Forecast — 1 Oct 2026",
+  "Summary — Situation",
+  "Insights & Recommendations"
+ ],
+ "child_support": {
+  "_comment": "Sierra & Kyah 50/50 shared-cost ledger, tab 'Child Support — S&K'. Louis (accounts@jewellprojects.com) departs 2026-07-28; Liz (lizelle@jewellprojects.com) takes over as the operator who promotes approved claims to the paid ledger (Nicole-led handover; see LIZ-ONBOARDING.md).",
+  "matina_email": "matinajewell@proton.me",
+  "operator_email": "lizelle@jewellprojects.com",
+  "former_operator_email": "accounts@jewellprojects.com",
+  "former_operator_note": "Louis's mailbox -- he departs 2026-07-28. Mailbox decided: Liz takes over (Ronnie shared credentials 2026-07-09), see CONTROLLER.md / controller.accounts_mailbox.",
+  "archive_google_sheet": "17kt60-RVyy41JkgYDZZn2jvvJk80FBfsOx3OOymqbmc",
+  "reconciled_baseline": {
+   "date": "2026-06-16",
+   "balance": 0.0,
+   "note": "Ledger reconciled to $0 per accounts."
+  },
+  "net_balance_owed_to_matina": 258.46,
+  "net_balance_as_at": "2026-07-07",
+  "open_items": [
+   {
+    "date": "2026-06-13",
+    "item": "Jazz shoes (Kyah)",
+    "clent_share": 37.98,
+    "status": "Invoiced-unpaid"
+   },
+   {
+    "date": "2026-06-22",
+    "item": "22-Jun batch (Tovey appt-3/dentist/medicine/jacket)",
+    "clent_share": 220.48,
+    "status": "Awaiting approval — verify dentist dup"
+   }
+  ],
+  "disputes": [
+   {
+    "item": "Dr Tovey appt-1 $336.50",
+    "note": "Matina claims unpaid; INV#188810 paid 7 May 2026 (Louis confirmed). Send proof."
+   }
+  ],
+  "automation": "Weekly routine LLM-extracts new matinajewell@proton.me claims, reconciles vs ledger, appends to the tab's INBOX-TO-APPROVE queue (cols W+, rows 28+). NEVER auto-post to the paid ledger — Liz approves and promotes (see LIZ-ONBOARDING.md)."
+ },
+ "forecast_vs_actual": {
+  "_comment": "Tab 'Forecast vs Actual FY27'. Forecast rows link live from Cashflow. Actual rows filled weekly.",
+  "business_actuals_source": "Xero P&L month-to-date, mapped to sections: Business Income, Contractors, Subscriptions, Operating, Business Tax.",
+  "personal_actuals_source": "Manual / bank categorisation — no clean feed; leave blank unless entered.",
+  "variance_convention": "Positive = favourable (income/net/closing: Actual−Forecast; expenses: Forecast−Actual).",
+  "invoice_status_rule": "Only Xero invoices in Awaiting Payment status feed forecast income -- never drafts or quotes. Quotes/pipeline visibility lives in the dedicated pipeline row (CRM/Asana, Ronnie). Decided 2026-07-09."
+ },
+ "controller": {
+  "_comment": "Controller/bookkeeper operating parameters. See CONTROLLER.md for full narrative context (RACI, control rules, escalation matrix, transition plan). Louis (accounts@jewellprojects.com) departs day-to-day 2026-07-28 and owns the Q4 FY26 BAS until then (Nicole reconciles Xero to 30 Jun); Nicole (his boss, previous bookkeeper) runs the handover and trains Liz via screen-share/video from 2026-07-13. Both Louis and Nicole shift to reduced-capacity overwatch after 28 Jul (scope/rate TBD). First AI-prepared BAS: Q1 FY27 (October 2026 run). The accounts@jewellprojects.com mailbox is decided: Liz takes over (2026-07-09).",
+  "thresholds": {
+   "business_cash_alert": 5000,
+   "business_cash_urgent": 2000,
+   "approval_threshold": 1000,
+   "_comment": "business_cash_* used by DAILY-PULSE.md against Xero get_cash_position. approval_threshold: any NEW payee, or any payment >this amount outside approved_recurring_payees, needs Clent's explicit OK before Liz pays (CONTROLLER.md rule 2)."
+  },
+  "approved_recurring_payees": [
+   {
+    "payee": "Ronnie",
+    "category": "overseas contractor",
+    "amount": 2000,
+    "currency": "AUD",
+    "rail": "Wise",
+    "frequency": "monthly"
+   },
+   {
+    "payee": "Liz",
+    "category": "overseas contractor",
+    "amount": 1000,
+    "currency": "AUD",
+    "rail": "Wise",
+    "frequency": "monthly",
+    "note": "Liz is both the payments executor and a payee here. NAB dual-authorisation was considered and DECLINED by Clent (2026-07-08); the compensating control is the >$1,000/new-payee written-approval rule -- see CONTROLLER.md rule 5."
+   },
+   {
+    "payee": "Rao",
+    "category": "overseas contractor",
+    "amount": 500,
+    "currency": "AUD",
+    "rail": "Wise",
+    "frequency": "monthly",
+    "note": "Rao also invoices ~$110/fortnight via Payoneer per timesheet -- separate rail, check both."
+   },
+   {
+    "payee_group": [
+     "Asana",
+     "Adobe",
+     "Anthropic",
+     "Anthropic tokens",
+     "Apple",
+     "ChatGPT",
+     "ChatGPT tokens",
+     "Google Workspace",
+     "Go High Level",
+     "Wildjar",
+     "WPMUDEV",
+     "Loveable",
+     "Namecheap",
+     "Techpresence",
+     "Brave",
+     "Hubbl",
+     "Gamma",
+     "SuperUltra",
+     "Slack",
+     "Supabase",
+     "OpenAI API",
+     "Webroot"
+    ],
+    "category": "subscriptions",
+    "rail": "direct debit / card",
+    "frequency": "monthly or annual per vendor",
+    "source": "Cashflow Budget FY27 tab, Subscriptions section"
+   },
+   {
+    "payee_group": [
+     "Telstra",
+     "Origin",
+     "Cleaning",
+     "Office",
+     "Motor vehicle",
+     "R&M",
+     "Insurance",
+     "Bank Fees"
+    ],
+    "category": "utilities/operating",
+    "rail": "direct debit / NAB banking",
+    "frequency": "monthly",
+    "source": "Cashflow Budget FY27 tab, Operating section"
+   }
+  ],
+  "people": {
+   "clent": {
+    "role": "Owner -- approves exceptions, new payees, anything >approval_threshold outside the recurring list",
+    "email": "clent@jewellprojects.com",
+    "note": "Overseas in Thailand through Jun-27; email-only reachability assumed."
+   },
+   "damian": {
+    "role": "External accountant, TWB Chartered Accountants -- reviews & lodges quarterly BAS, annual tax, ASIC agent",
+    "email": "accounts@twb.com.au"
+   },
+   "matina": {
+    "role": "Co-parent -- raises child-support claims for Sierra & Kyah via the approval queue",
+    "email": "matinajewell@proton.me"
+   },
+   "louis": {
+    "role": "Outgoing bookkeeper",
+    "status": "departing",
+    "end_date": "2026-07-28",
+    "owns": "Q4 FY26 BAS (prep + lodgement with Damian/TWB, due 2026-08-25 -- agent-lodgement date, not the 28-Jul self-lodger date) + handover questions",
+    "email": "accounts@jewellprojects.com",
+    "note": "After 2026-07-28: no longer active day-to-day. Duties pass to Liz (execution/triage) + AI controller (prep) per CONTROLLER.md RACI. Shifts to reduced-capacity overwatch alongside Nicole (scope/rate TBD with Clent), expected to ramp back up when income recovers -- decided in principle 2026-07-09. Mailbox decided: Liz takes over accounts@jewellprojects.com (Ronnie shared credentials 2026-07-09) -- see controller.accounts_mailbox."
+   },
+   "nicole": {
+    "role": "Q4 FY26 BAS reconciliation (to 30 Jun) + Liz's trainer (screen-share/video, from 13 Jul 2026)",
+    "status": "handover through 2026-07-28, then reduced-capacity overwatch (scope/rate TBD)",
+    "note": "Louis's boss, the previous bookkeeper. Trains Liz via screen-share/video sessions (Liz is in the Philippines) on Xero reconciliation + payments, starting 13 Jul 2026. From 28 Jul 2026 shifts to reduced-capacity overwatch rather than fully exiting -- decided in principle 2026-07-09, scope/rate TBD -- expected to ramp back up when income recovers."
+   },
+   "lizelle": {
+    "role": "payments executor + Xero reconciliation (in training via Nicole-led handover; takes over from 2026-07-28 with AI support)",
+    "email": "lizelle@jewellprojects.com",
+    "note": "Known as Liz; Asana user Lizelle Vertera. Identity confirmed by Clent 8 Jul 2026.",
+    "name": "Lizelle Vertera",
+    "hours": "starts 11:00 AEST / 09:00 PHT",
+    "nab_access": "Clent's credentials + AU VPN (decided 2026-07-09)"
+   }
+  },
+  "cadence_registry": {
+   "daily": {
+    "runbook": "DAILY-PULSE.md",
+    "cron_utc": "30 21 * * 0-4",
+    "note": "Fires weekday mornings AEST (UTC+10/11 offset baked into the hour -- verify against current AEST/AEDT if this drifts)."
+   },
+   "weekly": {
+    "runbook": "WEEKLY-UPDATE.md",
+    "cron_utc": "0 17 * * 3",
+    "note": "Existing routine, unchanged."
+   },
+   "monthly": {
+    "runbook": "MONTHLY-CLOSE.md",
+    "cron_utc": "0 20 1 * *",
+    "note": "Fires 06:00 AEST on the 2nd."
+   },
+   "quarterly": {
+    "runbook": "QUARTERLY-BAS.md",
+    "cron_utc": "0 20 4 11,2,5,8 *",
+    "note": "~early Nov/Feb/May/Aug, ~3 weeks ahead of TWB's agent-lodgement BAS deadline (25 Nov/28 Feb/26 May/25 Aug) -- NOT the ATO self-lodger dates. Not a live trigger (Clent declined creating this one, 2026-07-08) -- run on demand until reconsidered."
+   },
+   "annual": {
+    "runbook": "ANNUAL-EOFY.md",
+    "cron_utc": "0 20 7 7 *",
+    "note": "~8 July, shortly after 30 Jun FY close."
+   }
+  },
+  "last_monthly_close": null,
+  "last_eofy_close": null,
+  "finance_hub": {
+   "_comment": "Liz's single support system -- see CONTROLLER.md 'Liz's Finance Hub' and LIZ-ONBOARDING.md 'Where to get help'.",
+   "handbook": "LIZ-ONBOARDING.md",
+   "handbook_drive_copy": "Shared Drive finance folder -- re-upload whenever LIZ-ONBOARDING.md changes",
+   "worklist": "Asana LIVE -- 'Jewell - Finance Board 2026' gid 1211856632158167; Lizelle gid 1210434221636262; handover checklist + chases + meeting actions assigned with due dates (8-9 Jul 2026)",
+   "questions_channel": "#sam-financial-controller (Slack, C0B6S853AG1 — live)",
+   "questions_channel_caveat": "Liz added to the channel 9 Jul 2026 (confirmed via member list). Topic text is stale (still reads 'no Liz access') -- cosmetic only, Clent to update manually when convenient.",
+   "swept_by": "DAILY-PULSE",
+   "escalation_ladder": "handbook -> #sam-financial-controller (AI coaching answer next weekday morning or sooner) -> urgent/money-moving: WhatsApp/call Clent directly"
+  },
+  "accounts_mailbox": {
+   "address": "accounts@jewellprojects.com",
+   "owner_from": "2026-07-09 (Lizelle, via Ronnie credential share; shared with Nicole/Louis until 2026-07-28, sole after)",
+   "purpose": "supplier invoices, Xero notifications, Hubdoc receipt pipeline",
+   "known_issue": "runaway re-forwarding loop Jun-Jul 2026 — Lizelle to fix by 22 Jul (Asana task)"
+  },
+  "hubdoc_routing": {
+   "hubdoc_address": "hubdoc.accounts.nros5gq6@app.hubdoc.com",
+   "status": "accounts@ forwards exist but loop; clent@ personal inbox NOT yet auto-forwarding",
+   "action": "Gmail filter needed on clent@ — see LIZ-ONBOARDING.md 'Receipts to Hubdoc' section; AI cannot create Gmail filters (no API tool) — one-time manual setup"
+  },
+  "playbook_reconciliation": {
+   "purpose": "weekly sweep reconciling real-world decisions back into these docs",
+   "sources": [
+    "Circleback meetings (SearchMeetings/ReadMeetings -- intent+pageIndex required; meetingIds are strings)",
+    "Gmail fact-change hits from the weekly sweep"
+   ],
+   "last_reconciled": "2026-07-09",
+   "last_meeting_ids": [
+    "10288694"
+   ],
+   "rule": "never auto-override an explicit Clent decision in the Decisions log -- flag instead"
+  },
+  "decisions": {
+   "nicole_louis_overwatch_rate": {
+    "decided": "2026-07-09",
+    "rate": "$50/mo",
+    "note": "Applied to Cashflow Budget FY27 row 59 (Bookkeeping): $200 Jul-26, $50/mo Aug-26 to Jun-27. Verified recompute: Oct-1 forecast NW $1,117,483.04, Aug-26 close $2,517.96, Jun-27 close $261,237.48."
+   },
+   "liz_slack_access": {
+    "decided": "2026-07-09",
+    "note": "Clent added Lizelle to #sam-financial-controller directly -- confirmed via slack_list_channel_members (3 members: clent, ronnie, lizelle). Channel topic text is stale (still says 'no Liz access') but is cosmetic only; no MCP tool can edit a Slack topic."
+   }
+  },
+  "slack_channel_duplication": {
+   "flagged": "2026-07-09",
+   "channels_found": [
+    "#sam-financial-controller (C0B6S853AG1, live, Finance Hub)",
+    "#sam-accounts (C0AQC2Q55NH, live, accounts ops)",
+    "#sam-finance-accounts (C0APB76S3FT, already self-declared archive)",
+    "#sam-finance-and-investment (C0AME5D09CY, dormant since 2026-04-27, superseded)"
+   ],
+   "recommendation": "Archive #sam-finance-and-investment (redundant with #sam-financial-controller). Keep the other three. No MCP tool can archive a channel -- human action."
+  }
+ }
+}
