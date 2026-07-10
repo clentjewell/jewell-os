@@ -14,7 +14,7 @@ work/personal boundary in Section 13 (operational quick references:
 
 ## Work/personal: the lines that must hold
 
-1. Personal, legal, family and sensitive matters live in a separate private space — never indexed, never surfaced to the team, never in the Ask source set, Clent-only.
+1. Personal, legal, family and sensitive matters live in a separate private space — never indexed, never surfaced to the team, never in the Ask source set. Its audience is Clent, Ronnie, and Liz as Ronnie's back-up (decided 10 July 2026) — no one else.
 2. The work OS may record the pattern of a personal routine, never its content; the Today door may show a single personal reminder line.
 3. If personal or legal content is found in shared Drive, Slack or a prompt, flag it to Clent; do not move it yourself.
 

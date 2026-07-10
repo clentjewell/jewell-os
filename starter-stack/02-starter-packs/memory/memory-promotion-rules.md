@@ -4,9 +4,10 @@ The rules that govern what can enter memory, and how. See `OPERATING-SYSTEM.md` 
 
 ## The rules
 
-1. **Nothing enters memory without human approval.** A signal, however strong or repeated, is a
-   candidate for review, never a change on its own. Approval happens at weekly washback
-   (`../operating-rhythm/weekly-washback.md`), and only Clent approves.
+1. **The standing improvement directive governs promotion (Clent, 10 July 2026).** Anything
+   that improves the system enters memory directly — logged in the decision log, kept
+   reversible, open to Clent's veto. The one exception: strategy-level changes still go through
+   weekly washback (`../operating-rhythm/weekly-washback.md`), and only Clent approves those.
 2. **Source attribution is mandatory.** Every memory item records where it came from: which
    meeting, which signal, which decision, and the date. An item with no traceable source is not
    ready for promotion.

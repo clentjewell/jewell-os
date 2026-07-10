@@ -147,8 +147,8 @@ Format: **Item — Source of truth — Supporting tools — What not to do — A
 | Reusable Maxxim IP | Maxxim output library | `08-templates` seeds it | Do not add un-sanitised client work | Clent + review |
 | Ask Jewell AI source material | Approved source set (curated) | Drive approved folder, portal content | Do not let it read drafts or private files | Clent |
 | Portal content | Approved client folder or portal CMS | Drive as the file backing | Do not show one client another's data | Engagement owner |
-| Personal planning | Private personal space (separate) | Not in the shared workspace | Never index into shared or machine-crawled space | Clent only |
-| Legal or sensitive matters | Private, Clent-only space | Legal counsel channels | Never in shared Drive, Slack or prompts | Clent only |
+| Personal planning | Private personal space (separate) | Not in the shared workspace | Never index into shared or machine-crawled space | Clent (Ronnie and Liz as back-ups) |
+| Legal or sensitive matters | The private space | Legal counsel channels | Never in shared Drive, Slack or prompts | Clent (Ronnie and Liz as back-ups) |
 | Finance records | Xero and the finance folder | Month-end pack in Drive | Do not keep a parallel spreadsheet of truth | Clent + bookkeeping |
 | Calendar commitments | Google Calendar | Today door reads it | Do not track commitments in a doc | Owner of the event |
 | Team responsibilities | Roles file (`00-governance/roles-and-access.md`) | Asana project roles | Do not leave ownership implied | Clent |
@@ -285,7 +285,7 @@ rhythm, whose layer it belongs to, the security risk, and the next sensible impr
 - **Not for:** the shared workspace; the machine index; Ask Jewell AI.
 - **Clean up:** ensure nothing personal sits in shared Drive today.
 - **Connects to:** nothing shared. The pattern can be recorded, not the content.
-- **Layer:** Personal/Private, Clent only.
+- **Layer:** Personal/Private — Clent, with Ronnie and Liz as named back-ups.
 - **Risk:** personal content leaking into shared or crawled space.
 - **Next:** confirm separation; Section 13 rules.
 
@@ -705,9 +705,10 @@ personal admin, private legal matters. These never mix into the shared Jewell wo
   playbook.
 - **In the private personal OS:** anything personal, family, health, legal, or sensitive.
 - **Never indexed:** the private space is never crawled by the machine.
-- **Never surfaced to the team:** personal content stays Clent-only.
+- **Never surfaced to the team:** personal content stays within the private audience — Clent,
+  Ronnie, and Liz as Ronnie's back-up (decided 10 July 2026).
 - **Never used by Ask Jewell AI:** the private space is out of its source set entirely.
-- **Clent-only access:** the private space, personal finance, and legal matters.
+- **Private-audience access only:** the private space, personal finance, and legal matters — Clent, Ronnie, Liz; no one else.
 
 The Today door may show a single personal reminder line. The content behind it stays private.
 
@@ -1067,7 +1068,7 @@ Noise never overwrites strategy.
 source. Say when unsure. Escalate. Treat roles differently. Never cross clients.
 
 **How personal content stays separate.** A separate private space, never indexed, never surfaced,
-never in the Ask source set, Clent-only.
+never in the Ask source set; its audience is Clent, Ronnie, and Liz as Ronnie's back-up.
 
 **How Maxxim becomes the scalable IP layer without weakening Jewell.** Package the repeatable 80
 percent to agency grade; keep the human 20 percent, the trust, taste and judgement, with Jewell.

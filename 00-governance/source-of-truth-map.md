@@ -23,6 +23,6 @@ One source of truth per object. Everything else is a link or a copy, never a sec
 | Reusable Maxxim IP | Maxxim output library |
 | Calendar commitments | Google Calendar |
 | Finance records | Xero |
-| Personal and legal | Private, Clent-only space |
+| Personal and legal | The private space (Clent, with Ronnie and Liz as named back-ups) |
 
 If an object is not on the map, add it before you create a second home for it.

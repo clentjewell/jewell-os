@@ -24,8 +24,10 @@ proposes, a human decides.
 Signal → weekly synthesis → proposed change → human approval → approved memory or playbook update
 ```
 
-Nothing enters memory without going through this path. See `memory-promotion-rules.md` for the
-rules that govern what can be proposed and what can never be proposed.
+This path now gates strategy-level changes only. Under the standing improvement directive
+(Clent, 10 July 2026), memory, SOP and playbook items are promoted directly — logged in the
+decision log, kept reversible, open to Clent's veto. See `memory-promotion-rules.md` for the
+rules that govern what can be promoted and what can never be promoted.
 
 ## The live store
 

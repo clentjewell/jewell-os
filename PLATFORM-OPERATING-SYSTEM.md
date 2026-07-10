@@ -97,7 +97,7 @@ already exists and is correctly access-scoped: health, legal (two categories), a
 finance, each pointer-only in the nightly index, each restricted to the owner or owner+Ronnie.
 **This is the private personal layer already operating exactly as this OS's boundary model
 requires — no change needed, just formal recognition that it is the canonical private space,
-alongside the Clent-only Asana board built this week.**
+alongside the private Asana board built this week (audience: Clent, Ronnie, Liz).**
 
 ### Recommendation
 - Retire the OKF structure proposed in `OPERATING-SYSTEM.md` Section 6 in favour of this real,
