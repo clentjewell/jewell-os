@@ -28,6 +28,16 @@ never outranks the outcome: when in doubt, escalate the model, not the risk. Eve
 of work is checked and fixed before it is called done — verification is part of the work, not an
 extra. Decided by Clent, 8 July 2026; verify-and-fix made explicit 10 July 2026.
 
+Three standing rules follow from this, and are canonical here (`CLAUDE.md` carries the short
+form):
+
+- **Orchestrate high, execute low.** Fable (or Opus when Fable is unavailable) coordinates the
+  work; Opus, Sonnet or Haiku do the heavy lifting, picked per task complexity.
+- **No outcome compromise.** The orchestrator owns final quality regardless of which model
+  executed the work. A lighter execution model is never an excuse for a lighter result.
+- **Always verify and fix.** Every build ends with a check-and-fix pass before it is declared
+  done. Verification is part of the work, not an extra step.
+
 ## Who is who
 
 - **Clent** — principal and approval authority. Owns judgement, strategy, pricing, scope,
