@@ -39,6 +39,9 @@ operator reviews the output.
 A rule is written once here. Drive links to it or summarises it. It is never copied in full into
 both.
 
+The FY27 finance workbook at `11-finance/` is the operational model and is versioned in this
+repo; bank statements, invoices and other finance records remain authoritative in Google Drive.
+
 ## Map of this repo
 
 | Path | Holds | Status |
@@ -52,6 +55,7 @@ both.
 | `08-templates/` | Templates: packs, briefs, Today door, case study | Scaffold — not yet built; content lives in OPERATING-SYSTEM.md §12 and §15 for now |
 | `09-playbook/` | The 3D Process spine, Ask and portal behaviour | Scaffold — not yet built; content lives in OPERATING-SYSTEM.md §8 and §9 for now |
 | `10-cadence/` | Daily to annual rhythm definitions | Scaffold — not yet built; content lives in OPERATING-SYSTEM.md §12 for now |
+| `11-finance/` | Finance, accounting & bookkeeping playbook: controller operating model, cadence runbooks, Liz's handbook, live state, FY27 workbook | Populated |
 
 Numbering leaves gaps on purpose (`02` and `03` are deliberately reserved), so folders can be
 added without renumbering.

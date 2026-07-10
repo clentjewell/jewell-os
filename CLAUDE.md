@@ -27,3 +27,8 @@ British English. Short, plain sentences. No exclamation marks. Numerals for metr
 The standing orchestration rule lives in `AGENTS.md`: Fable (or Opus when Fable is unavailable)
 orchestrates and reviews; execution is delegated to the lightest model that meets the standard.
 Keep quality consistent across models; the evals in `05-evals` confirm it.
+
+- Orchestrate high, execute low: Fable (or Opus when Fable is unavailable) coordinates; Opus,
+  Sonnet or Haiku do the heavy lifting, picked per task complexity.
+- No outcome compromise: the orchestrator owns final quality regardless of which model executed.
+- Always verify and fix: every build ends with a check-and-fix pass before it is declared done.
