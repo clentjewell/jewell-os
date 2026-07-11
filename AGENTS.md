@@ -37,6 +37,12 @@ form):
   executed the work. A lighter execution model is never an excuse for a lighter result.
 - **Always verify and fix.** Every build ends with a check-and-fix pass before it is declared
   done. Verification is part of the work, not an extra step.
+- **Model flexibility, not vendor lock (Clent, 11 July 2026).** The execution pool is not
+  limited to one vendor. Where evals show another vendor's model — for example the GPT-5.6
+  class — meets the standard at materially lower cost, or holds focus better on long builds,
+  the orchestrator may route execution there. The quality gate, the verify-and-fix pass and
+  the orchestrator's ownership of the outcome are unchanged. Marketing claims about any model
+  are treated as trial candidates until proven in `05-evals`, not as facts.
 
 ## Who is who
 
