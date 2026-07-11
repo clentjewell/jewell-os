@@ -46,7 +46,7 @@ Two loops make it self-improving:
 | **GitHub client repos** | That client's deliverables-as-code: 3D outputs (semantic HTML + provenance headers), portal, site | Other clients' anything; internal strategy corpus |
 | **Gmail** | Correspondence. Triage rule: an email that needs action becomes an Asana task same-day; Gmail is never a to-do list | State, files, knowledge |
 | **Slack** | Coordination and routine outputs. Ephemeral by design: anything durable is promoted same-day to Asana (action), Drive (file) or GitHub (decision/knowledge) | Sign-offs, decisions of record, files, credentials |
-| **Claude** | The engine: scheduled routines, delivery sessions against repos, Ask surfaces. Replaces Sam entirely (see §8) | — |
+| **Claude** | The engine: scheduled routines, delivery sessions against repos, Ask surfaces. Takes over Sam's schedulable duties (§8 holds the full retirement path — event-driven jobs go to Workers, personal-layer jobs to the private layer) | — |
 | **Maxxim** | Productised delivery: the plugin (3D skills + templates), client portals, artifact chrome. Consumes `jewell-os` templates; never a second home for rules | The operating rules, client raw data in reusable assets |
 | **Xero** | Finance facts | — |
 
@@ -64,15 +64,18 @@ pointer, log it.
    forces one (it does not today).
 2. **Onboarding.** *Won* triggers the onboarding checklist (one template): Slack channel, Drive
    client folder (current shell), Asana sections, client repo from template (beyondtheclinic
-   pattern, fixed: one manifest, one committed copy), welcome pack, SLA. Target: ready-to-work in
-   under a day, Liz-executable.
+   pattern, fixed: one manifest, one committed copy), welcome pack, SLA. Gate: the engagement
+   owner reviews and sends the welcome pack and SLA — client-facing sends are never automated.
+   Target: ready-to-work in under a day, Liz-executable.
 3. **3D delivery (Jewell- or partner-driven).** The 3D-system spine as it exists — artefact
    codes, phase folders, checkpoint gate docs (CP1/CP2/CP3 with a defended position), decision
    addenda ("held, not reopened"), sign-off in Asana, definition-of-done per artefact type,
    Intelligence Brief updated at session end. Partners drive the same spine with scoped access:
    their client's repo, channel and folder — never `jewell-os`.
 4. **Self-serve / portal-led 3D.** The Maxxim portal runs the same stages with the same gate
-   docs; the human gate is the user (assisted tier: a Jewell reviewer). Portal output lands in a
+   docs; the user drives, but a named Jewell engagement owner remains the reviewer of record for
+   anything published or committed from the portal, on both self-serve and assisted tiers —
+   approval-points applies unchanged. Portal output lands in a
    client repo like any other engagement — same provenance headers, same registry.
 5. **Own projects.** Same spine, Clent as client. One Asana section per project; same repos,
    same gates (self-signed), same knowledge capture — own projects feed the blueprint library
@@ -88,7 +91,8 @@ pointer, log it.
    pack (their repos/channels/folders enumerated, logged). Offboarding = same-day revocation,
    logged (existing rule).
 9. **Reporting & client updates.** Weekly update deck per retainer client (Pottsville cadence),
-   generated from the client repo + Asana state, delivered via the client channel/portal.
+   generated as a draft from the client repo + Asana state; the engagement owner reviews and
+    sends it — client delivery is never automated (approval-points).
    Internal: Today door (daily), Friday close (weekly), monthly close (finance).
 10. **Asset & file management.** Files in Drive per the current shell; deliverables-as-code in
     client repos; reusable assets promoted to `08-templates`/Maxxim only after sanitisation
@@ -102,7 +106,9 @@ pointer, log it.
 
 **Capture (fast loop).** One inbox: `06-memory/intelligence/` — one markdown file per signal,
 front-matter tagged: `date, source (meeting|slack|email|delivery|feedback), engagement, stage,
-kind (fact|assumption|lesson|preference|risk), confidence, gated (bool)`. Fed by: the Circleback
+kind (fact|assumption|lesson|preference|risk), confidence`. Personal or private-layer signals
+never enter this shared inbox — they route to the gated areas, and any routine or Ask surface
+reading the inbox reads a personal-free store by construction. Fed by: the Circleback
 sweep (already live), the Today door's "changed since yesterday", delivery sessions' Intelligence
 Brief updates, and manual drops. Searchable by grep/Claude immediately — useful the same day.
 
@@ -123,21 +129,24 @@ model*, not the folders: `01-clients/` in `jewell-os` holds one index file per c
 Drive folder, Asana project, repo, portal, channel, stage, gate status) — the "master dashboard"
 data Ronnie wants, as flat files first. Client *content* stays in client repos and Drive.
 `06 Own Projects` maps to the same index with type=own. `04 Intelligence` maps to `06-memory/`.
-`05 Personal` maps to the gated areas. The nightly rules-summary sync (live) plus a
-decision-log export cover GitHub→Drive; nothing flows the other way.
+`05 Personal` maps to the gated areas. The nightly rules-summary sync (live, sibling-file
+pattern — the Drive connector cannot update in place, so a human paste-refresh step is part of
+the cadence) plus a decision-log export cover GitHub→Drive; nothing flows the other way.
 
 ## 6. Minimum viable system — build first, in order
 
 1. **`01-clients/` engagement index** (one file per active client + own project, from the
    team-knowledge pack) + pipeline stages as Asana sections/fields on the existing board.
 2. **`06-memory/intelligence/` inbox** + tagging schema + wire the Circleback sweep to also file
-   signals there (prompt amendment to a live routine).
+   signals there. Amending that live routine widens its recorded standing-approval scope, so it
+   needs Clent's one-word re-approval, and mechanically it is a delete-and-recreate of the
+   trigger (no in-place prompt edit exists).
 3. **The onboarding checklist template** (one file; Liz-executable).
 4. **Friday close washback** as a scheduled proposal-only routine (template exists; needs
    Clent's go as a standing routine).
-5. **The capstone rewrite**: this plan absorbs the four overlapping manuals into one
-   `WORK-OS.md`; the manuals archive to `99-archive/` (constitution rule 9 — archived, never
-   deleted).
+5. **A thin capstone pointer**: `WORK-OS.md` as a one-page index naming this plan as the
+   operating model and pointing at the four manuals it will absorb. The full consolidation (and
+   archiving the manuals to `99-archive/`) is phase 2, after items 1–4 are proven in use.
 
 Everything else phases in behind these five.
 
@@ -150,17 +159,28 @@ draft generation. **Keep manual, deliberately:** gate sign-offs; pricing/scope; 
 client-facing outbound; partner access grants; strategy changes. **Remove:** Sam's remaining
 crons (§8); duplicate strategy corpora in website repos (one canonical home each); the
 Drive/Sheet double registry (JSON registry wins); catbox.moe transport (replaced by repo-to-repo
-handoff); the 8:30am and 7:00am duplicate briefs (already dying).
+handoff); the 8:30am and 7:00am duplicate briefs (already dying). Every removal is archive-first
+with Clent's sign-off, logged — constitution rule 9; nothing is deleted.
 
 ## 8. Sam retirement (accelerated by Clent's verdict: too expensive, unreliable, token-heavy)
 
 Claude routines already cover the daily brief, meeting sweep, hygiene, security and finance
-cadences. Remaining on Sam: the nightly Drive index refresh, client provisioning script, comms
-bridges and watchdogs. Plan: (1) Ronnie/Raef confirm the two duplicate briefs are dead; (2)
-migrate the Drive index refresh to a Claude routine (needs the update-capable Drive path or a
-sibling-file pattern — same constraint as the rules sync); (3) fold client provisioning into the
-onboarding checklist (Claude session, not a cron); (4) decommission the Mac Mini gateway last,
-after a two-week parallel run with zero Sam-only duties. Each step is reversible until (4).
+cadences. Clent's verdict supersedes the July cron review's "keep on Sam" defaults, but every
+remaining job still needs a named destination before the gateway dies — the review's reachability
+findings still hold. The full residual list and destinations: the **nightly Drive index refresh**
+→ Claude routine (sibling-file pattern plus a human-replace step, same constraint as the live
+rules sync); **client provisioning** → the onboarding checklist, run as a Claude session, not a
+cron; the **website-leads listener** (event-driven — Claude routines are clock-only) → a
+Cloudflare Worker on the site, scoped with Raef; the **personal-layer email sync** → a
+private-layer home, Clent's Tier 3 call, never a shared routine; the **comms bridges**
+(WhatsApp/Messenger/phone→Slack) → assess per bridge: retire if unused, else a Worker; the
+**watchdogs, 10pm model reset, health checks and structural-change logging** → not migrated —
+they guard Sam itself and die with the gateway once nothing else runs there. Sequence: (1)
+Ronnie/Raef confirm the two duplicate briefs are dead; (2) Drive index refresh migrated; (3)
+provisioning folded into onboarding; (4) leads listener and any kept bridges on Workers; (5)
+personal sync re-homed by Clent; (6) two-week parallel run with zero Sam-only duties, then
+decommission the Mac Mini gateway. Reversible at every step until (6), and (6) only happens when
+the residual list above is empty.
 
 ## 9. Overcomplicated / fragile / expensive — flagged
 
@@ -176,7 +196,10 @@ copy). Empty scaffold folders in this repo (retire or fill at MVS).
 **Week 1 — Ronnie:** approve-and-run MVS items 1–2 with me; kill the duplicate briefs on Sam;
 confirm Jewell Tyres/OTR repo state. **Week 1 — Liz:** onboarding checklist dry-run on Adam Hall
 (the next live engagement); 3D training call with Clent (already a meeting action). **Week 1 —
-Rao:** client-repo template hardening (one manifest, CI build, no committed dist). **Week 2:**
+Rao:** client-repo template hardening (one manifest, CI build, no committed dist) — the template
+lives in its own template repo, not `jewell-os`: while gated content is present, this repo's
+collaborators are only ever Clent, Ronnie and Liz, so Rao and Raef work from exported artifacts
+and their own repos, never `jewell-os` access. **Week 2:**
 washback routine live; first Friday close on the new loop; Sam migration steps 1–2. **Week 3–4:**
 partner access pack template; portal-led 3D pilot scoped with Raef (Maxxim plugin v0.33.x);
 quarterly retire pass scheduled. Ronnie owns the rollout; I run the automation and the checks;
