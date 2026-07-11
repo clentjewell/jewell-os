@@ -2,8 +2,17 @@
 
 The nightly AI-intelligence sweep reads every ACTIVE source here for items published in the last
 24 hours, summarises and evaluates them exactly like #sam-ingest drops, and files them in the
-nightly digest. Adding a source takes one line in #sam-ingest ("follow <name/link>") — the sweep
-verifies the feed and adds the row — or a direct edit here.
+nightly digest.
+
+**How sources get added — the sweep decides (Clent, 11 July 2026).** Clent just shares links into
+#sam-ingest as he finds them; nobody types follow-commands. The sweep judges the creator behind
+each shared item and follows them when it is earned: the item scored adopt or trial, or the same
+creator has now appeared twice, or they are clearly a serial publisher of directly relevant
+material. Follows are announced in the nightly digest (one word from Clent unwinds any of them),
+and the pruning rule below keeps the register honest. For Facebook/Instagram creators — whose
+feeds cannot be followed directly — the sweep looks for the same creator's open-feed presence
+(YouTube channel, Substack, blog) and follows that instead, noting the substitution. An explicit
+"follow <name/link>" in the channel still works and is always honoured.
 
 Rules: prefer machine-readable feeds (Substack `/feed`, YouTube channel RSS, blog RSS, podcast
 RSS). Feeds behind login walls cannot be followed — note the workaround per source. A source that
