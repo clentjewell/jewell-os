@@ -205,6 +205,54 @@ partner access pack template; portal-led 3D pilot scoped with Raef (Maxxim plugi
 quarterly retire pass scheduled. Ronnie owns the rollout; I run the automation and the checks;
 every step lands with a decision-log row.
 
+## 11. Token economics and the glue layer (added 11 July 2026, from Clent's "is there a better way" review)
+
+Researched against current Anthropic pricing and 2025–26 practitioner consensus (two independent
+web-research passes plus the authoritative API reference). The consensus is boring in the best
+way: **the big savings come from operational hygiene, not new platforms** — and the trusted human
+stack (Asana, Drive, Gmail, Slack) stays exactly as designed.
+
+**The architecture rule (expert consensus, matches this plan's design):** mostly deterministic
+software, with the LLM invoked only at judgment points. Deterministic glue owns control flow;
+Claude is a bounded step, not the workflow engine. Agent-runs-everything designs multiply LLM
+calls and cost — the Sam lesson, generalised.
+
+**The four token levers, in order of return:**
+
+1. **Right-size the model per routine.** Every scheduled routine currently fires into one
+   long-lived session on the top-tier model. Sweeps, syncs and briefs are Haiku/Sonnet-grade
+   (roughly 5–10× cheaper per token); the top tier is for design, orchestration and judgment.
+   Reported savings from routing alone: 30–80%.
+2. **Fresh, minimal-context session per routine fire.** A long-lived session pays input tokens
+   for its accumulated history on every fire. Each routine becomes its own small, purpose-built
+   scheduled agent (Anthropic now supports scheduled deployments natively: agent config + cron,
+   fresh session per firing) with durable state in the repo, not the transcript.
+3. **Prompt caching discipline.** Recurring routines are the ideal caching workload — stable
+   instruction prefix, volatile data last. Cached reads cost ~0.1× input price.
+4. **Batch API for anything that can wait.** Nightly syncs and monthly audits at a flat 50% off;
+   stacks with caching to ~95% off. Only the morning brief class genuinely needs synchronous runs.
+
+Realistic combined outcome for this workload profile: **70–90% reduction in routine token spend.**
+Routine runs also drop to low effort settings; verify-and-fix passes and design work stay at high.
+
+**Open-source verdicts (maintenance burden weighted heavily — a tool Rao must babysit is a cost):**
+
+| Tool | Verdict | Why |
+| --- | --- | --- |
+| **n8n (Cloud plan, ~€20–24/mo)** | **Adopt — the one new tool that earns its keep** | Covers the exact stack natively (Asana, Slack, Gmail, Drive, GitHub, Claude API nodes); solves this plan's event-trigger gap (§8: lead webhooks, stage-change triggers) with a visual builder Ronnie and Liz can read and edit; the managed plan removes the self-host burden that killed Sam |
+| Cloudflare Workers (cron + webhooks) | Keep, scoped | Right for 2–3 stable code-shaped jobs (the site's lead receiver already lives there); not the whole glue layer — no shared visibility for non-technical staff |
+| Activepieces | Runner-up | Simpler and free-tier generous, but younger and less battle-tested than n8n |
+| Trigger.dev | Bookmark | For the rare workflow that outgrows a visual builder; code-only, so it concentrates on one person |
+| Temporal, Windmill | Skip | Industrial machinery for problems this team does not have; adopting them recreates the expensive-infrastructure problem being retired |
+| mem0 / Letta / Zep (agent-memory platforms) | Skip | They solve many-end-users personalisation at enterprise scale. The field converged on exactly what this repo already does at small scale: **structured markdown in git.** Keep it; bookmark markdown-plus-search hybrids only if file retrieval ever degrades |
+
+**What this changes in the plan:** §8's event-driven destinations gain n8n Cloud as the default
+home for new glue (Workers stay for what already runs there); the Sam-replacement routines are
+built as right-sized scheduled agents rather than fires into a shared session; and the automation
+register gains a standing economics test — before any new routine, ask which model tier, which
+effort, cacheable prefix or not, batchable or not. New spend (n8n subscription) and the routine
+re-platforming are Clent's word, as ever.
+
 ## Open questions for Clent (his pending context slots here)
 
 1. **Maxxim integration depth** — plugin/portal consuming `jewell-os` templates (current design),
