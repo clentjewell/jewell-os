@@ -1,0 +1,36 @@
+# registry-sync — nightly Asana Project Registry update.
+# Runs 07-github-actions/registry-sync/sync.mjs against 09-playbook/registry.json.
+# Writes an AUTO STATUS block into each Asana task's notes. No other writes.
+---
+name: registry-sync
+
+on:
+  schedule:
+    # 16:00 UTC = 02:00 AEST (AEST is UTC+10; shifts to 03:00 during AEDT).
+    - cron: "0 16 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: registry-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run registry sync
+        env:
+          ASANA_TOKEN: ${{ secrets.ASANA_TOKEN }}
+          REGISTRY_GH_TOKEN: ${{ secrets.REGISTRY_GH_TOKEN }}
+        run: node 07-github-actions/registry-sync/sync.mjs
