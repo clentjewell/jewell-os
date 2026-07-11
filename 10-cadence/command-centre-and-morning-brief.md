@@ -4,15 +4,18 @@ Set up 11 July 2026 on Clent's direction. This is the front door to the whole OS
 
 ## Command centre
 
-One place for Clent's thoughts and instructions: **#sam-ingest** in Slack. Drop anything —
-links, voice-note transcripts, half-thoughts, instructions. Nobody files anything by hand.
+One place for Clent's thoughts and instructions: **#command-centre** in Slack (channel
+C0BHHDS19RN, created 11 July 2026 on Clent's direction). Drop anything — thoughts,
+instructions, decisions, half-ideas. Nobody files anything by hand.
 
-- The **nightly sweep** (2am) handles shared links and creators, as already established.
-- The **morning brief** (6:30am AEST, Routine `trig_01XZyvhJ9GNKhWRyF3TQGZa5`) triages
-  everything else: tasks are created in the right Asana project, decisions come back as
-  questions, reference material is left for the sweep.
+Channel map: #command-centre = thoughts and instructions in, morning brief out.
+#sam-ingest = links and content for the nightly AI sweep. #sam-build = Sam execution,
+approval-phrase protocol per `CLAUDE.md`.
 
-Rename the channel to #command-centre if wanted; the function is what matters, not the name.
+- The **nightly sweep** (2am) handles links and creators shared in #sam-ingest.
+- The **morning brief** (6:30am AEST, Routine `trig_015pg4EeeaKpxTBE2X5RcoSA`) triages
+  #command-centre: tasks are created in the right Asana project, decisions come back as
+  questions, team instructions are routed in the brief.
 
 ## Morning brief — the contract
 
