@@ -178,7 +178,10 @@ private-layer home, Clent's Tier 3 call, never a shared routine; the **comms bri
 they guard Sam itself and die with the gateway once nothing else runs there. Sequence: (1)
 Ronnie/Raef confirm the two duplicate briefs are dead; (2) Drive index refresh migrated; (3)
 provisioning folded into onboarding; (4) leads listener and any kept bridges on Workers; (5)
-personal sync re-homed by Clent; (6) two-week parallel run with zero Sam-only duties, then
+personal sync re-homed by Clent; (6) **rescue Sam's local intelligence artifacts into this repo**
+— the tech-intelligence log, the SEO/GEO log, the intelligence-bank pipeline brief and the
+meeting-notes archive live only in the Mac Mini workspace and die with the gateway (found in the
+11 July #sam-ingest review); (7) two-week parallel run with zero Sam-only duties, then
 decommission the Mac Mini gateway. Reversible at every step until (6), and (6) only happens when
 the residual list above is empty.
 
