@@ -7,6 +7,7 @@ The operating rhythm, daily to annual. Full detail in
 
 | Cadence | Core output | Owner | Approval |
 | --- | --- | --- | --- |
+| Nightly | Life OS refresh: capture, promote, stamp, export (see [nightly-life-os-refresh.md](./nightly-life-os-refresh.md)); intelligence sweep; Drive rules sync | OS (standing approval, 11 July 2026) | Capture-and-file only; strategy waits for washback |
 | Daily | Today door brief; captured decisions; end-of-day washback | Clent (system-assembled) | On anything it proposes to change |
 | Weekly | Friday close, washback proposals; Monday reset, client packs and finance pack are parked (see `OPERATING-SYSTEM.md` Section 12) | Ronnie | Clent on memory and strategy |
 | Monthly | Month-end pack, OS scorecard, library and findability reviews | Clent + Ronnie | Clent on spend and library |

@@ -136,6 +136,8 @@ Format: **Item — Source of truth — Supporting tools — What not to do — A
 
 | Item | Source of truth | Supporting tools | What not to do | Approval to change |
 | --- | --- | --- | --- | --- |
+| Master index (work and personal) | `LIFE-OS.md` in this repo | `AI-INDEX.md` for machines; nightly refresh keeps it current; Drive holds a generated human edition | Do not let it become a second manual — it points, it does not restate | Clent |
+| Objectives and key results | `02-okrs/` (work); personal OKRs in `clent-jewell-personal` | Friday close reviews movement; monthly scorecard scores | Do not change objectives mid-half without Clent; do not summarise personal OKRs outward | Clent |
 | Client files | Google Drive, client folder | Portal links to Drive | Do not scatter copies in Slack or email | Owner of the engagement |
 | Internal tasks | Asana | Today door reads Asana | Do not track tasks in Docs or Slack | Task owner |
 | Decisions | Decision log (`06-memory` — the repo is the single master; the Drive copy is a generated export produced at the Friday close by the OS, and nobody edits the Drive copy) | Asana links to the log | Do not re-decide settled calls in chat; do not edit the Drive export | Clent |
