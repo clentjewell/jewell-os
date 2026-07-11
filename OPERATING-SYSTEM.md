@@ -64,8 +64,10 @@ preparing, what is waiting, what is at risk and what needs Clent. Meetings becom
 Decisions get logged once. Files have one home. Nobody re-litigates a settled call.
 
 **How it improves personal and business clarity.** Work lives in the shared operating system.
-Personal, legal and family matters live in a separate private space. The work system can hold
-the pattern for a personal routine without ever holding its content.
+Personal, legal and family matters live behind the gate: designated gated areas of this private
+repo plus the private spaces (see `00-governance/work-personal-boundary.md`, amended 10 July
+2026), so Clent can decide holistically without personal content ever reaching team-visible or
+derived surfaces.
 
 **How it protects sensitive information.** Least privilege everywhere. Secrets never touch a
 prompt, a doc, Slack, Asana or GitHub. Read-only audit before any change. Client data never
@@ -375,11 +377,12 @@ index, never indexed in full:
 
 **Direction set, not yet built (10 July 2026):** GitHub is to become the source of truth for the
 private layer too (health, legal, personal finance), not only Drive — for version control and
-portability across LLMs, not just Claude. This needs a properly access-scoped private repository
-before any of that content moves into git; see the decision log entry for 10 July and
-`PLATFORM-OPERATING-SYSTEM.md` Section 3 for the proposed architecture. Until that repository
-exists, this Drive structure remains the private layer's actual home. Do not write personal,
-legal, health or financial content into any GitHub repository before that decision is settled.
+portability across LLMs, not just Claude. Settled by Clent on 10 July 2026: personal content may
+live in this repo, but only inside the gated areas registered in
+`00-governance/work-personal-boundary.md` — the gate replaces the wall, so decisions can be made
+holistically. Repo access stays restricted to the private audience while gated content is
+present. This Drive structure remains the private layer's file home; the gated areas hold the
+machine-readable state.
 
 ### Rules
 
@@ -693,8 +696,10 @@ stays human-led.
 # Section 13: Work and personal boundary
 
 Work lives in the shared Jewell operating system. Personal, legal, family and sensitive matters
-live in a separate private space. The work OS can record the pattern for a personal routine, for
-example a Monday reset, without holding or exposing its content.
+live behind the gate — the gated areas of this private repo and the private spaces, per
+`00-governance/work-personal-boundary.md` (amended 10 July 2026). Team-visible and derived
+surfaces can carry the pattern of a personal routine, for example a Monday reset, never its
+content.
 
 ### Personal systems may include
 Personal Monday reset, family rhythm, relocation planning, travel runway, health and training,
@@ -1067,8 +1072,9 @@ Noise never overwrites strategy.
 **How Ask Jewell AI and portals behave.** Guided, not generic. Approved sources only. Cite the
 source. Say when unsure. Escalate. Treat roles differently. Never cross clients.
 
-**How personal content stays separate.** A separate private space, never indexed, never surfaced,
-never in the Ask source set; its audience is Clent, Ronnie, and Liz as Ronnie's back-up.
+**How personal content stays separate.** Behind the gate: designated gated areas of this private
+repo plus the private spaces — never in team-visible tools, never in the Ask source set, never in
+derived outputs; audience Clent, Ronnie, and Liz as Ronnie's back-up.
 
 **How Maxxim becomes the scalable IP layer without weakening Jewell.** Package the repeatable 80
 percent to agency grade; keep the human 20 percent, the trust, taste and judgement, with Jewell.

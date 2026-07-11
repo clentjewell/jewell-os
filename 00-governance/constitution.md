@@ -30,7 +30,12 @@ engine behind Jewell, not a competing front door.
 3. Least privilege, and read-only audit before any change.
 4. Secrets never touch a prompt, a doc, or a shared tool.
 5. Client data never enters reusable Maxxim assets.
-6. Personal and legal content never enters shared or machine-crawled space.
+6. Personal and legal content lives only behind the gate: the designated gated areas of this
+   private repo (registered in `work-personal-boundary.md`) and the private spaces. It never
+   enters team-visible tools, client or partner surfaces, AI answer source sets, or any derived
+   output — and repo access stays restricted to the private audience while gated content is
+   present. (Amended by Clent, 10 July 2026: personal context stays available in-repo so
+   decisions can be made holistically — the gate replaces the wall.)
 7. Day-to-day noise never overwrites long-term strategy.
 8. Maxxim never crowds the Jewell client experience.
 9. Nothing is deleted without approval. Archive first.

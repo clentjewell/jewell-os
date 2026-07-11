@@ -98,11 +98,16 @@ kind when it matters. Never dress an assumption or a guess as a fact.
 
 ## Work and personal
 
-- Work lives in the shared operating system. Personal, legal and family matters live in a
-  separate private space.
-- The private space is never indexed, never surfaced to the team, never in the Ask source set.
-  Its audience is Clent, Ronnie as his operational back-up, and Liz as Ronnie's back-up (decided
-  10 July 2026) — no one else.
+- Personal, legal, family, health and personal-financial content may live in this repo, but only
+  inside the gated areas registered in `00-governance/work-personal-boundary.md` (amended by
+  Clent, 10 July 2026, so decisions can be made holistically — the gate replaces the wall).
+- Nothing flows out of a gated area: not into team-visible tools, client or partner surfaces,
+  AI answer source sets, digests, summaries, packs or the Drive rules file. Outward-facing
+  outputs stay categorical.
+- The private audience is Clent, Ronnie as his operational back-up, and Liz as Ronnie's back-up —
+  and while gated content is present, this repo's collaborators can only ever be that audience.
+- Outside the gate, the old rule holds in full: personal content never appears in shared Drive,
+  team-visible Slack, the work Asana board, or any ungated file — including the decision log.
 
 ## When you are unsure
 
