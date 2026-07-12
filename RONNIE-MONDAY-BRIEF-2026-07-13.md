@@ -65,9 +65,10 @@ the note under the sequence).
 5. **Housekeeping, once the launches are moving.** PR #2 secrets and dispatch; arm the nightly
    Life OS refresh; Slack tidy due 14 July. *Ronnie, Tier 1.*
 
-**How Ronnie works this:** at 8am he replies in `#sam-ronnie`, and the OS walks him through each
-step, one at a time — what it is, why it matters, exactly what he does — stopping whenever he
-needs. Everything past this line is context for that conversation.
+**How Ronnie works this:** he reads the full brief in `#sam-ronnie`, then opens Claude Code and
+says he is ready. Claude Code coaches him through the sequence one task at a time — what it is,
+why it matters, exactly what he does, how to check it worked — stopping whenever he needs.
+Everything past this line is the context Claude Code draws on for that coaching.
 
 ---
 
@@ -151,6 +152,6 @@ Clent, do not re-raise).
 
 ---
 
-**Next:** Ronnie clears the 2-minute safety job, then works the launches with the OS step by
-step from 8am in `#sam-ronnie`. He and Clent approve the operating-system plan together tomorrow,
-inside the Fable window. Income follows the launches, in the order above.
+**Next:** Ronnie reads this in `#sam-ronnie`, then opens Claude Code to be coached through it
+one task at a time, from the 2-minute safety job onward. He and Clent approve the
+operating-system plan together tomorrow. Income follows the launches, in the order above.
