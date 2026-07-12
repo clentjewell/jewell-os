@@ -8,7 +8,7 @@ in the order to do it. Read this, then check the 7:00am Today door in Slack.
 
 ---
 
-## The situation, in three lines
+## The situation, in 3 lines
 
 - The operating system is built and largely running. Nightly sweeps, the daily brief and the
   finance cadence are live. The machine is working; the backlog is human sign-offs, not code.
@@ -30,16 +30,17 @@ Spend the morning window on items 1, 3 and 4 below. Do not burn it on tidy-up.
 
 The single most important thing is item 1. Do not skip ahead.
 
-1. **Close the two live security exposures (minutes, highest value).**
+1. **Close the 2 live security exposures (minutes, highest value).**
    - Plaintext link and password sitting in the "Clent - 2026" Asana board notes field, visible
      to every work-board member. Remove it — the AI cannot write to a notes field, only you can.
      *Ronnie, Tier 1, now.*
-   - Two live API keys (Tavily bearer, OpenAI) found in the Drive n8n workflow exports. These
+   - 2 live API keys (Tavily bearer, OpenAI) found in the Drive n8n workflow exports. These
      need rotating at source. *Clent, Tier 3 — flag to him first thing.*
 
 2. **Keep the finance handover on rails.** Louis departs 28 July; Liz runs finance solo from
-   then; Nicole's training of Liz starts today, 13 July. Confirm Liz's Wise access is moving and
-   the subscriptions review lands by 16 July. Continuity here is time-critical. *Ronnie + Clent.*
+   then; Nicole's training of Liz starts today, 13 July. Confirm the Wise-access question for Liz
+   is resolved and the subscriptions review lands by 16 July. Continuity here is time-critical.
+   *Ronnie + Clent.*
 
 3. **Get Clent's one-word go on the Work OS Plan.** The minimum-viable-system build is written
    and waiting on him (`WORK-OS-PLAN.md`). One word unblocks the whole rebuild. Put it in front
@@ -53,25 +54,23 @@ The single most important thing is item 1. Do not skip ahead.
      on the Meta Ads connector and your pilot pick. *Clent.*
 
 5. **Activate the housekeeping that makes the OS trustworthy** (after the morning window):
-   - PR #2 — add two repo secrets (`ASANA_TOKEN`, `REGISTRY_GH_TOKEN`), then run the registry-sync
-     workflow once. Turns on nightly project-registry sync. *Ronnie, Tier 1.*
+   - PR #2 (open draft) — add its 2 repo secrets (`ASANA_TOKEN`, `REGISTRY_GH_TOKEN`), then run
+     its registry-sync workflow once. Turns on nightly project-registry sync. *Ronnie, Tier 1.*
    - Arm the nightly Life OS refresh — it is defined and approved but needs one interactive click
      to start firing. *Ronnie, Tier 1.*
-   - Slack tidy due today, 14 July: fix the stale finance-channel topic, archive the dormant
+   - Slack tidy due 14 July (tomorrow): fix the stale finance-channel topic, archive the dormant
      `#sam-finance-and-investment`. *Ronnie.*
 
-Everything past this line is context. Act on the five above first.
+Everything past this line is context. Act on the 5 above first.
 
 ---
 
 ## Waiting on Clent (Tier 3 — his call, no automation)
 
-- Rotate the two exposed API keys (see item 1).
-- Rescue Sam's local intelligence artifacts before the Mac Mini is decommissioned — tech-intel
-  log, GEO/SEO log, intelligence-bank brief, meeting notes. Risk of permanent loss.
+- Rotate the 2 exposed API keys (see item 1).
 - Approve n8n Cloud (about €20–24/mo) as the glue layer and the move to right-sized models.
 - Approve the Meta Ads connector and pick the vibe-marketing pilot.
-- Decide the personal/legal/health references found in three shared Drive docs — move or leave.
+- Decide the personal/legal/health references found in 3 shared Drive docs — move or leave.
 - Confirm the private-repo structure before any health, legal or personal-finance content moves
   into git.
 - Confirm the draft OKR targets in `02-okrs/OKRS-2026-H2.md`.
@@ -80,7 +79,10 @@ Everything past this line is context. Act on the five above first.
 ## On Ronnie's desk (Tier 1 / Tier 2)
 
 - Verify "Clent - Personal" Asana membership is exactly Clent, Ronnie, Liz — no drift.
-- Retire the two duplicate Sam-side briefs (8:30am prep note, 7:00am Xero brief).
+- Rescue Sam's local intelligence artifacts before the Mac Mini is decommissioned — tech-intel
+  log, GEO/SEO log, intelligence-bank brief, meeting notes (with Raef, KR3.3). Risk of permanent
+  loss; escalate anything personal to Clent.
+- Retire the 2 duplicate Sam-side briefs (8:30am prep note, 7:00am Xero brief).
 - Work the Asana backlog clicks: 23 empty, 32 duplicate, 83 ownerless projects, ~240 orphaned
   tasks. The monthly routine proposes; the project-level clicks are yours.
 - Own KR1.1 (Pottsville flagship), KR3.1 (run daily ops through the runbook), co-own KR3.3
@@ -121,7 +123,7 @@ Everything past this line is context. Act on the five above first.
 - 13 Jul — Nicole starts training Liz.
 - 14 Jul — Slack cleanup due; PAYG confirmation due 15 Jul.
 - 16–17 Jul — subscriptions review outcome and follow-up.
-- 19 Jul — Term 3 school fees due ($3,325 Clent's share).
+- 19 Jul — Term 3 school fees due (personal; amount held in `11-finance/`).
 - 28 Jul — Louis departs; Liz solo; TWB fee $600 due 1 Aug.
 - 25 Aug — Q4 FY26 BAS lodgement.
 - October — daylight saving: retime the AEST-anchored crons.
