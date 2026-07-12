@@ -1,13 +1,18 @@
 # jewell-os
 
-The private home of the Jewell × Maxxim operating playbook. This repo is authoritative for
-operating rules, AI instructions, skills, evals, governance, cadence and templates. It is not a
-file store. Files, client work and finance records live in Google Drive.
+The private home of the Jewell × Maxxim operating playbook and the work half of the Jewell
+Life OS. This repo is authoritative for operating rules, AI instructions, skills, evals,
+governance, cadence, OKRs and templates. It is not a file store. Files, client work and
+finance records live in Google Drive. The personal half lives in `clent-jewell-personal`.
 
 ## Start here
 
+- **[LIFE-OS.md](./LIFE-OS.md)** — the master index of the whole Life OS, work and personal.
+  The single source of truth for where everything lives. Humans start here.
+- **[AI-INDEX.md](./AI-INDEX.md)** — the machine entry point: read order, gated paths, model
+  routing. Agents start here.
 - **[OPERATING-SYSTEM.md](./OPERATING-SYSTEM.md)** — the canonical operating manual, Sections
-  1 to 20. Read this first.
+  1 to 20.
 - **[PLATFORM-OPERATING-SYSTEM.md](./PLATFORM-OPERATING-SYSTEM.md)** — the execution layer: tech
   stack roles, the Drive↔GitHub model, Sam (OpenClaw) shared-memory integration, a real Slack
   setup audit, and end-to-end workflows.
@@ -48,17 +53,18 @@ repo; bank statements, invoices and other finance records remain authoritative i
 | --- | --- | --- |
 | `00-governance/` | Constitution, roles and access, approval points, boundaries, source-of-truth map | Populated |
 | `01-skills/` | Jewell-specific skill overrides; skills are canonical in `starter-stack/02-starter-packs/skills/` for now | Scaffold |
+| `02-okrs/` | Objectives and key results, one file per half-year | Populated (2026 H2 draft awaiting Clent's numbers) |
 | `04-mcp/` | Connector and tool map, scopes, security posture | Seed table filled; completed at the Phase 1 audit |
 | `05-evals/` | Eval system and golden questions | Populated (golden questions); CI gate parked |
 | `06-memory/` | The memory layers and the decision log | Populated (decision log live; layer templates seeded) |
 | `07-github-actions/` | CI: gitleaks, security review, checks | Scaffold — guardrails defined, workflows not yet applied |
 | `08-templates/` | Templates: packs, briefs, Today door, case study | Scaffold — not yet built; content lives in OPERATING-SYSTEM.md §12 and §15 for now |
 | `09-playbook/` | The 3D Process spine, Ask and portal behaviour | Scaffold — not yet built; content lives in OPERATING-SYSTEM.md §8 and §9 for now |
-| `10-cadence/` | Daily to annual rhythm definitions | Scaffold — not yet built; content lives in OPERATING-SYSTEM.md §12 for now |
+| `10-cadence/` | Daily to annual rhythm definitions | Nightly Life OS refresh SOP live; the rest lives in OPERATING-SYSTEM.md §12 for now |
 | `11-finance/` | Finance, accounting & bookkeeping playbook: controller operating model, cadence runbooks, Liz's handbook, live state, FY27 workbook | Populated |
 
-Numbering leaves gaps on purpose (`02` and `03` are deliberately reserved), so folders can be
-added without renumbering.
+Numbering leaves gaps on purpose (`03` remains deliberately reserved; `02` was taken by OKRs
+on 11 July 2026), so folders can be added without renumbering.
 
 ## Status
 

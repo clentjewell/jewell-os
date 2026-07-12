@@ -11,6 +11,8 @@ One source of truth per object. Everything else is a link or a copy, never a sec
 
 | Object | Lives in |
 | --- | --- |
+| The master index (work and personal) | `LIFE-OS.md` in this repo; `AI-INDEX.md` is the machine entry point |
+| Objectives and key results | `02-okrs/` (work); `clent-jewell-personal/OKRS-PERSONAL.md` (personal, private audience) |
 | Files | Google Drive |
 | Actions | Asana |
 | Decisions | The decision log (`06-memory/decision-log.md`). The repo is the single master; the Drive copy is a generated export produced at the Friday close by the OS, and nobody edits the Drive copy. |
