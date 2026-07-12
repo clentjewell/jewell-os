@@ -14,7 +14,8 @@ in the order to do it. Read this, then check the 7:00am Today door in Slack.
   finance cadence are live. The machine is working; the backlog is human sign-offs, not code.
 - We have too many threads open at once. This brief groups them and sets one sequence, so we
   do the most important thing first and the next thing after it.
-- The goal this week is plain: remove live risk, then get on with income. Everything below
+- The goal this week is plain: finish what we started and get our best work live — Jewell AI,
+  Jewell Tyres (OTR earthmover), Ultimate Labs. Income follows the launches. Everything below
   serves that.
 
 ## The constraint that shapes today
@@ -22,46 +23,51 @@ in the order to do it. Read this, then check the 7:00am Today door in Slack.
 Fable credits are spent on the current plan. The team plan is only 7% used, and the usable
 Fable window closes after 3:00pm NSW today. So Fable and Opus orchestrate only the few tasks
 that truly need top-model reasoning before 3:00pm; Sonnet and Haiku carry the mechanical work.
-Spend the morning window on items 1, 3 and 4 below. Do not burn it on tidy-up.
+Spend the morning window on the launches and the operating-system plan (items 1–2 below). Do
+not burn it on tidy-up.
 
 ---
 
 ## Do-first sequence — start at the top, work down
 
-The single most important thing is item 1. Do not skip ahead.
+This week has one shape: finish what we started and get our best work live. Income follows the
+launches, so the launches lead. The safety job at step 0 takes 2 minutes and clears the way.
+Ronnie does not work this from a list — the OS coaches him through it one step at a time (see
+the note under the sequence).
 
-1. **Close the 2 live security exposures (minutes, highest value).**
-   - Plaintext link and password sitting in the "Clent - 2026" Asana board notes field, visible
-     to every work-board member. Remove it — the AI cannot write to a notes field, only you can.
-     *Ronnie, Tier 1, now.*
-   - 2 live API keys (Tavily bearer, OpenAI) found in the Drive n8n workflow exports. These
-     need rotating at source. *Clent, Tier 3 — flag to him first thing.*
+0. **2-minute safety, before anything.** Remove the plaintext link and password sitting in the
+   "Clent - 2026" Asana notes field — it is visible to every work-board member, and only a human
+   can edit that field. *Ronnie, Tier 1, now.* (Separately, 2 live API keys — Tavily, OpenAI —
+   found in the Drive n8n exports need rotating at source. *Clent, Tier 3.*)
 
-2. **Keep the finance handover on rails.** Louis departs 28 July; Liz runs finance solo from
+1. **Get our best work live this week — best foot forward.**
+   - **Jewell AI** — confirm what is left to switch it on and get it in front of people.
+     *Ronnie coordinates; Raef and Clent on the endpoint.*
+   - **Jewell Tyres — OTR earthmover** — this is the Meta trial, and the earthmover side is what
+     we promote. Prep the pilot so it is ready the moment the Meta Ads connector is approved.
+     *Ronnie preps; Clent approves the connector.*
+   - **Ultimate Labs** — get it live this week. *Ronnie + Clent.*
+   - Anything else that can go live cleanly this week, goes live.
+
+2. **Approve the operating-system plan — together.** Ronnie and Clent sit down tomorrow and work
+   through `WORK-OS-PLAN.md` together to approve it. This is the one that unlocks the rebuild.
+   *Ronnie + Clent, Tier 2.*
+
+3. **Keep the finance handover on rails.** Louis departs 28 July; Liz runs finance solo from
    then; Nicole's training of Liz starts today, 13 July. Confirm the Wise-access question for Liz
    is resolved and the subscriptions review lands by 16 July. Continuity here is time-critical.
    *Ronnie + Clent.*
 
-3. **Get Clent's one-word go on the Work OS Plan.** The minimum-viable-system build is written
-   and waiting on him (`WORK-OS-PLAN.md`). One word unblocks the whole rebuild. Put it in front
-   of him this morning. *Clent, Tier 2.*
+4. **Then income — it follows the launches.** Sign 2 of the 3 warm ~$5K projects (Adam Hall,
+   Meridian, Ultimate Nutrition, KR1.2); lock Jewell Tyres capital-raise terms before Christy's
+   July visit (KR1.3). *Clent + Ronnie.*
 
-4. **Move on income.** These are the point of everything else.
-   - Sign 2 of the 3 warm ~$5K projects — Adam Hall, Meridian, Ultimate Nutrition (KR1.2).
-     *Clent + Ronnie.*
-   - Lock Jewell Tyres capital-raise terms before Christy's July visit (KR1.3). *Clent.*
-   - Decide the Jewell Tyres pre-sell ad pilot as the first vibe-marketing test. It is blocked
-     on the Meta Ads connector and your pilot pick. *Clent.*
+5. **Housekeeping, once the launches are moving.** PR #2 secrets and dispatch; arm the nightly
+   Life OS refresh; Slack tidy due 14 July. *Ronnie, Tier 1.*
 
-5. **Activate the housekeeping that makes the OS trustworthy** (after the morning window):
-   - PR #2 (open draft) — add its 2 repo secrets (`ASANA_TOKEN`, `REGISTRY_GH_TOKEN`), then run
-     its registry-sync workflow once. Turns on nightly project-registry sync. *Ronnie, Tier 1.*
-   - Arm the nightly Life OS refresh — it is defined and approved but needs one interactive click
-     to start firing. *Ronnie, Tier 1.*
-   - Slack tidy due 14 July (tomorrow): fix the stale finance-channel topic, archive the dormant
-     `#sam-finance-and-investment`. *Ronnie.*
-
-Everything past this line is context. Act on the 5 above first.
+**How Ronnie works this:** at 8am he replies in `#sam-ronnie`, and the OS walks him through each
+step, one at a time — what it is, why it matters, exactly what he does — stopping whenever he
+needs. Everything past this line is context for that conversation.
 
 ---
 
@@ -69,7 +75,7 @@ Everything past this line is context. Act on the 5 above first.
 
 - Rotate the 2 exposed API keys (see item 1).
 - Approve n8n Cloud (about €20–24/mo) as the glue layer and the move to right-sized models.
-- Approve the Meta Ads connector and pick the vibe-marketing pilot.
+- Approve the Meta Ads connector for the Jewell Tyres OTR earthmover Meta trial.
 - Decide the personal/legal/health references found in 3 shared Drive docs — move or leave.
 - Confirm the private-repo structure before any health, legal or personal-finance content moves
   into git.
@@ -105,11 +111,13 @@ Everything past this line is context. Act on the 5 above first.
 
 | Project | Status |
 | --- | --- |
+| Jewell AI (Ask endpoint) | Launching this week — best foot forward |
+| Jewell Tyres — OTR earthmover (Meta trial) | Launching — needs Meta Ads connector |
+| Ultimate Labs | Launching this week |
 | Jewell Life OS (work + personal) | Live, established 11 July |
-| Work OS Plan (capstone rebuild) | Proposed — awaiting Clent's go |
+| Work OS Plan (capstone rebuild) | Proposed — Ronnie + Clent approve together Monday |
 | Finance handover (Louis → Liz via Nicole) | In progress — target 28 July |
 | Intelligence inbox / thought-leader pipeline | Live |
-| Vibe-marketing / Jewell Tyres ad pilot | Blocked — connector + Clent's pick |
 | Sam migration / Mac Mini retirement | In progress — blocked on residual list |
 | Warm ~$5K pipeline (3 projects) | In progress |
 | Jewell Tyres capital raise | Blocked — terms before Christy's visit |
@@ -137,11 +145,12 @@ Louis, Nicole and Damian — out of scope for the AI.
 
 ## Parked on purpose (do not churn on these)
 
-Eval CI gate and the Ask Jewell AI endpoint; portals and role-based answering; one-board-per-client
-Asana shift; Drive duplication cleanup; agent-memory platforms (rejected); NAB dual-authorisation
-(declined by Clent, do not re-raise).
+Eval CI gate; portals and role-based answering; one-board-per-client Asana shift; Drive
+duplication cleanup; agent-memory platforms (rejected); NAB dual-authorisation (declined by
+Clent, do not re-raise).
 
 ---
 
-**Next:** Ronnie clears item 1 before the 9:00 catch-up, then puts items 3 and 4 in front of
-Clent while the Fable window is open. Everything else follows in the order above.
+**Next:** Ronnie clears the 2-minute safety job, then works the launches with the OS step by
+step from 8am in `#sam-ronnie`. He and Clent approve the operating-system plan together tomorrow,
+inside the Fable window. Income follows the launches, in the order above.
