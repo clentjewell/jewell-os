@@ -1,0 +1,96 @@
+RONNIE — MONDAY BRIEF
+As at 8am, Monday 13 July 2026. From the OS.
+
+Morning Ronnie. This is the whole picture in one place: what is going on, what is done, and what still needs doing — by you and by Clent. Read it here. Then open Claude Code and it will coach you through it step by step, one task at a time. You do not need to hold it all at once.
+
+THE SITUATION, IN THREE LINES
+• The operating system is built and largely running. The morning brief, the nightly sweeps and the finance cadence are all live. The machine is working; what is left is human sign-offs, not code.
+• We have had too many threads open at once. This puts them in one order, so we do the most important thing first and the next thing after it.
+• This week has one shape: finish what we started and get our best work live — Jewell AI, Jewell Tyres (the OTR earthmover side), Ultimate Labs. The income follows the launches.
+
+WHY TODAY IS FOCUSED
+Our top-tier AI runs down after 3pm today, so we spend the morning on the things that need the most thinking — the launches and the operating-system plan — and leave the tidy-up for later in the day.
+
+THE ORDER OF PLAY — START AT THE TOP
+
+0. Two-minute safety, before anything.
+There is a private link and password sitting in the "Clent - 2026" Asana notes field, and every person on that board can see it. Take that line out. Only a person can edit that field, so it has to be you. (Separately, two live keys found in some Drive automation exports need changing at the source — that one is Clent's.)
+
+1. Get our best work live this week — best foot forward.
+• Jewell AI — find out what is left to switch it on, and get it in front of people.
+• Jewell Tyres, OTR earthmover — this is the Meta advertising trial, and the earthmover side is what we promote. Get the trial ready so it can go the moment the Meta connection is approved.
+• Ultimate Labs — get it live this week.
+• Anything else that can go live cleanly this week, goes live.
+
+2. Approve the operating-system plan — together.
+You and Clent sit down tomorrow and go through the plan together to approve it. This is the one that unlocks the rebuild.
+
+3. Keep the finance handover steady.
+Louis leaves on 28 July; Liz runs finance on her own from then; Nicole starts training Liz today. Make sure Liz's Wise access is sorted and the subscriptions review lands by 16 July. Nothing can drop here.
+
+4. Then income — it follows the launches.
+Sign two of the three warm projects (Adam Hall, Meridian, Ultimate Nutrition). Lock the Jewell Tyres raise terms before Christy's visit this month. These are Clent's calls, with your support.
+
+5. Housekeeping, once the launches are moving.
+Switch on the project-registry sync (the two secrets on the open pull request), arm the nightly refresh, and finish the Slack tidy due 14 July.
+
+WAITING ON CLENT (his calls only)
+• Change the two exposed keys.
+• Approve the Meta connection for the Jewell Tyres OTR earthmover trial.
+• Approve the small monthly automation spend and the move to right-sized AI.
+• Decide the personal items found in three shared Drive docs — move or leave.
+• Confirm the private-repo setup before any personal content goes into it.
+• Confirm the half-year targets.
+• The open Maxxim questions — repo visibility, how deep it integrates, the partner model.
+
+ON YOUR DESK (yours to run)
+• Check the "Clent - Personal" board is seen only by Clent, you and Liz.
+• Rescue Sam's local notes and logs before the Mac Mini is retired (with Raef). Risk of losing them for good; anything personal goes to Clent.
+• Retire the two duplicate old Sam briefs.
+• Work the Asana backlog: the empty, duplicate and ownerless projects, and the orphaned tasks.
+• Own Pottsville as the recurring flagship; run daily ops through the runbook; help finish the Sam migration.
+
+WHAT IS ALREADY LIVE (the machine is working)
+• Morning brief — weekday 7am, in Slack, read-only.
+• Nightly intelligence sweep — 2:30am.
+• Nightly rules sync to Drive — 2am.
+• Meeting sweep — 4pm daily, proposals only.
+• Finance cadence — daily pulse, weekly update, monthly close.
+• Liz's Finance Hub — board and channel, live.
+• Monthly Asana clean-up from 1 August; monthly security review on the 15th.
+
+PROJECTS IN FLIGHT
+• Jewell AI — launching this week.
+• Jewell Tyres OTR earthmover, Meta trial — launching, needs the connection.
+• Ultimate Labs — launching this week.
+• Jewell Life OS — live.
+• Work OS plan — you and Clent approve together Monday.
+• Finance handover — in progress, target 28 July.
+• Intelligence inbox — live.
+• Sam migration and Mac Mini retirement — in progress.
+• Warm project pipeline (three) — in progress.
+• Jewell Tyres capital raise — terms before Christy's visit.
+• Pottsville flagship — live.
+• Maxxim platform — live and proposed.
+• Personal repo — set up; deepening waits on Clent.
+• Repo guardrails — parked, with Raef.
+
+THIS WEEK'S DATES
+• 13 Jul — Nicole starts training Liz.
+• 14 Jul — Slack tidy due; PAYG confirmation 15 Jul.
+• 16–17 Jul — subscriptions review outcome and follow-up.
+• 19 Jul — Term 3 school fees due (personal; amount held in the finance area).
+• 28 Jul — Louis leaves; Liz solo; TWB fee due 1 Aug.
+• 25 Aug — Q4 BAS lodgement.
+• October — daylight saving: retime the scheduled jobs.
+
+FINANCE IN A LINE
+Xero is read-only; the OS drafts, Liz pays from 28 July, Clent approves anything over $1,000 or any new payee. Open: Wise access for Liz, Nicole's method not yet folded in, the receipt loop unconfirmed, subscriptions review pending. The Q4 BAS stays with Louis, Nicole and Damian.
+
+PARKED ON PURPOSE (do not churn on these)
+The eval gate; portals and role-based answers; one-board-per-client; the Drive duplicate clean-up; memory platforms (already rejected); NAB dual-authorisation (already declined — do not re-raise).
+
+NOW — OVER TO CLAUDE CODE
+That is the whole picture. You do not action it from this message. Open Claude Code, tell it you are ready, and it will take you through the list in order — the first task, then the second, and so on — telling you what to do, why it matters, and how to check it worked. You can stop after any step.
+
+Next: open Claude Code and say you are ready to start with the two-minute safety job.
