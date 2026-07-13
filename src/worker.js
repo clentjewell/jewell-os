@@ -1,468 +1,258 @@
+import { DECK_STYLE } from "./deck-style.js";
+
 const TSUNG_PASSWORD = "jason2026";
 const COOKIE_NAME = "jw_tsung_auth";
 const COOKIE_MAX_AGE = 60 * 60 * 12; // 12 hours
 
-const FONTS = `
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-`;
-
-const STYLE = `
-  :root {
-    --font: 'Poppins', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    --mono: 'JetBrains Mono', ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-snap-type: y proximity; -webkit-text-size-adjust: 100%; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  body {
-    margin: 0; font-family: var(--font); font-weight: 400; line-height: 1.6;
-    background: #0F0F13; color: #F3F1E9; -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-  a { color: inherit; }
-  ::selection { background: rgba(120,140,255,0.35); }
-
-  /* deck section shell */
-  .section {
-    position: relative; min-height: 100svh; display: flex; align-items: center;
-    background: var(--bg); color: var(--ink); scroll-snap-align: start; overflow: hidden;
-  }
-  .inner { position: relative; z-index: 2; width: 100%; max-width: 66rem; margin: 0 auto; padding: 7rem 2rem; }
-  .ghost {
-    position: absolute; top: -3vh; right: -1vw; font-family: var(--font); font-weight: 700;
-    font-size: clamp(12rem, 34vw, 30rem); line-height: 0.8; color: var(--ink); opacity: 0.06;
-    pointer-events: none; user-select: none; z-index: 1; letter-spacing: -0.04em;
-  }
-
-  /* type */
-  .eyebrow { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--label); margin: 0; display: inline-flex; align-items: center; gap: 0.6rem; }
-  .eyebrow::before { content: ""; width: 1.6rem; height: 1px; background: currentColor; opacity: 0.7; }
-  .counter { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--label); font-variant-numeric: tabular-nums; }
-  .p-top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
-  .name { font-family: var(--font); font-weight: 600; font-size: clamp(2.7rem, 7vw, 5.1rem); line-height: 1.0; letter-spacing: -0.025em; margin: 1.3rem 0 0; text-wrap: balance; }
-  .positioning { font-size: clamp(1.15rem, 2.3vw, 1.6rem); font-weight: 300; color: var(--ink-soft); margin: 1.1rem 0 0; max-width: 40rem; text-wrap: pretty; }
-  .rule { height: 1px; background: color-mix(in srgb, var(--ink) 22%, transparent); margin: 2.4rem 0; }
-
-  .p-lower { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2.6rem; align-items: end; }
-  .facts { display: grid; gap: 1.15rem; margin: 0; }
-  .facts > div { display: grid; gap: 0.25rem; }
-  .facts dt { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--label); }
-  .facts dd { margin: 0; font-size: 1rem; color: var(--ink); line-height: 1.5; }
-  .p-aside { display: flex; flex-direction: column; gap: 1.8rem; align-items: flex-start; }
-  .stat-num { font-family: var(--font); font-weight: 600; font-size: clamp(2.4rem, 5vw, 3.4rem); color: var(--accent); line-height: 1; font-variant-numeric: tabular-nums; display: block; letter-spacing: -0.02em; }
-  .stat-label { font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.5rem; max-width: 15rem; display: block; }
-  .cta {
-    display: inline-flex; align-items: center; gap: 0.55rem; background: var(--btn-bg); color: var(--btn-ink);
-    font-family: var(--font); font-weight: 500; font-size: 0.95rem; padding: 0.85rem 1.35rem;
-    border-radius: 999px; text-decoration: none; transition: transform 0.16s ease, box-shadow 0.16s ease;
-    box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 12%, transparent);
-  }
-  .cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -12px color-mix(in srgb, var(--btn-bg) 70%, transparent); }
-  .cta .arw { transition: transform 0.16s ease; }
-  .cta:hover .arw { transform: translateX(3px); }
-
-  /* hero + framing */
-  .h-head { font-family: var(--font); font-weight: 600; font-size: clamp(2.7rem, 6.4vw, 4.8rem); line-height: 1.02; letter-spacing: -0.025em; margin: 1.5rem 0 0; text-wrap: balance; max-width: 20ch; }
-  .h-lede { font-size: clamp(1.15rem, 2.2vw, 1.5rem); font-weight: 300; color: var(--ink-soft); margin: 1.6rem 0 0; max-width: 42rem; text-wrap: pretty; }
-  .h-lede strong { color: var(--ink); font-weight: 500; }
-  .cue { position: absolute; left: 2rem; bottom: 2rem; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--label); display: flex; align-items: center; gap: 0.6rem; z-index: 2; }
-  .cue span { width: 1px; height: 2rem; background: currentColor; opacity: 0.6; transform-origin: top; animation: cue 2.4s ease-in-out infinite; }
-  @keyframes cue { 0%, 100% { transform: scaleY(0.3); opacity: 0.3; } 50% { transform: scaleY(1); opacity: 0.8; } }
-  @media (prefers-reduced-motion: reduce) { .cue span { animation: none; } }
-
-  .stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 2.6rem; background: color-mix(in srgb, var(--ink) 16%, transparent); border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent); }
-  .stage { background: var(--bg); padding: 1.5rem 1.3rem; display: grid; gap: 0.5rem; align-content: start; }
-  .stage .sn { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); }
-  .stage .st { font-family: var(--font); font-weight: 600; font-size: 1.15rem; letter-spacing: -0.01em; }
-  .stage .sd { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.5; }
-
-  .proofs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2rem; margin-top: 2.8rem; }
-  .proof .pn { font-family: var(--font); font-weight: 600; font-size: clamp(2.6rem, 6vw, 3.8rem); color: var(--accent); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
-  .proof .pl { font-size: 0.95rem; color: var(--ink-soft); margin-top: 0.7rem; }
-
-  .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 0; background: color-mix(in srgb, var(--ink) 16%, transparent); border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent); }
-  .tool { background: var(--bg); padding: 1.7rem 1.6rem; display: grid; gap: 0.55rem; align-content: start; }
-  .tool .tn { font-family: var(--font); font-weight: 600; font-size: 1.35rem; letter-spacing: -0.01em; }
-  .tool .td { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.5; }
-  .tool .tl { margin-top: 0.5rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 0.45rem; }
-  .tool .tl:hover { text-decoration: underline; }
-  @media (max-width: 760px) { .tools-grid { grid-template-columns: 1fr; } }
-
-  .signoff { font-size: clamp(1.05rem, 2vw, 1.25rem); font-weight: 300; color: var(--ink-soft); margin: 1.6rem 0 0; max-width: 38rem; }
-  .signoff strong { color: var(--ink); font-weight: 500; }
-
-  /* fixed chrome */
-  .brandmark { position: fixed; top: 1.35rem; left: 1.6rem; font-family: var(--font); font-weight: 600; font-size: 1.02rem; letter-spacing: -0.01em; color: #fff; mix-blend-mode: difference; z-index: 40; text-decoration: none; }
-  .tag { position: fixed; top: 1.5rem; right: 1.6rem; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; mix-blend-mode: difference; z-index: 40; }
-  .dots { position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 0.85rem; z-index: 40; mix-blend-mode: difference; }
-  .dots a { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid #fff; display: block; transition: transform 0.2s ease, background 0.2s ease; }
-  .dots a:hover { transform: scale(1.35); }
-  .dots a.on { background: #fff; }
-  @media (max-width: 780px) { .dots, .tag { display: none; } }
-
-  .reveal > * { opacity: 0; transform: translateY(14px); transition: opacity 0.7s cubic-bezier(.2,.7,.2,1), transform 0.7s cubic-bezier(.2,.7,.2,1); }
-  .reveal.in > * { opacity: 1; transform: none; }
-  .reveal.in > *:nth-child(2) { transition-delay: 0.06s; }
-  .reveal.in > *:nth-child(3) { transition-delay: 0.12s; }
-  .reveal.in > *:nth-child(4) { transition-delay: 0.18s; }
-  @media (prefers-reduced-motion: reduce) { .reveal > * { opacity: 1; transform: none; transition: none; } }
-
-  @media (max-width: 760px) {
-    .inner { padding: 6rem 1.4rem; }
-    .p-lower { grid-template-columns: 1fr; gap: 1.9rem; align-items: start; }
-    .stages { grid-template-columns: 1fr 1fr; }
-    .proofs { grid-template-columns: 1fr; gap: 1.6rem; }
-    .p-top { flex-direction: column; gap: 0.5rem; }
-  }
-
-  /* ---- section colour worlds ---- */
-  .s-cover  { --bg: radial-gradient(120% 90% at 20% 0%, #191926 0%, #0F0F13 55%); --ink: #F4F2EA; --ink-soft: #B4B0A4; --label: #8891B4; --accent: #7E97FF; --btn-bg: #F4F2EA; --btn-ink: #14141A; }
-  .s-method { --bg: linear-gradient(165deg, #F8F5EE, #EEE8DA); --ink: #14140F; --ink-soft: #55513f; --label: #948E7C; --accent: #1E3FE0; --btn-bg: #14140F; --btn-ink: #F8F5EE; }
-  .s-pott   { --bg: linear-gradient(160deg, #23CBCC, #128E92); --ink: #052A2B; --ink-soft: #0C494B; --label: #0C494B; --accent: #052A2B; --btn-bg: #052A2B; --btn-ink: #6FE7E6; }
-  .s-exemplar { --bg: linear-gradient(160deg, #12203C, #0A1120); --ink: #EAF0FF; --ink-soft: #9BB0DA; --label: #6E80AE; --accent: #86A0FF; --btn-bg: #1E3FE0; --btn-ink: #FFFFFF; }
-  .s-tyres  { --bg: linear-gradient(160deg, #FEC916, #EDB100); --ink: #0B0B0B; --ink-soft: #38330E; --label: #6A5800; --accent: #0B0B0B; --btn-bg: #0B0B0B; --btn-ink: #FEC013; }
-  .s-esti   { --bg: linear-gradient(160deg, #0C1E30, #06121E); --ink: #E9F3F6; --ink-soft: #93B3C1; --label: #5E8797; --accent: #4FE3C4; --btn-bg: #4FE3C4; --btn-ink: #05131C; }
-  .s-jewell { --bg: linear-gradient(160deg, #F8F5EE, #ECE6D8); --ink: #14140F; --ink-soft: #55513f; --label: #948E7C; --accent: #1E3FE0; --btn-bg: #1E3FE0; --btn-ink: #FFFFFF; }
-  .s-maxxim { --bg: linear-gradient(160deg, #0E0E16, #08080C); --ink: #F1EFF8; --ink-soft: #A6A1BC; --label: #6C6689; --accent: #8F7CFF; --btn-bg: #8F7CFF; --btn-ink: #0B0B12; }
-  .s-health { --bg: linear-gradient(160deg, #F1F5F8, #E1EAF1); --ink: #0F2230; --ink-soft: #4C6373; --label: #8199AA; --accent: #1E6FE0; --btn-bg: #1E6FE0; --btn-ink: #FFFFFF; }
-  .s-otr    { --bg: linear-gradient(160deg, #30210F, #150E06); --ink: #F4EBE0; --ink-soft: #B99C7E; --label: #8C7053; --accent: #E4A24B; --btn-bg: #E4A24B; --btn-ink: #150E06; }
-  .s-tools  { --bg: linear-gradient(160deg, #F4F1EA, #E7E1D3); --ink: #14140F; --ink-soft: #55513f; --label: #948E7C; --accent: #4B32E0; --btn-bg: #14140F; --btn-ink: #F4F1EA; }
-  .s-proof  { --bg: #0F0F13; --ink: #F4F2EA; --ink-soft: #B4B0A4; --label: #8891B4; --accent: #7E97FF; }
-  .s-next   { --bg: radial-gradient(120% 90% at 80% 100%, #191926 0%, #0F0F13 55%); --ink: #F4F2EA; --ink-soft: #B4B0A4; --label: #8891B4; --accent: #7E97FF; --btn-bg: #F4F2EA; --btn-ink: #14141A; }
-`;
-
-const TOTAL = "09";
-
-const PROJECTS = [
-  {
-    cls: "s-pott", id: "pottsville", n: "01", ghost: "01",
-    sector: "Allied health &middot; launched",
-    name: "Pottsville Acupuncture",
-    positioning: "A practitioner-led clinic, taken to market and built to grow.",
-    facts: [
-      ["The brief", "A founder-dependent clinic, around 25 clients a week."],
-      ["What we built", "Brand, website, bookings, CRM and content. The full stack, live."],
-      ["The arc", "An 18-month plan from founder-dependent to sale-ready."],
-    ],
-    stat: ["~2&times;", "Bookings in the first retainer period"],
-    href: "https://pottsvilleacupuncture.com.au/", cta: "See it live",
-  },
-  {
-    cls: "s-health", id: "health", n: "02", ghost: "02",
-    sector: "Health brand &middot; in build",
-    name: "Jewell Health",
-    positioning: "The group's own health brand, coming to market.",
-    facts: [
-      ["What it is", "Jewell's health venture, built on the same method."],
-      ["Where it is", "In final build now, close to launch."],
-      ["Why it is here", "The clearest read on where this is all heading."],
-    ],
-    stat: null,
-    href: "https://staging.jewell-health.pages.dev/", cta: "Preview it",
-  },
-  {
-    cls: "s-exemplar", id: "exemplar", n: "03", ghost: "03",
-    sector: "The method, in full",
-    name: "A 3D Process, end to end",
-    positioning: "One brand's complete strategy on a single page. Discover to Deepen.",
-    facts: [
-      ["Why it matters", "This is the depth behind every build in this deck."],
-      ["What is inside", "Audience, competitors, positioning, personas, media plan."],
-      ["How to read it", "Top to bottom. The whole thinking, not a summary."],
-    ],
-    stat: ["4", "Stages, one compounding system"],
-    href: "https://lowe-alpine-3d-process.clent.workers.dev/", cta: "Read it",
-  },
-  {
-    cls: "s-tyres", id: "tyres", n: "04", ghost: "04",
-    sector: "Industrial &middot; turnaround",
-    name: "Jewell Tyres",
-    positioning: "50 years, no fuss. A 53-year-old business, given a second act.",
-    facts: [
-      ["The brief", "An independent tyre trader, challenged for the first time since 2005."],
-      ["What we did", "A locked brand and a two-phase turnaround into a platform sister brand."],
-      ["Why it counts", "Proof the method carries into hard, unglamorous sectors."],
-    ],
-    stat: ["53 yrs", "Of trade, repositioned for what is next"],
-    href: "https://jewelltyres.pages.dev/", cta: "See it live",
-  },
-  {
-    cls: "s-otr", id: "otr", n: "05", ghost: "05",
-    sector: "Industrial &middot; platform sister brand",
-    name: "OTR Earthmover",
-    positioning: "The turnaround, extended into a platform.",
-    facts: [
-      ["What it is", "The off-the-road tyre venture beside Jewell Tyres."],
-      ["The idea", "Service, repair, recycling and training, on one platform."],
-      ["The build", "A live 'Ask' surface, answering from the business's own knowledge."],
-    ],
-    stat: null,
-    href: "https://otr-earthmover-tyre.pages.dev/ask", cta: "See it live",
-  },
-  {
-    cls: "s-esti", id: "esti", n: "06", ghost: "06",
-    sector: "AI product &middot; built from nothing",
-    name: "EstiTrade",
-    positioning: "Reads a plan. Returns a full bill of quantities in under a minute.",
-    facts: [
-      ["The problem", "A painter's estimate took two to three hours, or up to $1,900 outsourced."],
-      ["What it does", "Identifies every room and surface from the plan. Quantities only."],
-      ["The proof", "14 rooms, 42 line items, 868.8 m&sup2;, in 47 seconds at 94% confidence."],
-    ],
-    stat: ["&lt;60s", "For a job that used to take hours"],
-    href: "https://paint-estimator.pages.dev/", cta: "See it live",
-  },
-  {
-    type: "tools",
-    cls: "s-tools", id: "tools", n: "07", ghost: "07",
-    sector: "In your hands &middot; live",
-    name: "The tools themselves",
-    positioning: "Not slides. Working software you can click.",
-    tools: [
-      ["Jewell Ask", "Ask the business anything. Answered from approved sources only.", "https://claude-jewell-reconciliation-phase-0-sv9gcl-jewell-ai.clent.workers.dev/ai-enabled"],
-      ["Why", "The reasoning behind the work, made interactive.", "https://claude-jewell-reconciliation-phase-0-sv9gcl-jewell-ai.clent.workers.dev/why"],
-    ],
-  },
-  {
-    cls: "s-jewell", id: "jewell", n: "08", ghost: "08",
-    sector: "The platform &middot; the front door",
-    name: "Jewell AI",
-    positioning: "Where the method lives as a product.",
-    facts: [
-      ["What it is", "Strategy, brand and live assets, produced fast."],
-      ["The principle", "AI does the volume. A senior operator owns the number."],
-      ["Built on", "A modern stack on Cloudflare, with an assistant built in."],
-    ],
-    stat: ["25+", "Brands built, across sectors"],
-    href: "https://jewell-ai.clent.workers.dev/", cta: "See it live",
-  },
-  {
-    cls: "s-maxxim", id: "maxxim", n: "09", ghost: "09",
-    sector: "The engine underneath",
-    name: "Maxxim",
-    positioning: "What makes the pace possible.",
-    facts: [
-      ["What it is", "The 3D Process, productised into an AI engine."],
-      ["How it scales", "Vetted operators deliver the same method to their own clients."],
-      ["The split", "AI does the production. The human owns trust, judgement and sign-off."],
-    ],
-    stat: null,
-    href: "https://maxxim.ai/", cta: "See it live",
-  },
-];
-
-function renderProject(p) {
-  if (p.type === "tools") return renderTools(p);
-  const facts = p.facts
-    .map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`)
-    .join("\n          ");
-  const stat = p.stat
-    ? `<div class="stat"><span class="stat-num">${p.stat[0]}</span><span class="stat-label">${p.stat[1]}</span></div>`
-    : "";
-  return `
-  <section class="section ${p.cls}" id="${p.id}">
-    <span class="ghost" aria-hidden="true">${p.ghost}</span>
-    <div class="inner reveal">
-      <div class="p-top">
-        <p class="eyebrow">${p.sector}</p>
-        <span class="counter">${p.n} / ${TOTAL}</span>
-      </div>
-      <h2 class="name">${p.name}</h2>
-      <p class="positioning">${p.positioning}</p>
-      <div class="rule"></div>
-      <div class="p-lower">
-        <dl class="facts">
-          ${facts}
-        </dl>
-        <div class="p-aside">
-          ${stat}
-          <a class="cta" href="${p.href}" target="_blank" rel="noopener">${p.cta} <span class="arw" aria-hidden="true">&rarr;</span></a>
-        </div>
-      </div>
-    </div>
-  </section>`;
-}
-
-function renderTools(p) {
-  const cards = p.tools
-    .map(([tn, td, href]) => `<div class="tool"><span class="tn">${tn}</span><span class="td">${td}</span><a class="tl" href="${href}" target="_blank" rel="noopener">Open <span aria-hidden="true">&rarr;</span></a></div>`)
-    .join("\n        ");
-  return `
-  <section class="section ${p.cls}" id="${p.id}">
-    <span class="ghost" aria-hidden="true">${p.ghost}</span>
-    <div class="inner reveal">
-      <div class="p-top">
-        <p class="eyebrow">${p.sector}</p>
-        <span class="counter">${p.n} / ${TOTAL}</span>
-      </div>
-      <h2 class="name">${p.name}</h2>
-      <p class="positioning">${p.positioning}</p>
-      <div class="rule"></div>
-      <div class="tools-grid">
-        ${cards}
-      </div>
-    </div>
-  </section>`;
-}
-
-const NAV_ITEMS = [
-  ["cover", "Cover"], ["method", "Method"], ["pottsville", "Pottsville"],
-  ["health", "Jewell Health"], ["exemplar", "3D Process"], ["tyres", "Jewell Tyres"],
-  ["otr", "OTR Earthmover"], ["esti", "EstiTrade"], ["tools", "Tools"],
-  ["jewell", "Jewell AI"], ["maxxim", "Maxxim"], ["proof", "Proof"], ["next", "Next"],
-];
-
-function shell(title, inner, opts) {
-  const o = opts || {};
-  const chrome = o.chrome === false ? "" : `
-<a class="brandmark" href="#cover">Jewell</a>
-<span class="tag">For Jason &middot; private</span>
-<nav class="dots" aria-label="Sections">
-  ${NAV_ITEMS.map(([id, label]) => `<a href="#${id}" title="${label}" aria-label="${label}"></a>`).join("\n  ")}
-</nav>`;
+function page(title, bodyInner, extraStyle) {
   return `<!doctype html>
-<html lang="en-AU">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>${title}</title>
-<meta name="robots" content="noindex, nofollow">
-${FONTS}
-<style>${STYLE}${o.extraStyle || ""}</style>
+<meta name="description" content="A private, informal look at current work and how AI is used as an operating system." />
+<meta name="robots" content="noindex, nofollow" />
+<style>${DECK_STYLE}${extraStyle || ""}</style>
 </head>
 <body>
-${chrome}
-${inner}
-${o.script || ""}
+${bodyInner}
 </body>
 </html>`;
 }
 
-function tsungPage() {
-  const inner = `
-<main>
+const PROJECTS = [
+  {
+    name: "Jewell — site rebuild", status: ["draft", "Draft"],
+    what: "The core Jewell platform and front end, rebuilt from the ground up. It's the “operating system” idea made literal — a human-centred, AI-enabled site meant to tie the business together, not just describe it.",
+    where: "Structure, design system and copy are in place. Still refining before anything here goes in front of customers.",
+    links: [["jewell-ai.clent.workers.dev →", "https://jewell-ai.clent.workers.dev/"]],
+  },
+  {
+    name: "Jewell tools — Ask &amp; Why", status: ["dev", "In development"],
+    what: "AI surfaces built into the Jewell world. “Ask” answers questions in plain language from approved sources; “Why” makes the reasoning behind the work interactive.",
+    where: "Working, but early. The interfaces are there; what they draw their answers from is still being tuned, so treat them as previews rather than finished tools.",
+    links: [
+      ["Ask →", "https://claude-jewell-reconciliation-phase-0-sv9gcl-jewell-ai.clent.workers.dev/ai-enabled"],
+      ["Why →", "https://claude-jewell-reconciliation-phase-0-sv9gcl-jewell-ai.clent.workers.dev/why"],
+    ],
+  },
+  {
+    name: "Maxxim", status: ["draft", "Draft"],
+    what: "The platform running alongside the live maxxim.ai site — the 3D Process productised into an engine that vetted operators can run for their own clients.",
+    where: "Draft and actively evolving. The live site and admin already exist; this is the next iteration being built on top.",
+    links: [["maxxim.ai →", "https://maxxim.ai/"]],
+  },
+  {
+    name: "OTR Earthmover", status: ["dev", "Search in dev"],
+    what: "A site for OTR Earthmover to browse and buy earthmover tyres online, with a live “Ask” surface answering from the business's own knowledge.",
+    where: "Content and structure are drafted end to end. The product search — the part that actually helps someone find the right tyre — is still being built.",
+    links: [["otr-earthmover-tyre.pages.dev →", "https://otr-earthmover-tyre.pages.dev/ask"]],
+  },
+  {
+    name: "Jewell Tyres", status: ["dev", "Early build"],
+    what: "The new Jewell Tyres build — a 53-year-old independent business repositioned around one line: 50 years, no fuss.",
+    where: "Early stage. The brand is locked; the buying flow and product search are still in development.",
+    links: [["jewelltyres.pages.dev →", "https://jewelltyres.pages.dev/"]],
+  },
+  {
+    name: "Jewell Health", status: ["draft", "Staging"],
+    what: "An early build for Jewell Health — the same approach extended into the health side of the business.",
+    where: "Staged and early. Not yet public, and the least developed of everything here.",
+    links: [["staging.jewell-health.pages.dev →", "https://staging.jewell-health.pages.dev/"]],
+  },
+  {
+    name: "EstiTrade", status: ["dev", "Preview"],
+    what: "An AI product built from nothing. It reads an architectural plan and returns a full bill of quantities in under a minute — quantities only, never pricing.",
+    where: "A working preview. Proven on a real job (14 rooms, 868.8 m², 47 seconds at 94% confidence); now validating against more before wider release.",
+    links: [["paint-estimator.pages.dev →", "https://paint-estimator.pages.dev/"]],
+  },
+  {
+    name: "The 3D Process, end to end", status: ["live", "Reference"],
+    what: "One brand's complete strategy on a single page — Discover, Design, Deploy, Deepen. The method that sits behind every build in this deck.",
+    where: "A finished reference. Read it top to bottom; it is the whole thinking, not a summary.",
+    links: [["lowe-alpine-3d-process.clent.workers.dev →", "https://lowe-alpine-3d-process.clent.workers.dev/"]],
+  },
+  {
+    name: "Pottsville Acupuncture", status: ["live", "Launched"],
+    what: "A client clinic built the same way as everything above — brand, website, bookings and CRM, plus its own AI copy editor and a strategy layer behind the scenes.",
+    where: "Launched and live. The finished example of what the drafts on the previous pages are working toward. Bookings nearly doubled in the first retainer period.",
+    links: [["pottsvilleacupuncture.com.au →", "https://pottsvilleacupuncture.com.au/"]],
+  },
+];
 
-  <section class="section s-cover" id="cover">
-    <div class="inner reveal">
-      <p class="eyebrow">For Dr Jason Tsung</p>
-      <h1 class="h-head">A look at the work. And the engine underneath it.</h1>
-      <p class="h-lede"><strong>Not a pitch.</strong> Nine live builds, the method behind them, and how it moves this fast. Open anything you like.</p>
-    </div>
-    <div class="cue">Scroll <span></span></div>
-  </section>
+const OS_CARDS = [
+  ["Build", "It writes and ships the work", "Every project on the previous pages is built and maintained with Claude Code, from first draft to deployed page.", "Across the work"],
+  ["Method", "The same process every time", "Discover, Design, Deploy, with a Deepen loop that keeps feeding the next round. One method, applied to every brand above.", "3D Process"],
+  ["Scale", "Operators, not only us", "The same engine lets vetted operators deliver this to their own clients. The work does not depend on one pair of hands.", "Maxxim"],
+  ["Judgement", "A person still owns the number", "AI does the volume; a senior operator signs off on tone, judgement and risk before anything ships.", "Always"],
+];
 
-  <section class="section s-method" id="method">
-    <div class="inner reveal">
-      <p class="eyebrow">How every one was built</p>
-      <h2 class="h-head">Discover. Design. Deploy. And a Deepen loop that never really stops.</h2>
-      <div class="stages">
-        <div class="stage"><span class="sn">01</span><span class="st">Discover</span><span class="sd">Understand before building. The why, the audience, the opportunity.</span></div>
-        <div class="stage"><span class="sn">02</span><span class="st">Design</span><span class="sd">Strategy on the page. Business plan, brand, offer, activation.</span></div>
-        <div class="stage"><span class="sn">03</span><span class="st">Deploy</span><span class="sd">Strategy into live assets. Identity, website, social, email, content.</span></div>
-        <div class="stage"><span class="sn">04</span><span class="st">Deepen</span><span class="sd">Stay embedded. Measure, improve, scale. Every cycle feeds the next.</span></div>
-      </div>
-    </div>
-  </section>
+const TOTAL = PROJECTS.length + 5; // cover, callout, toc, projects, os, close
 
-${PROJECTS.map(renderProject).join("\n")}
-
-  <section class="section s-proof" id="proof">
-    <div class="inner reveal">
-      <p class="eyebrow">Not a one-off</p>
-      <h2 class="h-head">25 plus brands, built to production, across sectors.</h2>
-      <div class="proofs">
-        <div class="proof"><div class="pn">+300%</div><div class="pl">Revenue growth, Hidrive</div></div>
-        <div class="proof"><div class="pn">$35M</div><div class="pl">Assets under management in 90 days, Walter Wealth</div></div>
-        <div class="proof"><div class="pn">25+</div><div class="pl">Brands built to production, across sectors</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section s-next" id="next">
-    <div class="inner reveal">
-      <p class="eyebrow">Where this goes</p>
-      <h2 class="h-head">Next.</h2>
-      <p class="signoff">This deck will not stay still. The engine keeps building, and this is just what it looked like today. If any of it raises a question, <strong>ask it.</strong></p>
-    </div>
-  </section>
-
-</main>`;
-
-  const script = `
-<script>
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var sections = Array.prototype.slice.call(document.querySelectorAll('.section'));
-  var dots = Array.prototype.slice.call(document.querySelectorAll('.dots a'));
-
-  var reveals = document.querySelectorAll('.reveal');
-  if (!reduce && 'IntersectionObserver' in window) {
-    var ro = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
-    }, { threshold: 0.25 });
-    reveals.forEach(function (el) { ro.observe(el); });
-  } else {
-    reveals.forEach(function (el) { el.classList.add('in'); });
-  }
-
-  if ('IntersectionObserver' in window) {
-    var so = new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        if (e.isIntersecting) {
-          var id = e.target.id;
-          dots.forEach(function (d) { d.classList.toggle('on', d.getAttribute('href') === '#' + id); });
-        }
-      });
-    }, { threshold: 0.55 });
-    sections.forEach(function (s) { so.observe(s); });
-  }
-</script>`;
-
-  return shell("Jewell &mdash; For Jason", inner, { script });
+function slideNum(n) {
+  const pad = String(n).padStart(2, "0");
+  return `<div class="slide-num">${pad} / ${TOTAL}</div>`;
 }
 
-function loginPage(showError) {
-  const inner = `
-<main>
-  <section class="section s-cover" id="cover" style="min-height:100svh;">
-    <div class="inner reveal in" style="max-width:30rem;">
-      <p class="eyebrow">Private link</p>
-      <h1 class="h-head" style="font-size:clamp(2rem,5vw,2.8rem);">This one needs a password.</h1>
-      <p class="h-lede" style="margin-top:1rem;">Ask Clent if you do not have it.</p>
-      <form method="POST" class="login-form">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" autocomplete="current-password" autofocus required>
-        <button type="submit">Enter <span aria-hidden="true">&rarr;</span></button>
-      </form>
-      ${showError ? '<p class="login-error">That password did not match. Try again.</p>' : ""}
+function renderToc() {
+  const rows = PROJECTS.map((p, i) => `        <div class="toc-row">
+          <span class="index">${String(i + 1).padStart(2, "0")}</span><span class="name">${p.name}</span>
+          <span class="right"><span class="status ${p.status[0]}">${p.status[1]}</span></span>
+        </div>`).join("\n");
+  return `  <section class="slide">
+    <div class="slide-inner">
+      <div class="eyebrow">Currently in motion</div>
+      <h2 style="font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.1rem);">What we're working on</h2>
+      <p class="sig" style="max-width: 56ch;">${PROJECTS.length} things on the go right now. One page each follows, with what it is and where it's actually at.</p>
+      <div class="toc-list">
+${rows}
+      </div>
     </div>
+    ${slideNum(3)}
+  </section>`;
+}
+
+function renderProject(p, i) {
+  const links = p.links
+    .map(([label, href]) => `        <a href="${href}" target="_blank" rel="noopener">${label}</a>`)
+    .join("\n");
+  const fieldNum = String(i + 1).padStart(2, "0");
+  const total = String(PROJECTS.length).padStart(2, "0");
+  return `  <section class="slide">
+    <div class="slide-inner">
+      <div class="project-head">
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div class="eyebrow">Project ${fieldNum} of ${total}</div>
+          <h2>${p.name}</h2>
+        </div>
+        <span class="status ${p.status[0]}">${p.status[1]}</span>
+      </div>
+      <div class="project-fields">
+        <div class="field">
+          <div class="field-label">What it is</div>
+          <p>${p.what}</p>
+        </div>
+        <div class="field">
+          <div class="field-label">Where it's at</div>
+          <p>${p.where}</p>
+        </div>
+      </div>
+      <div class="project-links">
+${links}
+      </div>
+    </div>
+    ${slideNum(4 + i)}
+  </section>`;
+}
+
+function renderOs() {
+  const n = 4 + PROJECTS.length;
+  const cards = OS_CARDS.map(([tag, h3, p, split]) => `        <div class="os-card">
+          <div class="tag">${tag}</div>
+          <h3>${h3}</h3>
+          <p>${p}</p>
+          <div class="os-split"><span>${split}</span></div>
+        </div>`).join("\n\n");
+  return `  <section class="slide">
+    <div class="slide-inner">
+      <div class="eyebrow">The bit underneath all of it</div>
+      <h2 style="font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.1rem);">AI as an operating system</h2>
+      <p class="sig" style="max-width: 62ch;">Not a single app. More like the layer everything else runs on — the same handful of habits, used to build every project above.</p>
+
+      <div class="os-grid">
+${cards}
+      </div>
+    </div>
+    ${slideNum(n)}
+  </section>`;
+}
+
+function tsungDeck() {
+  const projectSlides = PROJECTS.map((p, i) => renderProject(p, i)).join("\n\n");
+  const closeNum = TOTAL;
+  const inner = `<div class="deck">
+
+  <section class="slide cover">
+    <div class="slide-inner">
+      <div class="wordmark">Jewell — private draft</div>
+      <h1>What we're building, and how AI runs underneath it.</h1>
+      <p class="lede">A quick, informal look for you, Jason — not a client deck. Where things are up to, and how the work actually gets made.</p>
+      <div class="meta-row">
+        <span>Prepared by Clent</span>
+        <span>·</span>
+        <span>July 2026</span>
+        <span>·</span>
+        <span>For Jason</span>
+      </div>
+    </div>
+    ${slideNum(1)}
   </section>
-</main>`;
-  const extraStyle = `
-  .login-form { display: grid; gap: 0.8rem; margin-top: 2rem; max-width: 22rem; }
-  .login-form label { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--label); }
-  .login-form input { font: inherit; font-size: 1rem; padding: 0.8rem 0.95rem; border: 1px solid color-mix(in srgb, var(--ink) 22%, transparent); border-radius: 8px; background: rgba(255,255,255,0.04); color: var(--ink); }
-  .login-form input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .login-form button { font: inherit; font-weight: 500; font-size: 0.95rem; padding: 0.8rem 1.2rem; border: none; border-radius: 999px; background: var(--btn-bg); color: var(--btn-ink); cursor: pointer; width: fit-content; display: inline-flex; gap: 0.5rem; align-items: center; }
-  .login-form button:hover { transform: translateY(-1px); }
-  .login-error { color: #E29874; font-size: 0.92rem; margin-top: 1.1rem; }
+
+  <section class="slide">
+    <div class="slide-inner">
+      <div class="eyebrow">Before you look</div>
+      <h2 style="font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.1rem);">Most of this is a working draft.</h2>
+      <div class="callout">
+        <div class="dot"></div>
+        <p>Nothing here is a pitch, and some of it is still mid-build — a couple of the tools ahead (Ask, and search on OTR Earthmover and Jewell Tyres) are previews, not finished products. <strong>You're seeing the work as it actually is.</strong> Happy to walk you through any of it in person.</p>
+      </div>
+    </div>
+    ${slideNum(2)}
+  </section>
+
+${renderToc()}
+
+${projectSlides}
+
+${renderOs()}
+
+  <section class="slide" style="border-bottom: none;">
+    <div class="slide-inner">
+      <div class="eyebrow">Next</div>
+      <h2 style="font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.1rem);">Happy to walk you through any of it.</h2>
+      <p style="max-width: 56ch; color: color-mix(in srgb, var(--black) 78%, transparent);">Everything above is live, in build, or a working draft. Some of it is rough on purpose — you're seeing it as it really is. Good to talk any of it through in person, any time.</p>
+      <p class="sig">— Clent</p>
+    </div>
+    ${slideNum(closeNum)}
+  </section>
+
+</div>`;
+  return page("For Jason — what we're building", inner);
+}
+
+const LOGIN_STYLE = `
+  .gate { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .gate form { display: flex; flex-direction: column; gap: 14px; width: min(360px, 88vw); padding: 32px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+  .gate h1 { font-size: 1.2rem; font-weight: 500; }
+  .gate input { font: inherit; font-size: 1rem; padding: 10px 12px; border-radius: 8px; border: 1px solid color-mix(in srgb, var(--black) 25%, transparent); background: transparent; color: inherit; }
+  .gate button { font: inherit; font-size: 0.95rem; padding: 10px 12px; border-radius: 8px; border: none; background: var(--signal); color: #fff; cursor: pointer; font-weight: 500; }
+  .gate .err { color: #d94f4f; font-size: 0.85rem; }
+  .gate .hint { font-size: 0.82rem; color: color-mix(in srgb, var(--black) 55%, transparent); }
 `;
-  return shell("Jewell &mdash; Private link", inner, { chrome: false, extraStyle });
+
+function loginPage(showError) {
+  const inner = `<div class="gate">
+  <form method="POST">
+    <div class="eyebrow">Private link</div>
+    <h1>This is for Jason. Enter the password to continue.</h1>
+    <input type="password" name="password" placeholder="Password" autocomplete="current-password" autofocus required />
+    ${showError ? '<div class="err">That password did not match. Try again.</div>' : '<div class="hint">Ask Clent if you don\'t have it.</div>'}
+    <button type="submit">View</button>
+  </form>
+</div>`;
+  return page("Private draft — password required", inner, LOGIN_STYLE);
 }
 
 function holdingPage() {
-  const inner = `
-<main>
-  <section class="section s-cover" id="cover" style="min-height:100svh;">
-    <div class="inner reveal in" style="max-width:30rem;">
-      <p class="eyebrow">Jewell</p>
-      <h1 class="h-head" style="font-size:clamp(2rem,5vw,2.8rem);">Nothing here yet.</h1>
-      <p class="h-lede" style="margin-top:1rem;">If you were sent a link, use that one directly.</p>
-    </div>
-  </section>
-</main>`;
-  return shell("Jewell", inner, { chrome: false });
+  const inner = `<div class="gate">
+  <div style="text-align:left; width:min(360px,88vw);">
+    <div class="eyebrow">Jewell</div>
+    <h1 style="font-weight:500; font-size:1.3rem; margin-top:10px;">Nothing here yet.</h1>
+    <p style="margin-top:8px; color: color-mix(in srgb, var(--black) 65%, transparent);">If you were sent a link, use that one directly.</p>
+  </div>
+</div>`;
+  return page("Jewell", inner, LOGIN_STYLE);
 }
 
 function hasValidCookie(request) {
@@ -491,7 +281,7 @@ async function handleTsung(request) {
   }
 
   if (hasValidCookie(request)) {
-    return new Response(tsungPage(), {
+    return new Response(tsungDeck(), {
       headers: { "Content-Type": "text/html; charset=UTF-8" },
     });
   }
