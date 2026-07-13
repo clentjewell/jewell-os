@@ -54,10 +54,10 @@ const RAIL = `
   <div class="rail-inner">
     <span class="rail-mark">Jewell &middot; How We Work</span>
     <nav class="rail-stages">
-      <a href="#discover">Discover</a>
-      <a href="#design">Design</a>
-      <a href="#deploy">Deploy</a>
-      <a href="#deepen">Deepen</a>
+      <a href="#method">Method</a>
+      <a href="#work">Work</a>
+      <a href="#engine">Engine</a>
+      <a href="#next">Next</a>
     </nav>
   </div>
 </div>
@@ -114,6 +114,26 @@ const PAGE_STYLE_BODY = `
     .ledger-row .desc { grid-column: 1 / -1; }
   }
 
+  .work-list { margin-top: 1.6rem; display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .work-item {
+    background: var(--surface); display: grid; grid-template-columns: 2.6rem 1fr auto;
+    gap: 0.4rem 1.2rem; padding: 1.5rem clamp(1.1rem, 3vw, 1.6rem); align-items: start;
+    text-decoration: none; color: inherit; transition: background 0.15s ease;
+  }
+  .work-item:hover { background: color-mix(in srgb, var(--accent-soft) 55%, var(--surface)); }
+  .work-item .num { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); padding-top: 0.15rem; }
+  .work-item .body { min-width: 0; }
+  .work-item .sector { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent-ink); display: block; margin-bottom: 0.3rem; }
+  .work-item .name { font-family: var(--font-display); font-weight: 600; font-size: 1.12rem; color: var(--ink); margin: 0 0 0.35rem; letter-spacing: -0.005em; }
+  .work-item .what { font-size: 0.93rem; color: var(--ink-soft); margin: 0; max-width: 34rem; }
+  .work-item .go { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); white-space: nowrap; padding-top: 0.2rem; }
+  .work-item:hover .go { color: var(--accent-ink); }
+  .work-item .go::after { content: " \\2192"; }
+  @media (max-width: 640px) {
+    .work-item { grid-template-columns: 2rem 1fr; }
+    .work-item .go { grid-column: 2; padding-top: 0.5rem; }
+  }
+
   .engine { background: var(--surface); border: 1px solid var(--line); padding: 2.4rem clamp(1.4rem, 4vw, 2.6rem); margin-top: 1.4rem; }
   .quote {
     font-family: var(--font-display); font-weight: 500; font-size: clamp(1.25rem, 2.6vw, 1.55rem);
@@ -168,14 +188,14 @@ ${RAIL}
     <p class="lede">A short look at how Jewell works, what it has built, and the engine underneath it. <strong>Not a pitch.</strong> Just a look under the bonnet.</p>
   </section>
 
-  <section class="reveal" id="discover-anchor">
+  <section class="reveal" id="method">
     <div class="section-head">
-      <p class="eyebrow" id="discover">How it works</p>
+      <p class="eyebrow">How it works</p>
       <h2>Discover, Design, Deploy &mdash; with a Deepen loop that never really stops.</h2>
       <p>Every brand run on this engine follows the same method, the 3D Process&trade;. Four stages, one compounding system.</p>
     </div>
     <div class="ledger">
-      <div class="ledger-row" id="design">
+      <div class="ledger-row">
         <span class="idx">01</span>
         <span class="stage">Discover</span>
         <p class="desc">Understand before building. The why, the audience, the competitors, the opportunity map.</p>
@@ -185,16 +205,80 @@ ${RAIL}
         <span class="stage">Design</span>
         <p class="desc">Strategy on the page. Business plan, brand strategy, offer design, activation strategy.</p>
       </div>
-      <div class="ledger-row" id="deploy">
+      <div class="ledger-row">
         <span class="idx">03</span>
         <span class="stage">Deploy</span>
         <p class="desc">Translate strategy into live assets. Identity, website, social, paid, email, SEO, content.</p>
       </div>
-      <div class="ledger-row" id="deepen">
+      <div class="ledger-row">
         <span class="idx">04</span>
         <span class="stage">Deepen</span>
         <p class="desc">Stay embedded. Measure, improve, scale. Every cycle feeds the next.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="reveal" id="work">
+    <div class="section-head">
+      <p class="eyebrow">The work, page by page</p>
+      <h2>Six things, six sectors, one engine.</h2>
+      <p>A short tour. Each one is a live build, not a mock-up. Open any of them.</p>
+    </div>
+    <div class="work-list">
+      <a class="work-item" href="https://pottsvilleacupuncture.com.au/" target="_blank" rel="noopener">
+        <span class="num">01</span>
+        <span class="body">
+          <span class="sector">Allied health &middot; launched</span>
+          <span class="name">Pottsville Acupuncture</span>
+          <p class="what">A practitioner-led clinic taken to market end to end. Brand, website, bookings, content. Bookings nearly doubled in the first retainer period.</p>
+        </span>
+        <span class="go">Visit</span>
+      </a>
+      <a class="work-item" href="https://lowe-alpine-3d-process.clent.workers.dev/" target="_blank" rel="noopener">
+        <span class="num">02</span>
+        <span class="body">
+          <span class="sector">The method, in full</span>
+          <span class="name">A 3D Process, start to finish</span>
+          <p class="what">One brand's complete strategy on a single page, Discover through Deepen. This is the depth that sits behind every build above and below.</p>
+        </span>
+        <span class="go">Read</span>
+      </a>
+      <a class="work-item" href="https://jewelltyres.pages.dev/" target="_blank" rel="noopener">
+        <span class="num">03</span>
+        <span class="body">
+          <span class="sector">Industrial &middot; turnaround</span>
+          <span class="name">Jewell Tyres</span>
+          <p class="what">A 53-year-old tyre trading business, repositioned around one line: 50 years, no fuss. Proof the method carries into hard, unglamorous sectors.</p>
+        </span>
+        <span class="go">Visit</span>
+      </a>
+      <a class="work-item" href="https://paint-estimator.pages.dev/" target="_blank" rel="noopener">
+        <span class="num">04</span>
+        <span class="body">
+          <span class="sector">AI product &middot; built from nothing</span>
+          <span class="name">EstiTrade</span>
+          <p class="what">Reads an architectural plan and returns a full bill of quantities in under 60 seconds, a job that used to take hours. We build tools, not only brands.</p>
+        </span>
+        <span class="go">Visit</span>
+      </a>
+      <a class="work-item" href="https://jewell-ai.clent.workers.dev/" target="_blank" rel="noopener">
+        <span class="num">05</span>
+        <span class="body">
+          <span class="sector">The platform &middot; the front door</span>
+          <span class="name">Jewell AI</span>
+          <p class="what">Where the method lives as a product. Strategy, brand and live assets, produced fast, with a senior operator owning the result.</p>
+        </span>
+        <span class="go">Visit</span>
+      </a>
+      <a class="work-item" href="https://maxxim.ai/" target="_blank" rel="noopener">
+        <span class="num">06</span>
+        <span class="body">
+          <span class="sector">The engine underneath</span>
+          <span class="name">Maxxim</span>
+          <p class="what">What makes the pace possible. The same method, delivered by vetted operators to their own clients, with AI doing the volume.</p>
+        </span>
+        <span class="go">Visit</span>
+      </a>
     </div>
   </section>
 
