@@ -82,6 +82,14 @@ const STYLE = `
   .proof .pn { font-family: var(--font); font-weight: 600; font-size: clamp(2.6rem, 6vw, 3.8rem); color: var(--accent); line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
   .proof .pl { font-size: 0.95rem; color: var(--ink-soft); margin-top: 0.7rem; }
 
+  .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 0; background: color-mix(in srgb, var(--ink) 16%, transparent); border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent); }
+  .tool { background: var(--bg); padding: 1.7rem 1.6rem; display: grid; gap: 0.55rem; align-content: start; }
+  .tool .tn { font-family: var(--font); font-weight: 600; font-size: 1.35rem; letter-spacing: -0.01em; }
+  .tool .td { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.5; }
+  .tool .tl { margin-top: 0.5rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 0.45rem; }
+  .tool .tl:hover { text-decoration: underline; }
+  @media (max-width: 760px) { .tools-grid { grid-template-columns: 1fr; } }
+
   .signoff { font-size: clamp(1.05rem, 2vw, 1.25rem); font-weight: 300; color: var(--ink-soft); margin: 1.6rem 0 0; max-width: 38rem; }
   .signoff strong { color: var(--ink); font-weight: 500; }
 
@@ -118,9 +126,14 @@ const STYLE = `
   .s-esti   { --bg: linear-gradient(160deg, #0C1E30, #06121E); --ink: #E9F3F6; --ink-soft: #93B3C1; --label: #5E8797; --accent: #4FE3C4; --btn-bg: #4FE3C4; --btn-ink: #05131C; }
   .s-jewell { --bg: linear-gradient(160deg, #F8F5EE, #ECE6D8); --ink: #14140F; --ink-soft: #55513f; --label: #948E7C; --accent: #1E3FE0; --btn-bg: #1E3FE0; --btn-ink: #FFFFFF; }
   .s-maxxim { --bg: linear-gradient(160deg, #0E0E16, #08080C); --ink: #F1EFF8; --ink-soft: #A6A1BC; --label: #6C6689; --accent: #8F7CFF; --btn-bg: #8F7CFF; --btn-ink: #0B0B12; }
+  .s-health { --bg: linear-gradient(160deg, #F1F5F8, #E1EAF1); --ink: #0F2230; --ink-soft: #4C6373; --label: #8199AA; --accent: #1E6FE0; --btn-bg: #1E6FE0; --btn-ink: #FFFFFF; }
+  .s-otr    { --bg: linear-gradient(160deg, #30210F, #150E06); --ink: #F4EBE0; --ink-soft: #B99C7E; --label: #8C7053; --accent: #E4A24B; --btn-bg: #E4A24B; --btn-ink: #150E06; }
+  .s-tools  { --bg: linear-gradient(160deg, #F4F1EA, #E7E1D3); --ink: #14140F; --ink-soft: #55513f; --label: #948E7C; --accent: #4B32E0; --btn-bg: #14140F; --btn-ink: #F4F1EA; }
   .s-proof  { --bg: #0F0F13; --ink: #F4F2EA; --ink-soft: #B4B0A4; --label: #8891B4; --accent: #7E97FF; }
   .s-next   { --bg: radial-gradient(120% 90% at 80% 100%, #191926 0%, #0F0F13 55%); --ink: #F4F2EA; --ink-soft: #B4B0A4; --label: #8891B4; --accent: #7E97FF; --btn-bg: #F4F2EA; --btn-ink: #14141A; }
 `;
+
+const TOTAL = "09";
 
 const PROJECTS = [
   {
@@ -137,7 +150,20 @@ const PROJECTS = [
     href: "https://pottsvilleacupuncture.com.au/", cta: "See it live",
   },
   {
-    cls: "s-exemplar", id: "exemplar", n: "02", ghost: "02",
+    cls: "s-health", id: "health", n: "02", ghost: "02",
+    sector: "Health brand &middot; in build",
+    name: "Jewell Health",
+    positioning: "The group's own health brand, coming to market.",
+    facts: [
+      ["What it is", "Jewell's health venture, built on the same method."],
+      ["Where it is", "In final build now, close to launch."],
+      ["Why it is here", "The clearest read on where this is all heading."],
+    ],
+    stat: null,
+    href: "https://staging.jewell-health.pages.dev/", cta: "Preview it",
+  },
+  {
+    cls: "s-exemplar", id: "exemplar", n: "03", ghost: "03",
     sector: "The method, in full",
     name: "A 3D Process, end to end",
     positioning: "One brand's complete strategy on a single page. Discover to Deepen.",
@@ -150,7 +176,7 @@ const PROJECTS = [
     href: "https://lowe-alpine-3d-process.clent.workers.dev/", cta: "Read it",
   },
   {
-    cls: "s-tyres", id: "tyres", n: "03", ghost: "03",
+    cls: "s-tyres", id: "tyres", n: "04", ghost: "04",
     sector: "Industrial &middot; turnaround",
     name: "Jewell Tyres",
     positioning: "50 years, no fuss. A 53-year-old business, given a second act.",
@@ -163,7 +189,20 @@ const PROJECTS = [
     href: "https://jewelltyres.pages.dev/", cta: "See it live",
   },
   {
-    cls: "s-esti", id: "esti", n: "04", ghost: "04",
+    cls: "s-otr", id: "otr", n: "05", ghost: "05",
+    sector: "Industrial &middot; platform sister brand",
+    name: "OTR Earthmover",
+    positioning: "The turnaround, extended into a platform.",
+    facts: [
+      ["What it is", "The off-the-road tyre venture beside Jewell Tyres."],
+      ["The idea", "Service, repair, recycling and training, on one platform."],
+      ["The build", "A live 'Ask' surface, answering from the business's own knowledge."],
+    ],
+    stat: null,
+    href: "https://otr-earthmover-tyre.pages.dev/ask", cta: "See it live",
+  },
+  {
+    cls: "s-esti", id: "esti", n: "06", ghost: "06",
     sector: "AI product &middot; built from nothing",
     name: "EstiTrade",
     positioning: "Reads a plan. Returns a full bill of quantities in under a minute.",
@@ -176,7 +215,18 @@ const PROJECTS = [
     href: "https://paint-estimator.pages.dev/", cta: "See it live",
   },
   {
-    cls: "s-jewell", id: "jewell", n: "05", ghost: "05",
+    type: "tools",
+    cls: "s-tools", id: "tools", n: "07", ghost: "07",
+    sector: "In your hands &middot; live",
+    name: "The tools themselves",
+    positioning: "Not slides. Working software you can click.",
+    tools: [
+      ["Jewell Ask", "Ask the business anything. Answered from approved sources only.", "https://claude-jewell-reconciliation-phase-0-sv9gcl-jewell-ai.clent.workers.dev/ai-enabled"],
+      ["Why", "The reasoning behind the work, made interactive.", "https://claude-jewell-reconciliation-phase-0-sv9gcl-jewell-ai.clent.workers.dev/why"],
+    ],
+  },
+  {
+    cls: "s-jewell", id: "jewell", n: "08", ghost: "08",
     sector: "The platform &middot; the front door",
     name: "Jewell AI",
     positioning: "Where the method lives as a product.",
@@ -189,7 +239,7 @@ const PROJECTS = [
     href: "https://jewell-ai.clent.workers.dev/", cta: "See it live",
   },
   {
-    cls: "s-maxxim", id: "maxxim", n: "06", ghost: "06",
+    cls: "s-maxxim", id: "maxxim", n: "09", ghost: "09",
     sector: "The engine underneath",
     name: "Maxxim",
     positioning: "What makes the pace possible.",
@@ -204,6 +254,7 @@ const PROJECTS = [
 ];
 
 function renderProject(p) {
+  if (p.type === "tools") return renderTools(p);
   const facts = p.facts
     .map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`)
     .join("\n          ");
@@ -216,7 +267,7 @@ function renderProject(p) {
     <div class="inner reveal">
       <div class="p-top">
         <p class="eyebrow">${p.sector}</p>
-        <span class="counter">${p.n} / 06</span>
+        <span class="counter">${p.n} / ${TOTAL}</span>
       </div>
       <h2 class="name">${p.name}</h2>
       <p class="positioning">${p.positioning}</p>
@@ -234,9 +285,32 @@ function renderProject(p) {
   </section>`;
 }
 
+function renderTools(p) {
+  const cards = p.tools
+    .map(([tn, td, href]) => `<div class="tool"><span class="tn">${tn}</span><span class="td">${td}</span><a class="tl" href="${href}" target="_blank" rel="noopener">Open <span aria-hidden="true">&rarr;</span></a></div>`)
+    .join("\n        ");
+  return `
+  <section class="section ${p.cls}" id="${p.id}">
+    <span class="ghost" aria-hidden="true">${p.ghost}</span>
+    <div class="inner reveal">
+      <div class="p-top">
+        <p class="eyebrow">${p.sector}</p>
+        <span class="counter">${p.n} / ${TOTAL}</span>
+      </div>
+      <h2 class="name">${p.name}</h2>
+      <p class="positioning">${p.positioning}</p>
+      <div class="rule"></div>
+      <div class="tools-grid">
+        ${cards}
+      </div>
+    </div>
+  </section>`;
+}
+
 const NAV_ITEMS = [
   ["cover", "Cover"], ["method", "Method"], ["pottsville", "Pottsville"],
-  ["exemplar", "3D Process"], ["tyres", "Jewell Tyres"], ["esti", "EstiTrade"],
+  ["health", "Jewell Health"], ["exemplar", "3D Process"], ["tyres", "Jewell Tyres"],
+  ["otr", "OTR Earthmover"], ["esti", "EstiTrade"], ["tools", "Tools"],
   ["jewell", "Jewell AI"], ["maxxim", "Maxxim"], ["proof", "Proof"], ["next", "Next"],
 ];
 
@@ -274,7 +348,7 @@ function tsungPage() {
     <div class="inner reveal">
       <p class="eyebrow">For Dr Jason Tsung</p>
       <h1 class="h-head">A look at the work. And the engine underneath it.</h1>
-      <p class="h-lede"><strong>Not a pitch.</strong> Six live builds, the method behind them, and how it moves this fast. Open anything you like.</p>
+      <p class="h-lede"><strong>Not a pitch.</strong> Nine live builds, the method behind them, and how it moves this fast. Open anything you like.</p>
     </div>
     <div class="cue">Scroll <span></span></div>
   </section>
