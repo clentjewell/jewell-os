@@ -1,8 +1,26 @@
 import { DECK_STYLE } from "./deck-style.js";
+import { LOGO_B64 } from "./logo.js";
 
 const TSUNG_PASSWORD = "jason2026";
 const COOKIE_NAME = "jw_tsung_auth";
 const COOKIE_MAX_AGE = 60 * 60 * 12; // 12 hours
+
+let LOGO_BYTES = null;
+function logoBytes() {
+  if (LOGO_BYTES) return LOGO_BYTES;
+  const bin = atob(LOGO_B64);
+  const arr = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+  LOGO_BYTES = arr;
+  return LOGO_BYTES;
+}
+
+const LOGO_STYLE = `
+  .cover-logo { height: clamp(34px, 3vw, 46px); width: auto; align-self: flex-start; display: block; }
+  @media (prefers-color-scheme: dark) { .cover-logo { filter: invert(1); } }
+  :root[data-theme="dark"] .cover-logo { filter: invert(1); }
+  :root[data-theme="light"] .cover-logo { filter: none; }
+`;
 
 function page(title, bodyInner, extraStyle) {
   return `<!doctype html>
@@ -175,7 +193,8 @@ function tsungDeck() {
 
   <section class="slide cover">
     <div class="slide-inner">
-      <div class="wordmark">Jewell — private draft</div>
+      <img class="cover-logo" src="/logo.png" alt="Jewell" width="3334" height="734" />
+      <div class="wordmark" style="margin-top:2px;">Private draft</div>
       <h1>What we're building, and how AI runs underneath it.</h1>
       <p class="lede">A quick, informal look for you, Jason — not a client deck. Where things are up to, and how the work actually gets made.</p>
       <div class="meta-row">
@@ -218,7 +237,7 @@ ${renderOs()}
   </section>
 
 </div>`;
-  return page("For Jason — what we're building", inner);
+  return page("For Jason — what we're building", inner, LOGO_STYLE);
 }
 
 const LOGIN_STYLE = `
@@ -294,6 +313,15 @@ export default {
   async fetch(request) {
     const url = new URL(request.url);
     const path = url.pathname.replace(/\/+$/, "") || "/";
+
+    if (path === "/logo.png") {
+      return new Response(logoBytes(), {
+        headers: {
+          "Content-Type": "image/png",
+          "Cache-Control": "public, max-age=86400",
+        },
+      });
+    }
 
     if (path === "/tsung") {
       return handleTsung(request);
