@@ -66,7 +66,11 @@ Sam's crons stay off.
   Then the budget sheet's 2 discrepancies; the time rules (kill-or-keep each recurring
   meeting, protect the deep-work blocks, weekly traffic review adopted); the own-projects
   portfolio split — noting the v3 canon already gates the partner motion behind 2 stable
-  direct recurring clients, so the cash lane leads by doctrine, not preference.
+  direct recurring clients, so the cash lane leads by doctrine, not preference. Also at
+  Friday's sitting: confirm the route-to-market sequence (proposed row 13 — direct now,
+  capped list pilot next, partners at the canon gate); the SE Asia pre-departure
+  conditions (row 14 — tax structure with Damian and Christy before departure) and the
+  AU-returns cadence, which is Clent's alone to set.
 - **This week**: jewell-ai strategy zip stripped (PR ready for the word); Claude project
   re-pointed at the repo; personal delta addendum; Sam artifact rescue; maxxim
   strategy-docs split per the audit table.
