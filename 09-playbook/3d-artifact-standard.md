@@ -1,12 +1,12 @@
 # 3D Process artifact standard — v3
 
-What "delivered" means for a 3D Process engagement, and where the canonical artefact set
+What "delivered" means for a 3D Process engagement, and where the canonical artifact set
 lives. Adopted 16 July 2026 from the v3 artifact refresh (14 July). This file defines the
-rules; the artefacts themselves stay in their master home — one source per object.
+rules; the artifacts themselves stay in their master home — one source per object.
 
 ## The master set
 
-`clentjewell/jewell-ai` → `maxxim-3d-process-outputs/` — 71 current-edition artefacts:
+`clentjewell/jewell-ai` → `maxxim-3d-process-outputs/` — 71 current-edition artifacts:
 21 Discover, 44 Design, 6 Deploy, plus the Discovery dataset. `VERSION.md` in that folder
 is the version record; every refreshed file carries `<meta name="maxxim:refreshed">`.
 Earlier snapshots (`3d-outputs/`, `Maxxim-3D-Process/`, the maxxim repo's
@@ -30,13 +30,13 @@ Brain). Clent signs Gates 2 and 5. Sign-off lives in Asana, never in a document.
 
 ## The delivery rules
 
-1. Every engagement starts from this standard: the artefact list for its tier is the
+1. Every engagement starts from this standard: the artifact list for its tier is the
    Definition of Done, checked at each gate.
 2. Every engagement carries its referral-source tag before delivery begins — target 95%
    capture across the pipeline.
 3. The journey stages are v3's: Exposure → Consideration → Decision → Onboarding →
    Retention → Advocacy. The 7 pipeline stages in Asana mirror the CRM plan.
-4. Version discipline: a new artefact edition revs `VERSION.md` in the master folder in
+4. Version discipline: a new artifact edition revs `VERSION.md` in the master folder in
    the same change, and this file's adoption line updates at the next nightly refresh.
    The v2.1-to-v3 drift going unnoticed for 2 days is the failure mode this rule ends.
 5. Proof points quoted anywhere must match the v3-cleared set (Hidrive, Jewell Tyres,
