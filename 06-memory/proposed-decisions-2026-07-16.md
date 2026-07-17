@@ -27,4 +27,6 @@ Staged for Clent's word at the 17 July morning review. On approval each row move
 
 | 17 | Credential handling incident, 17 July: the console's runtime PAT was pasted into chat during setup. The session's platform boundary refused it (repo access is session-scoped, tokens in chat are unusable), so it was never used. Standing rule reaffirmed: a credential that touches a chat is revoked and regenerated same day; runtime tokens go only into the Cloudflare encrypted store by human hand. The pasted token is on today's rotation list alongside runbook 1d. | Fact + rule reaffirmed |
 
+| 18 | Console pilot armed on Clent's word ("go", 17 July): both agent playbooks approved as written (Funnel: idle-card follow-up, referral-source flag, draft-only outreach copy; Finance: invoice-chase task, spend-anomaly flag; money and external sends tier 3 without exception); the 3 scaffold PRs merged to main (jewell-console #1, jewell-brain #1, jewell-ops #1); pilot API cap US$50; the Jewell CRM Asana board confirmed as the pipeline of record with sections to be aligned to the 7 canon stages by Ronnie. Remaining before first light: Step 1 safety pass, Cloudflare connect + vars + 3 secrets + Access app, board section rename. | Decision — given in session |
+
 Next: reviewed at Step 0 of the activation runbook; approved rows enter the log same day.
