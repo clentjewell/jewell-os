@@ -70,7 +70,13 @@ Sam's crons stay off.
   Friday's sitting: confirm the route-to-market sequence (proposed row 13 — direct now,
   capped list pilot next, partners at the canon gate); the SE Asia pre-departure
   conditions (row 14 — tax structure with Damian and Christy before departure) and the
-  AU-returns cadence, which is Clent's alone to set.
+  AU-returns cadence, which is Clent's alone to set. And the service ladder (row 15,
+  `09-playbook/service-tiers-draft.md`): confirm Gold/Platinum/Jewell names, set the Gold
+  and Platinum prices, place the Diagnostic, cap the Gold pilot.
+- **Gold build (post-approval work package)**: install the client-site skills pack from
+  the maxxim repo zip; wire the 1-hour pipeline (intake → parallel build → launch kit →
+  QA gate); plug in the lead storage (uncomment the `wrangler.toml` bindings — Rao, ~30
+  min); build the small Diagnostic booking page the case study already claims exists.
 - **This week**: jewell-ai strategy zip stripped (PR ready for the word); Claude project
   re-pointed at the repo; personal delta addendum; Sam artifact rescue; maxxim
   strategy-docs split per the audit table.
