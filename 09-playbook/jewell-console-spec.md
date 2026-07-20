@@ -133,5 +133,27 @@ Ronnie first user and key owner; Clent the word.
 4. One source of truth per object still applies: a console panel renders the source, it
    does not copy it.
 
-Next: on the word this file drops "PROPOSED", row 16 enters the decision log, and the
-pilot is scheduled behind Steps 1 and 2.
+## v2 — approved by Clent, 20 July 2026
+
+Three layers, built in order while the pilot fortnight runs:
+
+1. **Feeds.** Gmail and Google Calendar join the ingest (week 1), Xero follows
+   (week 2). Privacy line, set by Clent: the brain stores summaries only — sender,
+   subject, the extracted ask, dates — never full email bodies. Work account only;
+   the private layer never enters the brain.
+2. **Agents working together.** Lane agents cooperate through the brain, never
+   directly: each writes findings; a chief-of-staff agent reads all of them and
+   produces the daily digest — what happened, what needs the word (capped at 3),
+   meeting prep, unanswered asks, decaying deals. Same tiers, playbooks, meter and
+   log as v1.
+3. **The Delivery cockpit** (weeks 3 to 4, after Gold is priced): intake form on
+   the console, a Build button running the Gold pipeline to preview URL, a human QA
+   gate, client folders tracking deliverables against the 3D Process. Browser only;
+   Maxxim slots in underneath when stable, per the engine-agnostic rule.
+
+Setup: 1 Google OAuth app (internal, read-only scopes), 1 Xero OAuth app, new
+playbooks arriving as docket items for the word. Spend stays under the pilot cap
+until the readout.
+
+Next: on the word this file drops "PROPOSED", rows 16 to 19 enter the decision log,
+and the pilot is scheduled behind Steps 1 and 2.
