@@ -90,6 +90,36 @@ Sam's crons stay off.
 - **Next week**: Sam v2 Phase 1 scaffold PR; Meta Ads MCP + capped pilot once the relight
   holds a week.
 
+## Why each step exists
+
+The OS is 4 things: one source of truth, gated automation, a self-learning loop, and a
+proof-led funnel. Each step builds one of them, in an order that cannot safely be reversed.
+
+- **Step 0 — governance made real.** AI proposes, humans decide. Nothing in this OS becomes
+  canon without a human word, and this sitting is where that rule is exercised, not just
+  written. It also prevents a repeat of 16 July, when the docs said "live" and the tools
+  said "dark" — review against reality before acting on either.
+- **Step 1 — the security foundation.** The OS's routines read and write across GitHub,
+  Drive, Asana, Cloudflare and Slack every night. Automating on top of exposed credentials
+  multiplies every exposure. Row by row: 1a and 1f (private deck first) enforce the
+  work-personal boundary, which is absolute; 1b–1d kill live keys that let someone else
+  act as us — 1d matters most because the PAT writes to the repos that ARE the source of
+  truth; 1e removes failing-build noise that would mask real failures, and unhooks the
+  personal repo from a deploy pipeline it should never have; 1g–1h protect the
+  methodology itself — 23 internal documents of the 3D Process were publicly readable,
+  and that method is what the service ladder sells. No relight before this pass.
+- **Step 2 — the learning loop restored.** The OS's core promise is nightly capture: it
+  learns while we sleep. That loop died on 13–15 July because routines were bound to
+  long-lived chats whose connectors silently disabled. Fresh session per fire plus
+  least-privilege connectors is the structural fix, not a retry. Retiring the 2 duplicates
+  applies "one source of truth per object" to automations. Until the 3:00am refresh fires,
+  the OS is a library, not an operating system.
+- **Step 3 — the business engine, properly sequenced.** Money and identity decisions
+  (OKRs, prices, the portfolio split, SE Asia conditions) get Friday's dedicated sitting
+  rather than a rushed morning call. The 3 proof clients turn the documented funnel into
+  a tested one — the playbook gets written from real runs, not theory. Safety, then
+  automation, then growth: each layer depends on the one before it.
+
 ## If anything surprises you
 
 Stop and ask, in this session. AI proposes, humans decide — including tomorrow.
