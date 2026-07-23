@@ -22,6 +22,13 @@ Google Drive finance folder; re-uploaded whenever it changes).
 **`CHART-OF-ACCOUNTS.md`** is the Xero chart-of-accounts review and
 migration plan.
 
+**`sops/`** is the click-level SOP library — the "how to click it"
+procedures (Xero/NAB/Wise/Payoneer) that sit underneath the cadence
+runbooks. Transcribed from the Nicole/NCP handover pack in the shared
+Drive finance folder, with all credentials redacted. Start at
+`sops/README.md`. A runbook says *pay the batch*; `sops/` says *which
+buttons*.
+
 This playbook **self-maintains**: the weekly run's "Playbook
 reconciliation" step syncs real-world decisions and events back into
 these docs (see "How this playbook stays current" in `CONTROLLER.md`).
