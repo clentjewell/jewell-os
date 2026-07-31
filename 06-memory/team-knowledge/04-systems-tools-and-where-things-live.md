@@ -77,7 +77,10 @@ always run on Claude Sonnet; Gemini Flash is background-crons only; never
 switch a live session's model mid-conversation; secrets live in a keyfile,
 never plaintext; nightly reset and watchdogs guard reliability. Cost lesson on
 record: one runaway watchdog cron burned 23M tokens/week — kill runaway
-background jobs before downgrading models.
+background jobs before downgrading models. Token guardrails (13 July 2026):
+Sonnet ceiling and Haiku background work enforced by config allowlist, plus a
+capped Sam workspace in the Anthropic Console — see
+`00-governance/sam-token-guardrails.md`.
 
 **Guardrails**: Sam never sends externally, pays, or takes legal action without
 Clent's explicit "send it"; it drafts and proposes only.

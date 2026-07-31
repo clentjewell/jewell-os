@@ -43,6 +43,9 @@ work, Opus for the hardest delegated reasoning and adversarial review. The orche
 final quality and every build ends with a check-and-fix pass. Before any new routine: pick
 the model tier, the effort, whether the prefix caches and whether it batches.
 
+Sam (OpenClaw) is execution-layer only: Sonnet ceiling, Haiku for background work, enforced
+by config allowlist and a capped Console workspace — `00-governance/sam-token-guardrails.md`.
+
 ## Answering rules (any Ask or client-facing surface)
 
 Approved sources only. Cite the source. Say plainly when you do not know. Escalate rather
