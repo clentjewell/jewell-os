@@ -15,6 +15,12 @@ for the specific cadence you're running, the matching runbook:
 | Quarterly (BAS prep) | `QUARTERLY-BAS.md` | ~early Nov/Feb/May/Aug (3wk before TWB's agent-lodged BAS deadline) |
 | Annual (EOFY) | `ANNUAL-EOFY.md` | ~8 July |
 
+For the click-level "how to do it" underneath any runbook — entering a
+bill, reconciling the feed, running a Wise or BPAY payment — see the SOP
+library at **`sops/`** (start at `sops/README.md`). Those SOPs are
+transcribed from the Nicole/NCP handover pack, with credentials redacted;
+they are subordinate to this document and its control rules.
+
 ## Why this document exists
 
 The business's financial controller/bookkeeper, **Louis**
