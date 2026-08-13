@@ -33,11 +33,13 @@ Until they are filled in, the corresponding check is SKIPPED (reported
 as "SKIPPED (not configured)"), not silently passed.
 """
 
+import re
 import sys
 from pathlib import Path
 
 try:
     from openpyxl import load_workbook
+    from openpyxl.utils import column_index_from_string, get_column_letter
 except ImportError:
     sys.exit(
         "ERROR: openpyxl is required. Install it with: pip install openpyxl"
@@ -80,17 +82,25 @@ NET_WORTH_CELL = "B32"  # = B24 + B28
 # formula in check_net_worth() below if the workbook stores them as positive
 # magnitudes instead).
 
-# Cashflow tab: one column per month, with an opening, inflow, outflow and
-# closing row. Fill in the row numbers and the ordered list of month
-# columns (left to right, matching the FY27 calendar).
+# Cashflow tab: one column per month, with an opening, net and closing row.
+#
+# Rows are located by their column-A label, NOT by hardcoded row number. The
+# previous hardcoded constants silently rotted out of date when rows were
+# inserted or removed (they still pointed at a layout two versions old, so the
+# chain check failed on every run and told us nothing). Labels survive
+# insertions; row numbers do not.
 CASHFLOW_SHEET = "Cashflow Budget FY27"
 CASHFLOW_MONTH_COLUMNS = [
     "B","C","D","E","F","G","H","I","J","K","L","M",
 ]
-CASHFLOW_OPENING_ROW = 7
-CASHFLOW_INFLOW_ROW = 108   # NET CASHFLOW (month) row
-CASHFLOW_OUTFLOW_ROW = None  # not used: row 108 is net
-CASHFLOW_CLOSING_ROW = 109
+CASHFLOW_OPENING_LABEL = "OPENING CASH (combined)"
+CASHFLOW_NET_LABEL = "NET CASHFLOW (month)"
+CASHFLOW_CLOSING_LABEL = "CLOSING CASH (end of month)"
+
+# Jul and Aug openings are deliberately anchored to live bank balances rather
+# than to the prior month's forecast closing, so the "opening == prior closing"
+# rule only applies from the third month onward.
+CASHFLOW_ANCHORED_MONTHS = 2
 
 
 def _num(ws, cell_ref):
@@ -116,6 +126,83 @@ def scan_for_errors(wb):
 def _leaf(ws, cell):
     v = ws[cell].value
     return v if isinstance(v, (int, float)) else 0.0
+
+
+_A1 = re.compile(r"^\$?([A-Z]{1,3})\$?(\d+)$")
+_REF = re.compile(r"\$?[A-Z]{1,3}\$?\d+")
+_SUM = re.compile(r"SUM\(([^()]*)\)")
+_SAFE = re.compile(r"^[0-9eE\.\+\-\*/\(\), ]*$")
+
+
+def _make_evaluator(ws):
+    """Return value(ref) -> float, evaluating this sheet's formula graph.
+
+    Deliberately supports only what the Cashflow tab actually uses: numeric
+    literals, SUM() over ranges and comma-separated args, the four arithmetic
+    operators, parentheses and unary minus. Anything else -- a cross-sheet
+    reference, an unexpected function -- raises rather than silently
+    evaluating to zero, because a check that quietly returns 0 is worse than
+    no check at all.
+    """
+    cache = {}
+    in_progress = set()
+
+    def expand(a, b):
+        m1, m2 = _A1.match(a.replace("$", "")), _A1.match(b.replace("$", ""))
+        if not (m1 and m2):
+            raise ValueError(f"unsupported range {a}:{b}")
+        c1, r1 = m1.groups()
+        c2, r2 = m2.groups()
+        cols = range(column_index_from_string(c1), column_index_from_string(c2) + 1)
+        return [f"{get_column_letter(c)}{r}"
+                for c in cols for r in range(int(r1), int(r2) + 1)]
+
+    def evaluate(expr, origin):
+        if "!" in expr:
+            raise ValueError(f"{origin}: cross-sheet reference not supported")
+        while True:
+            m = _SUM.search(expr)
+            if not m:
+                break
+            total = 0.0
+            for part in m.group(1).split(","):
+                part = part.strip()
+                if not part:
+                    continue
+                if ":" in part:
+                    a, b = part.split(":", 1)
+                    total += sum(value(x) for x in expand(a, b))
+                else:
+                    total += value(part)
+            expr = f"{expr[:m.start()]}({total!r}){expr[m.end():]}"
+        expr = _REF.sub(lambda m: f"({value(m.group(0))!r})", expr)
+        if not _SAFE.match(expr):
+            raise ValueError(f"{origin}: unsupported expression {expr!r}")
+        return float(eval(expr))          # noqa: S307 -- guarded by _SAFE
+
+    def value(ref):
+        ref = ref.replace("$", "").upper()
+        if ref in cache:
+            return cache[ref]
+        if ref in in_progress:
+            raise ValueError(f"circular reference at {ref}")
+        raw = ws[ref].value
+        if raw is None:
+            result = 0.0
+        elif isinstance(raw, (int, float)):
+            result = float(raw)
+        elif isinstance(raw, str) and raw.startswith("="):
+            in_progress.add(ref)
+            try:
+                result = evaluate(raw[1:], ref)
+            finally:
+                in_progress.discard(ref)
+        else:
+            result = 0.0
+        cache[ref] = result
+        return result
+
+    return value
 
 
 def _nw_recompute(wb):
@@ -157,27 +244,70 @@ def check_net_worth(wb):
     return "PASS", f"recomputed net worth {assets + liab:,.2f} (assets {assets:,.2f} + liabilities {liab:,.2f})"
 
 
+def _find_row(ws, label):
+    """Return the row number whose column-A value matches `label` (trimmed)."""
+    for row in ws.iter_rows(min_col=1, max_col=1, max_row=400):
+        v = row[0].value
+        if isinstance(v, str) and v.strip() == label:
+            return row[0].row
+    return None
+
+
 def check_cashflow_chain(wb):
+    """Independently evaluate the sheet's formulas and walk the cash chain.
+
+    Rather than re-deriving the model from hardcoded leaf-row ranges (which
+    goes stale the moment a row moves), this evaluates the workbook's own
+    formula graph and then asserts the two identities the chain relies on:
+
+        closing[m] == opening[m] + net[m]           (every month)
+        opening[m] == closing[m-1]                  (after the anchored months)
+    """
     ws = wb[CASHFLOW_SHEET]
-    if ws[f"B{CASHFLOW_CLOSING_ROW}"].value != "=B7+B108":
-        return "FAIL", "closing-cash formula changed in Jul column"
 
-    def srange(rows, col):
-        return sum(_leaf(ws, f"{col}{r}") for r in rows)
+    rows = {}
+    for key, label in (("opening", CASHFLOW_OPENING_LABEL),
+                       ("net", CASHFLOW_NET_LABEL),
+                       ("closing", CASHFLOW_CLOSING_LABEL)):
+        r = _find_row(ws, label)
+        if r is None:
+            return "FAIL", f"could not find the {label!r} row on {CASHFLOW_SHEET}"
+        rows[key] = r
 
-    closing = _leaf(ws, "B5") + _leaf(ws, "B6")
-    tail = []
-    for col in CASHFLOW_MONTH_COLUMNS:
-        inc = srange(range(9, 15), col)
-        exp = srange(list(range(32, 35)) + list(range(37, 53)) + list(range(55, 65)), col)
-        tax = srange(range(68, 71), col)
-        pers = (srange([75, 76], col) + srange(range(79, 83), col)
-                + srange(range(85, 88), col) + srange(range(90, 95), col)
-                + _leaf(ws, f"{col}96") + _leaf(ws, f"{col}97") + _leaf(ws, f"{col}99"))
-        hs = srange(range(102, 107), col)
-        closing += (inc - exp - tax) - pers + hs
-        tail.append(f"{col}={closing:,.0f}")
-    return "PASS", "recomputed closing chain (leaf values), last 3: " + " ".join(tail[-3:])
+    try:
+        value = _make_evaluator(ws)
+    except Exception as exc:                      # noqa: BLE001
+        return "FAIL", f"could not evaluate the sheet's formulas: {exc}"
+
+    problems = []
+    closings = []
+    for i, col in enumerate(CASHFLOW_MONTH_COLUMNS):
+        try:
+            opening = value(f"{col}{rows['opening']}")
+            net = value(f"{col}{rows['net']}")
+            closing = value(f"{col}{rows['closing']}")
+        except Exception as exc:                  # noqa: BLE001
+            problems.append(f"{col}: {exc}")
+            continue
+        if abs((opening + net) - closing) > TOLERANCE:
+            problems.append(
+                f"{col}: closing {closing:,.2f} != opening {opening:,.2f} "
+                f"+ net {net:,.2f}"
+            )
+        if i >= CASHFLOW_ANCHORED_MONTHS:
+            prior = value(f"{CASHFLOW_MONTH_COLUMNS[i - 1]}{rows['closing']}")
+            if abs(opening - prior) > TOLERANCE:
+                problems.append(
+                    f"{col}: opening {opening:,.2f} != prior closing {prior:,.2f}"
+                )
+        closings.append(f"{col}={closing:,.0f}")
+
+    if problems:
+        return "FAIL", "; ".join(problems)
+    return "PASS", (
+        f"rows {rows['opening']}/{rows['net']}/{rows['closing']}; chain intact "
+        "across 12 months; last 3 closings: " + " ".join(closings[-3:])
+    )
 
 
 def main():

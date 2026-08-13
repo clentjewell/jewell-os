@@ -22,6 +22,14 @@ Google Drive finance folder; re-uploaded whenever it changes).
 **`CHART-OF-ACCOUNTS.md`** is the Xero chart-of-accounts review and
 migration plan.
 
+**Workbook scripts** operate on the FY27 workbook, which is **not** kept in
+this repo — it lives in the shared Google Drive finance folder and is pulled
+down locally when a script needs to run against it.
+`update_workbook.py` applies fresh balances and marks months as actual;
+`verify_workbook.py` is the gate that must pass before any re-upload;
+`add_operating_expenses.py` is the one-off v1.6 → v1.7 migration that rebuilt
+the missing business operating-expense block from Xero.
+
 This playbook **self-maintains**: the weekly run's "Playbook
 reconciliation" step syncs real-world decisions and events back into
 these docs (see "How this playbook stays current" in `CONTROLLER.md`).
