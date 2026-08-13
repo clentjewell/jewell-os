@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Update · Christy · 13 August 2026</title>
+<meta name="robots" content="noindex">
+<style>
+  @font-face { font-family: "Poppins"; font-style: normal; font-weight: 300; font-display: swap; src: url("fonts/poppins-300.woff2") format("woff2"); }
+  @font-face { font-family: "Poppins"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/poppins-400.woff2") format("woff2"); }
+  @font-face { font-family: "Poppins"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/poppins-500.woff2") format("woff2"); }
+  @font-face { font-family: "Poppins"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/poppins-600.woff2") format("woff2"); }
+
+  :root {
+    --black: #111111;
+    --cream: #FAF8F4;
+    --calm-grey: #EDEBEA;
+    --signal-blue: #2D5BFF;
+    --grey: #666666;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    background: var(--cream);
+    font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .deck { height: 100%; position: relative; overflow: hidden; }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    padding: clamp(32px, 7vw, 96px);
+    display: none;
+    background: var(--cream);
+  }
+  .slide.active { display: block; }
+
+  .slide.dark { background: var(--black); color: var(--cream); }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* Title slide */
+  .slide--title .eyebrow { position: absolute; top: clamp(24px, 4vw, 48px); left: clamp(32px, 7vw, 96px); }
+  .slide--title h1 {
+    position: absolute;
+    left: clamp(32px, 7vw, 96px);
+    bottom: clamp(96px, 18vh, 160px);
+    font-size: clamp(44px, 7.5vw, 96px);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .slide--title .subtitle {
+    position: absolute;
+    left: clamp(32px, 7vw, 96px);
+    bottom: clamp(48px, 9vh, 88px);
+    font-size: clamp(18px, 2.2vw, 28px);
+    font-weight: 300;
+  }
+  .slide--title .date {
+    position: absolute;
+    right: clamp(32px, 7vw, 96px);
+    bottom: clamp(48px, 9vh, 88px);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--grey);
+  }
+
+  /* Content slide */
+  .slide--content { display: none; }
+  .slide--content.active { display: flex; }
+  .slide--content { flex-direction: column; }
+  .slide--content .eyebrow { margin-bottom: clamp(24px, 5vh, 48px); }
+  .slide--content h2 {
+    font-size: clamp(28px, 4.4vw, 56px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    max-width: 22ch;
+    margin-bottom: clamp(24px, 4vh, 32px);
+  }
+  .slide--content .body {
+    font-size: clamp(15px, 1.4vw, 18px);
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 52ch;
+  }
+  .slide--content .body p + p { margin-top: 16px; }
+  .slide--content .link-line {
+    margin-top: auto;
+    padding-top: 24px;
+    font-size: clamp(13px, 1.2vw, 15px);
+    position: relative;
+    z-index: 6;
+    align-self: flex-start;
+  }
+  .slide--content .link-line a {
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 1px solid var(--black);
+    padding-bottom: 2px;
+    word-break: break-all;
+  }
+
+  /* Table on content slides */
+  .rows { max-width: 780px; margin-top: 8px; }
+  .row {
+    display: grid;
+    grid-template-columns: 3ch 1fr 1.6fr;
+    gap: clamp(16px, 3vw, 48px);
+    padding: clamp(14px, 2.2vh, 22px) 0;
+    border-top: 1px solid var(--calm-grey);
+    align-items: baseline;
+  }
+  .row:last-child { border-bottom: 1px solid var(--calm-grey); }
+  .row .num { font-size: 12px; font-weight: 500; color: var(--grey); }
+  .row .name { font-size: clamp(16px, 1.8vw, 22px); font-weight: 500; }
+  .row .ask { font-size: clamp(14px, 1.3vw, 16px); font-weight: 400; line-height: 1.5; }
+
+  /* Divider slide */
+  .slide--divider .eyebrow { position: absolute; top: clamp(24px, 4vw, 48px); left: clamp(32px, 7vw, 96px); }
+  .slide--divider .centre {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 clamp(32px, 7vw, 96px);
+  }
+  .slide--divider h2 {
+    font-size: clamp(56px, 11vw, 160px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .slide--divider .strap {
+    margin-top: 24px;
+    font-size: clamp(14px, 1.4vw, 16px);
+    font-weight: 300;
+  }
+
+  /* Closer slide */
+  .slide--closer .centre {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 clamp(32px, 7vw, 96px);
+  }
+  .slide--closer h2 {
+    font-size: clamp(72px, 12vw, 160px);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .slide--closer .lines { margin-top: clamp(24px, 4vh, 40px); font-size: clamp(14px, 1.4vw, 18px); line-height: 1.7; }
+
+  /* Footer chrome */
+  .chrome {
+    position: fixed;
+    left: clamp(32px, 7vw, 96px);
+    right: clamp(32px, 7vw, 96px);
+    bottom: clamp(20px, 3vh, 32px);
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--grey);
+    pointer-events: none;
+    z-index: 10;
+  }
+  .dark-chrome .chrome { color: var(--calm-grey); opacity: 0.6; }
+
+  .hit {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    z-index: 5;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+  }
+  .hit--prev { left: 0; }
+  .hit--next { right: 0; }
+
+  @media print {
+    .chrome, .hit { display: none; }
+    .slide { display: block !important; position: relative; height: 100vh; page-break-after: always; }
+    .slide--content { display: flex !important; }
+  }
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <!-- 01 · Title -->
+  <section class="slide slide--title active">
+    <p class="eyebrow">JP · Internal · Project Update</p>
+    <h1>Project update.</h1>
+    <p class="subtitle">Prepared for our meeting with Christy.</p>
+    <p class="date">13 August 2026 · v01</p>
+  </section>
+
+  <!-- 02 · Divider Part 01 -->
+  <section class="slide slide--divider dark">
+    <p class="eyebrow">Part 01</p>
+    <div class="centre">
+      <h2>Projects</h2>
+      <p class="strap">Where the four builds stand today.</p>
+    </div>
+  </section>
+
+  <!-- 03 · Adam Hall -->
+  <section class="slide slide--content">
+    <p class="eyebrow">Project 01 · Adam Hall</p>
+    <h2>Finishing touches ahead of tomorrow's meeting.</h2>
+    <div class="body">
+      <p>The marketplace site is in its final pass. We walk Adam Hall through it tomorrow, 14 August.</p>
+    </div>
+    <p class="link-line"><a href="https://claude-carmarketplace-link-update-ccc0p2-adamhall-marketplace.clent.workers.dev/" target="_blank" rel="noopener">View the site</a></p>
+  </section>
+
+  <!-- 04 · Walter Wealth -->
+  <section class="slide slide--content">
+    <p class="eyebrow">Project 02 · Walter Wealth</p>
+    <h2>Document studio is running. Deliverable designs are being enhanced.</h2>
+    <div class="body">
+      <p>The studio produces client documents today. We are lifting the design quality of the deliverables it generates.</p>
+      <p>Next step is a test client through the full workflow, end to end.</p>
+    </div>
+    <p class="link-line"><a href="https://claude-cicd-audit-optimize-ji1v2z-walterwealth.clent.workers.dev/studio" target="_blank" rel="noopener">Open the studio</a></p>
+  </section>
+
+  <!-- 05 · Jewell Tyres -->
+  <section class="slide slide--content">
+    <p class="eyebrow">Project 03 · Jewell Tyres</p>
+    <h2>The inspection tool is running.</h2>
+    <div class="body">
+      <p>It scans inspection photos in the field. A dictate function has been added so inspectors can speak their notes. Dictate is in test now.</p>
+    </div>
+    <p class="link-line"><a href="https://claude-jewell-tyres-site-lin.jewelltyres.pages.dev/" target="_blank" rel="noopener">View the site</a></p>
+  </section>
+
+  <!-- 06 · OTR Earthmover -->
+  <section class="slide slide--content">
+    <p class="eyebrow">Project 04 · OTR Earthmover</p>
+    <h2>The site is live.</h2>
+    <div class="body">
+      <p>The OTR earthmover tyre site is deployed and ready for review at the link below.</p>
+    </div>
+    <p class="link-line"><a href="https://otr-earthmover-tyre.pages.dev" target="_blank" rel="noopener">View the site</a></p>
+  </section>
+
+  <!-- 07 · Divider Part 02 -->
+  <section class="slide slide--divider dark">
+    <p class="eyebrow">Part 02</p>
+    <div class="centre">
+      <h2>Discussion</h2>
+      <p class="strap">Four updates we need from Christy.</p>
+    </div>
+  </section>
+
+  <!-- 08 · Updates needed -->
+  <section class="slide slide--content">
+    <p class="eyebrow">Discussion · Over to Christy</p>
+    <h2>We need an update on four fronts.</h2>
+    <div class="rows">
+      <div class="row">
+        <span class="num">01</span>
+        <span class="name">Lowe Alphine</span>
+        <span class="ask">Where it stands and what happens next.</span>
+      </div>
+      <div class="row">
+        <span class="num">02</span>
+        <span class="name">EFT Trading</span>
+        <span class="ask">Latest position and any blockers.</span>
+      </div>
+      <div class="row">
+        <span class="num">03</span>
+        <span class="name">Jeans business</span>
+        <span class="ask">Whether it proceeds, and in what shape.</span>
+      </div>
+      <div class="row">
+        <span class="num">04</span>
+        <span class="name">Logistics</span>
+        <span class="ask">Current state and what is needed from us.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 · Closer -->
+  <section class="slide slide--closer">
+    <div class="centre">
+      <h2>Next.</h2>
+      <div class="lines">
+        <p>Adam Hall walkthrough tomorrow, 14 August. Christy to return the four updates above.</p>
+        <p>Clent Jewell · clent@jewellprojects.com</p>
+      </div>
+    </div>
+  </section>
+
+  <button class="hit hit--prev" aria-label="Previous slide"></button>
+  <button class="hit hit--next" aria-label="Next slide"></button>
+
+  <div class="chrome">
+    <span>JP · Internal · Project Update</span>
+    <span id="counter"></span>
+  </div>
+</div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll(".slide"));
+  const counter = document.getElementById("counter");
+  const body = document.body;
+  let i = 0;
+
+  const hash = parseInt(location.hash.slice(1), 10);
+  if (!isNaN(hash) && hash >= 1 && hash <= slides.length) i = hash - 1;
+
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => s.classList.toggle("active", k === i));
+    counter.textContent = String(i + 1).padStart(2, "0") + " / " + String(slides.length).padStart(2, "0");
+    body.classList.toggle("dark-chrome", slides[i].classList.contains("dark"));
+    history.replaceState(null, "", "#" + (i + 1));
+  }
+
+  document.querySelector(".hit--next").addEventListener("click", () => show(i + 1));
+  document.querySelector(".hit--prev").addEventListener("click", () => show(i - 1));
+
+  document.addEventListener("keydown", (e) => {
+    if (["ArrowRight", "ArrowDown", "PageDown", " "].includes(e.key)) { e.preventDefault(); show(i + 1); }
+    if (["ArrowLeft", "ArrowUp", "PageUp"].includes(e.key)) { e.preventDefault(); show(i - 1); }
+    if (e.key === "Home") show(0);
+    if (e.key === "End") show(slides.length - 1);
+  });
+
+  window.addEventListener("hashchange", () => {
+    const h = parseInt(location.hash.slice(1), 10);
+    if (!isNaN(h) && h >= 1 && h <= slides.length && h - 1 !== i) show(h - 1);
+  });
+
+  let touchX = null;
+  document.addEventListener("touchstart", (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener("touchend", (e) => {
+    if (touchX === null) return;
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 40) show(dx < 0 ? i + 1 : i - 1);
+    touchX = null;
+  });
+
+  show(i);
+</script>
+</body>
+</html>
