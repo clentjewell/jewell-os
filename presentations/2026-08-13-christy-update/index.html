@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Update · Christy · 13 August 2026</title>
+<meta name="robots" content="noindex">
+<style>
+  @font-face { font-family: "Poppins"; font-style: normal; font-weight: 300; font-display: swap; src: url("fonts/poppins-300.woff2") format("woff2"); }
+  @font-face { font-family: "Poppins"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/poppins-400.woff2") format("woff2"); }
+  @font-face { font-family: "Poppins"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/poppins-500.woff2") format("woff2"); }
+  @font-face { font-family: "Poppins"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/poppins-600.woff2") format("woff2"); }
+
+  :root {
+    --black: #111111;
+    --cream: #FAF8F4;
+    --calm-grey: #EDEBEA;
+    --signal-blue: #2D5BFF;
+    --grey: #666666;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+  }
+
+  body {
+    background: var(--cream);
+    font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .section {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: clamp(32px, 7vw, 96px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    scroll-snap-align: start;
+    background: var(--cream);
+  }
+
+  .section.dark { background: var(--black); color: var(--cream); }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* Title section */
+  .section--title { justify-content: flex-end; position: relative; }
+  .section--title .eyebrow { position: absolute; top: clamp(24px, 4vw, 48px); left: clamp(32px, 7vw, 96px); }
+  .section--title h1 {
+    font-size: clamp(44px, 7.5vw, 96px);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .section--title .subtitle {
+    margin-top: 16px;
+    font-size: clamp(18px, 2.2vw, 28px);
+    font-weight: 300;
+  }
+  .section--title .date {
+    margin-top: 32px;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--grey);
+  }
+  .section--title .hint {
+    position: absolute;
+    right: clamp(32px, 7vw, 96px);
+    bottom: clamp(32px, 5vh, 48px);
+    font-size: 12px;
+    color: var(--grey);
+  }
+
+  /* Content sections */
+  .section--content .eyebrow { margin-bottom: clamp(24px, 5vh, 48px); }
+  .section--content h2 {
+    font-size: clamp(28px, 4.4vw, 56px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    max-width: 22ch;
+    margin-bottom: clamp(24px, 4vh, 32px);
+  }
+  .section--content .body {
+    font-size: clamp(15px, 1.4vw, 18px);
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 52ch;
+  }
+  .section--content .body p + p { margin-top: 16px; }
+  .section--content .link-line {
+    margin-top: clamp(32px, 6vh, 48px);
+    font-size: clamp(13px, 1.2vw, 15px);
+  }
+  .section--content .link-line a {
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 1px solid var(--black);
+    padding-bottom: 2px;
+    word-break: break-all;
+  }
+  .section--content .link-line .pw {
+    display: inline-block;
+    margin-left: 24px;
+    color: var(--grey);
+  }
+
+  /* Table rows */
+  .rows { max-width: 780px; margin-top: 8px; }
+  .row {
+    display: grid;
+    grid-template-columns: 3ch 1fr 1.6fr;
+    gap: clamp(16px, 3vw, 48px);
+    padding: clamp(14px, 2.2vh, 22px) 0;
+    border-top: 1px solid var(--calm-grey);
+    align-items: baseline;
+  }
+  .row:last-child { border-bottom: 1px solid var(--calm-grey); }
+  .row .num { font-size: 12px; font-weight: 500; color: var(--grey); }
+  .row .name { font-size: clamp(16px, 1.8vw, 22px); font-weight: 500; }
+  .row .ask { font-size: clamp(14px, 1.3vw, 16px); font-weight: 400; line-height: 1.5; }
+
+  /* Divider sections */
+  .section--divider { position: relative; }
+  .section--divider .eyebrow { position: absolute; top: clamp(24px, 4vw, 48px); left: clamp(32px, 7vw, 96px); }
+  .section--divider h2 {
+    font-size: clamp(56px, 11vw, 160px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .section--divider .strap {
+    margin-top: 24px;
+    font-size: clamp(14px, 1.4vw, 16px);
+    font-weight: 300;
+  }
+
+  /* Closer section */
+  .section--closer h2 {
+    font-size: clamp(72px, 12vw, 160px);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .section--closer .lines { margin-top: clamp(24px, 4vh, 40px); font-size: clamp(14px, 1.4vw, 18px); line-height: 1.7; }
+  .section--closer .footer-line {
+    margin-top: clamp(48px, 10vh, 96px);
+    padding-top: 16px;
+    border-top: 1px solid var(--calm-grey);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--grey);
+  }
+
+  @media print {
+    html { scroll-snap-type: none; }
+    .section { min-height: 100vh; page-break-after: always; }
+    .section--title .hint { display: none; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Title -->
+  <section class="section section--title" id="top">
+    <p class="eyebrow">JP · Internal · Project Update</p>
+    <h1>Project update.</h1>
+    <p class="subtitle">Prepared for our meeting with Christy.</p>
+    <p class="date">13 August 2026 · v02</p>
+    <p class="hint">Scroll</p>
+  </section>
+
+  <!-- Divider Part 01 -->
+  <section class="section section--divider dark">
+    <p class="eyebrow">Part 01</p>
+    <h2>Projects</h2>
+    <p class="strap">Where the four builds stand today.</p>
+  </section>
+
+  <!-- Adam Hall -->
+  <section class="section section--content">
+    <p class="eyebrow">Project 01 · Adam Hall</p>
+    <h2>Finishing touches ahead of tomorrow's meeting.</h2>
+    <div class="body">
+      <p>The marketplace site is in its final pass. We walk Adam Hall through it tomorrow, 14 August.</p>
+    </div>
+    <p class="link-line"><a href="https://claude-carmarketplace-link-update-ccc0p2-adamhall-marketplace.clent.workers.dev/" target="_blank" rel="noopener">View the site</a></p>
+  </section>
+
+  <!-- Walter Wealth -->
+  <section class="section section--content">
+    <p class="eyebrow">Project 02 · Walter Wealth</p>
+    <h2>Document studio is running. Deliverable designs are being enhanced.</h2>
+    <div class="body">
+      <p>The studio produces client documents today. We are lifting the design quality of the deliverables it generates.</p>
+      <p>Next step is a test client through the full workflow, end to end.</p>
+    </div>
+    <p class="link-line"><a href="https://claude-cicd-audit-optimize-ji1v2z-walterwealth.clent.workers.dev/studio" target="_blank" rel="noopener">Open the studio</a><span class="pw">Password · walterwealth2026</span></p>
+  </section>
+
+  <!-- Jewell Tyres -->
+  <section class="section section--content">
+    <p class="eyebrow">Project 03 · Jewell Tyres</p>
+    <h2>The inspection tool is running.</h2>
+    <div class="body">
+      <p>It scans inspection photos in the field. A dictate function has been added so inspectors can speak their notes. Dictate is in test now.</p>
+    </div>
+    <p class="link-line"><a href="https://claude-jewell-tyres-site-lin.jewelltyres.pages.dev/" target="_blank" rel="noopener">View the site</a><span class="pw">Password · jewell2026</span></p>
+  </section>
+
+  <!-- OTR Earthmover -->
+  <section class="section section--content">
+    <p class="eyebrow">Project 04 · OTR Earthmover</p>
+    <h2>Not yet live. The ask function is being enhanced.</h2>
+    <div class="body">
+      <p>Enhancement of the ask function is still in progress. Inputs from David are needed to complete it.</p>
+      <p>The current build is at the link below for review.</p>
+    </div>
+    <p class="link-line"><a href="https://otr-earthmover-tyre.pages.dev" target="_blank" rel="noopener">Review the build</a></p>
+  </section>
+
+  <!-- Divider Part 02 -->
+  <section class="section section--divider dark">
+    <p class="eyebrow">Part 02</p>
+    <h2>Discussion</h2>
+    <p class="strap">Four updates we need from Christy.</p>
+  </section>
+
+  <!-- Updates needed -->
+  <section class="section section--content">
+    <p class="eyebrow">Discussion · Over to Christy</p>
+    <h2>We need an update on four fronts.</h2>
+    <div class="rows">
+      <div class="row">
+        <span class="num">01</span>
+        <span class="name">Lowe Alphine</span>
+        <span class="ask">Where it stands and what happens next.</span>
+      </div>
+      <div class="row">
+        <span class="num">02</span>
+        <span class="name">EFT Trading</span>
+        <span class="ask">Latest position and any blockers.</span>
+      </div>
+      <div class="row">
+        <span class="num">03</span>
+        <span class="name">Jeans business</span>
+        <span class="ask">Whether it proceeds, and in what shape.</span>
+      </div>
+      <div class="row">
+        <span class="num">04</span>
+        <span class="name">Logistics</span>
+        <span class="ask">Current state and what is needed from us.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Closer -->
+  <section class="section section--closer">
+    <h2>Next.</h2>
+    <div class="lines">
+      <p>Adam Hall walkthrough tomorrow, 14 August. Christy to return the four updates above.</p>
+      <p>Clent Jewell · clent@jewellprojects.com</p>
+    </div>
+    <div class="footer-line">
+      <span>JP · Internal · Project Update</span>
+      <span>13 August 2026 · v02</span>
+    </div>
+  </section>
+
+</body>
+</html>
