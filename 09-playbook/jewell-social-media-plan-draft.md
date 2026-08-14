@@ -2,7 +2,7 @@
 
 | Field | Detail |
 | --- | --- |
-| Engagement | Jewell's own brand, authority and demand engine |
+| Engagement | Jewell's own proof-led business development channel |
 | Status | v01 draft for approval. Structure adapted from the Pottsville Acupuncture Social Media Plan v01 (19 May 2026), the proven Jewell house framework |
 | Audience | Clent, Ronnie, Liz. Executed by Liz with Clent as founder voice and approval gate |
 | Date | 14 August 2026 |
@@ -11,20 +11,24 @@
 
 ## Purpose
 
-This is Jewell's own Social Media Plan. It is the operating framework for how Jewell shows up
-in public: which platforms, why, how the brand voice expresses itself in social, what gets
-posted when, how content is produced, who approves it and how performance is measured.
+This is Jewell's own Social Media Plan. It positions social as a proof-led business development
+channel, not a platform for regular posting. The job is not to say Jewell is expert. It is to
+show the work, so a founder concludes it for themselves.
+
+The strategy treats the feed as three things at once: a living portfolio of real client work, a
+credibility engine that turns that work into evidence, and a trust-building asset that warms the
+right founders toward a conversation. Every post earns its place by proving something. Nothing
+runs to fill a slot.
 
 It uses the same proven structure Jewell runs for Pottsville. The strategy is different because
-Jewell is a different business. Pottsville is a local wellness clinic selling appointments.
-Jewell is an AI-powered commercialisation engine selling outcomes to business owners. So the
-platforms invert, the personas are commercial, and the founder carries the authority.
+Jewell is a different business. Pottsville sells appointments to a local catchment. Jewell sells
+commercial outcomes to founders and CEOs, and it has 15 years of delivered work to prove it can.
 
 The one hard rule holds throughout. AI proposes, a human decides for anything that leaves the
-system. Every founder-voice post and every client reference is approved by Clent before it
-publishes. Nothing from a gated area ever reaches a feed.
+system. Every client reference and every proof figure is approved by Clent before it publishes.
+Nothing from a gated area ever reaches a feed.
 
-Next: read the summary on a page, then the objectives.
+Next: read the summary on a page, then what social is for.
 
 ---
 
@@ -32,39 +36,45 @@ Next: read the summary on a page, then the objectives.
 
 | Element | Detail |
 | --- | --- |
+| Strategic role | A living portfolio, credibility engine and trust-building asset for business development |
 | Primary platform | LinkedIn – Clent personal 3 posts/week + Jewell company page 2 posts/week |
-| Secondary platform | Instagram – brand, proof and behind-the-build; 3 posts/week + stories |
-| Video engine | Short-form video (Reels, LinkedIn video, YouTube Shorts) – 1 founder-led piece/week |
-| Owned channel | The Jewell Intelligence newsletter (EDM) – the list Jewell owns, not rents; monthly to fortnightly |
-| Optional platform | X and threads for AI-and-growth discourse – reviewed Q1 2027 |
-| Content pillars | Commercialisation Thinking (30%), Proof and Outcomes (20%), Founder POV (20%), The Engine: Human and AI (20%), Behind Jewell (10%) |
+| Secondary platform | Instagram – proof you can see; the work, the outcomes, the craft; 3 posts/week + stories |
+| Video engine | Short-form video (Reels, LinkedIn video, YouTube Shorts) – 1 proof or founder piece/week |
+| Owned channel | The Jewell Intelligence newsletter (EDM) – the list Jewell owns; monthly to fortnightly |
+| Content pillars | The four proofs: Proof of Outcomes (30%), Proof of Thinking (25%), Proof of Process (20%), Proof of Trust (15%), plus Founder POV (10%) |
+| The proof mandate | Every post answers one of the founder's real questions, or it does not run |
 | Year 1 reach target | ~40,000 in-market reach per quarter across LinkedIn and Instagram by Q3 2027 |
-| Year 1 lead contribution | Social sources ~30% of Growth Diagnostic bookings and ~2 partner enquiries/quarter |
+| Year 1 BD contribution | Social sources or assists ~30% of Growth Diagnostic bookings and ~2 partner enquiries/quarter |
 | Compliance posture | No published pricing. No client data without consent. Proof points match the v3-cleared set. Assumptions never dressed as fact |
 | Production rhythm | Monthly batch: engine drafts, Liz produces, Clent approves, then schedule |
-| Sister plan | The 3D Process delivery calendar and the OKRs – every commercial push gets a social handshake within 7 days |
+| Sister plan | The 3D Process delivery calendar and the OKRs – every cleared outcome becomes proof content within 7 days |
 
 Next: what social is for.
 
 ---
 
-## The role of social in the marketing mix
+## The role of social: proof-led business development
 
-Social is Jewell's most visible proof that the engine works. It is where a founder decides
-whether Jewell is a peer or a vendor. It is where the 3D Process™ gets shown, not just claimed.
-It is where 25 years of pattern recognition becomes public, one post at a time.
+Social is Jewell's most visible evidence that the engine works. It is where a founder decides,
+before any call, whether Jewell has actually done this or is just claiming it. So the feed is
+built to answer that question with work, not adjectives.
 
-Social is not Jewell's primary acquisition channel. Referrals, the client wall and direct
-outreach do that work. But social is what makes those channels convert. A founder who is
-referred to Jewell, then finds Clent posting sharp commercial thinking every week, arrives at
-the discovery call already sold on the judgement. Social lowers the cost of every other channel.
+Jewell has an advantage most competitors do not: a real portfolio. 15 years, 100+ brands,
+engagements from $5K to $1.5M, and outcomes that stand up. Hidrive, Walter Wealth, Circl Group,
+Jewell Tyres. Most agencies talk about capability. Jewell can show it. The strategy is to turn
+that portfolio into a stream of proof.
 
-Social does not need to be loud. Jewell does not chase reach for its own sake. It needs to be
-considered, consistent and unmistakably senior. Three strong posts a week beat seven that any
-agency could have written.
+This reframes what social is for. It is not brand awareness for its own sake. It is business
+development: a channel that builds trust with founders, CEOs and decision-makers, then routes
+the ready ones to the Growth Diagnostic. Reach is a means, not the goal. A single case study
+that lands with the right owner is worth more than a viral post that reaches the wrong ten
+thousand.
 
-The strategic job is narrow and commercial: build Clent's authority, warm the $1–50M owner and
-the Maxxim partner, and route the ready ones to the Growth Diagnostic.
+Social does not do the closing. Referrals, the client wall and direct outreach still do that.
+But social makes closing cheaper, because the founder arrives already convinced by the evidence.
+
+The test for every post is simple. Does this prove something a founder needs to believe before
+they would trust Jewell with their business. If not, it does not run.
 
 Next: the objectives that hold this to a number.
 
@@ -72,15 +82,15 @@ Next: the objectives that hold this to a number.
 
 ## Social objectives and KPIs
 
-Six objectives. Each carries a KPI and a Year 1 target. Vanity metrics are noted as such and
-never reported alone.
+Six objectives. Each carries a KPI and a Year 1 target. Every objective serves trust and
+business development. Vanity metrics are noted as such and never reported alone.
 
 | Objective | KPI | Year 1 target |
 | --- | --- | --- |
-| Build Clent's authority with owners and partners | Saves, shares and inbound DMs from in-market profiles | ≥ 3% engagement rate on founder posts; ≥ 4 qualified inbound DMs/month |
-| Grow in-market awareness | Reach across LinkedIn + Instagram, weighted to ICP fit | ~40,000 in-market reach/quarter by Q3 2027 |
-| Drive qualified traffic to the Growth Diagnostic | Profile-to-site clicks; sessions from social; Diagnostic page views | ≥ 300 sessions/month from social by Q3 2027 |
-| Generate qualified commercial opportunities | Growth Diagnostics and discovery calls attributed to social | ~30% of Diagnostic bookings sourced or assisted by social |
+| Build credibility with founders and decision-makers | Saves and shares of proof content; inbound DMs from in-market profiles | ≥ 3% engagement rate on proof posts; ≥ 4 qualified inbound DMs/month |
+| Make the portfolio visible | Reach and views of case-study and outcome content, weighted to ICP fit | ~40,000 in-market reach/quarter by Q3 2027 |
+| Drive qualified traffic to the evidence and the front door | Sessions from social to case studies and the Growth Diagnostic page | ≥ 300 sessions/month from social by Q3 2027 |
+| Generate qualified commercial opportunities | Growth Diagnostics and discovery calls sourced or assisted by social | ~30% of Diagnostic bookings social-attributed |
 | Open the Maxxim partner channel | Partner enquiries from LinkedIn (the Alex/3P-adjacent audience) | ~2 qualified partner enquiries/quarter |
 | Build the owned list | Jewell Intelligence newsletter opt-ins via social | ≥ 200 opt-ins Year 1 |
 
@@ -90,26 +100,26 @@ Two supporting measures, tracked but not headline:
 - Referral-source capture. Every opportunity social touches carries its source tag at intake.
   Target 95% capture across the pipeline, in step with the 3D artifact standard.
 
-Next: who this is for.
+Next: who this proof is for.
 
 ---
 
 ## Target audience and personas
 
 Jewell sells to a small number of high-value people, not a broad market. Five personas carry
-the strategy. Every post serves at least one. Most serve two.
+the strategy. Every post serves at least one. The proof is chosen for the person who needs to
+see it.
 
 ### 1. The Scaling Owner (primary)
 Founder or owner of a $1–50M revenue business. Has product-market fit and revenue, but growth
 has plateaued or the marketing is a patchwork of agencies and freelancers who sell activity
-and own nothing. Time-poor, commercially literate, sceptical of hype. Wants a senior operator
-who will own the number, not another vendor. Lives on LinkedIn during the working week.
+and own nothing. Time-poor, commercially literate, sceptical of hype. Wants evidence a senior
+operator can own the number. Lives on LinkedIn during the working week.
 
 ### 2. The Capital-Event Owner (primary, high value)
 Owner heading toward a sale, raise or succession who needs positioning plus an Information
 Memorandum. The Jewell Tyres and OTR Earthmover pattern. Buys clarity and a story that lifts
-valuation. Discreet, deadline-driven, high-stakes. Responds to proof and precision, never to
-noise.
+valuation. Discreet, deadline-driven, high-stakes. Trusts proof and precision, never noise.
 
 ### 3. The Maxxim Partner (primary, channel)
 Agency owner or consultant who wants leverage, not a service: the ability to resell the 3D
@@ -130,11 +140,11 @@ sharing.
 
 | Persona | Primary platform | Secondary | Why |
 | --- | --- | --- | --- |
-| Scaling Owner | LinkedIn | Instagram | Decision-maker channel; commercial content lands where they already work |
+| Scaling Owner | LinkedIn | Instagram | Decision-maker channel; proof lands where they already work |
 | Capital-Event Owner | LinkedIn | Newsletter | Discreet, proof-led; nurtured privately, not performed publicly |
-| Maxxim Partner | LinkedIn | Newsletter | Founder-to-founder; the platform story is a considered read, not a scroll |
-| Disruptor Founder | Instagram | LinkedIn | Visual, fast, build-in-public; taste and speed sell here |
-| Referrer and Peer | LinkedIn | Instagram | Amplification follows wherever the sharpest thinking is |
+| Maxxim Partner | LinkedIn | Newsletter | Founder-to-founder; the platform story is a considered read |
+| Disruptor Founder | Instagram | LinkedIn | Visual proof; taste, speed and craft sell here |
+| Referrer and Peer | LinkedIn | Instagram | Amplification follows the sharpest, most shareable evidence |
 
 Next: how Jewell is positioned in that room.
 
@@ -160,7 +170,8 @@ front-door product is the Growth Diagnostic.
 
 Agencies and consultancies sell activity without owning the outcome. DIY AI has no
 accountability. Fractional CMOs and freelancers do not scale. Jewell sits in the gap: senior
-judgement that owns the number, with an AI engine doing the volume underneath it.
+judgement that owns the number, with an AI engine doing the volume underneath it. Social proves
+this gap exists by showing outcomes the others only promise.
 
 The founder line that carries it: "We grew Australia's biggest brands from inside the industry.
 Now we run that engine for any brand."
@@ -170,62 +181,85 @@ Now we run that engine for any brand."
 - **Primary message.** A senior operator owns your number. The AI does the volume. You get
   agency-grade output with one person accountable for the outcome.
 - **Proof message.** 15 years, 100+ brands, engagements from $5K to $1.5M. Hidrive, Walter
-  Wealth, Circl Group. (Figures confirmed against the current v3-cleared set before publishing.)
+  Wealth, Circl Group. Figures confirmed against the current v3-cleared set before publishing.
 - **Method message.** Every engagement runs on the 3D Process: Discover, Design, Deploy, with a
   Deepen loop that compounds. Strategy before design, every time.
 - **Differentiator message.** The human 20% is where the value is: taste, judgement, the promise
-  to the client. The AI packages the other 80% to agency grade. Blur them and both weaken.
+  to the client. The AI packages the other 80% to agency grade.
 - **Partner message.** Buy the engine, not the hours. Resell the 3D Process to your own clients
   and keep the margin.
 
 ### What Jewell never says
 
 No hype, no guarantees, no "revolutionary", no growth-hacking language. Jewell leaves people
-feeling Secure, not sold. Confident and caring, never loud.
+feeling Secure, not sold. Confident and caring, never loud. Proof over promotion, always.
 
-Next: the pillars that turn positioning into a feed.
+Next: the pillars that turn a portfolio into a feed.
 
 ---
 
-## Content pillars and their strategic purpose
+## Content pillars: the four proofs
 
-Five pillars are the structural backbone. Every post serves a pillar. Every pillar serves at
-least two personas and one commercial objective. The share below is the working ratio.
+Five pillars are the structural backbone, and four of them are proofs. Every post serves a
+pillar. Every pillar answers a question a founder asks before they would trust Jewell. The share
+below is the working ratio, weighted hard toward evidence.
 
-| Pillar | Share of feed | Strategic purpose | Best social format |
+| Pillar | Share | The founder question it answers | Strategic purpose | Best format |
+| --- | --- | --- | --- | --- |
+| **Proof of Outcomes** | 30% | What has Jewell done, what problem did it solve, what changed | Show real results and transformations. The portfolio as evidence | Case-study carousels, before/after, proof reels |
+| **Proof of Thinking** | 25% | How does Jewell approach a complex challenge | Demonstrate expertise by doing it in public, not claiming it | Strategy teardowns, decision breakdowns, frameworks |
+| **Proof of Process** | 20% | What does working with Jewell actually look like | Show the 3D Process™ and the standard of work, behind the scenes | Project breakdowns, build-in-progress, method reels |
+| **Proof of Trust** | 15% | Why should a founder trust Jewell with their business | Track record, client voice, the evidence of capability | Testimonials, client quotes, milestone posts |
+| Founder POV (Clent) | 10% | Who is the senior operator owning my number | Bind the proofs with 25 years of judgement, in Clent's voice | Video to camera, text posts |
+
+Pillar discipline: the four proofs carry 90% of the feed. Founder POV is the human thread that
+runs through them, not a separate stream of opinion. Nothing here is generic. If a post cannot
+be filed under a proof, it does not get made.
+
+Next: the framework that turns each founder question into content.
+
+---
+
+## The proof-content framework: answering the founder's real questions
+
+This is the heart of the strategy. A founder considering Jewell is silently asking seven
+questions. The content answers each one with evidence. This table is the brief-writer's map.
+
+| The founder's question | The proof that answers it | Content types | Series |
 | --- | --- | --- | --- |
-| Commercialisation Thinking | 30% | Build authority. Teach how strategy drives growth. Own the 3D Process in public | Carousels (Instagram), long-form posts (LinkedIn) |
-| Proof and Outcomes | 20% | Credibility. Turn the client wall into evidence a buyer can feel | Reels, case-study carousels, single posts |
-| Founder POV (Clent) | 20% | Make the judgement visible. 25 years of pattern recognition, in Clent's voice | Video to camera, text posts, LinkedIn |
-| The Engine: Human and AI | 20% | Differentiate. Show agency-grade at speed without letting Maxxim outshine Jewell | Reels, short demos, carousels |
-| Behind Jewell | 10% | Trust and personality. The human 20%, the team, the way Jewell works | Stories, reels, team posts |
+| What has Jewell actually done for clients? | The portfolio: real projects, named where consented | Case-study carousels, portfolio reels, client-wall posts | The Transformation |
+| What problems have we solved? | The starting problem, stated plainly, then the work | Problem-to-solution breakdowns, single posts | The Brief |
+| What changed as a result of our work? | The outcome: before and after, the number, the shift | Before/after carousels, 90 Days reels, metric cards | 90 Days |
+| How do we approach complex challenges? | The reasoning: the strategic call and why | Strategy teardowns, decision breakdowns | The Decision |
+| What does working with Jewell look like? | The process: the 3D Process, the standard, the room | Behind-the-scenes reels, project breakdowns | Inside the Engagement |
+| Why should a founder trust Jewell? | The voice of clients and the weight of track record | Testimonials, client quotes, milestone posts | In Their Words |
+| What evidence demonstrates our expertise? | The artefacts: strategy pages, brand systems, sites shipped | Artefact close-ups, "the work" carousels | The Work |
 
-Pillar discipline: Commercialisation Thinking leads, because authority is the asset that makes
-every other pillar convert. Proof and Founder POV carry the middle. The Engine pillar is
-Jewell's wedge, but it stays the engine, never the front door. Behind Jewell is the seasoning,
-not the meal.
+Every brief starts here. Pick the question, pick the proof, pick the format. If a post idea does
+not map to a question on this list, it is filler, and Jewell does not post filler.
 
-Next: the recurring series that make the pillars easy to run.
+Next: the recurring series that make the framework easy to run.
 
 ---
 
 ## Content themes and recurring series
 
-Pillars are the what. Series are the how. Named, repeatable series remove the blank-page problem
-and train the audience to expect Jewell. Six carry Year 1.
+Series are named, repeatable proof formats. They remove the blank-page problem and train the
+audience to expect evidence from Jewell. Seven carry Year 1, each tied to a founder question.
 
 | Series | Pillar | Format | The promise |
 | --- | --- | --- | --- |
-| **The Owner's Number** | Founder POV | Clent to camera or text | One commercial lesson from 25 years, tied to the single metric that matters |
-| **Strategy Before Design** | Commercialisation Thinking | Carousel | A principle, a mistake owners make, and the considered alternative |
-| **The Diagnostic** | Commercialisation Thinking + Proof | Carousel or reel | A public mini-teardown of a brand's growth gap (consented or hypothetical) – a live taste of the Growth Diagnostic |
-| **Inside the Engine** | The Engine | Reel or carousel | How one deliverable gets built: AI doing the volume, a human owning the call |
-| **90 Days** | Proof and Outcomes | Reel + carousel | A result and the work behind it (Walter Wealth pattern), confidentiality-cleared |
-| **Ask Jewell** | Commercialisation Thinking | Single post or story | A real owner question answered plainly, feeding the Jewell Intelligence assistant |
+| **The Transformation** | Proof of Outcomes | Case-study carousel | One client, the whole arc: where they started, what Jewell did, what changed |
+| **90 Days** | Proof of Outcomes | Reel + carousel | A result and the work behind it (the Walter Wealth pattern), confidentiality-cleared |
+| **The Brief** | Proof of Outcomes | Single post or carousel | A real problem a client brought, stated plainly, and how Jewell solved it |
+| **The Decision** | Proof of Thinking | Carousel or text post | One strategic call from a real engagement, and the reasoning behind it |
+| **Inside the Engagement** | Proof of Process | Reel or carousel | What working with Jewell looks like: the 3D Process, the room, the standard |
+| **In Their Words** | Proof of Trust | Single post or reel | A client in their own voice; the testimonial as evidence, not decoration |
+| **The Owner's Number** | Founder POV | Clent to camera | One commercial lesson from 25 years, tying the proofs to judgement |
 
 Each series has a fixed template so any of them can be produced without reinventing the format.
-The Diagnostic is the commercial workhorse: it demonstrates the product and generates the
-strongest lead signal, so it runs at least fortnightly.
+The Transformation and 90 Days are the workhorses: they answer the three questions founders care
+about most, so together they run at least weekly.
 
 Next: the platforms, each with a defined role.
 
@@ -233,58 +267,50 @@ Next: the platforms, each with a defined role.
 
 ## Platform strategy
 
-Four channels, each with one job. LinkedIn does the heavy lifting. The others amplify or
-specialise. This inverts the Pottsville model, where Instagram led. Jewell sells B2B, so the
-decision-maker's channel leads.
+Four channels, each with one job. LinkedIn does the heavy lifting because Jewell sells B2B and
+the decision-makers are there. This inverts the Pottsville model, where Instagram led.
 
 ### LinkedIn – primary platform
 
 | Element | Detail | Owner |
 | --- | --- | --- |
-| Role | Authority, demand, partner channel, conversion to the Growth Diagnostic | Clent + Liz |
-| Clent personal | 3 posts/week: Founder POV, Commercialisation Thinking, one proof or engine piece | Engine drafts, Liz produces, Clent approves and posts |
-| Company page | 2 posts/week: proof, method, hiring and partner signal, engine explainers | Liz |
-| Format mix | ~40% text or document posts (thinking), ~35% carousels, ~25% native video | Liz |
+| Role | The credibility engine. Portfolio, thinking and trust, in front of decision-makers | Clent + Liz |
+| Clent personal | 3 posts/week: a proof piece, a thinking piece, a founder or client-voice piece | Engine drafts, Liz produces, Clent approves and posts |
+| Company page | 2 posts/week: case studies, the work, method, partner and hiring signal | Liz |
+| Format mix | ~40% carousels (case studies, teardowns), ~35% text or document posts (thinking, decisions), ~25% native video (proof, process) | Liz |
 | Audience | Scaling Owner, Capital-Event Owner, Maxxim Partner, Referrer | – |
 | Engagement | Clent comments on 5–10 in-market posts/week; Jewell replies to every substantive comment | Clent + Liz |
 
-LinkedIn is where Clent's voice is non-negotiable. The founder posts under his own name. The
-engine drafts to his voice; he owns the final word. This is the human gate made visible.
+LinkedIn is where the portfolio does its work. The founder posts under his own name; the engine
+drafts to his voice; he owns the final word and every client reference.
 
 ### Instagram – secondary platform
 
 | Element | Detail | Owner |
 | --- | --- | --- |
-| Role | Brand, proof you can feel, behind-the-build, reach the Disruptor Founder | Liz |
+| Role | Proof you can see: the craft, the outcomes, the standard. Reaches the Disruptor Founder | Liz |
 | Cadence | 3 posts/week + stories 2–3 times/week + 1 reel/week from week 4 | Liz |
-| Format mix | ~40% carousels (education, proof), ~35% reels (engine, behind-the-build), ~25% single posts (brand, quotes, team) | Liz |
+| Format mix | ~45% carousels (case studies, before/after, the work), ~35% reels (process, transformation), ~20% single posts (client quotes, artefacts) | Liz |
 | Audience | Disruptor Founder, Scaling Owner, Referrer | – |
-| Stories | Day-of moments, build snippets, polls, low-stakes engagement | Liz capture + curate |
+| Stories | Work-in-progress, artefact close-ups, polls, low-stakes engagement | Liz capture + curate |
 
-### Short-form video – the engine across channels
+### Short-form video – the proof engine across channels
 
 | Element | Detail | Owner |
 | --- | --- | --- |
-| Role | Founder authority and the Engine story at scale; one asset, three placements | Liz + Clent |
-| Cadence | 1 founder-led piece/week, cross-posted to Reels, LinkedIn video and YouTube Shorts | Liz produces, Clent features |
-| Character | Clent to camera, screen-recorded build moments, 30–60 seconds, one idea each | – |
+| Role | Outcomes and process at scale; one asset, three placements | Liz + Clent |
+| Cadence | 1 proof or founder piece/week, cross-posted to Reels, LinkedIn video and Shorts | Liz produces, Clent features |
+| Character | A transformation told in 40 seconds, or Clent to camera on one idea | – |
 
 ### Jewell Intelligence newsletter (EDM) – the owned channel
 
 | Element | Detail | Owner |
 | --- | --- | --- |
-| Role | The list Jewell owns. Nurture the Capital-Event Owner and Partner privately; convert over time | Liz + Clent |
+| Role | The list Jewell owns. Long-form proof and nurture for the Capital-Event Owner and Partner | Liz + Clent |
 | Cadence | Monthly to start, fortnightly once the batch rhythm holds | Engine drafts, Clent approves |
-| Content | Best-of the month's thinking, one proof story, one owner question, one soft CTA to the Diagnostic | – |
+| Content | The month's best case study, one client voice, one decision breakdown, one soft CTA | – |
 
-### X and threads – optional, reviewed Q1 2027
-
-| Element | Detail | Owner |
-| --- | --- | --- |
-| Role | AI-and-growth discourse; founder presence where that conversation lives | Clent |
-| Decision point | Activate only if Clent has appetite to post natively; never a mirror-only channel | – |
-
-Next: how the pillars map to a weekly rhythm.
+Next: how the proofs map to a weekly rhythm.
 
 ---
 
@@ -294,25 +320,25 @@ Next: how the pillars map to a weekly rhythm.
 
 | Day | Slot | Content character |
 | --- | --- | --- |
-| Monday | Commercialisation Thinking | A principle or framework that opens the week with substance. Strategy Before Design or a Diagnostic teardown |
-| Wednesday | Founder POV | The Owner's Number, or a sharp take on marketing, AI or growth. The human, senior voice |
-| Friday | Proof or Engine | A 90 Days proof story, or an Inside the Engine piece. The soft commercial moment |
+| Monday | Proof of Outcomes | A Transformation or 90 Days piece. Open the week with evidence |
+| Wednesday | Proof of Thinking | A Decision breakdown or teardown. Show how Jewell approaches complexity |
+| Friday | Proof of Process or Trust | Inside the Engagement, or a client voice. The human, credible close |
 
-The company page and Instagram run in support, drawing from the same weekly theme so the whole
+The company page and Instagram run in support, drawing from the same weekly proof so the whole
 estate says one thing at a time.
 
 ### Cross-platform cascade
 
 | Origin | Cascade | Notes |
 | --- | --- | --- |
-| Clent LinkedIn text post (POV) | Lightly excerpted to Instagram as a quote post or story | Authentic founder voice, adapted to platform |
-| Instagram carousel (education) | LinkedIn document post; company page mirror | Adapt the caption for the LinkedIn reader |
+| LinkedIn case-study carousel | Instagram carousel; company page mirror | Adapt the caption per reader |
 | Founder video (to camera) | Reel + LinkedIn native video + YouTube Short | Same asset, captions and crop per platform |
 | Proof reel (90 Days) | LinkedIn native video; single post on both feeds | Confidentiality-cleared before any placement |
+| Client quote (In Their Words) | Instagram single post; LinkedIn text post | Consent confirmed before use |
 | Best of the month | The Jewell Intelligence newsletter | The owned channel compounds the rented ones |
 
-Rule: adapt, never dump. The same idea is reshaped for each platform's reader. A LinkedIn post
-is not a caption, and a caption is not a Short.
+Rule: adapt, never dump. The same proof is reshaped for each platform's reader. A LinkedIn case
+study is not an Instagram caption, and a caption is not a Short.
 
 Next: the voice that has to hold across all of it.
 
@@ -339,9 +365,9 @@ got you". Strategic partner, not consultant. Jewell wins when the client wins.
 
 ### Caption principles
 
-- Open with a hook line. One sentence that earns the read.
-- Deliver value or a view. Teach something, or take a considered position.
-- Close with a soft CTA. "Book a Growth Diagnostic", "Read the full piece", "Tell me where
+- Open with a hook line. One sentence that earns the read, usually the problem or the outcome.
+- Deliver the proof. Show the work, the decision or the result. Do not summarise, evidence.
+- Close with a soft CTA. "Book a Growth Diagnostic", "Read the full case study", "Tell me where
   you land in the comments".
 - Sentence case throughout, not Title Case Headlines.
 - One or two natural emoji at most. Many posts use none. Jewell is not an emoji brand.
@@ -349,19 +375,19 @@ got you". Strategic partner, not consultant. Jewell wins when the client wins.
 ### Language to use
 
 Commercialisation, growth, outcome, own the number, senior operator, strategy before design,
-positioning, compounding, considered, clarity, leverage, the engine, agency-grade.
+positioning, compounding, considered, clarity, leverage, the work, the result, before and after.
 
 ### Language to avoid
 
 Hack, guru, hustle, crush it, game-changer, revolutionary, disrupt (as filler), 10x (as hype),
-guaranteed, secret, unlock (overused), and any fear or urgency framing. No hype, no pressure,
-no clichés.
+guaranteed, secret, unlock (overused), and any fear or urgency framing. No hype, no clichés, no
+motivational filler.
 
 ### CTA library
 
 - Book a Growth Diagnostic
-- Start with a Growth Diagnostic (link in bio)
-- Read the full piece
+- Read the full case study (link in bio)
+- See the work
 - Join the Jewell Intelligence list
 - Tell me where you land in the comments
 - DM me "GROWTH" and I will send it
@@ -369,7 +395,7 @@ no clichés.
 
 Never publish pricing in any caption or asset. Pricing is scoped after the Growth Diagnostic.
 
-Next: how it should look.
+Next: how the proof should look.
 
 ---
 
@@ -377,31 +403,30 @@ Next: how it should look.
 
 A coherent visual identity is what makes a feed recognisable in three seconds of scroll. Jewell
 holds the "Jewell" wordmark as the master mark and builds a quiet, precise template language
-around it. Minimalist intelligence is the look.
+around it. Minimalist intelligence is the look. The work is the hero.
 
 ### Palette and type
 
 - **Colours:** cream, black, charcoal, calm grey, with a single accent, Signal Blue. Restraint
   is the point. The accent earns its rare appearance.
 - **Type:** Poppins (weights 300, 400, 500, 600) for headings and body; JetBrains Mono for
-  data, code and considered detail.
+  data, metrics and considered detail.
 - The wordmark is "Jewell". "Projects" is retired from the brand and appears only in the legal
   entity line.
 
-### Photography and imagery direction
+### Showing the work (the proof aesthetic)
 
-- Real over stock wherever possible. Clent, the team, the work on screen, the room where
-  decisions get made.
-- Natural light, calm and considered tones. Nothing oversaturated, nothing stock-agency glossy.
-- Show the craft: a strategy on a page, a build in progress, a whiteboard, a proof number in
-  context.
+- Real project artefacts over stock: strategy pages, brand systems, live sites, dashboards.
+- Before and after shown honestly, at the same scale, so the change is undeniable.
+- Metrics presented cleanly in JetBrains Mono, always matched to the v3-cleared set.
+- Natural light for people and rooms; the clinic of decision-making, not a stock office.
 - Avoid: hype visuals, generic AI-robot imagery, hustle aesthetics, and anything that makes the
-  machine louder than the human.
+  machine louder than the human or the outcome louder than the truth.
 
 ### Template consistency
 
-- Carousels use a consistent cover template. Same type, palette and layout system every time.
-- Quote and principle slides use a defined, quiet style. Considered, not noisy.
+- Case-study carousels use a fixed template: problem, approach, work, result, CTA.
+- Before/after and metric cards use a defined, quiet style. The number does the talking.
 - Reels and video open with a one-second branded moment. Do not over-brand the feed.
 - Stories use a defined sticker and template palette tied to the wordmark and Signal Blue.
 
@@ -410,8 +435,8 @@ around it. Minimalist intelligence is the look.
 - Templates built once in Canva against the brand kit; set up by Liz.
 - The engine (the jewell-social-generator worker and the Pip social specialist) drafts copy and
   first-pass layouts at volume; Liz curates and finishes; a human always owns the final look.
-- Video mostly shot on phone; light editing in CapCut or InShot. Founder pieces prioritise
-  clarity of idea over production polish.
+- Video mostly shot on phone; light editing in CapCut or InShot. Proof pieces prioritise clarity
+  of the outcome over production polish.
 
 Next: the calls to action that carry the commercial job.
 
@@ -426,6 +451,7 @@ Retention, Advocacy).
 | Journey stage | CTA intent | Example | Destination |
 | --- | --- | --- | --- |
 | Exposure | Follow and engage | "Tell me where you land in the comments" | Profile, follow |
+| Consideration | Deepen the proof | "Read the full case study" | Case study, then newsletter |
 | Consideration | Capture the owned list | "Join the Jewell Intelligence list" | Newsletter opt-in |
 | Decision | Route to the front door | "Book a Growth Diagnostic" | Diagnostic booking |
 | Decision (partner) | Open the channel | "See how the engine resells" | Partner enquiry |
@@ -433,7 +459,7 @@ Retention, Advocacy).
 
 Rules: one CTA per post, never two. Most posts sit at Exposure or Consideration; the Decision
 CTA is used with restraint so it keeps its weight. Pricing never appears. The Growth Diagnostic
-is the single front door for buyers; the newsletter is the patience play for the ones not ready.
+is the single front door for buyers; the case study is the bridge that gets them there.
 
 Next: the calendar framework.
 
@@ -443,23 +469,24 @@ Next: the calendar framework.
 
 ### Monthly theme structure
 
-Every month carries a primary theme drawn from the commercial calendar and the OKRs. Every post
-is tested against the theme. Monday leans into it hardest; Wednesday and Friday support it.
+Every month leads with one client story or proof theme, drawn from the portfolio and the OKRs.
+Every post that month is tested against it. Monday leads with the outcome; Wednesday shows the
+thinking; Friday shows the process or the client voice.
 
-| Month | Theme | Implication for content |
+| Month | Proof theme | Implication for content |
 | --- | --- | --- |
-| Sep 2026 | Foundations: the engine, live in public | Introductory Founder POV; what Jewell is and owns; the positioning line |
-| Oct 2026 | Strategy before design | Commercialisation Thinking pillar week; the Diagnostic series pushed hard |
-| Nov 2026 | Proof month | 90 Days series; the client wall turned into evidence; capital-event angle |
-| Dec 2026 | The year in numbers | Owner's Number retrospectives; plan-for-the-year-ahead content; soft EOFY-lead-in |
-| Jan 2027 | The owner's growth reset | New-year positioning content; Diagnostic as the first move of the year |
-| Feb 2027 | The partner channel | The Engine and partner messaging; open the Maxxim reseller conversation publicly |
-| Mar 2027 | Capital events | Positioning-for-sale and Information Memorandum content; the Jewell Tyres pattern |
-| Apr 2027 | Human plus AI, done right | The Engine pillar deep dive; agency-grade at speed; the anti-DIY-AI argument |
-| May 2027 | Category authority | Founder POV at its sharpest; industry takes; speaking and podcast push |
-| Jun 2027 | EOFY and the growth budget | Commercial content timed to budget cycles; Diagnostic push |
-| Jul 2027 | New financial year, new number | Owner's Number series; goal-setting; recurring-retainer story |
-| Aug 2027 | Year 1 review and reset | Annual review reel; learnings washed into the Year 2 plan |
+| Sep 2026 | The portfolio, live | Introduce the four proofs; the client wall as evidence; the positioning line |
+| Oct 2026 | Transformation month | The Transformation and 90 Days series pushed hard; a flagship case study |
+| Nov 2026 | How we think | The Decision series; strategy-before-design teardowns from real engagements |
+| Dec 2026 | The year in outcomes | Best results of the year; client voices; plan-for-the-year-ahead thinking |
+| Jan 2027 | The owner's growth reset | New-year proof; the Diagnostic as the first move, backed by a case study |
+| Feb 2027 | The partner channel | Proof of Process for partners; the engine resold; open the Maxxim conversation |
+| Mar 2027 | Capital events | Positioning-for-sale proof; the Jewell Tyres pattern; no client named without consent |
+| Apr 2027 | Inside the engagement | Proof of Process deep dive; what working with Jewell looks like, start to finish |
+| May 2027 | In their words | Proof of Trust month; testimonials and client voice as the lead |
+| Jun 2027 | EOFY and the growth budget | Outcome proof timed to budget cycles; Diagnostic push |
+| Jul 2027 | New financial year, new number | The Owner's Number; recurring-retainer proof; goal-setting |
+| Aug 2027 | Year 1 review and reset | The year's proof in one reel; learnings washed into the Year 2 plan |
 
 ### Post briefing template
 
@@ -469,60 +496,61 @@ content calendar (Notion or Google Sheets).
 | Field | Example value | Why it matters |
 | --- | --- | --- |
 | Week / day | W3, Monday | Locks place in the cadence |
-| Pillar | Commercialisation Thinking | Tests fit against the 5 pillars |
-| Series | Strategy Before Design | Locks the format template |
+| Founder question | What changed as a result of our work? | The proof this post must deliver |
+| Pillar / series | Proof of Outcomes / 90 Days | Locks the format template |
 | Persona | Scaling Owner | Tests message fit |
 | Format | Carousel, 6 slides | Drives the design brief |
-| Working title | Why your marketing is busy but not growing | Editorial anchor |
-| Hook line | Most owners do not have a marketing problem. They have a strategy gap. | The single most important line |
-| Key message | Activity is not growth. Strategy before design, every time. | What the reader leaves with |
-| Visual brief | Slide 1 hook on cream; slides 2–5 principle on muted ground; slide 6 CTA card | Drives design execution |
-| CTA | Book a Growth Diagnostic, link in bio | Closes the post |
-| Compliance | No pricing. No client named without consent. Proof figures v3-cleared | Pre-publication check |
-| Approval | Clent approves founder voice and any client reference before scheduling | Locks the human gate |
+| Client / evidence | Walter Wealth (consent and v3 figure confirmed) | The proof source, cleared |
+| Working title | $30M in 90 days: the work behind the number | Editorial anchor |
+| Hook line | The headline was the assets under management. The story was the positioning. | The single most important line |
+| Key message | Positioning drove the result. Strategy before design, in practice. | What the reader leaves with |
+| Visual brief | Slide 1 hook; slides 2–4 problem, approach, work; slide 5 the number; slide 6 CTA | Drives design execution |
+| CTA | Read the full case study, link in bio | Closes the post |
+| Compliance | No pricing. Consent confirmed. Figure matches v3-cleared set | Pre-publication check |
+| Approval | Clent approves the client reference and figure before scheduling | Locks the human gate |
 
 ### Three worked example briefs
 
-Illustrative briefs showing how the template lands. These can be lifted into the calendar as
-live posts.
+Illustrative briefs showing how the framework lands. These can be lifted into the calendar as
+live posts once each client reference is consent-cleared.
 
-**Example 1 – Commercialisation carousel (Monday, LinkedIn document post)**
-
-| Field | Value |
-| --- | --- |
-| Pillar | Commercialisation Thinking |
-| Series | Strategy Before Design |
-| Persona | Scaling Owner |
-| Format | Carousel, 6 slides |
-| Working title | Busy marketing is not growing marketing |
-| Hook line | Most owners do not have a marketing problem. They have a strategy gap. |
-| Key message | Three signs your activity is outrunning your strategy, and the fix. |
-| CTA | Book a Growth Diagnostic, link in bio |
-
-**Example 2 – Founder POV video (Wednesday, cross-posted)**
+**Example 1 – The Transformation (Monday, LinkedIn carousel)**
 
 | Field | Value |
 | --- | --- |
-| Pillar | Founder POV |
-| Series | The Owner's Number |
-| Persona | Scaling Owner; Capital-Event Owner |
-| Format | Video to camera, 45 seconds |
-| Working title | The one number I ask every founder for first |
-| Hook line | When an owner tells me revenue is up, my first question is always the same. |
-| CTA | Tell me your number in the comments |
-
-**Example 3 – Proof reel (Friday, both feeds)**
-
-| Field | Value |
-| --- | --- |
-| Pillar | Proof and Outcomes |
-| Series | 90 Days |
+| Founder question | What has Jewell done, and what changed? |
+| Pillar / series | Proof of Outcomes / The Transformation |
 | Persona | Scaling Owner; Referrer |
-| Format | Reel, 40 seconds |
-| Working title | $30M in 90 days: the work behind the number |
-| Hook line | The headline was the assets under management. The story was the positioning. |
-| Compliance | Figures matched to the v3-cleared set; client reference consent confirmed |
+| Format | Carousel, 6 slides |
+| Client / evidence | Hidrive (v3-cleared: +300% revenue growth) |
+| Working title | From plateau to +300%: rebuilding Hidrive's engine |
+| Hook line | Hidrive had a strong product and stalled growth. The gap was not effort. |
 | CTA | Read the full case study, link in bio |
+
+**Example 2 – The Decision (Wednesday, LinkedIn text or carousel)**
+
+| Field | Value |
+| --- | --- |
+| Founder question | How does Jewell approach a complex challenge? |
+| Pillar / series | Proof of Thinking / The Decision |
+| Persona | Scaling Owner; Capital-Event Owner |
+| Format | Text post or 4-slide carousel |
+| Working title | When we chose to fix positioning before touching the website |
+| Hook line | The client wanted a new site. We told them the site was not the problem. |
+| CTA | Tell me where you land in the comments |
+
+**Example 3 – In Their Words (Friday, both feeds)**
+
+| Field | Value |
+| --- | --- |
+| Founder question | Why should a founder trust Jewell? |
+| Pillar / series | Proof of Trust / In Their Words |
+| Persona | Scaling Owner; Disruptor Founder |
+| Format | Reel or single post, client voice |
+| Client / evidence | A consented client testimonial, cleared for external use |
+| Hook line | We asked a founder what changed after 90 days. This is what they said. |
+| Compliance | Consent on file; no outcome claim beyond the cleared set | 
+| CTA | See the work, link in bio |
 
 Next: how it gets made.
 
@@ -532,25 +560,26 @@ Next: how it gets made.
 
 Content is produced in monthly batches. Batching keeps quality high, scheduling tidy and Clent's
 approval load contained. This uses the OS's own model routing: orchestrate high, execute low,
-then a human check-and-fix before anything ships.
+then a human check-and-fix before anything ships. Proof work adds one non-negotiable step:
+consent and clearance before any client is shown.
 
 | Day of the production month | Activity | Owner |
 | --- | --- | --- |
-| Day 1 | Plan the month against the theme and the OKRs; brief every post | Liz + Clent direction |
-| Day 2 | Engine drafts: captions, carousel copy, video scripts, at volume | Engine (Pip / jewell-social-generator), Liz orchestrates |
-| Day 3 | Produce: design carousels, edit video, build stories, in Jewell's visual system | Liz |
-| Day 4 | Review: brand voice, compliance, proof-set check, then Clent approval on founder voice and client references | Liz + Clent |
+| Day 1 | Plan the month against the proof theme and the OKRs; pick the client stories; brief every post | Liz + Clent direction |
+| Day 2 | Clear the proof: confirm consent, and confirm every figure against the v3-cleared set | Liz + Clent |
+| Day 3 | Engine drafts, then produce: case-study carousels, proof reels, decision breakdowns | Engine drafts, Liz finishes |
+| Day 4 | Review: brand voice, compliance, proof-set check, then Clent approval on client references | Liz + Clent |
 | Day 5 | Schedule across platforms; update the calendar; set the referral-source tags | Liz |
 
 ### Weekly maintenance (in addition to the monthly batch)
 
 - 30 minutes of founder engagement: Clent comments on 5–10 in-market posts.
-- 30 minutes of stories and light capture: real-time, low-production, human.
+- 30 minutes of light capture: work-in-progress, artefacts, real moments for future proof.
 - 15 minutes of community management: reply to comments and DMs, route the ready ones.
-- One founder video captured for next month's bank. Phone is fine.
+- One client story or artefact logged for the proof bank as engagements deliver.
 
 The check-and-fix pass is not optional. Every batch ends with a human confirming the work meets
-the standard before it is called done. Verification is part of the work, not an extra step.
+the standard, the consent is on file, and the figures are cleared, before it is called done.
 
 Next: how Jewell shows up in the replies.
 
@@ -558,52 +587,54 @@ Next: how Jewell shows up in the replies.
 
 ## Engagement and community-building strategy
 
-Reach starts conversations. Engagement is where authority is actually built. For a B2B founder
-brand, the comment section and the DM are the real sales floor.
+Reach starts conversations. Engagement is where trust is actually built. For a proof-led founder
+brand, the comment section and the DM are the real business-development floor.
 
 ### Engagement protocols
 
 | Touchpoint | Response window | Tone / approach |
 | --- | --- | --- |
 | DM enquiry | Within 4 business hours | Warm, senior, helpful; route to a Growth Diagnostic or call where it fits |
-| Comment on a Jewell or Clent post | Within 24 hours | Engage with substance; add a second thought, not just a thank-you |
-| Comment by an in-market owner or partner | Same day | Prioritise; this is the room where deals start; Clent replies personally where it counts |
+| Comment on a proof post | Within 24 hours | Add substance; answer the real question behind the comment |
+| Comment by an in-market owner or partner | Same day | Prioritise; this is where deals start; Clent replies personally where it counts |
 | Tag or mention | Same week | Acknowledge; reshare to story if brand-appropriate |
-| Negative or critical comment | Within 24 hours | Acknowledge calmly, engage in good faith, take detailed matters to DM; never argue publicly |
+| Negative or critical comment | Within 24 hours | Acknowledge calmly, engage in good faith, take detail to DM; never argue publicly |
 | Spam, hostile or irrelevant | No reply | Hide or block as appropriate; do not engage |
 
 ### Community-building moves
 
 - **Founder-led outward engagement.** Clent commenting thoughtfully on other founders' posts
-  does more for authority than a third post would. Budget it as content, not admin.
-- **Answer real questions in public.** The Ask Jewell series turns owner questions into content
-  and feeds the Jewell Intelligence assistant.
-- **Amplify the client wall.** Celebrate client wins (with consent) so clients become advocates
-  and their networks see Jewell deliver.
-- **Warm the partner room.** Engage where agency owners and consultants gather; the partner
-  channel is opened by relationship, not by broadcast.
+  does more for trust than a third post would. Budget it as content, not admin.
+- **Answer the buying questions in public.** When an owner asks how something was done, the
+  answer is a case study, offered generously.
+- **Turn clients into advocates.** Celebrate client wins with consent, so their networks see
+  Jewell deliver and the client feels credited.
+- **Warm the partner room.** Engage where agency owners gather; the partner channel opens by
+  relationship and proof, not broadcast.
 
 Next: where the commercial opportunities come from.
 
 ---
 
-## Lead-generation and conversion opportunities
+## Lead-generation and business development
 
-Social's commercial job is to fill the top of one funnel and warm the middle of another. It
-rarely closes on its own. It makes closing cheaper.
+Social's commercial job is to build trust with the right founders, then move the ready ones
+toward a conversation. It rarely closes on its own. It makes closing cheaper by arriving with
+the evidence already in hand.
 
-| Motion | How social feeds it | The next step |
+| Motion | How proof-led social feeds it | The next step |
 | --- | --- | --- |
-| Growth Diagnostic (front door) | Diagnostic teardown series; Decision-stage CTAs; profile link | A booked Growth Diagnostic that credits toward the engagement |
-| Founder DM to call | Sharp founder posts that earn inbound DMs; "DM me GROWTH" | A discovery call with a pre-sold owner |
-| Newsletter nurture | Consideration CTAs capturing the owned list | A monthly touch that converts the not-yet-ready over time |
-| Partner channel | The Engine and partner messaging; founder-to-founder engagement | A qualified partner enquiry into the Maxxim reseller model |
-| Capital-event niche | Positioning-for-sale and Information Memorandum content | A discreet, high-value conversation with an owner heading to an event |
-| Retargeting | Site visitors from social re-engaged on-platform | A warmed audience for the next Diagnostic push |
+| Growth Diagnostic (front door) | Case studies and outcomes that earn the click; Decision-stage CTAs | A booked Growth Diagnostic that credits toward the engagement |
+| Founder DM to call | Proof posts that earn inbound DMs from owners who recognise their own problem | A discovery call with a pre-sold owner |
+| Newsletter nurture | Consideration CTAs capturing the owned list off the back of proof | A monthly proof touch that converts the not-yet-ready |
+| Partner channel | Proof of Process content that shows the engine working | A qualified partner enquiry into the reseller model |
+| Capital-event niche | Positioning-for-sale proof, discreet and precise | A high-value conversation with an owner heading to an event |
+| Referral reinforcement | The portfolio, public, so referrers can point to it | A warmer referral, backed by visible evidence |
 
-Conversion discipline: every opportunity social touches is tagged with its source at intake, in
-step with the 95% referral-capture target. What social sources or assists is measured, so its
-commercial contribution is provable, not assumed.
+Business-development discipline: every opportunity social touches is tagged with its source at
+intake, in step with the 95% referral-capture target. What social sources or assists is
+measured, so its contribution is proven, not assumed. Proof over promotion applies to Jewell's
+own reporting too.
 
 Next: the standard that keeps it safe.
 
@@ -611,27 +642,26 @@ Next: the standard that keeps it safe.
 
 ## Compliance and confidentiality
 
-Jewell has no TGA exposure of its own, but it holds something more sensitive: its clients'
-confidential commercial information. The bar is non-negotiable, and it is checked before every
-relevant post.
+A proof-led strategy leans on client work, so confidentiality is the discipline that makes it
+safe. The bar is non-negotiable, and it is checked before every relevant post.
 
 ### The checklist (applied before every relevant post)
 
-- Does the post publish or imply a price? Remove it. Pricing is scoped after the Diagnostic.
 - Does the post name or identify a client? Confirm written consent, and confirm the reference is
   approved for external use.
 - Does the post quote a proof figure? Confirm it matches the current v3-cleared set (Hidrive,
   Jewell Tyres, Walter Wealth, Circl Group). Older figures align to v3, never the reverse.
+- Does the post publish or imply a price? Remove it. Pricing is scoped after the Diagnostic.
 - Does the post reference a blocked or unreconciled item? BTC's "Beyond the Clinic" vs "Bone +
   Tissue Centre" naming, the nib case study pending written approval, Vowel Code's internal
-  financials. Hold until cleared.
-- Does the post state an assumption as a fact? Rewrite. Separate fact, assumption and
-  recommendation.
-- Does the post let Maxxim or the AI outshine Jewell? Reframe. Jewell is the face; the engine
-  stays behind it.
+  financials, Walter Wealth described as "independent". Hold until cleared.
+- Does the post state an assumption as a fact, or claim an outcome not in the cleared set?
+  Rewrite. Separate fact, assumption and recommendation.
+- Does the post let Maxxim or the AI outshine Jewell? Reframe. Jewell is the face.
 - Does any content trace to a gated area (finance, personal, legal)? Never. Not one line.
 
-Where any of the above is unclear, the post is held for review. No exceptions.
+Where any of the above is unclear, the post is held for review. No exceptions. A great case study
+held for a week is fine. A confidentiality breach is not.
 
 Next: the responses pre-thought for the moments that need speed.
 
@@ -662,14 +692,15 @@ Next: the tools that run it.
 | The jewell-social-generator worker + Pip specialist | Draft copy and first-pass assets at volume | Liz orchestrates |
 | Canva (brand kit + templates) | Design at scale in the Jewell visual system | Liz |
 | Phone + CapCut / InShot | Reels and short video | Liz + Clent |
+| The proof bank (Drive) | A living library of consented client stories, figures and artefacts | Liz + Clent |
 | Newsletter/EDM platform | The Jewell Intelligence owned channel | Liz + Clent |
 | Notion or Google Sheets | Content calendar and post briefs | Liz |
 | Native platform schedulers | Scheduling, no third-party paid tool required Year 1 | Liz |
 | GA4 + referral-source tagging | Attribution: sessions and opportunities from social | Liz + Ronnie |
 | Google Drive | Asset library and brand kit | Liz managed |
 
-Legacy note: the old n8n "LinkedIn Post generation" workflow is retired into a restricted
-archive. The jewell-social-generator worker is the supported engine going forward.
+The proof bank is the engine of this strategy. Every delivered engagement logs a consented
+story, a cleared figure and an artefact, so the feed never runs short of evidence.
 
 Next: how it is measured.
 
@@ -679,19 +710,20 @@ Next: how it is measured.
 
 ### Reported monthly
 
-- Reach and impressions per platform, weighted to ICP fit.
-- Engagement rate (saves, shares, comments, substantive DMs).
+- Reach and views of proof content per platform, weighted to ICP fit.
+- Engagement rate on proof posts (saves, shares, comments, substantive DMs).
+- Case-study and outcome content: saves and shares, the truest trust signal.
 - Follower growth, with a note on quality, not vanity.
-- Profile-to-site click rate and sessions from social.
+- Sessions from social to case studies and the Growth Diagnostic page.
 - Growth Diagnostics and discovery calls sourced or assisted by social.
 - Newsletter opt-ins from social.
-- Top three posts and three lowest, each with a one-line learning.
+- Top three proof posts and three lowest, each with a one-line learning.
 
 ### Reported quarterly
 
 - Channel performance against the six KPIs.
-- Pillar performance: which pillars are building authority and which are converting.
-- Format performance: video vs carousel vs text post.
+- Which of the four proofs is building trust and which is converting.
+- Format performance: case-study carousel vs proof reel vs decision post.
 - Persona signal: is the audience the right owners and partners, or drifting.
 - Recommended adjustments for the next quarter.
 
@@ -711,19 +743,19 @@ Next: how social stays in step with the rest of the business.
 ## Alignment with the 3D Process and the OKRs (the sister plan)
 
 For Pottsville, social is choreographed with the Local Area Marketing Plan. For Jewell, social
-is choreographed with the 3D Process delivery calendar and the OKRs. Every commercial push gets
-a social handshake. Every cleared proof point becomes social within 7 days.
+is choreographed with delivery. Every engagement that ships is a future case study. Every cleared
+outcome becomes proof content within 7 days.
 
 | Commercial activity | Social handshake | Timing |
 | --- | --- | --- |
-| Growth Diagnostic promotion | Diagnostic teardown series runs; Decision CTAs live | Ongoing, at least fortnightly |
-| A warm project signs (Adam Hall, Meridian, Ultimate class) | Anonymised or consented "the work begins" content | Within the month, consent-cleared |
-| A proof point clears the v3 set | 90 Days series piece; company page and newsletter | Within 7 days of clearance |
-| Maxxim partner channel opens (Alex/3P) | The Engine and partner messaging pushed | Same fortnight as the channel milestone |
-| A capital-event engagement (Jewell Tyres pattern) | Positioning-for-sale content, no client named | Aligned to the milestone, discreetly |
+| An engagement completes a gate | Log a consented story to the proof bank | At the gate, consent permitting |
+| A proof point clears the v3 set | A Transformation or 90 Days piece; company page and newsletter | Within 7 days of clearance |
+| A warm project signs (Adam Hall, Meridian, Ultimate class) | An anonymised or consented "the work begins" piece | Within the month, consent-cleared |
+| Maxxim partner channel opens (Alex/3P) | Proof of Process for partners; the engine resold | Same fortnight as the channel milestone |
+| A capital-event engagement (Jewell Tyres pattern) | Positioning-for-sale proof, no client named | Aligned to the milestone, discreetly |
 
-The commercial calendar and the OKRs are the master cue. Social reads the same calendar and
-moves in step. It never freelances a message the business is not making.
+Delivery is the master cue. The proof bank fills as engagements ship, and the feed draws from it.
+Social never invents a proof the business has not earned.
 
 Next: who does what.
 
@@ -734,12 +766,12 @@ Next: who does what.
 | Function | Liz (Social Media Manager) | Clent (Founder) | The engine / Ronnie |
 | --- | --- | --- | --- |
 | Social strategy and calendar | Lead and build | Approve quarterly direction | Ronnie holds the cadence |
-| Content production | Produce and finish | Approve founder voice and client references | Engine drafts at volume |
+| Proof bank and clearance | Maintain and draft from | Approve consent and figures | Engine helps compile |
+| Content production | Produce and finish | Approve client references | Engine drafts at volume |
 | Founder voice (LinkedIn, video) | Draft and produce | Approve and post under his own name | Engine drafts to Clent's voice |
 | Scheduling | Manage across platforms | – | – |
 | Daily engagement (comments, DMs) | Manage and route | Engage personally where it counts | – |
-| Compliance and confidentiality checks | Flag and hold | Final authority | – |
-| Proof-set discipline | Check against v3 | Owns what is cleared | – |
+| Compliance and confidentiality | Flag and hold | Final authority | – |
 | Crisis response | Manage the channel response | Decide tone for sensitive moments | – |
 | Reporting | Deliver monthly and quarterly | Review and direct | Ronnie reads it into the cadence |
 | Attribution and referral tagging | Set the tags | – | Ronnie reconciles at the Friday close |
@@ -750,16 +782,18 @@ Next: the lines Jewell does not cross.
 
 ## Risk and red-flag list – what Jewell does not post
 
-- Any price, fee or rate. Pricing is scoped after the Growth Diagnostic, never published.
-- A client name, logo or result without written consent and a compliance check.
+- A client name, logo, figure or result without written consent and a compliance check.
 - A proof figure that does not match the current v3-cleared set.
+- Any price, fee or rate. Pricing is scoped after the Growth Diagnostic, never published.
 - A blocked or unreconciled reference (BTC naming, nib case study, Vowel Code financials).
+- Generic motivational content, surface-level business tips, or filler to keep frequency up.
+- Any post that does not answer one of the seven founder questions. If it proves nothing, it
+  does not run.
 - Hype, guarantees, urgency or discount-led messaging. Jewell leaves people Secure, not sold.
 - Content that makes Maxxim or the AI the hero. Jewell is human-led and the front door.
 - Political content or trending-controversy commentary.
 - Anything that dresses an assumption as a fact.
 - Anything traceable to a gated area: finance, personal, or legal. Not one line, ever.
-- Anything that would not pass the "senior operator" voice test.
 
 Next: the first 90 days.
 
@@ -769,59 +803,58 @@ Next: the first 90 days.
 
 | Weeks | Activity | Outcome |
 | --- | --- | --- |
-| Weeks 1–2 | Audit and refresh Clent's LinkedIn, the Jewell company page and Instagram; brand kit and templates built in Canva; first 5–7 posts scheduled | Profiles senior and consistent; social active |
-| Weeks 3–4 | Founder cadence begins (3 LinkedIn posts/week); stories rhythm set; engagement protocols live; first founder video | Daily cadence established |
-| Weeks 5–6 | First monthly batch; full calendar for the next month live; referral-source tagging switched on | Production rhythm locked |
-| Weeks 7–8 | First Diagnostic teardown; first 90 Days proof piece (v3-cleared); newsletter live | Lead motions running |
-| Weeks 9–10 | The Engine and partner messaging introduced; cross-platform cascade live; pillar mix balanced | Full pillar set active |
-| Weeks 11–12 | First quarterly review and reset; next-quarter calendar built; first attribution read on social-sourced Diagnostics | Year 1 rhythm established |
+| Weeks 1–2 | Audit and refresh Clent's LinkedIn, the company page and Instagram; build the proof bank from the v3-cleared set; brand kit and templates in Canva | Profiles senior and consistent; evidence ready |
+| Weeks 3–4 | First case study live (Hidrive or Walter Wealth); founder cadence begins; engagement protocols live | The portfolio starts working in public |
+| Weeks 5–6 | First monthly batch; full proof calendar for the next month live; referral-source tagging on | Production rhythm locked |
+| Weeks 7–8 | First 90 Days reel and first Decision breakdown; newsletter live with a proof lead | The four proofs all running |
+| Weeks 9–10 | First In Their Words client voice (consent-cleared); partner Proof of Process introduced | Trust and partner motions live |
+| Weeks 11–12 | First quarterly review; next-quarter calendar built; first attribution read on social-sourced Diagnostics | Year 1 rhythm established |
 
 Next: the levers that grow it.
 
 ---
 
-## Recommendations for reach, engagement, authority and leads
+## Recommendations for trust, authority and qualified leads
 
 Specific to Jewell, in priority order.
 
-1. **Make Clent the channel.** For a B2B founder brand, the personal profile outperforms the
-   company page by a wide margin. Weight investment to Clent's LinkedIn. Protect his 30 minutes
-   of weekly engagement as content, not admin.
-2. **Run the Diagnostic series relentlessly.** It is the single best asset Jewell has: it proves
-   the product, demonstrates the thinking and produces the strongest lead signal. Fortnightly,
-   minimum.
-3. **Turn the client wall into proof content.** Jewell has evidence most competitors can only
-   claim. Clear one 90 Days piece a month through the consent and v3 process, and it will
-   out-convert any amount of opinion.
-4. **Lead with authority, convert with proof, close off-platform.** Do not ask a cold feed to
-   buy. Build authority publicly, warm the list privately, and let the Growth Diagnostic do the
-   closing.
-5. **Show the engine, keep the human in front.** The human-plus-AI story is Jewell's wedge
-   against both agencies and DIY AI. Show it working, but never let the machine become the face.
-6. **Own a list, not just a following.** A LinkedIn following is rented. The Jewell Intelligence
-   newsletter is owned. Move the best of every month into the channel Jewell controls.
-7. **Repurpose one idea across three placements.** One founder video becomes a Reel, a LinkedIn
-   video and a Short. One carousel becomes a document post and a newsletter section. Produce
-   less, publish more.
-8. **Measure the number, not the noise.** Report reach weighted to ICP fit and opportunities
-   sourced, not raw follower counts. Kill what does not build authority or leads, and double the
-   rest.
+1. **Build the proof bank first.** The strategy lives or dies on a steady supply of consented
+   client stories and cleared figures. Stand it up in week 1 and feed it at every gate. Without
+   it, the feed drifts back to opinion.
+2. **Lead with the transformation.** The single most persuasive post Jewell can make is a real
+   client, a real problem and a real change. Run The Transformation and 90 Days weekly.
+3. **Show the thinking, not just the result.** Founders buy judgement. The Decision series proves
+   how Jewell approaches complexity, which is what a Scaling Owner is really buying.
+4. **Make Clent the channel.** For a proof-led founder brand, the personal profile outperforms
+   the company page. Weight investment to Clent's LinkedIn and protect his weekly engagement.
+5. **Turn clients into advocates.** A consented client voice out-converts any amount of Jewell
+   talking about itself. Ask for the testimonial at the moment of the win.
+6. **Own a list, not just a following.** Move the best proof of every month into the Jewell
+   Intelligence newsletter, the channel Jewell controls.
+7. **Repurpose one proof across three placements.** One case study becomes a carousel, a reel and
+   a newsletter section. Produce less, prove more.
+8. **Measure trust and pipeline, not noise.** Report saves and shares of proof content, and
+   opportunities sourced, not raw follower counts. Kill what proves nothing.
+
+Next: the closing read.
 
 ---
 
 ## Jewell read
 
-Social is where the Jewell brand voice gets practised in public. Done with discipline, it is the
-most reliable way to make a founder feel Jewell is a peer before they ever book a call. Done
-lazily, it is a feed of activity that says the opposite of what Jewell sells.
+Social is where Jewell's portfolio does its work in public. Done with discipline, it is the most
+reliable way to make a founder trust Jewell before they ever book a call, because they have
+already seen the work, the outcomes and the thinking. Done lazily, it is a stream of tips and
+motivation that says the opposite of what Jewell sells.
 
 The biggest mistake businesses make on social is treating it as a channel to fill. The
-discipline of this plan is the opposite: a small, considered set of platforms, three good posts
-a week instead of seven forgettable ones, choreographed with the commercial calendar so social
-amplifies what the business is already doing.
+discipline of this plan is the opposite: proof over promotion, a small set of platforms, and
+every post answering a real question a founder asks before they would trust you with their
+business.
 
-The bar is simple. Every post should sound like a senior operator. Every visual should look like
-Jewell. Every week should compound the last.
+The bar is simple. Someone who finds Jewell's social should think: these people have actually
+done this, they understand business, and I can trust them with mine. Every post should earn that
+thought. Every visual should look like Jewell. Every week should compound the last.
 
 Next: the recommended next stage.
 
@@ -830,12 +863,13 @@ Next: the recommended next stage.
 ## Recommended next stage
 
 1. Approve this Social Media Plan at the Friday close, or capture changes for v02.
-2. Confirm the platform weighting: LinkedIn-led, Clent's personal profile as the hero.
-3. Lock the six content series and sign off the first monthly batch.
-4. Confirm the proof-figure set to quote, reconciling the Walter Wealth figure ($30M in 90 days
-   per the v3 set, or $35M per the June profile) so one number is canon.
-5. Audit and refresh Clent's LinkedIn, the company page and Instagram before go-live.
-6. Set up the shared content calendar and brand kit, and switch on referral-source tagging.
+2. Confirm the proof-led positioning and the four-proofs pillar model.
+3. Stand up the proof bank: which clients are consented, and which figures are cleared for
+   public use.
+4. Reconcile the Walter Wealth figure ($30M in 90 days per the v3 set, or $35M per the June
+   profile) so one number is canon before any case study runs.
+5. Sign off the first three case studies to build (candidates: Hidrive, Walter Wealth, Circl).
+6. Audit and refresh Clent's LinkedIn, the company page and Instagram before go-live.
 7. On approval, this file drops "-draft", is logged in the decision log, and becomes Jewell's
    standard social operating framework.
 
