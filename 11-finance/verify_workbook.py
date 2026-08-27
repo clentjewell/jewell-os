@@ -97,10 +97,11 @@ CASHFLOW_OPENING_LABEL = "OPENING CASH (combined)"
 CASHFLOW_NET_LABEL = "NET CASHFLOW (month)"
 CASHFLOW_CLOSING_LABEL = "CLOSING CASH (end of month)"
 
-# Jul and Aug openings are deliberately anchored to live bank balances rather
-# than to the prior month's forecast closing, so the "opening == prior closing"
-# rule only applies from the third month onward.
-CASHFLOW_ANCHORED_MONTHS = 2
+# Months whose opening is re-anchored to live bank balances (a =SUM over the
+# leaf account rows) rather than chained from the prior month's closing are
+# detected from the opening cell's own formula, so the check keeps working as
+# each closed month gets re-anchored to actuals. A hardcoded anchored-month
+# count rotted the first time Clent re-anchored September.
 
 
 def _num(ws, cell_ref):
@@ -261,7 +262,11 @@ def check_cashflow_chain(wb):
     formula graph and then asserts the two identities the chain relies on:
 
         closing[m] == opening[m] + net[m]           (every month)
-        opening[m] == closing[m-1]                  (after the anchored months)
+        opening[m] == closing[m-1]                  (chained months only)
+
+    A month whose opening formula does not reference the prior month's
+    closing cell is treated as re-anchored to live bank balances and only
+    the first identity applies.
     """
     ws = wb[CASHFLOW_SHEET]
 
@@ -281,6 +286,7 @@ def check_cashflow_chain(wb):
 
     problems = []
     closings = []
+    anchored = []
     for i, col in enumerate(CASHFLOW_MONTH_COLUMNS):
         try:
             opening = value(f"{col}{rows['opening']}")
@@ -294,19 +300,31 @@ def check_cashflow_chain(wb):
                 f"{col}: closing {closing:,.2f} != opening {opening:,.2f} "
                 f"+ net {net:,.2f}"
             )
-        if i >= CASHFLOW_ANCHORED_MONTHS:
-            prior = value(f"{CASHFLOW_MONTH_COLUMNS[i - 1]}{rows['closing']}")
+        opening_formula = ws[f"{col}{rows['opening']}"].value
+        prior_closing_ref = (
+            f"{CASHFLOW_MONTH_COLUMNS[i - 1]}{rows['closing']}" if i else None
+        )
+        chained = (
+            prior_closing_ref is not None
+            and isinstance(opening_formula, str)
+            and prior_closing_ref in opening_formula.replace("$", "")
+        )
+        if chained:
+            prior = value(prior_closing_ref)
             if abs(opening - prior) > TOLERANCE:
                 problems.append(
                     f"{col}: opening {opening:,.2f} != prior closing {prior:,.2f}"
                 )
+        else:
+            anchored.append(col)
         closings.append(f"{col}={closing:,.0f}")
 
     if problems:
         return "FAIL", "; ".join(problems)
     return "PASS", (
         f"rows {rows['opening']}/{rows['net']}/{rows['closing']}; chain intact "
-        "across 12 months; last 3 closings: " + " ".join(closings[-3:])
+        f"across 12 months; anchored months: {','.join(anchored) or 'none'}; "
+        "last 3 closings: " + " ".join(closings[-3:])
     )
 
 
