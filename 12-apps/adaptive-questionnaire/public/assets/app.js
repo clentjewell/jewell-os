@@ -6,7 +6,7 @@
 // Content-Security-Policy blocks one.
 
 import { sections, visibleQuestions } from './schema.js';
-import { buildBrief, deriveProfile, toMarkdown } from './brief.js';
+import { accommodationSpec, buildBrief, deriveProfile, toConfirm, toMarkdown } from './brief.js';
 
 const STORE_KEY = 'jp-atq-answers-v1';
 const CONSENT_KEY = 'jp-atq-save-v1';
@@ -23,6 +23,7 @@ const root = document.getElementById('step-root');
 const progressBar = document.getElementById('progress-bar');
 const progressLabel = document.getElementById('progress-label');
 const stepList = document.getElementById('step-list');
+const signalsRoot = document.getElementById('signals-root');
 const saveToggle = document.getElementById('save-toggle');
 const reviewStep = sections.length;
 
@@ -298,6 +299,15 @@ function validateStep() {
 
 /* ------------------------------------------------------------------ rendering */
 
+function stepItem(number, title, state_) {
+  return el('li', {
+    class: `steps__item steps__item--${state_}`,
+    'aria-current': state_ === 'current' ? 'step' : undefined,
+  },
+  el('span', { class: 'steps__num', text: state_ === 'done' ? '\u2713' : String(number).padStart(2, '0') }),
+  el('span', { text: title }));
+}
+
 function renderProgress() {
   const total = sections.length + 1;
   const done = state.step + 1;
@@ -305,19 +315,73 @@ function renderProgress() {
   progressBar.setAttribute('aria-valuenow', String(done));
   progressBar.setAttribute('aria-valuemax', String(total));
 
-  stepList.replaceChildren(...sections.map((s, i) => el('li', {
-    class: `steps__item${i === state.step ? ' steps__item--current' : ''}${i < state.step ? ' steps__item--done' : ''}`,
-    text: s.title,
-    'aria-current': i === state.step ? 'step' : undefined,
-  })), el('li', {
-    class: `steps__item${state.step === reviewStep ? ' steps__item--current' : ''}`,
-    text: 'Your brief',
-    'aria-current': state.step === reviewStep ? 'step' : undefined,
-  }));
+  const stateOf = (i) => (i === state.step ? 'current' : i < state.step ? 'done' : 'ahead');
+  stepList.replaceChildren(
+    ...sections.map((s, i) => stepItem(i + 1, s.title, stateOf(i))),
+    stepItem(total, 'Your brief', stateOf(reviewStep)),
+  );
 
   progressLabel.textContent = state.step === reviewStep
     ? 'Your brief'
     : `Step ${state.step + 1} of ${total}`;
+}
+
+/**
+ * The live panel in the rail. It shows the limits the answers have set so far,
+ * so the traveller can watch the trip narrow as they go rather than meeting the
+ * result cold at the end.
+ */
+function renderSignals() {
+  const a = state.answers;
+  const started = Boolean(a.mobility || a.pace || a.energy || (a.healthPurpose || []).length);
+  if (!started) {
+    signalsRoot.replaceChildren(el('div', { class: 'signals' },
+      el('p', { class: 'signals__label', text: 'What this sets' }),
+      el('p', {
+        class: 'signals__note',
+        text: 'As you answer, the limits your trip has to respect appear here.',
+      })));
+    return;
+  }
+
+  const profile = deriveProfile(a);
+  const spec = accommodationSpec(a, profile);
+  const flags = toConfirm(a);
+  const rows = [];
+
+  rows.push(el('div', { class: 'signals__row' },
+    el('p', { class: 'signals__label', text: 'Activity ceiling' }),
+    el('p', { class: 'signals__value', text: `${profile.cap} of 5` }),
+    el('div', { class: 'meter', 'aria-hidden': 'true' },
+      [1, 2, 3, 4, 5].map((n) => el('span', {
+        class: `meter__seg${n <= profile.cap ? ' meter__seg--on' : ''}`,
+      }))),
+    profile.capReasons.length
+      ? el('p', { class: 'signals__note', text: `Set by ${profile.capReasons[0]}.` })
+      : null));
+
+  rows.push(el('div', { class: 'signals__row' },
+    el('p', { class: 'signals__label', text: 'Longest outing' }),
+    el('p', { class: 'signals__value', text: `${profile.durationCap} min` })));
+
+  if (spec.length) {
+    rows.push(el('div', { class: 'signals__row' },
+      el('p', { class: 'signals__label', text: 'Where you stay' }),
+      el('p', { class: 'signals__value', text: String(spec.length) }),
+      el('p', {
+        class: 'signals__note',
+        text: spec.length === 1 ? 'requirement captured' : 'requirements captured',
+      })));
+  }
+
+  if (flags.length) {
+    rows.push(el('div', { class: 'signals__row' },
+      el('p', { class: 'signals__label', text: 'To confirm' }),
+      el('p', { class: 'signals__value signals__value--flag', text: String(flags.length) }),
+      el('p', { class: 'signals__note', text: 'before anything is booked' })));
+  }
+
+  signalsRoot.replaceChildren(el('div', { class: 'signals' }, rows));
 }
 
 function renderSection() {
@@ -326,6 +390,15 @@ function renderSection() {
   const adaptive = questions.filter((q) => q.visibleIf).length;
 
   return el('section', { class: 'card', 'aria-labelledby': 'section-title' },
+    el('div', { class: 'card__banner' }, el('img', {
+      src: `./assets/img/${section.id}.webp`,
+      alt: '',
+      width: 640,
+      height: 640,
+      loading: state.step === 0 ? 'eager' : 'lazy',
+    })),
+    el('div', { class: 'card__body' },
+    el('p', { class: 'eyebrow', text: `Section ${state.step + 1} of ${sections.length}` }),
     el('h2', { class: 'card__title', id: 'section-title', text: section.title }),
     el('p', { class: 'card__intro', text: section.intro }),
     adaptive > 0
@@ -334,7 +407,7 @@ function renderSection() {
         text: `${adaptive} of these ${adaptive === 1 ? 'question was' : 'questions were'} opened by your earlier answers.`,
       })
       : null,
-    el('div', { class: 'fields' }, questions.map((q) => fieldWrapper(q, controls[q.type](q)))));
+    el('div', { class: 'fields' }, questions.map((q) => fieldWrapper(q, controls[q.type](q))))));
 }
 
 function list(items, className = 'list') {
@@ -352,7 +425,8 @@ function renderBrief() {
     match.notes?.length ? list(match.notes, 'match__notes') : null,
     match.reasons?.length ? list(match.reasons, 'match__notes') : null);
 
-  return el('section', { class: 'card brief', 'aria-labelledby': 'brief-title' },
+  return el('section', { class: 'card', 'aria-labelledby': 'brief-title' },
+    el('div', { class: 'card__body brief' },
     el('h2', { class: 'card__title', id: 'brief-title', text: `Brief for ${brief.reference}` }),
     el('p', { class: 'card__intro', text: `${brief.destination}. Built from your answers, in this browser.` }),
     el('p', { class: 'notice', text: 'A planning document, not clinical advice. A clinician confirms fitness to travel.' }),
@@ -400,7 +474,7 @@ function renderBrief() {
       el('button', { class: 'button', type: 'button', onclick: () => copyBrief(brief) }, 'Copy as text'),
       el('button', { class: 'button', type: 'button', onclick: () => downloadJson(brief) }, 'Download a copy'),
       el('button', { class: 'button', type: 'button', onclick: () => window.print() }, 'Print or save as PDF')),
-    el('p', { class: 'muted no-print', id: 'copy-status', role: 'status' }, ''));
+    el('p', { class: 'muted no-print', id: 'copy-status', role: 'status' }, '')));
 }
 
 function renderNav() {
@@ -444,6 +518,7 @@ function renderNav() {
 
 function render() {
   renderProgress();
+  renderSignals();
   root.replaceChildren(
     state.step === reviewStep ? renderBrief() : renderSection(),
     renderNav(),

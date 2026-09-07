@@ -26,6 +26,42 @@ Then it builds a brief: the limits the answers set, the care and treatment requi
 accommodation specification in booking language, a filtered activity shortlist, and a list of
 what a human has to settle before anything is booked.
 
+## Design
+
+Direction: **convalescent modernism** — the visual world of early-20th-century health resorts.
+Daylight, still water, linen, planting. It suits a form about recovery without reaching for
+medical stock imagery, and it stays quiet enough that the questions remain the subject.
+
+- **Palette.** Cool mineral ground (`#EEF1ED`), pine ink (`#16211E`), sea green (`#1F5C50`), sage
+  and sand. Deliberately cool rather than the warm-cream-and-terracotta that generated design
+  tends toward. Jewell Yellow appears exactly once, as the focus ring, where its contrast earns
+  its place. Full light and dark palettes, both defined at token level.
+- **Type.** Newsreader carries the voice, IBM Plex Sans carries the form. Both are variable fonts,
+  self-hosted in `public/assets/fonts/` — one file each, 180 KB for the pair — so the page makes
+  no third-party request and the CSP stays `font-src 'self'`. Google Fonts, Open Font License.
+- **Layout.** A left rail holds the step list and a live panel; the questions sit beside it. On a
+  phone the order becomes progress, questions, panel, so the questions are never pushed below the
+  fold by the rail.
+- **The live panel** is the point. As answers land it shows the activity ceiling with a meter, the
+  longest outing, how many accommodation requirements have been captured, and how many items are
+  outstanding. The traveller watches the trip narrow rather than meeting the result cold at the
+  end, and it makes the adaptive machinery visible instead of hidden.
+
+### Imagery
+
+Five images in `public/assets/img/`, generated with Higgsfield (`recraft_v4_1`), resized and
+converted to WebP — 172 KB for the set. One hero and one banner per section: shutters and morning
+light for the trip, ripples in a stone bath for health, folded linen for where you stay, a level
+path through planting for activities.
+
+No people, no clinics, no medical equipment. That is a deliberate constraint, not a style
+preference: a form about someone's illness should not put a stranger's face or a stock hospital
+scene in front of them, and AI-generated people in a health context misrepresent by implication.
+The images are decorative and carry `alt=""`, so a screen reader passes over them.
+
+Note for reuse: the OTR / Jewell Tyres brand lock forbids stock and AI imagery. These assets are
+scoped to this tool and do not transfer to that brand.
+
 ## What makes it adaptive
 
 Three mechanisms, all in the open.

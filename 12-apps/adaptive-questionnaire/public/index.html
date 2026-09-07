@@ -8,38 +8,47 @@
 <meta name="robots" content="noindex, nofollow">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
 <title>Adaptive travel and health questionnaire</title>
+<link rel="preload" href="./assets/fonts/Newsreader-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/IBMPlexSans-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="./assets/fonts/fonts.css">
 <link rel="stylesheet" href="./assets/styles.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230B0B0B'/><path d='M9 16h14M16 9v14' stroke='%23FEC013' stroke-width='3' stroke-linecap='round'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2316211E'/><path d='M7 20c3-4 6-4 9 0s6 4 9 0' stroke='%236FC6B2' stroke-width='2.6' fill='none' stroke-linecap='round'/></svg>">
 </head>
 <body>
 <a class="skip-link" href="#step-root">Skip to the questions</a>
 
 <header class="masthead">
+  <div class="masthead__image"><img src="./assets/img/hero.webp" alt="" width="1600" height="914" fetchpriority="high"></div>
   <div class="shell">
-    <p class="masthead__eyebrow">Jewell Projects · 3D Process · Discover</p>
-    <h1 class="masthead__title">Adaptive travel and health questionnaire</h1>
-    <p class="masthead__lede">
-      Itemised questions that adapt as you answer. They identify the treatment and care the trip
-      has to carry, capture what you need from where you stay, and filter activities down to the
-      ones that actually suit you.
-    </p>
-    <p class="masthead__privacy">
-      Your answers stay in this browser. Nothing is sent to a server, and the page is blocked from
-      making network requests. You choose what to export at the end.
-    </p>
+    <div class="masthead__panel">
+      <p class="eyebrow">Jewell Projects · 3D Process · Discover</p>
+      <h1 class="masthead__title">Travel that carries your health with it</h1>
+      <p class="masthead__lede">
+        Itemised questions that adapt as you answer. They identify the treatment and care the trip
+        has to carry, capture what you need from where you stay, and filter activities down to the
+        ones that actually suit you.
+      </p>
+      <p class="masthead__privacy">
+        Your answers stay in this browser. Nothing is sent to a server, and the page is blocked from
+        making network requests at all. You choose what to export at the end.
+      </p>
+    </div>
   </div>
 </header>
 
 <div class="shell">
-  <div class="progress no-print">
-    <div class="progress__head">
-      <p class="progress__label" id="progress-label">Step 1</p>
-    </div>
-    <div class="progress__bar" id="progress-bar" role="progressbar" aria-label="Progress through the questionnaire" aria-valuemin="0" aria-valuenow="0" aria-valuemax="5"></div>
-    <ol class="steps" id="step-list"></ol>
-  </div>
+  <div class="layout">
+    <nav class="rail--progress no-print" aria-label="Progress through the questionnaire">
+      <p class="eyebrow">Progress</p>
+      <ol class="steps" id="step-list"></ol>
+      <div class="progress__bar" id="progress-bar" role="progressbar" aria-label="Progress through the questionnaire" aria-valuemin="0" aria-valuenow="1" aria-valuemax="5"></div>
+      <p class="progress__label" id="progress-label">Step 1 of 5</p>
+    </nav>
 
-  <main id="step-root" tabindex="-1"></main>
+    <aside class="rail--signals no-print" id="signals-root" aria-label="What your answers have set"></aside>
+
+    <main id="step-root" tabindex="-1"></main>
+  </div>
 
   <footer class="footer">
     <label class="footer__save no-print">
