@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="An adaptive questionnaire that turns travel, health and treatment needs into a bookable brief. Answers stay in your browser.">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<title>Adaptive travel and health questionnaire</title>
+<link rel="stylesheet" href="./assets/styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230B0B0B'/><path d='M9 16h14M16 9v14' stroke='%23FEC013' stroke-width='3' stroke-linecap='round'/></svg>">
+</head>
+<body>
+<a class="skip-link" href="#step-root">Skip to the questions</a>
+
+<header class="masthead">
+  <div class="shell">
+    <p class="masthead__eyebrow">Jewell Projects · 3D Process · Discover</p>
+    <h1 class="masthead__title">Adaptive travel and health questionnaire</h1>
+    <p class="masthead__lede">
+      Itemised questions that adapt as you answer. They identify the treatment and care the trip
+      has to carry, capture what you need from where you stay, and filter activities down to the
+      ones that actually suit you.
+    </p>
+    <p class="masthead__privacy">
+      Your answers stay in this browser. Nothing is sent to a server, and the page is blocked from
+      making network requests. You choose what to export at the end.
+    </p>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="progress no-print">
+    <div class="progress__head">
+      <p class="progress__label" id="progress-label">Step 1</p>
+    </div>
+    <div class="progress__bar" id="progress-bar" role="progressbar" aria-label="Progress through the questionnaire" aria-valuemin="0" aria-valuenow="0" aria-valuemax="5"></div>
+    <ol class="steps" id="step-list"></ol>
+  </div>
+
+  <main id="step-root" tabindex="-1"></main>
+
+  <footer class="footer">
+    <label class="footer__save no-print">
+      <input type="checkbox" id="save-toggle">
+      <span>Save my answers on this device so I can come back to them. Off by default.</span>
+    </label>
+    <p class="footer__note">
+      This questionnaire is a planning tool. It is not clinical advice, it does not assess whether
+      you are fit to travel, and it does not replace your clinician or your insurer. Take the brief
+      to both.
+    </p>
+    <p class="footer__note">Next: finish the four sections, then send the brief to whoever is booking.</p>
+  </footer>
+</div>
+
+<script type="module" src="./assets/app.js"></script>
+</body>
+</html>

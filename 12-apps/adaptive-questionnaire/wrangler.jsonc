@@ -1,0 +1,6 @@
+{
+  // Cloudflare Pages project config. The site is static: no build step, no
+  // functions, no bindings. `public/` is uploaded as it stands.
+  "name": "jp-adaptive-questionnaire",
+  "pages_build_output_dir": "public"
+}

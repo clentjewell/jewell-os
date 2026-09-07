@@ -62,9 +62,13 @@ repo; bank statements, invoices and other finance records remain authoritative i
 | `09-playbook/` | The 3D Process spine, Ask and portal behaviour | Scaffold — not yet built; content lives in OPERATING-SYSTEM.md §8 and §9 for now |
 | `10-cadence/` | Daily to annual rhythm definitions | Nightly Life OS refresh SOP live; the rest lives in OPERATING-SYSTEM.md §12 for now |
 | `11-finance/` | Finance, accounting & bookkeeping playbook: controller operating model, cadence runbooks, Liz's handbook, live state, FY27 workbook | Populated |
+| `12-apps/` | Small deployable tools the operating system ships: static apps, intake instruments, calculators | Populated (adaptive travel and health questionnaire) |
 
 Numbering leaves gaps on purpose (`03` remains deliberately reserved; `02` was taken by OKRs
 on 11 July 2026), so folders can be added without renumbering.
+
+`12-apps/` is the one place code that is *deployed* lives. Rules, skills and evals stay in the
+numbered folders above; anything with a public URL sits here and carries its own README.
 
 ## Status
 
