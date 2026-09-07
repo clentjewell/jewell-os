@@ -47,7 +47,7 @@ system learns nightly and washes learnings back weekly.
 | Playbook (3D spine) | [`09-playbook/`](./09-playbook/) | Delivery stages, gates, Ask behaviour |
 | Cadence | [`10-cadence/`](./10-cadence/) | Daily to annual rhythm; nightly Life OS refresh SOP |
 | Finance OS | [`11-finance/`](./11-finance/) | Gated area — carries personal finance elements |
-| Apps | [`12-apps/`](./12-apps/) | Deployable tools. Adaptive travel and health questionnaire (Cloudflare Pages) |
+| Apps | [`12-apps/`](./12-apps/) | Deployable tools. Adaptive travel and health questionnaire — live at jp-adaptive-questionnaire.pages.dev |
 | Starter stack | [`starter-stack/`](./starter-stack/) | Portable kit: security, evals, skills, MCP packs |
 | Files | Google Drive | Root: 00 Inbox, 01 Clients, 02 Jewell Group, 03 Administration, 04 Intelligence, 05 Personal, 06 Own Projects, 99 Archive |
 | Actions | Asana | One work board: "Clent - 2026"; private board separate |

@@ -3,6 +3,10 @@
 A single-page questionnaire that turns a traveller's health, treatment, accommodation and
 activity needs into a brief someone can book from. It runs as a static site on Cloudflare Pages.
 
+**Live: https://jp-adaptive-questionnaire.pages.dev** — deployed by direct upload, so it is not
+Git-connected: a change here does not publish itself. Run `npm run deploy` to push a new version.
+The URL is public and is not yet behind Cloudflare Access.
+
 Built as a Discover-phase instrument for the 3D Process: it collects the itemised intake, and it
 outputs a specification rather than a pile of form fields.
 
@@ -105,5 +109,5 @@ This is a planning tool. It does not give clinical advice, it does not assess fi
 and it does not replace a clinician or an insurer. The activity catalogue is generic and holds no
 operators, prices or destination detail; a human chooses those. Nothing here is a booking.
 
-Next: deploy it to a Pages preview, put Access in front of it, and walk one real traveller
-through it before it goes near a client.
+Next: put Cloudflare Access in front of the URL, then walk one real traveller through it before
+it goes near a client.
