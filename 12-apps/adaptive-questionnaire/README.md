@@ -88,16 +88,54 @@ Three mechanisms, all in the open.
   not raise it above the clinical cap. Every activity ruled out is shown with the reason it was
   ruled out, so nothing is filtered silently.
 
+## Sending a brief
+
+The brief can be emailed to `clent@jewellprojects.com`. That is the only thing on the site that
+puts health information on the network, so it is built to be refusable:
+
+- **Consent is explicit.** The send button stays disabled until the traveller ticks a box that
+  names what is being sent and to whom. It is never pre-ticked, and copy, download and print all
+  work without sending anything.
+- **The recipient is fixed in server code** (`functions/api/submit.js`). Nothing in a request can
+  redirect where the mail goes, so the endpoint cannot be used to send to anyone else.
+- **Plain text only**, assembled from validated fields. No caller-supplied HTML is ever rendered,
+  and control characters are stripped from anything reaching a mail header.
+- **Minimal payload.** Only the reference, the destination and the rendered brief are sent. The
+  raw answers object is not — the brief already itemises every answer.
+- **The API key never leaves Cloudflare.** It is a `secret_text` environment variable on the Pages
+  project, read only inside the Function, and it appears nowhere in this repository.
+
+Configuration, all on the Pages project:
+
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `RESEND_API_KEY` | yes | Resend API key. Without it the endpoint returns 503 and tells the traveller to copy or download instead. |
+| `SUBMIT_FROM` | no | Sender address. Defaults to `onboarding@resend.dev`, which Resend will only deliver to the account owner. Set it to an address on a domain verified in Resend to send from your own name. |
+
+`nodejs_compat` is required in `wrangler.jsonc`: wrangler's own Functions bundler emits a wrapper
+that references node built-ins, even though the handler imports nothing.
+
+### The endpoint is public and unthrottled
+
+Anyone who finds the URL can POST to it, and each POST sends an email. There is no rate limit,
+because `*.pages.dev` is not a zone you control and WAF rate-limiting rules need one. Two ways to
+close it: put Cloudflare Access in front of the whole site, which is needed anyway before real
+traveller data, or move it to a custom domain and add a rate-limiting rule on `/api/submit`.
+
 ## Privacy posture
 
-Health answers are the most sensitive thing a form can hold, so this one holds them and nothing
-else does.
+Health answers are the most sensitive thing a form can hold, so the form holds them and, until the
+traveller consents to send, nothing else does.
 
-- No back end. No analytics. No fonts, scripts or styles from anywhere else.
-- `connect-src 'none'` in the Content-Security-Policy, set both in `public/_headers` and in a
-  meta tag, so the page cannot make a network request even if code were added that tried to.
+- No analytics. No fonts, scripts or styles from anywhere else. The only back end is the
+  submission endpoint, and it runs only when the traveller asks it to.
+- `connect-src 'self'` in the Content-Security-Policy, set both in `public/_headers` and in a
+  meta tag. The page can reach its own submission endpoint and no other destination, so answers
+  cannot be exfiltrated to a third party even if code were added that tried to. This was
+  `'none'` until sending was added; that is the one guarantee the feature cost.
 - Nothing is written to the device unless the traveller ticks the save box, which is off by
-  default. Untick it and the stored answers are deleted.
+  default. Untick it and the stored answers are deleted. Nothing is sent anywhere unless they
+  tick the separate consent box and press send.
 - The traveller decides what leaves: copy as text, download a JSON copy, or print to PDF.
 - Answers are rendered with `createElement` and `textContent`, never `innerHTML`, so free text is
   never parsed as markup.
@@ -108,8 +146,10 @@ now, so a missing path 404s properly. And if you edit `public/_headers`: Cloudfl
 rule rather than letting the most specific one win. Two overlapping patterns that both set
 `Cache-Control` produce a contradictory header, so it is set per path group and never on `/*`.
 
-If a future version needs to submit answers to a service, that is a different design with a
-different review. It is not a small change to this one.
+Email is not encrypted end to end, and an inbox is not a clinical record system. That is a
+deliberate, recorded trade-off, not an oversight — the alternative considered was storing
+submissions in Cloudflare D1 and emailing only an alert, which keeps health detail off email
+entirely and remains the better option if this ever carries volume.
 
 ## Run it locally
 

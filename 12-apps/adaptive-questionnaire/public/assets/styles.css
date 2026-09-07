@@ -770,3 +770,52 @@ textarea.input { resize: vertical; min-height: 6rem; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* ---------------------------------------------------------------- sending it */
+
+/* The one control on the page that puts health information on the network, so
+   it is set apart from the copy-and-print actions rather than sitting among
+   them as though it were the same kind of thing. */
+.send {
+  margin-top: 2rem;
+  padding: 1.4rem 1.5rem 1.5rem;
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface-sunk);
+  display: grid;
+  gap: 0.9rem;
+  justify-items: start;
+}
+
+.send__title { font-size: 1.1rem; }
+.send__intro { font-size: 0.9rem; color: var(--ink-soft); max-width: 58ch; }
+
+.send__consent {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--ink);
+  cursor: pointer;
+  max-width: 58ch;
+}
+
+.send__consent input {
+  margin-top: 0.28rem;
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--accent);
+  flex: none;
+}
+
+.send__button { margin-left: 0; }
+
+.send__done {
+  font-weight: 500;
+  color: var(--accent);
+}
+
+@media print {
+  .send { display: none !important; }
+}

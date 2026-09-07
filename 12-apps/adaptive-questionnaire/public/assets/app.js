@@ -17,6 +17,7 @@ const state = {
   touched: new Set(),
   errors: {},
   saving: false,
+  submit: { status: 'idle', message: '' },
 };
 
 const root = document.getElementById('step-root');
@@ -476,7 +477,100 @@ function renderBrief() {
       el('button', { class: 'button', type: 'button', onclick: () => copyBrief(brief) }, 'Copy as text'),
       el('button', { class: 'button', type: 'button', onclick: () => downloadJson(brief) }, 'Download a copy'),
       el('button', { class: 'button', type: 'button', onclick: () => window.print() }, 'Print or save as PDF')),
-    el('p', { class: 'muted no-print', id: 'copy-status', role: 'status' }, '')));
+    el('p', { class: 'muted no-print', id: 'copy-status', role: 'status' }, ''),
+    renderSend(brief)));
+}
+
+/**
+ * Sending is the one thing on this page that puts health information on the
+ * network, so it is asked for explicitly and never pre-ticked. The button stays
+ * disabled until the traveller says yes.
+ */
+function renderSend(brief) {
+  const { status, message } = state.submit;
+  const sent = status === 'sent';
+
+  return el('div', { class: 'send no-print' },
+    el('h3', { class: 'send__title', text: 'Send it to Jewell Projects' }),
+    el('p', {
+      class: 'send__intro',
+      text: 'This emails the brief above to clent@jewellprojects.com. Email is not encrypted end '
+        + 'to end. If you would rather not send it, copy or download it instead — nothing leaves '
+        + 'this browser unless you press the button.',
+    }),
+    sent ? null : el('label', { class: 'send__consent', htmlFor: 'send-consent' },
+      el('input', {
+        type: 'checkbox',
+        id: 'send-consent',
+        checked: status === 'ready',
+        onchange: (e) => {
+          state.submit = { status: e.target.checked ? 'ready' : 'idle', message: '' };
+          const button = document.getElementById('send-button');
+          if (button) button.disabled = !e.target.checked;
+          setSendStatus('');
+        },
+      }),
+      el('span', {
+        text: 'I agree to send these answers, including the health information above, to '
+          + 'Jewell Projects.',
+      })),
+    sent
+      ? el('p', { class: 'send__done', text: 'Sent. Jewell Projects has your brief.' })
+      : el('button', {
+        class: 'button button--primary send__button',
+        id: 'send-button',
+        type: 'button',
+        disabled: status !== 'ready',
+        onclick: () => submitBrief(brief),
+      }, status === 'sending' ? 'Sending…' : 'Send to Jewell Projects'),
+    el('p', { class: 'muted', id: 'send-status', role: 'status' }, message));
+}
+
+function setSendStatus(message) {
+  state.submit = { ...state.submit, message };
+  const node = document.getElementById('send-status');
+  if (node) node.textContent = message;
+}
+
+async function submitBrief(brief) {
+  const button = document.getElementById('send-button');
+  if (button) {
+    button.disabled = true;
+    button.textContent = 'Sending…';
+  }
+  state.submit = { status: 'sending', message: '' };
+  setSendStatus('Sending…');
+
+  let data = {};
+  let ok = false;
+  try {
+    const response = await fetch('/api/submit', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        reference: brief.reference,
+        destination: brief.destination,
+        brief: toMarkdown(brief),
+      }),
+    });
+    data = await response.json().catch(() => ({}));
+    ok = response.ok && data.ok === true;
+  } catch {
+    data = {};
+  }
+
+  if (ok) {
+    state.submit = { status: 'sent', message: '' };
+    render();
+    return;
+  }
+
+  state.submit = { status: 'ready', message: '' };
+  setSendStatus(data.error || 'That did not send. Please download a copy and send it on by hand.');
+  if (button) {
+    button.disabled = false;
+    button.textContent = 'Send to Jewell Projects';
+  }
 }
 
 function renderNav() {
@@ -577,6 +671,7 @@ function startAgain() {
   if (!window.confirm('Clear every answer and start again?')) return;
   state.answers = {};
   state.touched = new Set();
+  state.submit = { status: 'idle', message: '' };
   clearStore();
   goToStep(0);
 }

@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="light dark">
 <meta name="description" content="An adaptive questionnaire that turns travel, health and treatment needs into a bookable brief. Answers stay in your browser.">
 <meta name="robots" content="noindex, nofollow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
 <title>Adaptive travel and health questionnaire</title>
 <link rel="preload" href="./assets/fonts/Poppins-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="./assets/fonts/Poppins-700.woff2" as="font" type="font/woff2" crossorigin>
@@ -29,8 +29,9 @@
         ones that actually suit you.
       </p>
       <p class="masthead__privacy">
-        Your answers stay in this browser. Nothing is sent to a server, and the page is blocked from
-        making network requests at all. You choose what to export at the end.
+        Your answers stay in this browser while you fill the form in. Nothing is sent anywhere
+        unless you tick the consent box at the end and press send — and even then, the page can
+        reach no destination but this site.
       </p>
     </div>
   </div>
@@ -60,7 +61,12 @@
       you are fit to travel, and it does not replace your clinician or your insurer. Take the brief
       to both.
     </p>
-    <p class="footer__note">Next: finish the four sections, then send the brief to whoever is booking.</p>
+    <p class="footer__note">
+      Sending the brief emails it to Jewell Projects. Email is not encrypted end to end, so
+      send only what you are content to have sitting in an inbox. You can copy, download or
+      print it instead and never send anything.
+    </p>
+    <p class="footer__note">Next: finish the four sections, then send the brief or take a copy.</p>
   </footer>
 </div>
 

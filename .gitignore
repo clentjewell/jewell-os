@@ -7,3 +7,6 @@ secrets/
 node_modules/
 .vendor/
 third-party-downloads/
+
+# Wrangler's local build and state cache.
+.wrangler/
