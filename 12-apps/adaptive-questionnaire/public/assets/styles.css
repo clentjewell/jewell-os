@@ -198,7 +198,7 @@ img { max-width: 100%; display: block; }
 
 .rail--progress { grid-area: progress; }
 .rail--signals { grid-area: signals; }
-#step-root { grid-area: form; }
+#step-root { grid-area: form; scroll-margin-top: 1.25rem; }
 
 @media (min-width: 62rem) {
   .layout {
@@ -335,6 +335,7 @@ img { max-width: 100%; display: block; }
 
 .card__banner {
   aspect-ratio: 16 / 5.5;
+  max-height: 11rem;
   background: var(--accent-soft);
   border-bottom: 1px solid var(--line);
 }
@@ -379,7 +380,11 @@ img { max-width: 100%; display: block; }
 
 .fields { margin-top: 2rem; display: grid; gap: 2rem; }
 
-.field { border-top: 1px solid var(--line); padding-top: 1.6rem; }
+.field {
+  border-top: 1px solid var(--line);
+  padding-top: 1.6rem;
+  scroll-margin-top: 1.5rem;
+}
 .field:first-child { border-top: 0; padding-top: 0; }
 
 .field__label { font-weight: 600; font-size: 1.02rem; }

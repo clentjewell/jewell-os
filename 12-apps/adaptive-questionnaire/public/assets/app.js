@@ -484,12 +484,7 @@ function renderNav() {
       class: 'button button--quiet',
       type: 'button',
       disabled: state.step === 0,
-      onclick: () => {
-        state.step = Math.max(0, state.step - 1);
-        state.errors = {};
-        persist();
-        render();
-      },
+      onclick: () => goToStep(state.step - 1),
     }, 'Back'),
     last
       ? el('button', {
@@ -508,12 +503,29 @@ function renderNav() {
             return;
           }
           applyDerivedDefaults();
-          state.step += 1;
-          persist();
-          render();
-          document.getElementById('step-root')?.focus();
+          goToStep(state.step + 1);
         },
       }, state.step === reviewStep - 1 ? 'Build my brief' : 'Next'));
+}
+
+/**
+ * Change step and put the reader at the top of the new one.
+ *
+ * `focus()` alone is not enough: it scrolls the minimum needed to reveal the
+ * element, so a section taller than the viewport gets its *bottom* brought into
+ * view and the traveller lands part-way down a page they have not read. Focus
+ * without scrolling for the screen reader, then scroll deliberately.
+ */
+function goToStep(next) {
+  state.step = Math.min(Math.max(next, 0), reviewStep);
+  state.errors = {};
+  persist();
+  render();
+  root.focus({ preventScroll: true });
+  root.scrollIntoView({
+    block: 'start',
+    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+  });
 }
 
 function render() {
@@ -563,10 +575,8 @@ function startAgain() {
   if (!window.confirm('Clear every answer and start again?')) return;
   state.answers = {};
   state.touched = new Set();
-  state.errors = {};
-  state.step = 0;
   clearStore();
-  render();
+  goToStep(0);
 }
 
 /* ----------------------------------------------------------------------- boot */

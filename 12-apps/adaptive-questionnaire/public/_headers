@@ -1,3 +1,7 @@
+# Cloudflare Pages merges matching rules rather than letting the most specific
+# one win, so no two overlapping patterns may set the same header. Cache-Control
+# is therefore set per path group and never on /*.
+
 /*
   Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; form-action 'none'; frame-ancestors 'none'; base-uri 'none'; object-src 'none'
   Referrer-Policy: no-referrer
@@ -5,7 +9,13 @@
   X-Frame-Options: DENY
   Permissions-Policy: geolocation=(), camera=(), microphone=(), interest-cohort=()
   Cross-Origin-Opener-Policy: same-origin
+
+# The page itself is never cached, so a deploy reaches everyone immediately.
+/
   Cache-Control: no-store
 
+# Assets are cached but always revalidated. Filenames carry no content hash, so
+# a long max-age would let a returning traveller run new markup against old
+# filtering logic. A 304 costs little; wrong answers cost a great deal.
 /assets/*
-  Cache-Control: public, max-age=3600
+  Cache-Control: public, no-cache

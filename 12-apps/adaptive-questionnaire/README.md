@@ -92,6 +92,10 @@ else does.
 - Answers are rendered with `createElement` and `textContent`, never `innerHTML`, so free text is
   never parsed as markup.
 
+One trap worth knowing if you edit `public/_headers`: Cloudflare Pages **merges** every matching
+rule rather than letting the most specific one win. Two overlapping patterns that both set
+`Cache-Control` produce a contradictory header, so it is set per path group and never on `/*`.
+
 If a future version needs to submit answers to a service, that is a different design with a
 different review. It is not a small change to this one.
 
