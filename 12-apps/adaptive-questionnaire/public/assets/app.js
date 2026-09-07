@@ -211,6 +211,7 @@ function radioControl(q) {
             render();
           },
         }),
+        el('span', { class: 'option__mark option__mark--radio', 'aria-hidden': 'true' }),
         el('span', { class: 'option__label', text: o.l }));
     }));
 }
@@ -242,6 +243,7 @@ function checkboxControl(q) {
             render();
           },
         }),
+        el('span', { class: 'option__mark', 'aria-hidden': 'true' }),
         el('span', { class: 'option__label', text: o.l }));
     }));
 }

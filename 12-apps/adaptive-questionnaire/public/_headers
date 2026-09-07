@@ -10,8 +10,11 @@
   Permissions-Policy: geolocation=(), camera=(), microphone=(), interest-cohort=()
   Cross-Origin-Opener-Policy: same-origin
 
-# The page itself is never cached, so a deploy reaches everyone immediately.
+# Pages themselves are never cached, so a deploy reaches everyone immediately.
 /
+  Cache-Control: no-store
+
+/404.html
   Cache-Control: no-store
 
 # Assets are cached but always revalidated. Filenames carry no content hash, so

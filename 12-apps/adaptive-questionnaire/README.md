@@ -36,9 +36,19 @@ medical stock imagery, and it stays quiet enough that the questions remain the s
   and sand. Deliberately cool rather than the warm-cream-and-terracotta that generated design
   tends toward. Jewell Yellow appears exactly once, as the focus ring, where its contrast earns
   its place. Full light and dark palettes, both defined at token level.
-- **Type.** Newsreader carries the voice, IBM Plex Sans carries the form. Both are variable fonts,
-  self-hosted in `public/assets/fonts/` — one file each, 180 KB for the pair — so the page makes
-  no third-party request and the CSP stays `font-src 'self'`. Google Fonts, Open Font License.
+- **Type.** Poppins throughout: 700 for titles, 400 for body, 500 for the small labels and
+  controls where 400 reads weak. Those are the only three weights self-hosted in
+  `public/assets/fonts/` — 23 KB for the set — so nothing in the CSS may ask for another. A weight
+  that is not loaded gets faked by the browser and the whole page loses its edge; `npm run check`
+  is not wired up for this, but the browser script asserts it. Poppins ships as static weights,
+  not a variable font, so each weight is its own file. Google Fonts, Open Font License.
+- **Poppins tuning.** Bold Poppins sets wide, so headings carry `-0.022em` tracking; uppercase
+  labels need `0.2em` to stay legible; body line-height goes to 1.68. The furniture follows the
+  type — Poppins is geometric and circular, so radii are generous, buttons are pills and the
+  1-to-5 scale is round.
+- **Controls.** Radio and checkbox marks are drawn in CSS — a tick from two borders, a dot for
+  radios — with the native input kept in the accessibility tree and its keyboard behaviour intact.
+  Targets are at least 3.25rem tall, and focus rings sit on the whole option, not the hidden input.
 - **Layout.** A left rail holds the step list and a live panel; the questions sit beside it. On a
   phone the order becomes progress, questions, panel, so the questions are never pushed below the
   fold by the rail.
@@ -92,7 +102,9 @@ else does.
 - Answers are rendered with `createElement` and `textContent`, never `innerHTML`, so free text is
   never parsed as markup.
 
-One trap worth knowing if you edit `public/_headers`: Cloudflare Pages **merges** every matching
+Two traps worth knowing about Cloudflare Pages. Without a `404.html` in the output, **any unknown
+path returns 200 with the homepage**, which quietly masks a broken asset reference — there is one
+now, so a missing path 404s properly. And if you edit `public/_headers`: Cloudflare Pages **merges** every matching
 rule rather than letting the most specific one win. Two overlapping patterns that both set
 `Cache-Control` produce a contradictory header, so it is set per path group and never on `/*`.
 
