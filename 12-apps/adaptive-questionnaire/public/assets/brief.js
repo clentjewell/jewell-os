@@ -10,6 +10,13 @@ import { has, is, labelFor, questionById, sections, visibleQuestions } from './s
 const MOBILITY_CAP = { stick: 3, wheelchairPart: 3, wheelchairFull: 2, hoist: 1 };
 const ENERGY_CAP = { 1: 2, 2: 3, 3: 4 };
 const PACE_CAP = { restful: 2, balanced: 4 };
+const WALKING_CAP = { 200: 2, 500: 3 };
+
+// Pace answers one question and settles three things. Asking for rest cadence
+// and outings-per-day separately produced answers that agreed with pace 9 times
+// in 10 and confused the traveller the tenth, so they are derived instead.
+const PACE_REST = { restful: 'daily', balanced: 'alternate', full: 'none' };
+const PACE_OUTINGS = { restful: 1, balanced: 2, full: 3 };
 
 /**
  * Work out the limits the answers imply.
@@ -22,6 +29,8 @@ export function deriveProfile(a) {
     if (value < cap) {
       cap = value;
       capReasons.push(reason);
+    } else if (value === cap && cap < 5) {
+      capReasons.push(reason);
     }
   };
 
@@ -30,13 +39,16 @@ export function deriveProfile(a) {
   }
   if (ENERGY_CAP[a.energy]) limit(ENERGY_CAP[a.energy], `energy rated ${a.energy} of 5`);
   if (PACE_CAP[a.pace]) limit(PACE_CAP[a.pace], `a ${a.pace} pace`);
+  if (WALKING_CAP[a.walkingDistance]) {
+    limit(WALKING_CAP[a.walkingDistance], `walking ${labelFor('walkingDistance', a.walkingDistance).toLowerCase()} at a time`);
+  }
   if (is(a, 'recentSurgery', 'yes')) limit(2, 'surgery or a hospital stay in the last 12 weeks');
   if (has(a, 'conditions', 'cardiac')) limit(3, 'a heart or circulation condition');
   if (has(a, 'conditions', 'respiratory')) limit(3, 'a lung or breathing condition');
   if (has(a, 'conditions', 'painFatigue')) limit(3, 'chronic pain or fatigue');
-  if (is(a, 'restPattern', 'daily')) limit(3, 'a daily rest requirement');
 
   const clinicalCap = cap;
+  const bindingReason = capReasons[capReasons.length - 1] || '';
   if (a.intensityCeiling && Number(a.intensityCeiling) < cap) {
     cap = Number(a.intensityCeiling);
     capReasons.push('the ceiling you set yourself');
@@ -46,15 +58,18 @@ export function deriveProfile(a) {
 
   const avoid = Array.isArray(a.avoid) ? a.avoid : [];
   const immune = has(a, 'conditions', 'immune') || is(a, 'infectionRisk', 'yes');
+  const restCadence = PACE_REST[a.pace] || (cap <= 2 ? 'daily' : 'none');
+  const outingsPerDay = Math.min(PACE_OUTINGS[a.pace] || (cap <= 2 ? 1 : 2), cap <= 2 ? 1 : 3);
 
   return {
     cap,
     clinicalCap,
     capReasons,
+    bindingReason: Number(a.intensityCeiling) < clinicalCap ? 'the ceiling you set yourself' : bindingReason,
     durationCap,
     needsStepFree: ['wheelchairPart', 'wheelchairFull', 'hoist'].includes(a.mobility)
       || has(a, 'accessNeeds', 'stepFree'),
-    needsSeated: cap <= 2 || is(a, 'restPattern', 'daily'),
+    needsSeated: cap <= 2 || restCadence === 'daily' || a.walkingDistance === '200',
     avoidHeat: avoid.includes('heat') || is(a, 'heatTolerance', 'avoid'),
     heatCaution: is(a, 'heatTolerance', 'moderate'),
     avoidAltitude: avoid.includes('altitude') || ['moderate', 'seaLevel'].includes(a.altitudeAdvice),
@@ -65,7 +80,8 @@ export function deriveProfile(a) {
     avoidEarly: avoid.includes('earlyStarts'),
     avoidLate: avoid.includes('lateNights'),
     avoidLoud: avoid.includes('loud'),
-    restCadence: a.restPattern || (cap <= 2 ? 'daily' : 'none'),
+    restCadence,
+    outingsPerDay,
   };
 }
 
@@ -171,6 +187,7 @@ export function accommodationSpec(a, profile) {
     wideDoors: 'Doorways wide enough for a wheelchair, measured and confirmed',
     hoist: 'A hoist or ceiling track, or space for a hired one',
     bathNotShower: 'A bath rather than a shower',
+    assistanceDog: 'An assistance dog accepted, confirmed in writing with the property',
   };
   for (const [value, text] of Object.entries(accessLabels)) {
     if (has(a, 'accessNeeds', value)) add(text, 'stated');
@@ -237,20 +254,10 @@ export function accommodationSpec(a, profile) {
   for (const [value, text] of Object.entries(support)) {
     if (has(a, 'onSiteSupport', value)) add(text, 'stated');
   }
-  if (is(a, 'assistanceDog', 'yes')) {
-    add('An assistance dog accepted, confirmed in writing with the property', 'stated');
-  }
-
   const propertyTypes = (Array.isArray(a.propertyType) ? a.propertyType : [])
     .filter((v) => v !== 'anyProperty')
     .map((v) => labelFor('propertyType', v));
   if (propertyTypes.length) add(`Property type: ${propertyTypes.join(', ')}`, 'stated');
-  if (a.serviceLevel && a.serviceLevel !== 'anyBoard') {
-    add(`Catering: ${labelFor('serviceLevel', a.serviceLevel).toLowerCase()}`, 'stated');
-  }
-  if (a.nightlyBudget && a.nightlyBudget !== 'unsetNight') {
-    add(`Budget per night: ${labelFor('nightlyBudget', a.nightlyBudget)}`, 'stated');
-  }
   if ((a.dealbreakers || '').trim()) add(`Rules a property out: ${a.dealbreakers.trim()}`, 'stated');
 
   return spec;
@@ -269,16 +276,16 @@ export function careRequirements(a) {
   if (a.treatmentDays) care.push(`On treatment days: ${labelFor('treatmentDays', a.treatmentDays).toLowerCase()}.`);
 
   const storage = (Array.isArray(a.medStorage) ? a.medStorage : [])
-    .filter((v) => v !== 'noneStorage')
+    .filter((v) => !['plain', 'noMeds'].includes(v))
     .map((v) => labelFor('medStorage', v).toLowerCase());
   if (storage.length) care.push(`Medication handling: ${storage.join(', ')}.`);
+  else if (has(a, 'medStorage', 'plain')) care.push('Medication travelling; nothing needs special handling.');
 
   if ((a.allergies || '').trim()) care.push(`Allergies: ${a.allergies.trim()}`);
 
   const diet = (Array.isArray(a.diet) ? a.diet : [])
-    .filter((v) => !['noneDiet', 'otherDiet'].includes(v))
+    .filter((v) => v !== 'noneDiet')
     .map((v) => labelFor('diet', v).toLowerCase());
-  if (a.dietOther) diet.push(a.dietOther.trim());
   if (diet.length) care.push(`Diet: ${diet.join(', ')}. Send to every property and restaurant in advance.`);
 
   const transfers = (Array.isArray(a.transferSupport) ? a.transferSupport : [])
@@ -289,9 +296,7 @@ export function careRequirements(a) {
     .map((v) => labelFor('carerTasks', v).toLowerCase());
   if (carer.length) care.push(`Companion covers: ${carer.join(', ')}.`);
 
-  if (a.emergencyContact) {
-    care.push(`Emergency contact: ${a.emergencyContact}${a.emergencyPhone ? `, ${a.emergencyPhone}` : ''}.`);
-  }
+  if ((a.emergencyContact || '').trim()) care.push(`Emergency contact: ${a.emergencyContact.trim()}.`);
   if ((a.healthNotes || '').trim()) care.push(a.healthNotes.trim());
   return care;
 }
@@ -316,28 +321,27 @@ export function toConfirm(a) {
   if (is(a, 'treatmentAtDestination', 'unsure')) flag('Whether treatment is needed while away is still open.');
   if (is(a, 'altitudeAdvice', 'unsure')) flag('Altitude advice is unknown. Assume sea level until it is answered.');
   if (is(a, 'infectionRisk', 'unsure')) flag('Advice on crowds and untreated water is unknown. Assume caution until it is answered.');
-  if (is(a, 'medications', 'yes') && !(a.medStorage || []).length) {
-    flag('Medication is travelling but the handling needs are not recorded.');
+  if (healthDeclared && !(a.medStorage || []).length) {
+    flag('Medication handling was left unanswered. Treat it as outstanding.');
   }
   if (has(a, 'medStorage', 'controlled')) flag('Controlled drugs need a letter and, in some countries, an import permit. Check the destination rules.');
-  if (a.healthPurpose?.length && !a.emergencyContact) flag('No emergency contact recorded.');
-  if (is(a, 'destinationFixed', 'open')) flag('The destination is open, so this brief is a specification, not a booking.');
+  if (healthDeclared && !(a.emergencyContact || '').trim()) flag('No emergency contact recorded.');
   return flags;
 }
 
 /** A plain-language rhythm for the week, from pace and rest answers. */
 export function rhythm(a, profile) {
-  const perDay = a.perDay === 'flexible' ? 'as many as the day allows' : a.perDay;
+  const perDay = profile.outingsPerDay;
   const restLine = {
     daily: 'A clear rest every afternoon.',
     alternate: 'A full rest day every second or third day.',
     none: 'No rest days planned.',
-  }[profile.restCadence] || 'Rest pattern not set.';
+  }[profile.restCadence];
   const treatmentLine = has(a, 'treatmentTypes', 'dialysis')
     ? 'Dialysis days are fixed points. Everything else moves around them.'
     : null;
   return [
-    `Up to ${perDay || 'one'} outing a day, each no longer than ${profile.durationCap} minutes.`,
+    `Up to ${perDay} ${perDay === 1 ? 'outing' : 'outings'} a day, each no longer than ${profile.durationCap} minutes.`,
     restLine,
     treatmentLine,
   ].filter(Boolean);
@@ -366,13 +370,40 @@ export function formatAnswer(id, value) {
   return String(value);
 }
 
+/**
+ * A short code so an unnamed brief is still distinguishable in an inbox.
+ * Date plus a few characters of the time: readable, not guessable enough to
+ * matter, and no server-side state.
+ */
+export function submissionCode(now = new Date()) {
+  const d = now.toISOString().slice(2, 10).replace(/-/g, '');
+  const t = now.getTime().toString(36).slice(-4).toUpperCase();
+  return `JP-${d}-${t}`;
+}
+
+/** The facts a coordinator reads first, before any of the detail. */
+export function atAGlance(a) {
+  const rows = [];
+  const put = (label, value) => { if (value) rows.push({ label, value }); };
+  put('When', (a.when || '').trim());
+  put('Travelling', a.party ? labelFor('party', a.party) : '');
+  put('Support', a.companion && a.companion !== 'none' ? labelFor('companion', a.companion) : '');
+  put('Pace', a.pace ? labelFor('pace', a.pace).split(' — ')[0] : '');
+  put('Budget per person', a.budgetBand && a.budgetBand !== 'unset' ? labelFor('budgetBand', a.budgetBand) : '');
+  return rows;
+}
+
 /** Assemble the whole brief. */
 export function buildBrief(a) {
   const profile = deriveProfile(a);
+  const now = new Date();
   return {
-    generatedAt: new Date().toISOString(),
-    reference: a.reference || 'Unnamed traveller',
-    destination: a.destination || 'Destination not set',
+    generatedAt: now.toISOString(),
+    code: submissionCode(now),
+    reference: (a.reference || '').trim() || 'Unnamed traveller',
+    destination: (a.destination || '').trim() || 'Destination not set',
+    mustDo: (a.mustDo || '').trim(),
+    glance: atAGlance(a),
     profile,
     rhythm: rhythm(a, profile),
     care: careRequirements(a),
@@ -391,10 +422,20 @@ export function toMarkdown(brief) {
   const out = [];
   out.push(`# Travel and health brief — ${brief.reference}`);
   out.push('');
-  out.push(`Destination: ${brief.destination}. Prepared ${brief.generatedAt.slice(0, 10)}.`);
+  out.push(`Destination: ${brief.destination}. Prepared ${brief.generatedAt.slice(0, 10)}. Code ${brief.code}.`);
   out.push('');
   out.push('This is a planning document, not clinical advice. A clinician confirms fitness to travel.');
   out.push('');
+  if (brief.mustDo) {
+    out.push(`**The one thing that would make the trip:** ${brief.mustDo}`);
+    out.push('');
+  }
+  if (brief.glance.length) {
+    out.push('## At a glance');
+    out.push('');
+    out.push(bullets(brief.glance.map((g) => `${g.label}: ${g.value}`)));
+    out.push('');
+  }
 
   out.push('## Limits these answers set');
   out.push('');

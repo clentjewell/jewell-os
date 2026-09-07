@@ -92,8 +92,6 @@ function applyDerivedDefaults() {
   const clinicalCap = deriveProfile({ ...a, intensityCeiling: undefined }).clinicalCap;
   preset('intensityCeiling', clinicalCap);
   preset('sessionLength', clinicalCap <= 2 ? '120' : '240');
-  if (a.pace === 'restful') preset('perDay', '1');
-  if (a.restPattern === 'daily') preset('perDay', '1');
 }
 
 /* ---------------------------------------------------------------- persistence */
@@ -359,8 +357,8 @@ function renderSignals() {
       [1, 2, 3, 4, 5].map((n) => el('span', {
         class: `meter__seg${n <= profile.cap ? ' meter__seg--on' : ''}`,
       }))),
-    profile.capReasons.length
-      ? el('p', { class: 'signals__note', text: `Set by ${profile.capReasons[0]}.` })
+    profile.bindingReason
+      ? el('p', { class: 'signals__note', text: `Set by ${profile.bindingReason}.` })
       : null));
 
   rows.push(el('div', { class: 'signals__row' },
@@ -431,8 +429,21 @@ function renderBrief() {
   return el('section', { class: 'card', 'aria-labelledby': 'brief-title' },
     el('div', { class: 'card__body brief' },
     el('h2', { class: 'card__title', id: 'brief-title', text: `Brief for ${brief.reference}` }),
-    el('p', { class: 'card__intro', text: `${brief.destination}. Built from your answers, in this browser.` }),
+    el('p', { class: 'card__intro' },
+      `${brief.destination}. Built from your answers, in this browser. Code `,
+      el('span', { class: 'code', text: brief.code }), '.'),
     el('p', { class: 'notice', text: 'A planning document, not clinical advice. A clinician confirms fitness to travel.' }),
+
+    brief.mustDo
+      ? el('div', { class: 'mustdo' },
+        el('p', { class: 'eyebrow', text: 'The one thing that would make the trip' }),
+        el('p', { class: 'mustdo__text', text: brief.mustDo }))
+      : null,
+
+    brief.glance.length ? el('dl', { class: 'glance' }, brief.glance.flatMap((g) => [
+      el('dt', { text: g.label }),
+      el('dd', { text: g.value }),
+    ])) : null,
 
     el('h3', { class: 'brief__heading', text: 'Limits your answers set' }),
     list([
@@ -548,7 +559,7 @@ async function submitBrief(brief) {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
-        reference: brief.reference,
+        reference: brief.reference === 'Unnamed traveller' ? brief.code : brief.reference,
         destination: brief.destination,
         brief: toMarkdown(brief),
       }),

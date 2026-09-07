@@ -3,6 +3,12 @@
 // Pure data plus small predicate functions. Nothing here touches the network or
 // the DOM. A question appears only when its `visibleIf` predicate returns true,
 // which is what makes the form adaptive: answers open and close later branches.
+//
+// Every question here earns its place one of three ways: it drives a branch,
+// it feeds the brief engine, or it is a booking fact a coordinator cannot do
+// without. Anything that did none of those was cut or folded into a free-text
+// box that already existed. Rest cadence and outings-per-day are derived from
+// pace rather than asked.
 
 /** True when a multi-select answer contains `value`. */
 export const has = (a, id, value) => Array.isArray(a[id]) && a[id].includes(value);
@@ -36,13 +42,13 @@ export const sections = [
   {
     id: 'trip',
     title: 'Trip basics',
-    intro: 'The shape of the trip. Two minutes, and it sets everything that follows.',
+    intro: 'The shape of the trip. A minute or two, and it sets everything that follows.',
     questions: [
       {
         id: 'reference',
         type: 'text',
         label: 'Traveller name or reference',
-        help: 'Whatever you will recognise later. A first name or a booking reference is enough.',
+        help: 'Whatever you will recognise later. Leave it blank and we will give the brief a code.',
         placeholder: 'e.g. Ellis, or JP-1042',
       },
       {
@@ -50,46 +56,25 @@ export const sections = [
         type: 'text',
         label: 'Where are you going?',
         required: true,
-        placeholder: 'Country, region or city',
+        placeholder: 'Country, region or city — or "open to suggestions"',
       },
       {
-        id: 'destinationFixed',
-        type: 'radio',
-        label: 'Is the destination settled?',
+        id: 'when',
+        type: 'text',
+        label: 'When, and for how long?',
+        placeholder: 'e.g. early November, about 12 nights',
+      },
+      {
+        id: 'party',
+        type: 'select',
+        label: 'Who is travelling?',
         options: [
-          { v: 'fixed', l: 'Settled — this is where we are going' },
-          { v: 'shortlist', l: 'On a shortlist' },
-          { v: 'open', l: 'Open to a recommendation' },
+          { v: 'solo', l: 'Just me' },
+          { v: 'twoAdults', l: 'Two adults' },
+          { v: 'twoAdultsChildren', l: 'Two adults and children' },
+          { v: 'moreAdults', l: 'Three or more adults' },
+          { v: 'groupChildren', l: 'A larger group, including children' },
         ],
-      },
-      {
-        id: 'departDate',
-        type: 'date',
-        label: 'Approximate departure date',
-      },
-      {
-        id: 'nights',
-        type: 'number',
-        label: 'Number of nights',
-        min: 1,
-        max: 120,
-        placeholder: '10',
-      },
-      {
-        id: 'partyAdults',
-        type: 'number',
-        label: 'Adults travelling',
-        min: 1,
-        max: 20,
-        placeholder: '2',
-      },
-      {
-        id: 'partyChildren',
-        type: 'number',
-        label: 'Children travelling',
-        min: 0,
-        max: 20,
-        placeholder: '0',
       },
       {
         id: 'companion',
@@ -121,17 +106,18 @@ export const sections = [
         id: 'pace',
         type: 'radio',
         label: 'What pace suits you?',
+        help: 'This sets how many outings a day we plan, and how much rest sits between them.',
         required: true,
         options: [
-          { v: 'restful', l: 'Restful — one thing a day at most' },
-          { v: 'balanced', l: 'Balanced — something each morning, afternoons free' },
+          { v: 'restful', l: 'Restful — one thing a day, and a rest every afternoon' },
+          { v: 'balanced', l: 'Balanced — mornings out, afternoons free, a clear rest day every few days' },
           { v: 'full', l: 'Full — make the most of every day' },
         ],
       },
       {
         id: 'budgetBand',
         type: 'select',
-        label: 'Total budget band per person',
+        label: 'Total budget per person, all in',
         options: [
           { v: 'under2k', l: 'Under 2,000' },
           { v: '2to5k', l: '2,000 to 5,000' },
@@ -148,7 +134,7 @@ export const sections = [
     title: 'Health and treatment',
     intro:
       'This is the part that shapes the trip. Answer what you are comfortable answering. '
-      + 'Everything stays in this browser until you export it yourself.',
+      + 'Nothing leaves this browser unless you choose to send it at the end.',
     questions: [
       {
         id: 'healthPurpose',
@@ -169,7 +155,8 @@ export const sections = [
         id: 'conditions',
         type: 'checkbox',
         label: 'Which of these apply?',
-        help: 'Used to set safe limits on heat, altitude, water and effort. Nothing is diagnosed here.',
+        help: 'Used to set safe limits on heat, altitude, water and effort. Nothing is diagnosed here. '
+          + 'Anything not listed can go in the notes at the end of this section.',
         visibleIf: healthLed,
         exclusive: ['declined'],
         options: [
@@ -184,15 +171,8 @@ export const sections = [
           { v: 'mentalHealth', l: 'Mental health' },
           { v: 'painFatigue', l: 'Chronic pain or fatigue' },
           { v: 'pregnancy', l: 'Pregnancy' },
-          { v: 'other', l: 'Something else' },
           { v: 'declined', l: 'Prefer not to say' },
         ],
-      },
-      {
-        id: 'conditionsOther',
-        type: 'text',
-        label: 'Please name it',
-        visibleIf: (a) => has(a, 'conditions', 'other'),
       },
       {
         id: 'recentSurgery',
@@ -200,12 +180,6 @@ export const sections = [
         label: 'Have you had surgery or a hospital stay in the last 12 weeks?',
         visibleIf: (a) => anyOf(a, 'healthPurpose', ['recovery', 'treatment', 'condition']),
         options: yesNo,
-      },
-      {
-        id: 'surgeryDate',
-        type: 'date',
-        label: 'Date of discharge',
-        visibleIf: (a) => is(a, 'recentSurgery', 'yes'),
       },
       {
         id: 'clinicianSignOff',
@@ -300,6 +274,7 @@ export const sections = [
         id: 'walkingDistance',
         type: 'select',
         label: 'How far can you walk comfortably in one go?',
+        help: 'This is the single strongest guide to which outings will suit you.',
         visibleIf: (a) => ['none', 'stick', 'wheelchairPart'].includes(a.mobility),
         options: [
           { v: '200', l: 'Under 200 m' },
@@ -334,29 +309,11 @@ export const sections = [
         maxLabel: 'No restriction',
       },
       {
-        id: 'restPattern',
-        type: 'radio',
-        label: 'How much rest do you need?',
-        visibleIf: healthLed,
-        options: [
-          { v: 'daily', l: 'A rest every day, usually the afternoon' },
-          { v: 'alternate', l: 'A clear rest day every second or third day' },
-          { v: 'none', l: 'No planned rest needed' },
-        ],
-      },
-      {
-        id: 'medications',
-        type: 'radio',
-        label: 'Are you travelling with medication?',
-        visibleIf: healthLed,
-        options: yesNo,
-      },
-      {
         id: 'medStorage',
         type: 'checkbox',
-        label: 'Does any of it need special handling?',
-        visibleIf: (a) => is(a, 'medications', 'yes'),
-        exclusive: ['noneStorage'],
+        label: 'Are you travelling with medication that needs special handling?',
+        visibleIf: healthLed,
+        exclusive: ['plain', 'noMeds'],
         options: [
           { v: 'refrigeration', l: 'Refrigeration' },
           { v: 'controlled', l: 'Controlled drugs needing documentation' },
@@ -364,13 +321,14 @@ export const sections = [
           { v: 'oxygen', l: 'Oxygen' },
           { v: 'cpap', l: 'CPAP or ventilator' },
           { v: 'feeding', l: 'Feeding pump or supplies' },
-          { v: 'noneStorage', l: 'None of these' },
+          { v: 'plain', l: 'Medication, but nothing special' },
+          { v: 'noMeds', l: 'No medication' },
         ],
       },
       {
         id: 'allergies',
         type: 'textarea',
-        label: 'Allergies or intolerances we must design around',
+        label: 'Allergies, intolerances, and any dietary detail not covered below',
         placeholder: 'Include severity and anything that must be within reach.',
       },
       {
@@ -388,15 +346,8 @@ export const sections = [
           { v: 'kosher', l: 'Kosher' },
           { v: 'vegetarian', l: 'Vegetarian' },
           { v: 'vegan', l: 'Vegan' },
-          { v: 'otherDiet', l: 'Something else' },
           { v: 'noneDiet', l: 'None' },
         ],
-      },
-      {
-        id: 'dietOther',
-        type: 'text',
-        label: 'Please describe the dietary requirement',
-        visibleIf: (a) => has(a, 'diet', 'otherDiet'),
       },
       {
         id: 'heatTolerance',
@@ -441,23 +392,16 @@ export const sections = [
       {
         id: 'emergencyContact',
         type: 'text',
-        label: 'Emergency contact — name and relationship',
+        label: 'Emergency contact — name, relationship and phone',
         visibleIf: healthLed,
-        placeholder: 'e.g. Sam Okafor, brother',
-      },
-      {
-        id: 'emergencyPhone',
-        type: 'text',
-        label: 'Emergency contact — phone',
-        visibleIf: healthLed,
-        placeholder: 'Include the country code',
+        placeholder: 'e.g. Sam Okafor, brother, +61 400 000 000',
       },
       {
         id: 'healthNotes',
         type: 'textarea',
-        label: 'Anything else we should know',
+        label: 'Anything else about your health we should know',
+        help: 'A condition not listed above, a recent date that matters, the thing you would tell a good travel nurse.',
         visibleIf: healthLed,
-        placeholder: 'The thing you would tell a good travel nurse in one sentence.',
       },
     ],
   },
@@ -480,19 +424,6 @@ export const sections = [
           { v: 'retreat', l: 'Medical or recovery retreat' },
           { v: 'guesthouse', l: 'Guesthouse or bed and breakfast' },
           { v: 'anyProperty', l: 'No preference' },
-        ],
-      },
-      {
-        id: 'serviceLevel',
-        type: 'radio',
-        label: 'Catering',
-        options: [
-          { v: 'selfCatering', l: 'Self-catering' },
-          { v: 'bb', l: 'Bed and breakfast' },
-          { v: 'halfBoard', l: 'Half board' },
-          { v: 'fullBoard', l: 'Full board' },
-          { v: 'allInclusive', l: 'All inclusive' },
-          { v: 'anyBoard', l: 'No preference' },
         ],
       },
       {
@@ -522,6 +453,7 @@ export const sections = [
           { v: 'wideDoors', l: 'Doorways wide enough for a wheelchair' },
           { v: 'hoist', l: 'Hoist or ceiling track' },
           { v: 'bathNotShower', l: 'A bath rather than a shower' },
+          { v: 'assistanceDog', l: 'An assistance dog is travelling' },
           { v: 'noneAccess', l: 'None needed' },
         ],
       },
@@ -533,7 +465,7 @@ export const sections = [
           { v: 'fridge', l: 'Fridge for medication' },
           { v: 'airCon', l: 'Air conditioning' },
           { v: 'filtration', l: 'Air filtration or hypoallergenic bedding' },
-          { v: 'kitchen', l: 'Kitchen for special diets' },
+          { v: 'kitchen', l: 'Kitchen for special diets or self-catering' },
           { v: 'quiet', l: 'Quiet, away from lifts and the road' },
           { v: 'blackout', l: 'Blackout blinds' },
           { v: 'laundry', l: 'Laundry' },
@@ -572,28 +504,10 @@ export const sections = [
         ],
       },
       {
-        id: 'assistanceDog',
-        type: 'radio',
-        label: 'Is an assistance dog travelling?',
-        options: yesNo,
-      },
-      {
-        id: 'nightlyBudget',
-        type: 'select',
-        label: 'Budget per night',
-        options: [
-          { v: 'under150', l: 'Under 150' },
-          { v: '150to300', l: '150 to 300' },
-          { v: '300to600', l: '300 to 600' },
-          { v: 'over600', l: 'Over 600' },
-          { v: 'unsetNight', l: 'Not decided yet' },
-        ],
-      },
-      {
         id: 'dealbreakers',
         type: 'textarea',
         label: 'Anything that would rule a property out',
-        placeholder: 'e.g. no stairs to the entrance, no shared bathrooms.',
+        placeholder: 'e.g. no stairs to the entrance, no shared bathrooms, must be full board.',
       },
     ],
   },
@@ -646,17 +560,6 @@ export const sections = [
         ],
       },
       {
-        id: 'perDay',
-        type: 'radio',
-        label: 'How many outings a day?',
-        options: [
-          { v: '1', l: 'One' },
-          { v: '2', l: 'Two' },
-          { v: '3', l: 'Three or more' },
-          { v: 'flexible', l: 'Decide on the day' },
-        ],
-      },
-      {
         id: 'avoid',
         type: 'checkbox',
         label: 'What should we rule out?',
@@ -675,17 +578,6 @@ export const sections = [
         ],
       },
       {
-        id: 'guiding',
-        type: 'radio',
-        label: 'How do you like to be guided?',
-        options: [
-          { v: 'private', l: 'A private guide' },
-          { v: 'smallGroup', l: 'A small group' },
-          { v: 'selfGuided', l: 'On our own' },
-          { v: 'mix', l: 'A mix' },
-        ],
-      },
-      {
         id: 'treatmentDays',
         type: 'radio',
         label: 'On treatment days, what are you good for?',
@@ -700,7 +592,8 @@ export const sections = [
         id: 'mustDo',
         type: 'textarea',
         label: 'The one thing that would make the trip',
-        placeholder: 'Name it plainly. We plan the rest around it.',
+        help: 'Name it plainly. It goes at the top of your brief, and we plan the rest around it.',
+        placeholder: 'e.g. eat somewhere memorable, once. Swim in the sea. See my sister.',
       },
     ],
   },

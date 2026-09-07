@@ -52,6 +52,10 @@ medical stock imagery, and it stays quiet enough that the questions remain the s
 - **Layout.** A left rail holds the step list and a live panel; the questions sit beside it. On a
   phone the order becomes progress, questions, panel, so the questions are never pushed below the
   fold by the rail.
+- **The brief opens with what a coordinator reads first.** The one thing that would make the
+  trip, then an at-a-glance block — when, who is travelling, support, pace, budget — then the
+  detail. Every brief carries a code (`JP-YYMMDD-XXXX`) so an unnamed one is still findable in an
+  inbox; it becomes the email subject when no name was given.
 - **The live panel** is the point. As answers land it shows the activity ceiling with a meter, the
   longest outing, how many accommodation requirements have been captured, and how many items are
   outstanding. The traveller watches the trip narrow rather than meeting the result cold at the
@@ -71,6 +75,20 @@ The images are decorative and carry `alt=""`, so a screen reader passes over the
 
 Note for reuse: the OTR / Jewell Tyres brand lock forbids stock and AI imagery. These assets are
 scoped to this tool and do not transfer to that brand.
+
+## How many questions
+
+43 in total, down from 57, and every one of them is only shown to a traveller it applies to. An
+ordinary holiday with no health factor sees 25. The reduction cost no derived output: dates and
+party size became one question each, medication became one question instead of a yes/no gate
+plus a follow-up, the emergency contact became one field, and rest cadence and outings-per-day
+are derived from pace rather than asked. Anything that produced nothing but a line in the
+itemised dump was cut. `tests/brief.test.js` carries a guard that fails if a question nobody
+reads ever comes back.
+
+Two questions were wired in rather than cut: walking distance now caps activity intensity — it is
+the strongest single predictor and was being thrown away — and "the one thing that would make
+the trip" now heads the brief instead of sitting at the bottom of the dump.
 
 ## What makes it adaptive
 
