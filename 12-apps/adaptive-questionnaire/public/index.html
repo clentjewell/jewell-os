@@ -17,6 +17,14 @@
 <body>
 <a class="skip-link" href="#step-root">Skip to the questions</a>
 
+<div class="topbar no-print" role="progressbar" aria-label="Progress through the questionnaire" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" id="topbar">
+  <div class="shell topbar__row">
+    <p class="topbar__step"><span class="topbar__num" id="topbar-num">Step 1 of 5</span><span class="topbar__title" id="topbar-title">Trip basics</span></p>
+    <p class="topbar__pct" id="topbar-pct">20%</p>
+  </div>
+  <div class="topbar__fill" id="topbar-fill"></div>
+</div>
+
 <header class="masthead">
   <div class="masthead__image"><img src="./assets/img/hero.webp" alt="" width="1600" height="914" fetchpriority="high"></div>
   <div class="shell">
@@ -45,10 +53,8 @@
 <div class="shell">
   <div class="layout">
     <nav class="rail--progress no-print" aria-label="Progress through the questionnaire">
-      <p class="eyebrow">Progress</p>
+      <p class="eyebrow">Sections</p>
       <ol class="steps" id="step-list"></ol>
-      <div class="progress__bar" id="progress-bar" role="progressbar" aria-label="Progress through the questionnaire" aria-valuemin="0" aria-valuenow="1" aria-valuemax="5"></div>
-      <p class="progress__label" id="progress-label">Step 1 of 5</p>
     </nav>
 
     <aside class="rail--signals no-print" id="signals-root" aria-label="What your answers have set"></aside>

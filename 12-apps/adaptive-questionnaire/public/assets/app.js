@@ -7,6 +7,7 @@
 
 import { sections, visibleQuestions } from './schema.js';
 import { accommodationSpec, buildBrief, deriveProfile, toConfirm, toMarkdown } from './brief.js';
+import { progressPercent } from './progress.js';
 
 const STORE_KEY = 'jp-atq-answers-v1';
 const CONSENT_KEY = 'jp-atq-save-v1';
@@ -18,11 +19,15 @@ const state = {
   errors: {},
   saving: false,
   submit: { status: 'idle', message: '' },
+  progressShown: 0,
 };
 
 const root = document.getElementById('step-root');
-const progressBar = document.getElementById('progress-bar');
-const progressLabel = document.getElementById('progress-label');
+const topbar = document.getElementById('topbar');
+const topbarNum = document.getElementById('topbar-num');
+const topbarTitle = document.getElementById('topbar-title');
+const topbarPct = document.getElementById('topbar-pct');
+const topbarFill = document.getElementById('topbar-fill');
 const stepList = document.getElementById('step-list');
 const signalsRoot = document.getElementById('signals-root');
 const saveToggle = document.getElementById('save-toggle');
@@ -55,6 +60,7 @@ function setAnswer(id, value) {
   delete state.errors[id];
   applyDerivedDefaults();
   persist();
+  renderProgress();
 }
 
 /**
@@ -103,6 +109,7 @@ function persist() {
       step: state.step,
       answers: state.answers,
       touched: [...state.touched],
+      progressShown: state.progressShown,
     }));
   } catch {
     // A full or blocked store must never break the form.
@@ -119,6 +126,7 @@ function restore() {
     state.answers = saved.answers || {};
     state.touched = new Set(saved.touched || []);
     state.step = Math.min(saved.step || 0, reviewStep);
+    state.progressShown = Number(saved.progressShown) || 0;
   } catch {
     state.answers = {};
   }
@@ -168,6 +176,7 @@ function textControl(q) {
       state.touched.add(q.id);
       delete state.errors[q.id];
       persist();
+      renderProgress();
     },
     onblur: () => applyDerivedDefaults(),
   });
@@ -311,10 +320,15 @@ function stepItem(number, title, state_) {
 
 function renderProgress() {
   const total = sections.length + 1;
-  const done = state.step + 1;
-  progressBar.style.setProperty('--progress', `${Math.round((done / total) * 100)}%`);
-  progressBar.setAttribute('aria-valuenow', String(done));
-  progressBar.setAttribute('aria-valuemax', String(total));
+  const computed = progressPercent(state.answers, state.step, reviewStep, state.touched);
+  state.progressShown = Math.max(state.progressShown, computed);
+  const pct = state.progressShown;
+
+  topbar.setAttribute('aria-valuenow', String(pct));
+  topbarFill.style.setProperty('--progress', `${pct}%`);
+  topbarPct.textContent = `${pct}%`;
+  topbarNum.textContent = state.step === reviewStep ? 'Done' : `Step ${state.step + 1} of ${total}`;
+  topbarTitle.textContent = state.step === reviewStep ? 'Your brief' : sections[state.step].title;
 
   const stateOf = (i) => (i === state.step ? 'current' : i < state.step ? 'done' : 'ahead');
   stepList.replaceChildren(
@@ -322,9 +336,6 @@ function renderProgress() {
     stepItem(total, 'Your brief', stateOf(reviewStep)),
   );
 
-  progressLabel.textContent = state.step === reviewStep
-    ? 'Your brief'
-    : `Step ${state.step + 1} of ${total}`;
 }
 
 /**
@@ -682,6 +693,7 @@ function startAgain() {
   state.answers = {};
   state.touched = new Set();
   state.submit = { status: 'idle', message: '' };
+  state.progressShown = 0;
   clearStore();
   goToStep(0);
 }

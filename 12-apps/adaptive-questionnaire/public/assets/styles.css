@@ -50,6 +50,7 @@
   --s-5: 3.5rem;
   --radius: 12px;
   --radius-sm: 8px;
+  --topbar: 2.75rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -107,6 +108,7 @@ body {
   font-weight: 400;
   line-height: 1.68;
   -webkit-font-smoothing: antialiased;
+  padding-top: var(--topbar);
   padding-bottom: 5rem;
 }
 
@@ -150,12 +152,87 @@ img { max-width: 100%; display: block; }
   position: absolute;
   left: -9999px;
   top: 0;
-  z-index: 10;
+  z-index: 40;
   background: var(--ink);
   color: var(--canvas);
   padding: 0.75rem 1rem;
 }
 .skip-link:focus { left: 0; }
+
+/* -------------------------------------------------------------------- topbar */
+
+/* Progress lives at the top of the screen and never scrolls away. The strip
+   is the track; the fill runs along its bottom edge. */
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--topbar);
+  z-index: 30;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar__row {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-2);
+}
+
+.topbar__step {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  min-width: 0;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.topbar__num {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.topbar__title { font-weight: 500; overflow: hidden; text-overflow: ellipsis; }
+
+.topbar__pct {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  flex: none;
+}
+
+.topbar__fill {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 4px;
+  width: var(--progress, 20%);
+  background: var(--accent);
+  border-radius: 0 999px 999px 0;
+  transition: width 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (max-width: 40rem) {
+  .topbar__step { font-size: 0.84rem; gap: 0.5rem; }
+  .topbar__num { display: none; }
+}
+
+@media print {
+  .topbar { display: none !important; }
+  body { padding-top: 0; }
+}
 
 /* ------------------------------------------------------------------ masthead */
 
@@ -243,7 +320,7 @@ img { max-width: 100%; display: block; }
 
 .rail--progress { grid-area: progress; }
 .rail--signals { grid-area: signals; }
-#step-root { grid-area: form; scroll-margin-top: 1.25rem; }
+#step-root { grid-area: form; scroll-margin-top: calc(var(--topbar) + 1.25rem); }
 
 @media (min-width: 62rem) {
   .layout {
@@ -256,7 +333,7 @@ img { max-width: 100%; display: block; }
   }
 
   /* The step list scrolls away; the live panel follows you down the form. */
-  .rail--signals { position: sticky; top: 2rem; }
+  .rail--signals { position: sticky; top: calc(var(--topbar) + 1.5rem); }
 }
 
 /* ------------------------------------------------------------------ the rail */
@@ -296,31 +373,6 @@ img { max-width: 100%; display: block; }
 .steps__item--current { color: var(--ink); font-weight: 500; }
 .steps__item--current .steps__num { color: var(--ink); }
 
-.progress__bar {
-  margin-top: 1rem;
-  height: 4px;
-  border-radius: 999px;
-  background: var(--line);
-  overflow: hidden;
-  position: relative;
-}
-
-.progress__bar::after {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: var(--progress, 0%);
-  background: var(--accent);
-  border-radius: 999px;
-  transition: width 320ms ease;
-}
-
-.progress__label {
-  margin-top: 0.6rem;
-  font-size: 0.8rem;
-  color: var(--ink-faint);
-  font-variant-numeric: tabular-nums;
-}
 
 /* The live panel: what the answers have set so far. This is the point of the
    whole tool, so it stays on screen while the traveller answers. */
@@ -423,7 +475,7 @@ img { max-width: 100%; display: block; }
 .field {
   border-top: 1px solid var(--line);
   padding-top: var(--s-4);
-  scroll-margin-top: 1.5rem;
+  scroll-margin-top: calc(var(--topbar) + 1.5rem);
 }
 
 .field:first-child { border-top: 0; padding-top: 0; }
