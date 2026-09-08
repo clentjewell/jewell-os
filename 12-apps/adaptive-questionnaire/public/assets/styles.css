@@ -39,8 +39,15 @@
 
   --font: 'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-  --shell: 74rem;
-  --rail: 17rem;
+  --shell: 68rem;
+  --rail: 18rem;
+
+  /* One spacing scale, used everywhere, so the rhythm reads as deliberate. */
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 1.5rem;
+  --s-4: 2.5rem;
+  --s-5: 3.5rem;
   --radius: 12px;
   --radius-sm: 8px;
 }
@@ -153,7 +160,7 @@ img { max-width: 100%; display: block; }
 /* ------------------------------------------------------------------ masthead */
 
 .masthead__image {
-  height: clamp(7.5rem, 20vw, 13.5rem);
+  height: clamp(8rem, 22vw, 15rem);
   overflow: hidden;
   background: var(--accent-soft);
 }
@@ -162,7 +169,7 @@ img { max-width: 100%; display: block; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 34%;
+  object-position: 50% 58%;
 }
 
 .masthead__panel {
@@ -172,13 +179,28 @@ img { max-width: 100%; display: block; }
   box-shadow: var(--shadow);
   margin-top: clamp(-4rem, -6vw, -2.5rem);
   position: relative;
-  padding: clamp(1.6rem, 4vw, 2.75rem);
+  padding: clamp(1.6rem, 4vw, 3rem);
+  display: grid;
+  gap: var(--s-3);
+}
+
+@media (min-width: 62rem) {
+  .masthead__panel {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    column-gap: var(--s-5);
+    align-items: end;
+  }
+}
+
+.masthead__aside {
+  display: grid;
+  gap: var(--s-2);
 }
 
 .masthead__title {
   margin-top: 0.9rem;
-  font-size: clamp(1.85rem, 4.6vw, 2.85rem);
-  max-width: 17ch;
+  font-size: clamp(1.9rem, 4.6vw, 3rem);
+  max-width: 16ch;
 }
 
 .masthead__lede {
@@ -189,7 +211,7 @@ img { max-width: 100%; display: block; }
 }
 
 .masthead__meta {
-  margin-top: 0.9rem;
+  margin-top: 0;
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--ink-faint);
@@ -197,7 +219,7 @@ img { max-width: 100%; display: block; }
 }
 
 .masthead__privacy {
-  margin-top: 1.5rem;
+  margin-top: 0;
   padding: 0.85rem 1rem;
   background: var(--accent-soft);
   border-radius: var(--radius-sm);
@@ -209,9 +231,9 @@ img { max-width: 100%; display: block; }
 /* ---------------------------------------------------------------- the layout */
 
 .layout {
-  margin-top: 2.25rem;
+  margin-top: var(--s-4);
   display: grid;
-  gap: 2rem;
+  gap: var(--s-4);
   align-items: start;
   grid-template-areas:
     "progress"
@@ -229,8 +251,8 @@ img { max-width: 100%; display: block; }
     grid-template-areas:
       "progress form"
       "signals  form";
-    column-gap: 3rem;
-    row-gap: 1.75rem;
+    column-gap: var(--s-5);
+    row-gap: var(--s-3);
   }
 
   /* The step list scrolls away; the live panel follows you down the form. */
@@ -368,7 +390,7 @@ img { max-width: 100%; display: block; }
   filter: saturate(0.9);
 }
 
-.card__body { padding: clamp(1.4rem, 4vw, 2.5rem); }
+.card__body { padding: clamp(1.5rem, 4vw, 2.75rem); }
 .card__title { margin-top: 0.55rem; font-size: clamp(1.45rem, 3.2vw, 2rem); }
 
 .card__intro {
@@ -387,22 +409,20 @@ img { max-width: 100%; display: block; }
 }
 
 .notice {
-  margin-top: 1.2rem;
-  padding: 0.85rem 1rem;
-  background: var(--surface-sunk);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  font-size: 0.9rem;
-  color: var(--ink-soft);
+  margin-top: var(--s-2);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--ink-faint);
+  max-width: 60ch;
 }
 
 /* -------------------------------------------------------------------- fields */
 
-.fields { margin-top: 2.1rem; display: grid; gap: 2.1rem; }
+.fields { margin-top: var(--s-4); display: grid; gap: var(--s-4); }
 
 .field {
   border-top: 1px solid var(--line);
-  padding-top: 1.7rem;
+  padding-top: var(--s-4);
   scroll-margin-top: 1.5rem;
 }
 
@@ -465,7 +485,7 @@ textarea.input { resize: vertical; min-height: 6rem; }
 
 /* ------------------------------------------------------------------ controls */
 
-.options { margin-top: 0.9rem; display: grid; gap: 0.5rem; }
+.options { margin-top: var(--s-2); display: grid; gap: 0.6rem; }
 
 @media (min-width: 44rem) {
   .options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -477,7 +497,7 @@ textarea.input { resize: vertical; min-height: 6rem; }
   align-items: center;
   gap: 0.8rem;
   min-height: 3.25rem;
-  padding: 0.7rem 1rem;
+  padding: 0.75rem 1.05rem;
   border: 1.5px solid var(--line-strong);
   border-radius: var(--radius-sm);
   background: var(--surface-sunk);
@@ -625,13 +645,13 @@ textarea.input { resize: vertical; min-height: 6rem; }
 /* --------------------------------------------------------------------- brief */
 
 .brief__heading {
-  margin-top: 2.35rem;
-  padding-top: 1.4rem;
+  margin-top: var(--s-5);
+  padding-top: var(--s-3);
   border-top: 1px solid var(--line);
   font-size: 1.22rem;
 }
 
-.list { margin: 0.9rem 0 0; padding-left: 1.2rem; display: grid; gap: 0.55rem; }
+.list { margin: var(--s-2) 0 0; padding-left: 1.2rem; display: grid; gap: 0.6rem; }
 .list--flags { list-style: none; padding-left: 0; }
 
 .list--flags li {
@@ -654,7 +674,7 @@ textarea.input { resize: vertical; min-height: 6rem; }
   white-space: nowrap;
 }
 
-.matches { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 0.7rem; }
+.matches { list-style: none; margin: var(--s-2) 0 0; padding: 0; display: grid; gap: 0.8rem; }
 
 @media (min-width: 46rem) {
   .matches { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -831,8 +851,8 @@ textarea.input { resize: vertical; min-height: 6rem; }
 /* ------------------------------------------------------- the top of the brief */
 
 .mustdo {
-  margin-top: 1.4rem;
-  padding: 1rem 1.2rem 1.1rem;
+  margin-top: var(--s-4);
+  padding: 1.35rem 1.6rem 1.45rem;
   border-left: 4px solid var(--accent);
   background: var(--accent-soft);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
@@ -841,23 +861,25 @@ textarea.input { resize: vertical; min-height: 6rem; }
 .mustdo .eyebrow { color: var(--accent-ink); }
 
 .mustdo__text {
-  margin-top: 0.4rem;
-  font-size: 1.15rem;
+  margin-top: 0.5rem;
+  font-size: 1.3rem;
   font-weight: 500;
   line-height: 1.4;
   color: var(--accent-ink);
 }
 
 .glance {
-  margin: 1.3rem 0 0;
+  margin: var(--s-3) 0 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
-  gap: 0.9rem 1.2rem;
-  padding: 1rem 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: var(--s-3) var(--s-4);
+  padding: var(--s-3) 1.6rem;
   background: var(--surface-sunk);
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
 }
+
+.glance__cell { display: grid; gap: 0.2rem; }
 
 .glance dt {
   font-size: 0.66rem;
@@ -868,11 +890,9 @@ textarea.input { resize: vertical; min-height: 6rem; }
 }
 
 .glance dd {
-  margin: 0.15rem 0 0;
+  margin: 0;
   font-weight: 500;
   line-height: 1.4;
 }
-
-.glance > div { display: contents; }
 
 .code { white-space: nowrap; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }

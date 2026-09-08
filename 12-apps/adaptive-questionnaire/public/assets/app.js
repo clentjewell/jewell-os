@@ -440,10 +440,9 @@ function renderBrief() {
         el('p', { class: 'mustdo__text', text: brief.mustDo }))
       : null,
 
-    brief.glance.length ? el('dl', { class: 'glance' }, brief.glance.flatMap((g) => [
+    brief.glance.length ? el('dl', { class: 'glance' }, brief.glance.map((g) => el('div', { class: 'glance__cell' },
       el('dt', { text: g.label }),
-      el('dd', { text: g.value }),
-    ])) : null,
+      el('dd', { text: g.value })))) : null,
 
     el('h3', { class: 'brief__heading', text: 'Limits your answers set' }),
     list([
