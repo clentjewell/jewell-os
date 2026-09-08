@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="An adaptive questionnaire that turns travel, health and treatment needs into a bookable brief. Answers stay in your browser.">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<title>Adaptive travel and health questionnaire</title>
+<link rel="preload" href="./assets/fonts/Poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./assets/fonts/Poppins-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="./assets/fonts/fonts.css">
+<link rel="stylesheet" href="./assets/styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2316211E'/><path d='M7 20c3-4 6-4 9 0s6 4 9 0' stroke='%236FC6B2' stroke-width='2.6' fill='none' stroke-linecap='round'/></svg>">
+</head>
+<body>
+<a class="skip-link" href="#step-root">Skip to the questions</a>
+
+<div class="topbar no-print" role="progressbar" aria-label="Progress through the questionnaire" aria-valuemin="0" aria-valuemax="100" aria-valuenow="20" id="topbar">
+  <div class="shell topbar__row">
+    <p class="topbar__step"><span class="topbar__num" id="topbar-num">Step 1 of 5</span><span class="topbar__title" id="topbar-title">Trip basics</span></p>
+    <div class="topbar__track" aria-hidden="true"><div class="topbar__fill" id="topbar-fill"></div></div>
+    <p class="topbar__pct"><span id="topbar-pct">20%</span><span class="topbar__pct-label">done</span></p>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="masthead__image"><img src="./assets/img/hero.webp" alt="" width="1600" height="914" fetchpriority="high"></div>
+  <div class="shell">
+    <div class="masthead__panel">
+      <div class="masthead__main">
+        <p class="eyebrow">Jewell Projects · 3D Process · Discover</p>
+        <h1 class="masthead__title">Travel that carries your health with it</h1>
+        <p class="masthead__lede">
+          Questions that adapt as you answer. They identify the treatment and care the trip has to
+          carry, capture what you need from where you stay, and filter activities down to the ones
+          that actually suit you.
+        </p>
+      </div>
+      <div class="masthead__aside">
+        <p class="masthead__meta">Around 5 minutes for a straightforward trip. Up to 10 if health shapes it.</p>
+        <p class="masthead__privacy">
+          Your answers stay in this browser while you fill the form in. Nothing is sent anywhere
+          unless you tick the consent box at the end and press send — and even then, the page can
+          reach no destination but this site.
+        </p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+  <div class="layout">
+    <nav class="rail--progress no-print" aria-label="Progress through the questionnaire">
+      <p class="eyebrow">Sections</p>
+      <ol class="steps" id="step-list"></ol>
+    </nav>
+
+    <aside class="rail--signals no-print" id="signals-root" aria-label="What your answers have set"></aside>
+
+    <main id="step-root" tabindex="-1"></main>
+  </div>
+
+  <footer class="footer">
+    <label class="footer__save no-print">
+      <input type="checkbox" id="save-toggle">
+      <span>Save my answers on this device so I can come back to them. Off by default.</span>
+    </label>
+    <p class="footer__note">
+      This questionnaire is a planning tool. It is not clinical advice, it does not assess whether
+      you are fit to travel, and it does not replace your clinician or your insurer. Take the brief
+      to both.
+    </p>
+    <p class="footer__note">
+      Sending the brief emails it to Jewell Projects. Email is not encrypted end to end, so
+      send only what you are content to have sitting in an inbox. You can copy, download or
+      print it instead and never send anything.
+    </p>
+    <p class="footer__note">Next: finish the four sections, then send the brief or take a copy.</p>
+  </footer>
+</div>
+
+<script type="module" src="./assets/app.js"></script>
+</body>
+</html>
