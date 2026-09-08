@@ -56,7 +56,9 @@ medical stock imagery, and it stays quiet enough that the questions remain the s
   trip, then an at-a-glance block — when, who is travelling, support, pace, budget — then the
   detail. Every brief carries a code (`JP-YYMMDD-XXXX`) so an unnamed one is still findable in an
   inbox; it becomes the email subject when no name was given.
-- **Progress is pinned to the top of the screen** on every width and never scrolls away. It opens
+- **Progress is pinned to the top of the screen** on every width and never scrolls away. It is a
+  full-width track with a solid fill and the percentage beside it, so it reads as a bar before
+  anything else. It opens
   at 20% before a single answer — people finish what they have visibly begun, and a bar that starts
   at zero reads as a task not started — then the remaining 80% is spread across the questions the
   traveller can currently see, so every answer moves it, capped at 99 until the brief. Only answers
