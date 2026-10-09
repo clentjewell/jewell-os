@@ -44,8 +44,9 @@ operator reviews the output.
 A rule is written once here. Drive links to it or summarises it. It is never copied in full into
 both.
 
-The FY27 finance workbook at `11-finance/` is the operational model and is versioned in this
-repo; bank statements, invoices and other finance records remain authoritative in Google Drive.
+The finance playbook and FY27 workbook model live in the private repo
+`clentjewell/clent-jewell-personal` at `11-finance/` (moved 9 October 2026); bank statements,
+invoices and other finance records remain authoritative in Google Drive and Xero.
 
 ## Map of this repo
 
@@ -61,7 +62,7 @@ repo; bank statements, invoices and other finance records remain authoritative i
 | `08-templates/` | Templates: packs, briefs, Today door, case study | Scaffold — not yet built; content lives in OPERATING-SYSTEM.md §12 and §15 for now |
 | `09-playbook/` | The 3D Process spine, Ask and portal behaviour | Scaffold — not yet built; content lives in OPERATING-SYSTEM.md §8 and §9 for now |
 | `10-cadence/` | Daily to annual rhythm definitions | Nightly Life OS refresh SOP live; the rest lives in OPERATING-SYSTEM.md §12 for now |
-| `11-finance/` | Finance, accounting & bookkeeping playbook: controller operating model, cadence runbooks, Liz's handbook, live state, FY27 workbook | Populated |
+| `11-finance/` | Redirect only — the finance playbook moved to `clent-jewell-personal/11-finance/` on 9 October 2026 | Moved |
 
 Numbering leaves gaps on purpose (`03` remains deliberately reserved; `02` was taken by OKRs
 on 11 July 2026), so folders can be added without renumbering.

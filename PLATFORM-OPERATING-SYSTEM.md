@@ -92,7 +92,7 @@ clent@jewellprojects.com — My Drive/
 └── 09. Archive
 ```
 
-Separately, on a different Google account (`clentonjewell@gmail.com`), a sensitive-areas structure
+Separately, on Clent's separate personal Google account (registered in the private repo), a sensitive-areas structure
 already exists and is correctly access-scoped: health, legal (two categories), and personal
 finance, each pointer-only in the nightly index, each restricted to the owner or owner+Ronnie.
 **This is the private personal layer already operating exactly as this OS's boundary model

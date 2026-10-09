@@ -112,8 +112,9 @@ Auto-generated nightly as "GitHub Project Register — Jewell AI". Key mapping:
 | `antigravity-otrearthmovers`, `antigravity-jewelltyres` | OTR/Jewell Tyres experiments |
 | `christy-jewell-partnership-deck` | Christy partnership deck |
 | `jewell-health` | Personal Health OS (personal, out of scope) |
-| `jewell-finance` | Finance tooling |
-| `spark-ui-builder`, `video-prod`, `claude-test`, `clent-jewell-personal`, `maxxim` pilots | Tooling/experiments |
+| `jewell-finance` | Finance tooling (frozen; superseded by the finance kit in the private repo) |
+| `clent-jewell-personal` | The private personal layer, including the finance kit since 9 October 2026 (private audience only, out of team scope) |
+| `spark-ui-builder`, `video-prod`, `claude-test`, `maxxim` pilots | Tooling/experiments |
 | `openclaw/openclaw` | The OpenClaw agent framework Sam runs on |
 
 ## Deploy & tool stack
