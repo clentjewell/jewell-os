@@ -46,7 +46,7 @@ system learns nightly and washes learnings back weekly.
 | Templates | [`08-templates/`](./08-templates/) | Structure only, never client data |
 | Playbook (3D spine) | [`09-playbook/`](./09-playbook/) | Delivery stages, gates, Ask behaviour |
 | Cadence | [`10-cadence/`](./10-cadence/) | Daily to annual rhythm; nightly Life OS refresh SOP |
-| Finance OS | [`11-finance/`](./11-finance/) | Gated area — carries personal finance elements |
+| Finance OS | `clent-jewell-personal/11-finance/` | Moved to the private repo 9 October 2026; `11-finance/` here is a redirect only |
 | Starter stack | [`starter-stack/`](./starter-stack/) | Portable kit: security, evals, skills, MCP packs |
 | Files | Google Drive | Root: 00 Inbox, 01 Clients, 02 Jewell Group, 03 Administration, 04 Intelligence, 05 Personal, 06 Own Projects, 99 Archive |
 | Actions | Asana | One work board: "Clent - 2026"; private board separate |
@@ -122,11 +122,11 @@ Work and personal are one integrated system — the business is a vehicle for th
 personal layer holds the north star, values, goals, tensions and decision protocol, and it is
 gated: it lives in `clentjewell/clent-jewell-personal` (the full personal detail, by Clent's
 decision of 9 October 2026; it had been summaries and pointers) with Drive `05 Personal` holding
-the original documents, audience Clent, Ronnie and Liz only. Inside this repo, the only
-gated area is `11-finance/` (personal elements), per the register in
-[`00-governance/work-personal-boundary.md`](./00-governance/work-personal-boundary.md).
-Nothing personal flows into any outward surface, digest, pack or answer set. This index stays
-categorical about it by design.
+the original documents, audience Clent, Ronnie and Liz only. The finance kit moved to the
+private repo on the same day, so this repo currently holds no gated area; the register in
+[`00-governance/work-personal-boundary.md`](./00-governance/work-personal-boundary.md) stays
+the mechanism if one is ever added. Nothing personal flows into any outward surface, digest,
+pack or answer set. This index stays categorical about it by design.
 
 ## Known gaps (honest list, from the 11 July sweep)
 
@@ -155,6 +155,7 @@ categorical about it by design.
 
 | Date | Change |
 | --- | --- |
+| 2026-10-09 | Work and personal separated at repo level: the finance kit (`11-finance/`) moved whole, with history, to `clent-jewell-personal`; the two personal detail lines left in the manuals made categorical; the gated-areas register emptied. Follow-ups listed in the decision log. |
 | 2026-07-11 | Life OS established: this index, `AI-INDEX.md`, `02-okrs/`, the nightly refresh SOP and routine, and the personal repo scaffold. Built from a full sweep of this repo, the Drive `04 Intelligence` tree and the Intelligence Brief v2.7. |
 
 Next: read `AI-INDEX.md` if you are an agent, `02-okrs/OKRS-2026-H2.md` if you are human.
