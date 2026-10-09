@@ -2,7 +2,7 @@
 
 **The single source of truth index for everything — work and personal.**
 Status: live. Established 11 July 2026 on Clent's instruction. Maintained nightly.
-Last refreshed: 2026-07-11 (initial build).
+Last refreshed: 2026-10-09 (personal-layer model updated; nightly refresh still to be armed).
 
 This file is the master index, not another manual. It sits at the top of the authority order
 and points to exactly one home for every object. It fulfils the capstone role proposed in
@@ -55,7 +55,7 @@ system learns nightly and washes learnings back weekly.
 | Finance records | Xero | The finance OS prepares; humans pay and lodge |
 | Meetings | Circleback → Drive | Daily 4pm sweep proposes actions |
 | Secrets | Approved secret store only | Never in this repo, Asana, Slack, Docs or prompts |
-| Personal layer | `clentjewell/clent-jewell-personal` + Drive `05 Personal` | Private audience only; see boundary below |
+| Personal layer | `clentjewell/clent-jewell-personal` (full detail) + Drive `05 Personal` (originals) | Private audience only; see boundary below |
 
 ## Operating principles (the short list)
 
@@ -120,8 +120,9 @@ close; scored monthly; reset each half. Personal OKRs live in the private repo.
 
 Work and personal are one integrated system — the business is a vehicle for the life. The
 personal layer holds the north star, values, goals, tensions and decision protocol, and it is
-gated: it lives in `clentjewell/clent-jewell-personal` (summaries and pointers) and Drive
-`05 Personal` (full detail), audience Clent, Ronnie and Liz only. Inside this repo, the only
+gated: it lives in `clentjewell/clent-jewell-personal` (the full personal detail, by Clent's
+decision of 9 October 2026; it had been summaries and pointers) with Drive `05 Personal` holding
+the original documents, audience Clent, Ronnie and Liz only. Inside this repo, the only
 gated area is `11-finance/` (personal elements), per the register in
 [`00-governance/work-personal-boundary.md`](./00-governance/work-personal-boundary.md).
 Nothing personal flows into any outward surface, digest, pack or answer set. This index stays
