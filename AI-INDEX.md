@@ -11,8 +11,11 @@ this estate starts here. Humans start at `LIFE-OS.md`.
 4. `06-memory/decision-log.md` — before proposing anything, check it is not already decided.
 5. For delivery work: `09-playbook/` and the relevant client folder in Drive.
 6. For finance work: `11-finance/CONTROLLER.md`, then `11-finance/state.json` (state wins on
-   facts over prose) — both in the private repo `clentjewell/clent-jewell-personal` since
-   9 October 2026. The `11-finance/` folder here is a redirect only.
+   facts over prose). This repo holds the **business half** (Jewell Group, Maxxim, JIG);
+   the **personal half** (personal accounts, household obligations, the family ledger, net
+   worth, runway, the workbook and its scripts) is `clentjewell/clent-jewell-personal` at
+   `11-finance/`, split 9 October 2026. The weekly, monthly and annual finance Routines run
+   the business half first, then the personal half, in one session scoped to both repos.
 
 ## Never read into outward-facing output
 
@@ -21,9 +24,10 @@ audience; no digest, summary, pack, answer set, Drive export or client/partner s
 read from or quote them:
 
 - `clentjewell/clent-jewell-personal` — the private personal repo, in full (including the
-  finance kit at its `11-finance/`).
-- This repo holds no gated area as of 9 October 2026; the register in
-  `00-governance/work-personal-boundary.md` is the place one would be added.
+  personal half of the finance kit at its `11-finance/`).
+- This repo holds no gated area as of 9 October 2026; `11-finance/` here is the business
+  half only. The register in `00-governance/work-personal-boundary.md` is the place a gated
+  area would be added.
 - Drive `05 Personal`, the private Asana board, the private Slack channels.
 
 If personal content is found outside these, flag it to Clent the same day. Do not move it —
@@ -66,13 +70,13 @@ life_os:
     files: Google Drive
     actions: Asana ("Clent - 2026")
     decisions: 06-memory/decision-log.md
-    finance: Xero (prepared via clent-jewell-personal/11-finance/)
+    finance: Xero (business half prepared via 11-finance/; personal half in clent-jewell-personal/11-finance/)
     calendar: Google Calendar
     rules: AGENTS.md
     okrs: 02-okrs/OKRS-2026-H2.md
     intelligence: 06-memory/intelligence/
   gated_paths:
-    - repo:clentjewell/clent-jewell-personal   # includes its 11-finance/ since 2026-10-09
+    - repo:clentjewell/clent-jewell-personal   # includes the personal half of finance at its 11-finance/ since 2026-10-09
     - drive:05 Personal
   private_audience: [Clent, Ronnie, Liz]
   orchestration:

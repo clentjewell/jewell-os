@@ -113,7 +113,7 @@ Auto-generated nightly as "GitHub Project Register — Jewell AI". Key mapping:
 | `christy-jewell-partnership-deck` | Christy partnership deck |
 | `jewell-health` | Personal Health OS (personal, out of scope) |
 | `jewell-finance` | Finance tooling (frozen; superseded by the finance kit in the private repo) |
-| `clent-jewell-personal` | The private personal layer, including the finance kit since 9 October 2026 (private audience only, out of team scope) |
+| `clent-jewell-personal` | The private personal layer, including the personal half of the finance kit and the FY27 workbook since 9 October 2026 (private audience only, out of team scope) |
 | `spark-ui-builder`, `video-prod`, `claude-test`, `maxxim` pilots | Tooling/experiments |
 | `openclaw/openclaw` | The OpenClaw agent framework Sam runs on |
 

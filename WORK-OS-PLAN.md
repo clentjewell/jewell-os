@@ -84,9 +84,9 @@ pointer, log it.
    the weekly washback closes the loop. Ronnie owns the board; the monthly hygiene routine keeps
    it honest.
 7. **Admin & finance.** The `11-finance/` playbook (daily pulse reads, weekly writes, monthly
-   close) now lives in the private repo `clentjewell/clent-jewell-personal` (moved 9 October
-   2026). Business admin lives in Drive 03; the obligations calendar in that repo's state.json
-   is the machine copy.
+   close) is split since 9 October 2026: the business half here, the personal half and the
+   workbook in the private repo `clentjewell/clent-jewell-personal`. Business admin lives in
+   Drive 03; each half's state.json is the machine copy of its obligations calendar.
 8. **Team & partner management.** Roster, roles and access in `06-memory/team-knowledge/05` +
    the Access Permissions Matrix (Drive). Partner onboarding = contractor SLA + scoped access
    pack (their repos/channels/folders enumerated, logged). Offboarding = same-day revocation,
