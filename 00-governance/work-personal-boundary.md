@@ -24,12 +24,15 @@ list in the same commit.
 
 **History.** `11-finance/` (personal elements) was the first and only entry, added 10 July 2026
 so that cashflow and obligation decisions could be made holistically. On 9 October 2026 Clent
-chose to separate personal from work at repo level, and the whole finance kit moved, with its
-history, to `clentjewell/clent-jewell-personal` at the same path. The kit keeps both halves
-together there, so the holistic view is preserved; this repo now carries no private-layer
-content in its current tree. Git history here still holds the earlier finance commits, so
-widening this repo's collaborators remains a Tier 3 call until that history is purged or
-accepted.
+chose to separate personal from work at repo level. The whole kit first moved, with its
+history, to `clentjewell/clent-jewell-personal`; the same day, on his second call, it was
+split: the business half (Jewell Group Pty Ltd, Maxxim, JIG) returned to `11-finance/` here
+with no personal content, and the personal half (personal accounts, household obligations,
+the family ledger, net worth, runway, the workbook and its scripts) stayed in the private repo.
+The holistic view is preserved in the personal half's weekly brief, which reads both halves.
+This repo now carries no private-layer content in its current tree. Git history here still
+holds the earlier combined finance commits, so widening this repo's collaborators remains a
+Tier 3 call until that history is purged or accepted.
 
 ## The rules that make the gate hold
 
