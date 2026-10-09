@@ -369,9 +369,9 @@ clent@jewellprojects.com — My Drive/
                  04. Deploy, 05. Shared Library, 06. Archive
   09. Archive
 
-Personal (private, on a separate account — clentonjewell@gmail.com), pointer-only in the nightly
-index, never indexed in full:
-  Health / Legal — Family Court / Legal — DVO / Finance — Personal
+Personal (private, on Clent's separate personal account — registered in the private repo's
+`pointers.md`), pointer-only in the nightly index, never indexed in full:
+  Health / Legal (two categories) / Finance — Personal
 ```
 
 **The private audience is Clent, Ronnie, and Liz as Ronnie's named back-up** (decided 10 July

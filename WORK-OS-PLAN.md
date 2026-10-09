@@ -83,9 +83,10 @@ pointer, log it.
 6. **Project management.** Asana is the control plane; the Today door is the daily heartbeat;
    the weekly washback closes the loop. Ronnie owns the board; the monthly hygiene routine keeps
    it honest.
-7. **Admin & finance.** The `11-finance/` playbook as merged (daily pulse reads, weekly writes,
-   monthly close), gated per the boundary. Business admin lives in Drive 03; the obligations
-   calendar in state.json is the machine copy.
+7. **Admin & finance.** The `11-finance/` playbook (daily pulse reads, weekly writes, monthly
+   close) now lives in the private repo `clentjewell/clent-jewell-personal` (moved 9 October
+   2026). Business admin lives in Drive 03; the obligations calendar in that repo's state.json
+   is the machine copy.
 8. **Team & partner management.** Roster, roles and access in `06-memory/team-knowledge/05` +
    the Access Permissions Matrix (Drive). Partner onboarding = contractor SLA + scoped access
    pack (their repos/channels/folders enumerated, logged). Offboarding = same-day revocation,
